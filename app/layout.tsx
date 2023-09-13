@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     },
 };
 
+const scultpclass = 'tw-w-full tw-h-full tw-bg-transparent tw-left-0 tw-top-0';
+const build = process.env.FETCH_URL != 'http://localhost:3000';
+
 const GenerateNestedDivs = ({ levels }: { levels: number }) => (
     <div>
         {levels <= 0 ? (
@@ -40,19 +43,16 @@ const GenerateNestedDivs = ({ levels }: { levels: number }) => (
 const SculpturePiece = ({
     style = {},
     key,
-    className = '',
     left = Math.floor(Math.random() * 130 - 30),
     top = Math.floor(Math.random() * 130 - 30),
 }: {
     style?: React.CSSProperties;
     key?: string;
-    className?: string;
     left?: number;
     top?: number;
 }) => (
     <div
         key={key}
-        className={`tw-absolute tw-bg-black ${className} tw-w-1/2 tw-h-1/2`}
         style={{
             left: `${left}%`,
             top: `${top}%`,
@@ -66,39 +66,42 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const scultpclass =
-        'tw-w-full tw-h-full tw-bg-transparent tw-left-0 tw-top-0';
     return (
         <html
             lang="en"
-            className="tw-w-full tw-bg-transparent"
+            className="tw-w-full tw-bg-black"
             style={{ height: `calc(100*var(--vh))` }}
         >
             <body
-                className={`${sans.variable} ${display.variable} tw-w-full tw-h-full tw-relative tw-bg-transparent`}
+                className={`${sans.variable} ${display.variable} tw-w-full tw-h-full tw-relative tw-bg-black`}
             >
                 <Script
                     src="/beforeInteractive.js"
                     strategy="beforeInteractive"
                 ></Script>
-                {<FirstWebsite></FirstWebsite>}
-                {/*
+                {build && <FirstWebsite></FirstWebsite>}
+                {build && (
                     <div
                         className={`${scultpclass} tw-absolute tw-pointer-events-none`}
                     >
-                        <div className={`${scultpclass} tw-relative`}>
+                        <div
+                            className={`${scultpclass} tw-relative translayer`}
+                        >
                             {Array.from({ length: 180 }, (_, i) => (
                                 <SculpturePiece
                                     key={`${i}sculpt`}
-                                    className="tw-bg-opacity-[0.005]"
                                 ></SculpturePiece>
                             ))}
                         </div>
                     </div>
+                )}
+                {build && (
                     <div
                         className={`${scultpclass} tw-absolute tw-pointer-events-none`}
                     >
-                        <div className={`${scultpclass} tw-relative`}>
+                        <div
+                            className={`${scultpclass} tw-relative blacklayer`}
+                        >
                             <SculpturePiece left={0} top={0}></SculpturePiece>
                             <SculpturePiece left={0} top={33}></SculpturePiece>
                             <SculpturePiece left={33} top={0}></SculpturePiece>
@@ -109,11 +112,15 @@ export default function RootLayout({
                             <SculpturePiece left={0} top={66}></SculpturePiece>
                             <SculpturePiece left={66} top={66}></SculpturePiece>
                             {Array.from({ length: 20 }, (_, i) => (
-                                <SculpturePiece key={`${i}sculpt`}></SculpturePiece>
+                                <SculpturePiece
+                                    key={`${i}sculpt`}
+                                ></SculpturePiece>
                             ))}
                         </div>
                     </div>
-                */}
+                )}
+
+                {/*
                 <div className="tw-w-full tw-h-full tw-bg-transparent tw-left-0 tw-top-0 tw-absolute tw-pointer-events-none">
                     <div className="tw-w-full tw-h-full tw-bg-transparent tw-left-0 tw-top-0 tw-relative translayer">
                         <div style={{ left: '-15%', top: '48%' }} />
@@ -331,13 +338,17 @@ export default function RootLayout({
                         <div style={{ left: '82%', top: '83%' }} />
                     </div>
                 </div>
+                */}
 
                 <main
                     className={`${scultpclass} tw-relative tw-py-[5vw] tw-px-[10vw]`}
                 >
                     <nav></nav>
+                    <section className="[&_*]:tw-text-white tw-overflow-auto">
+                        {children}
+                    </section>
                 </main>
-                {<Script src="/base/base.js"></Script>}
+                {build && <Script src="/base/base.js"></Script>}
             </body>
         </html>
     );
