@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
 import './globals.css';
 import type { Metadata } from 'next';
 import { Work_Sans, Alegreya } from 'next/font/google';
@@ -76,37 +77,261 @@ export default function RootLayout({
             <body
                 className={`${sans.variable} ${display.variable} tw-w-full tw-h-full tw-relative tw-bg-transparent`}
             >
+                <Script
+                    src="/beforeInteractive.js"
+                    strategy="beforeInteractive"
+                ></Script>
                 {<FirstWebsite></FirstWebsite>}
-                <div
-                    className={`${scultpclass} tw-absolute tw-pointer-events-none`}
-                >
-                    <div className={`${scultpclass} tw-relative`}>
-                        {Array.from({ length: 180 }, (_, i) => (
-                            <SculpturePiece
-                                key={`${i}sculpt`}
-                                className="tw-bg-opacity-[0.005]"
-                            ></SculpturePiece>
-                        ))}
+                {/*
+                    <div
+                        className={`${scultpclass} tw-absolute tw-pointer-events-none`}
+                    >
+                        <div className={`${scultpclass} tw-relative`}>
+                            {Array.from({ length: 180 }, (_, i) => (
+                                <SculpturePiece
+                                    key={`${i}sculpt`}
+                                    className="tw-bg-opacity-[0.005]"
+                                ></SculpturePiece>
+                            ))}
+                        </div>
+                    </div>
+                    <div
+                        className={`${scultpclass} tw-absolute tw-pointer-events-none`}
+                    >
+                        <div className={`${scultpclass} tw-relative`}>
+                            <SculpturePiece left={0} top={0}></SculpturePiece>
+                            <SculpturePiece left={0} top={33}></SculpturePiece>
+                            <SculpturePiece left={33} top={0}></SculpturePiece>
+                            <SculpturePiece left={33} top={33}></SculpturePiece>
+                            <SculpturePiece left={66} top={33}></SculpturePiece>
+                            <SculpturePiece left={33} top={66}></SculpturePiece>
+                            <SculpturePiece left={66} top={0}></SculpturePiece>
+                            <SculpturePiece left={0} top={66}></SculpturePiece>
+                            <SculpturePiece left={66} top={66}></SculpturePiece>
+                            {Array.from({ length: 20 }, (_, i) => (
+                                <SculpturePiece key={`${i}sculpt`}></SculpturePiece>
+                            ))}
+                        </div>
+                    </div>
+                */}
+                <div className="tw-w-full tw-h-full tw-bg-transparent tw-left-0 tw-top-0 tw-absolute tw-pointer-events-none">
+                    <div className="tw-w-full tw-h-full tw-bg-transparent tw-left-0 tw-top-0 tw-relative translayer">
+                        <div style={{ left: '-15%', top: '48%' }} />
+                        <div style={{ left: '7%', top: '70%' }} />
+                        <div style={{ left: '18%', top: '-26%' }} />
+                        <div style={{ left: '39%', top: '16%' }} />
+                        <div style={{ left: '82%', top: '46%' }} />
+                        <div style={{ left: '89%', top: '37%' }} />
+                        <div style={{ left: '79%', top: '55%' }} />
+                        <div style={{ left: '-30%', top: '6%' }} />
+                        <div style={{ left: '68%', top: '-6%' }} />
+                        <div style={{ left: '45%', top: '-26%' }} />
+                        <div style={{ left: '33%', top: '76%' }} />
+                        <div style={{ left: '81%', top: '92%' }} />
+                        <div style={{ left: '57%', top: '23%' }} />
+                        <div style={{ left: '4%', top: '-26%' }} />
+                        <div style={{ left: '33%', top: '-10%' }} />
+                        <div style={{ left: '-26%', top: '6%' }} />
+                        <div style={{ left: '96%', top: '22%' }} />
+                        <div style={{ left: '23%', top: '90%' }} />
+                        <div style={{ left: '12%', top: '2%' }} />
+                        <div style={{ left: '36%', top: '-21%' }} />
+                        <div style={{ left: '16%', top: '12%' }} />
+                        <div style={{ left: '53%', top: '74%' }} />
+                        <div style={{ left: '-30%', top: '-30%' }} />
+                        <div style={{ left: '65%', top: '-29%' }} />
+                        <div style={{ left: '-14%', top: '31%' }} />
+                        <div style={{ left: '48%', top: '67%' }} />
+                        <div style={{ left: '-29%', top: '74%' }} />
+                        <div style={{ left: '81%', top: '38%' }} />
+                        <div style={{ left: '87%', top: '29%' }} />
+                        <div style={{ left: '23%', top: '-12%' }} />
+                        <div style={{ left: '23%', top: '3%' }} />
+                        <div style={{ left: '-15%', top: '-5%' }} />
+                        <div style={{ left: '20%', top: '9%' }} />
+                        <div style={{ left: '82%', top: '78%' }} />
+                        <div style={{ left: '19%', top: '-14%' }} />
+                        <div style={{ left: '-27%', top: '14%' }} />
+                        <div style={{ left: '6%', top: '57%' }} />
+                        <div style={{ left: '7%', top: '50%' }} />
+                        <div style={{ left: '83%', top: '48%' }} />
+                        <div style={{ left: '46%', top: '15%' }} />
+                        <div style={{ left: '74%', top: '2%' }} />
+                        <div style={{ left: '32%', top: '58%' }} />
+                        <div style={{ left: '20%', top: '57%' }} />
+                        <div style={{ left: '27%', top: '-14%' }} />
+                        <div style={{ left: '53%', top: '16%' }} />
+                        <div style={{ left: '4%', top: '43%' }} />
+                        <div style={{ left: '78%', top: '-7%' }} />
+                        <div style={{ left: '65%', top: '59%' }} />
+                        <div style={{ left: '65%', top: '-4%' }} />
+                        <div style={{ left: '82%', top: '-28%' }} />
+                        <div style={{ left: '-19%', top: '86%' }} />
+                        <div style={{ left: '1%', top: '23%' }} />
+                        <div style={{ left: '-9%', top: '-27%' }} />
+                        <div style={{ left: '30%', top: '40%' }} />
+                        <div style={{ left: '70%', top: '80%' }} />
+                        <div style={{ left: '-4%', top: '99%' }} />
+                        <div style={{ left: '-4%', top: '91%' }} />
+                        <div style={{ left: '32%', top: '20%' }} />
+                        <div style={{ left: '53%', top: '64%' }} />
+                        <div style={{ left: '16%', top: '83%' }} />
+                        <div style={{ left: '53%', top: '22%' }} />
+                        <div style={{ left: '43%', top: '57%' }} />
+                        <div style={{ left: '3%', top: '89%' }} />
+                        <div style={{ left: '55%', top: '41%' }} />
+                        <div style={{ left: '-25%', top: '38%' }} />
+                        <div style={{ left: '14%', top: '44%' }} />
+                        <div style={{ left: '10%', top: '98%' }} />
+                        <div style={{ left: '-7%', top: '-6%' }} />
+                        <div style={{ left: '43%', top: '29%' }} />
+                        <div style={{ left: '10%', top: '15%' }} />
+                        <div style={{ left: '48%', top: '38%' }} />
+                        <div style={{ left: '61%', top: '70%' }} />
+                        <div style={{ left: '-8%', top: '95%' }} />
+                        <div style={{ left: '59%', top: '64%' }} />
+                        <div style={{ left: '11%', top: '35%' }} />
+                        <div style={{ left: '26%', top: '21%' }} />
+                        <div style={{ left: '48%', top: '54%' }} />
+                        <div style={{ left: '47%', top: '43%' }} />
+                        <div style={{ left: '12%', top: '47%' }} />
+                        <div style={{ left: '58%', top: '23%' }} />
+                        <div style={{ left: '87%', top: '21%' }} />
+                        <div style={{ left: '-24%', top: '12%' }} />
+                        <div style={{ left: '21%', top: '75%' }} />
+                        <div style={{ left: '-12%', top: '86%' }} />
+                        <div style={{ left: '68%', top: '41%' }} />
+                        <div style={{ left: '98%', top: '64%' }} />
+                        <div style={{ left: '1%', top: '-22%' }} />
+                        <div style={{ left: '81%', top: '76%' }} />
+                        <div style={{ left: '-26%', top: '42%' }} />
+                        <div style={{ left: '-6%', top: '-16%' }} />
+                        <div style={{ left: '-9%', top: '46%' }} />
+                        <div style={{ left: '-25%', top: '-18%' }} />
+                        <div style={{ left: '56%', top: '79%' }} />
+                        <div style={{ left: '68%', top: '9%' }} />
+                        <div style={{ left: '38%', top: '31%' }} />
+                        <div style={{ left: '17%', top: '52%' }} />
+                        <div style={{ left: '14%', top: '-2%' }} />
+                        <div style={{ left: '59%', top: '0%' }} />
+                        <div style={{ left: '-8%', top: '84%' }} />
+                        <div style={{ left: '5%', top: '63%' }} />
+                        <div style={{ left: '69%', top: '-19%' }} />
+                        <div style={{ left: '29%', top: '5%' }} />
+                        <div style={{ left: '16%', top: '58%' }} />
+                        <div style={{ left: '57%', top: '24%' }} />
+                        <div style={{ left: '5%', top: '46%' }} />
+                        <div style={{ left: '65%', top: '8%' }} />
+                        <div style={{ left: '9%', top: '64%' }} />
+                        <div style={{ left: '-9%', top: '-18%' }} />
+                        <div style={{ left: '30%', top: '51%' }} />
+                        <div style={{ left: '28%', top: '14%' }} />
+                        <div style={{ left: '64%', top: '10%' }} />
+                        <div style={{ left: '-17%', top: '23%' }} />
+                        <div style={{ left: '26%', top: '47%' }} />
+                        <div style={{ left: '2%', top: '-10%' }} />
+                        <div style={{ left: '92%', top: '69%' }} />
+                        <div style={{ left: '47%', top: '-21%' }} />
+                        <div style={{ left: '73%', top: '91%' }} />
+                        <div style={{ left: '17%', top: '88%' }} />
+                        <div style={{ left: '33%', top: '-2%' }} />
+                        <div style={{ left: '4%', top: '85%' }} />
+                        <div style={{ left: '89%', top: '54%' }} />
+                        <div style={{ left: '73%', top: '72%' }} />
+                        <div style={{ left: '67%', top: '27%' }} />
+                        <div style={{ left: '36%', top: '-8%' }} />
+                        <div style={{ left: '57%', top: '70%' }} />
+                        <div style={{ left: '-16%', top: '19%' }} />
+                        <div style={{ left: '62%', top: '-1%' }} />
+                        <div style={{ left: '56%', top: '45%' }} />
+                        <div style={{ left: '91%', top: '-8%' }} />
+                        <div style={{ left: '44%', top: '-11%' }} />
+                        <div style={{ left: '71%', top: '13%' }} />
+                        <div style={{ left: '-9%', top: '8%' }} />
+                        <div style={{ left: '11%', top: '56%' }} />
+                        <div style={{ left: '1%', top: '94%' }} />
+                        <div style={{ left: '26%', top: '4%' }} />
+                        <div style={{ left: '71%', top: '96%' }} />
+                        <div style={{ left: '76%', top: '78%' }} />
+                        <div style={{ left: '49%', top: '88%' }} />
+                        <div style={{ left: '-16%', top: '-7%' }} />
+                        <div style={{ left: '80%', top: '32%' }} />
+                        <div style={{ left: '60%', top: '-13%' }} />
+                        <div style={{ left: '0%', top: '48%' }} />
+                        <div style={{ left: '73%', top: '89%' }} />
+                        <div style={{ left: '-10%', top: '99%' }} />
+                        <div style={{ left: '-30%', top: '-4%' }} />
+                        <div style={{ left: '19%', top: '70%' }} />
+                        <div style={{ left: '-18%', top: '68%' }} />
+                        <div style={{ left: '-8%', top: '-7%' }} />
+                        <div style={{ left: '41%', top: '-6%' }} />
+                        <div style={{ left: '84%', top: '73%' }} />
+                        <div style={{ left: '71%', top: '61%' }} />
+                        <div style={{ left: '83%', top: '2%' }} />
+                        <div style={{ left: '34%', top: '76%' }} />
+                        <div style={{ left: '67%', top: '54%' }} />
+                        <div style={{ left: '66%', top: '99%' }} />
+                        <div style={{ left: '91%', top: '7%' }} />
+                        <div style={{ left: '72%', top: '58%' }} />
+                        <div style={{ left: '63%', top: '9%' }} />
+                        <div style={{ left: '72%', top: '-30%' }} />
+                        <div style={{ left: '72%', top: '64%' }} />
+                        <div style={{ left: '51%', top: '6%' }} />
+                        <div style={{ left: '71%', top: '46%' }} />
+                        <div style={{ left: '23%', top: '94%' }} />
+                        <div style={{ left: '-20%', top: '26%' }} />
+                        <div style={{ left: '79%', top: '15%' }} />
+                        <div style={{ left: '-24%', top: '-11%' }} />
+                        <div style={{ left: '-25%', top: '9%' }} />
+                        <div style={{ left: '15%', top: '65%' }} />
+                        <div style={{ left: '41%', top: '83%' }} />
+                        <div style={{ left: '48%', top: '-27%' }} />
+                        <div style={{ left: '60%', top: '-22%' }} />
+                        <div style={{ left: '67%', top: '-8%' }} />
+                        <div style={{ left: '-3%', top: '76%' }} />
+                        <div style={{ left: '-18%', top: '-22%' }} />
+                        <div style={{ left: '94%', top: '16%' }} />
+                        <div style={{ left: '-29%', top: '27%' }} />
+                        <div style={{ left: '-29%', top: '-8%' }} />
+                        <div style={{ left: '-5%', top: '74%' }} />
+                        <div style={{ left: '35%', top: '83%' }} />
+                        <div style={{ left: '-20%', top: '95%' }} />
                     </div>
                 </div>
-                <div
-                    className={`${scultpclass} tw-absolute tw-pointer-events-none`}
-                >
-                    <div className={`${scultpclass} tw-relative`}>
-                        <SculpturePiece left={0} top={0}></SculpturePiece>
-                        <SculpturePiece left={0} top={33}></SculpturePiece>
-                        <SculpturePiece left={33} top={0}></SculpturePiece>
-                        <SculpturePiece left={33} top={33}></SculpturePiece>
-                        <SculpturePiece left={66} top={33}></SculpturePiece>
-                        <SculpturePiece left={33} top={66}></SculpturePiece>
-                        <SculpturePiece left={66} top={0}></SculpturePiece>
-                        <SculpturePiece left={0} top={66}></SculpturePiece>
-                        <SculpturePiece left={66} top={66}></SculpturePiece>
-                        {Array.from({ length: 20 }, (_, i) => (
-                            <SculpturePiece key={`${i}sculpt`}></SculpturePiece>
-                        ))}
+                <div className="tw-w-full tw-h-full tw-bg-transparent tw-left-0 tw-top-0 tw-absolute tw-pointer-events-none">
+                    <div className="tw-w-full tw-h-full tw-bg-transparent tw-left-0 tw-top-0 tw-relative blacklayer">
+                        <div style={{ left: '0%', top: '0%' }} />
+                        <div style={{ left: '0%', top: '33%' }} />
+                        <div style={{ left: '33%', top: '0%' }} />
+                        <div style={{ left: '33%', top: '33%' }} />
+                        <div style={{ left: '66%', top: '33%' }} />
+                        <div style={{ left: '33%', top: '66%' }} />
+                        <div style={{ left: '66%', top: '0%' }} />
+                        <div style={{ left: '0%', top: '66%' }} />
+                        <div style={{ left: '66%', top: '66%' }} />
+                        <div style={{ left: '-17%', top: '10%' }} />
+                        <div style={{ left: '79%', top: '48%' }} />
+                        <div style={{ left: '9%', top: '98%' }} />
+                        <div style={{ left: '24%', top: '-15%' }} />
+                        <div style={{ left: '-3%', top: '94%' }} />
+                        <div style={{ left: '15%', top: '6%' }} />
+                        <div style={{ left: '77%', top: '42%' }} />
+                        <div style={{ left: '78%', top: '72%' }} />
+                        <div style={{ left: '47%', top: '41%' }} />
+                        <div style={{ left: '17%', top: '60%' }} />
+                        <div style={{ left: '47%', top: '5%' }} />
+                        <div style={{ left: '82%', top: '18%' }} />
+                        <div style={{ left: '-4%', top: '35%' }} />
+                        <div style={{ left: '53%', top: '39%' }} />
+                        <div style={{ left: '-21%', top: '90%' }} />
+                        <div style={{ left: '46%', top: '0%' }} />
+                        <div style={{ left: '-20%', top: '-2%' }} />
+                        <div style={{ left: '-5%', top: '32%' }} />
+                        <div style={{ left: '39%', top: '29%' }} />
+                        <div style={{ left: '82%', top: '83%' }} />
                     </div>
                 </div>
+
                 <main
                     className={`${scultpclass} tw-relative tw-py-[5vw] tw-px-[10vw]`}
                 >

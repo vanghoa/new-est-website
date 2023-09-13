@@ -2,3 +2,16 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import '../components/FirstWebsite.css';
+
+html.touch {
+    overflow: hidden;
+}
+
+@layer components {
+    .translayer * {
+        @apply tw-absolute tw-bg-black tw-bg-opacity-[0.005] tw-w-1/2 tw-h-1/2;
+    }
+    .blacklayer * {
+        @apply tw-absolute tw-bg-black  tw-w-1/2 tw-h-1/2;
+    }
+}
