@@ -76,7 +76,7 @@ export default function RootLayout({
             <body
                 className={`${sans.variable} ${display.variable} tw-w-full tw-h-full tw-relative tw-bg-transparent`}
             >
-                {/*<FirstWebsite></FirstWebsite>*/}
+                {<FirstWebsite></FirstWebsite>}
                 <div
                     className={`${scultpclass} tw-absolute tw-pointer-events-none`}
                 >
@@ -112,7 +112,7 @@ export default function RootLayout({
                 >
                     <nav></nav>
                 </main>
-                {/*<Script src="/base/base.js"></Script>*/}
+                {<Script src="/base/base.js"></Script>}
             </body>
         </html>
     );
