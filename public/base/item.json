@@ -1,0 +1,246 @@
+[
+    {
+        "name" : "Kasper Florio - Atypical Swiss | Visual Analysis",
+        "date" : "11/2020 - 12/2020",
+        "field" : [
+            {
+                "name" : "Art direction",
+                "class" : ""
+            },
+            {
+                "name" : "Editorial design",
+                "class" : "print"
+            },
+            {
+                "name" : "Book design",
+                "class" : "print"
+            },
+            {
+                "name" : "Book binding",
+                "class" : "print"
+            }
+        ],
+        "description" : "An editorial on Swiss grid design, specifically on the work of the graphic design duo-Kasper Florio",
+        "soon" : false
+    },
+    {
+        "name" : "Vietnamme Magazine",
+        "date" : "11/2020 - 1/2021",
+        "field" : [
+            {
+                "name" : "Website development",
+                "class" : "dg_pro"
+            },
+            {
+                "name" : "Digital illustration",
+                "class" : "illus"
+            },
+            {
+                "name" : "Graphic design",
+                "class" : ""
+            },
+            {
+                "name" : "UI/UX design",
+                "class" : "dg_pro"
+            }
+        ],
+        "description" : "Brand identity and website development for a Vietnamese cultural online magazine",
+        "soon" : false
+    },
+    {
+        "name" : "Tabao Tammy superhero",
+        "date" : "1/2021 - 3/2021",
+        "field" : [
+            {
+                "name" : "Visual identity design",
+                "class" : ""
+            },
+            {
+                "name" : "Typeface design",
+                "class" : ""
+            },
+            {
+                "name" : "Digital illustration",
+                "class" : "illus"
+            },
+            {
+                "name" : "Character design",
+                "class" : "illus"
+            }
+        ],
+        "description" : "Visual identity for a fictional superhero including character design, fan poster, emblem and typeface",
+        "soon" : false
+    },
+    {
+        "name" : "Text display technology on LED screen in Singapore MRT",
+        "date" : "3/2021",
+        "field" : [
+            {
+                "name" : "Communication design",
+                "class" : ""
+            },
+            {
+                "name" : "Typeface research",
+                "class" : "spcl"
+            }
+        ],
+        "description" : "A school study of localized text display technology on LED screen as well as the font rasterization method developed throughout the history of SMRT trains in SG",
+        "soon" : false
+    },
+    {
+        "name" : "Remeasure the Liturgy – 2022 Liturgical Calendar",
+        "date" : "3/2021 - 4/2021",
+        "field" : [
+            {
+                "name" : "Calendar design",
+                "class" : "print"
+            },
+            {
+                "name" : "Editorial design",
+                "class" : "print"
+            }
+        ],
+        "description" : "A calendar designed specifically for Roman Catholic followers to document the cycle of Liturgical seasons as well as other Christian celebration and events",
+        "soon" : false
+    },
+    {
+        "name" : "Vietnamme Creative Campagin | MẮC GÌ?",
+        "date" : "8/2021",
+        "field" : [
+            {
+                "name" : "Speculative",
+                "class" : "spcl"
+            },
+            {
+                "name" : "Communication design",
+                "class" : ""
+            },
+            {
+                "name" : "Motion graphic",
+                "class" : "mo_gra"
+            }
+        ],
+        "description" : "Visual direction for a communication campaign on the problem of Heteronormativity in Vietnam",
+        "soon" : false
+    },
+    {
+        "name" : "3D markup language",
+        "date" : "8/2021 - 10/2021",
+        "field" : [
+            {
+                "name" : "Speculative",
+                "class" : "spcl"
+            },
+            {
+                "name" : "Website development",
+                "class" : "dg_pro"
+            },
+            {
+                "name" : "3D design",
+                "class" : ""
+            }
+        ],
+        "description" : "Development of a fictional markup language systems, like HTML or XML but for organising, transporting and constructing elements in the physical world",
+        "soon" : false
+    },
+    {
+        "name" : "Love is Hard, HIV Prevention is Easy website",
+        "date" : "9/2021 - 11/2021",
+        "field" : [
+            {
+                "name" : "Website development",
+                "class" : "dg_pro"
+            },
+            {
+                "name" : "UI/UX design",
+                "class" : "dg_pro"
+            }
+        ],
+        "description" : "UI/UX design for a public health campaign website to raise awareness about HIV prevention, reduce new HIV infections, and eliminate HIV stigma in Vietnam",
+        "soon" : false
+    },
+    {
+        "name" : "ZOMBIE ZOO X PIKOTARO MV",
+        "date" : "12/2021",
+        "field" : [
+            {
+                "name" : "Communication design",
+                "class" : ""
+            },
+            {
+                "name" : "Storyboarding",
+                "class" : ""
+            },
+            {
+                "name" : "Pixel art",
+                "class" : "illus"
+            }
+        ],
+        "description" : "A collaboration between the Pen Pineapple Apple Pen legend Pikotaro and 9-year-old NFT art prodigy Zombie Zoo",
+        "soon" : false
+    },
+    {
+        "name" : "Sesẻ mobile app",
+        "date" : "10/2021 - 4/2022",
+        "field" : [
+            {
+                "name" : "Smartphone app development",
+                "class" : "dg_pro"
+            },
+            {
+                "name" : "UI/UX design",
+                "class" : "dg_pro"
+            },
+            {
+                "name" : "Motion graphic",
+                "class" : "mo_gra"
+            },
+            {
+                "name" : "Character illustration",
+                "class" : "illus"
+            }
+        ],
+        "description" : "An entry for Google Development Solution Challenge: UI/UX design and visual development for a smartphone-based app to buy and sell used goods",
+        "soon" : false
+    },
+    {
+        "name" : "Duolingo: Non-fungible efforts",
+        "date" : "12/2021 - 3/2022",
+        "field" : [
+            {
+                "name" : "Communication design",
+                "class" : ""
+            },
+            {
+                "name" : "NFT design",
+                "class" : "dg_pro"
+            },
+            {
+                "name" : "Motion graphic",
+                "class" : "mo_gra"
+            },
+            {
+                "name" : "Pixel illustration",
+                "class" : "illus"
+            }
+        ],
+        "description" : "An entry for New Blood D&AD: Development of an NFT collection for Duolingo-a famous language-learning app",
+        "soon" : false
+    },
+    {
+        "name" : "Khoi Minh website",
+        "date" : "5/2022 - 6/2022",
+        "field" : [
+            {
+                "name" : "Website development",
+                "class" : "dg_pro"
+            },
+            {
+                "name" : "UI/UX design",
+                "class" : "dg_pro"
+            }
+        ],
+        "description" : "Website development for a branded provider of mechanical engineering & industrial equipments",
+        "soon" : false
+    }
+]
