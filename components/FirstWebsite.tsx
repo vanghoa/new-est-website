@@ -317,7 +317,7 @@ export default async function FirstWebsite() {
                         </ul>
                         {/* */}
                         <div id="about" className="tw-block">
-                            <div className="vimeo">
+                            {/*<div className="vimeo">
                                 <iframe
                                     src="https://player.vimeo.com/video/725335360?h=ef92648557&badge=0&autopause=0&player_id=0&app_id=58479"
                                     frameBorder={0}
@@ -332,7 +332,7 @@ export default async function FirstWebsite() {
                                     }}
                                     title="both_1"
                                 />
-                            </div>
+                                </div>*/}
                         </div>
                         {/* */}
                         <div
