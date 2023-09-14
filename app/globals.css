@@ -3,12 +3,18 @@
 @import 'tailwindcss/utilities';
 @import '../components/FirstWebsite.css';
 
-@layer components {
+@layer base {
+    * {
+        text-rendering: optimizeSpeed;
+        font-smooth: never;
+        -webkit-font-smoothing: none;
+    }
+
     .translayer * {
-        @apply tw-fixed tw-bg-white tw-bg-opacity-[0.05] tw-w-2 tw-h-2;
+        @apply tw-absolute tw-bg-white tw-bg-opacity-[0.05] tw-w-5 tw-h-5;
     }
     .blacklayer * {
-        @apply tw-fixed tw-bg-black tw-w-[33.8%] tw-h-[33.8%];
+        @apply tw-absolute tw-bg-black tw-w-[33.8%] tw-h-[33.8%];
     }
     .reset-this * {
         animation: none;
@@ -90,10 +96,10 @@
         /*
         font: normal;
         font-family: inherit;
-        font-size: medium;
-        font-style: normal;
-        font-variant: normal;
-        font-weight: normal;
+        font-size: inherit;
+        font-style: inherit;
+        font-variant: inherit;
+        font-weight: inherit;
         */
         height: auto;
         hyphens: none;
@@ -132,7 +138,7 @@
         page-break-inside: auto;
         perspective: none;
         perspective-origin: 50% 50%;
-        position: static;
+        position: relative;
         /* May need to alter quotes for different locales (e.g fr) */
         quotes: '\201C''\201D''\2018''\2019';
         right: auto;
@@ -149,7 +155,6 @@
         text-transform: none;
         top: auto;
         transform: none;
-        transform-style: flat;
         transition: none;
         transition-delay: 0s;
         transition-duration: 0s;
@@ -167,5 +172,15 @@
         all: initial;
         all: unset;
         */
+    }
+    .preserve3d {
+        transform-style: preserve-3d;
+    }
+    .reset-this :is(h1, h2, h3, h4, h5, h6, p, article) span {
+        font-family: inherit;
+        font-size: inherit;
+        font-style: inherit;
+        font-variant: inherit;
+        font-weight: inherit;
     }
 }

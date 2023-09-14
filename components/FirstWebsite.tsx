@@ -71,7 +71,10 @@ export default async function FirstWebsite() {
         return <></>;
     }
     return (
-        <nav className="tw-pointer-events-none tw-w-full tw-h-full [&_:is(p,td,address)]:tw-leading-5 [&_:is(h1,h2,h3,h4,h5.h6)]:tw-font-bold">
+        <nav
+            className="tw-pointer-events-none tw-w-full tw-h-full [&_:is(p,td,address)]:tw-leading-5 [&_:is(h1,h2,h3,h4,h5.h6)]:tw-font-bold"
+            id="oldwebsite"
+        >
             <div
                 className="seemore show tw-z-10"
                 style={{ gridColumn: '1 / 3', gridRow: 1 }}

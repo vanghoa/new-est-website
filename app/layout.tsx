@@ -5,6 +5,7 @@ import { Work_Sans, Alegreya } from 'next/font/google';
 import FirstWebsite from '@/components/FirstWebsite';
 import Script from 'next/script';
 import Link from 'next/link';
+import { Char } from '@/components/WordProcessor';
 
 const sans = Work_Sans({
     subsets: ['latin'],
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 const scultpclass = 'tw-w-full tw-h-full tw-bg-transparent tw-left-0 tw-top-0';
-const build = process.env.FETCH_URL !== 'http://localhost:3000';
+const build = process.env.FETCH_URL == 'http://localhost:3000';
 
 const GenerateNestedDivs = ({ levels }: { levels: number }) => (
     <div>
@@ -104,10 +105,18 @@ export default function RootLayout({
                 ></Script>
 
                 <nav className="tw-max-w-5xl tw-m-auto tw-px-[10vw] [&_*]:tw-text-white tw-flex tw-h-[8vh] tw-justify-between tw-items-center tw-fixed tw-left-0 tw-right-0 tw-bg-black tw-z-40">
-                    <Link href="/">: home :</Link>
-                    <Link href="/my_info">: info :</Link>
-                    <Link href="/i_love_my_work">: works :</Link>
-                    <Link href="/resume">: resume :</Link>
+                    <Char isLink rest={{ href: '/' }}>
+                        : home :
+                    </Char>
+                    <Char isLink rest={{ href: '/my_info' }}>
+                        : info :
+                    </Char>
+                    <Char isLink rest={{ href: '/i_love_my_work' }}>
+                        : works :
+                    </Char>
+                    <Char isLink rest={{ href: '/resume' }}>
+                        : resume :
+                    </Char>
                 </nav>
                 <main
                     className={`${scultpclass} tw-px-[10vw] [&_*]:tw-text-white tw-overflow-auto reset-this tw-max-w-5xl tw-m-auto tw-relative tw-z-20 [&_*]:tw-leading-normal tw-pt-[8vh]`}
@@ -117,10 +126,10 @@ export default function RootLayout({
                 {build && <FirstWebsite></FirstWebsite>}
                 {build && (
                     <div
-                        className={`${scultpclass} tw-absolute tw-pointer-events-none translayer`}
+                        className={`${scultpclass} tw-absolute tw-pointer-events-none translayer preserve3d`}
                     >
-                        {Array.from({ length: 70 }, (_, i) => {
-                            const [x, y] = spiralGen(i, 6, 30, 49);
+                        {Array.from({ length: 50 }, (_, i) => {
+                            const [x, y] = spiralGen(i * 1.5, 5, 30, 40);
                             return (
                                 <>
                                     <SculpturePiece
@@ -138,7 +147,7 @@ export default function RootLayout({
                 )}
                 {build && (
                     <div
-                        className={`${scultpclass} tw-absolute tw-pointer-events-none blacklayer`}
+                        className={`${scultpclass} tw-absolute tw-pointer-events-none blacklayer preserve3d`}
                     >
                         {Array.from({ length: 25 }, (_, i) => {
                             const [x, y] = spiralGen(
