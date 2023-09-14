@@ -29,7 +29,9 @@ export const metadata: Metadata = {
 };
 
 const scultpclass = 'tw-w-full tw-h-full tw-bg-transparent tw-left-0 tw-top-0';
-const build = process.env.FETCH_URL == 'http://localhost:3000';
+const build =
+    process.env.FETCH_URL == 'http://baoanhbui.vercel.app' ||
+    process.env.FETCH_URL == 'http://localhost:3000';
 
 const GenerateNestedDivs = ({ levels }: { levels: number }) => (
     <div>
