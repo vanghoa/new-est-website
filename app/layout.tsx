@@ -5,7 +5,9 @@ import { Work_Sans, Alegreya } from 'next/font/google';
 import FirstWebsite from '@/components/FirstWebsite';
 import Script from 'next/script';
 import Link from 'next/link';
-import { Char } from '@/components/WordProcessor';
+import { Char, Rand } from '@/components/WordProcessor';
+import { Tooltips } from '@/components/SmallComponents';
+import Navbar from '@/components/Navbar';
 
 const sans = Work_Sans({
     subsets: ['latin'],
@@ -13,8 +15,8 @@ const sans = Work_Sans({
 });
 
 const display = Alegreya({
-    weight: '700',
     subsets: ['latin'],
+    style: ['normal', 'italic'],
     variable: '--font-display',
 });
 
@@ -28,7 +30,8 @@ export const metadata: Metadata = {
     },
 };
 
-const scultpclass = 'tw-w-full tw-h-full tw-bg-transparent tw-left-0 tw-top-0';
+const scultpclass =
+    'tw-w-full tw-h-[var(--vh100)] tw-bg-transparent tw-left-0 tw-top-0';
 const build =
     process.env.FETCH_URL == 'http://baoanhbui.vercel.app' ||
     process.env.FETCH_URL == 'http://localhost:3000';
@@ -42,17 +45,14 @@ const GenerateNestedDivs = ({ levels }: { levels: number }) => (
         )}
     </div>
 );
-
 const SculpturePiece = ({
     style = {},
-    key,
     min = 0,
     max = 100,
     left = Math.random() * (max - min) + min,
     top = Math.random() * (max - min) + min,
 }: {
     style?: React.CSSProperties;
-    key?: string;
     left?: number;
     top?: number;
     min?: number;
@@ -60,7 +60,6 @@ const SculpturePiece = ({
 }) => {
     return (
         <div
-            key={key}
             style={{
                 left: `${Math.floor(left)}%`,
                 top: `${Math.floor(top)}%`,
@@ -93,42 +92,65 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html
-            lang="en"
-            className="tw-w-full tw-bg-black"
-            style={{ height: `calc(100*var(--vh))` }}
-        >
+        <html lang="en" className="tw-w-full tw-bg-black tw-h-[var(--vh100)]">
             <body
-                className={`${sans.variable} ${display.variable} tw-w-full tw-h-full tw-relative tw-bg-black`}
+                className={`${sans.variable} ${display.variable} tw-w-full tw-h-[var(--vh100)] tw-relative tw-bg-black tw-overflow-y-scroll`}
             >
                 <Script
                     src="/beforeInteractive.js"
                     strategy="beforeInteractive"
                 ></Script>
+                {false ?? (
+                    <Script
+                        src="https://cdn.babylonjs.com/babylon.js"
+                        strategy="beforeInteractive"
+                    ></Script>
+                )}
+                <section className="[&_*]:tw-text-white [&_*]:tw-leading-relaxed reset-this tw-pointer-events-none tw-overflow-x-hidden">
+                    <Navbar
+                        last={
+                            <Rand elem={'a'} min={4} className="tw-font-bold">
+                                {"``'-...__...-'``"}
+                                <Tooltips className="tw-max-w-none tw-font-black">
+                                    {"__..-''''```''''-..__"}
+                                </Tooltips>
+                            </Rand>
+                        }
+                    ></Navbar>
+                    <div
+                        className={`tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-py-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_*:not(.rnr-image)]:tw-mx-auto [&_>_*:not(.rnr-image)]:tw-max-w-3xl`}
+                    >
+                        {children}
+                    </div>
+                </section>
+                {/*
+                <div id="fb-root"></div>
+                <div id="fb-customer-chat" className="fb-customerchat"></div>
+                <Script id="facebookscript">
+                    {`var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "104245369195652");
+      chatbox.setAttribute("attribution", "biz_inbox");
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v18.0'
+        });
+      };
 
-                <nav className="tw-max-w-5xl tw-m-auto tw-px-[10vw] [&_*]:tw-text-white tw-flex tw-h-[8vh] tw-justify-between tw-items-center tw-fixed tw-left-0 tw-right-0 tw-bg-black tw-z-40">
-                    <Char isLink rest={{ href: '/' }}>
-                        : home :
-                    </Char>
-                    <Char isLink rest={{ href: '/my_info' }}>
-                        : info :
-                    </Char>
-                    <Char isLink rest={{ href: '/i_love_my_work' }}>
-                        : works :
-                    </Char>
-                    <Char isLink rest={{ href: '/resume' }}>
-                        : resume :
-                    </Char>
-                </nav>
-                <main
-                    className={`${scultpclass} tw-px-[10vw] [&_*]:tw-text-white tw-overflow-auto reset-this tw-max-w-5xl tw-m-auto tw-relative tw-z-20 [&_*]:tw-leading-normal tw-pt-[8vh]`}
-                >
-                    {children}
-                </main>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));`}
+                </Script>
+                    
+    */}
                 {build && <FirstWebsite></FirstWebsite>}
                 {build && (
                     <div
-                        className={`${scultpclass} tw-absolute tw-pointer-events-none translayer preserve3d`}
+                        className={`${scultpclass} tw-fixed translayer preserve3d tw-pointer-events-none`}
                     >
                         {Array.from({ length: 50 }, (_, i) => {
                             const [x, y] = spiralGen(i * 1.5, 5, 30, 40);
@@ -149,15 +171,15 @@ export default function RootLayout({
                 )}
                 {build && (
                     <div
-                        className={`${scultpclass} tw-absolute tw-pointer-events-none blacklayer preserve3d`}
+                        className={`${scultpclass} tw-fixed blacklayer preserve3d tw-pointer-events-none`}
                     >
                         {Array.from({ length: 25 }, (_, i) => {
                             const [x, y] = spiralGen(
                                 i * 3,
                                 1,
-                                13.5,
+                                13.9,
                                 68,
-                                [35, 35]
+                                [37.6, 37.6]
                             );
                             return (
                                 <SculpturePiece

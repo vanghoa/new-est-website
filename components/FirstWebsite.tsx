@@ -72,7 +72,7 @@ export default async function FirstWebsite() {
     }
     return (
         <nav
-            className="tw-pointer-events-none tw-w-full tw-h-full [&_:is(p,td,address)]:tw-leading-5 [&_:is(h1,h2,h3,h4,h5.h6)]:tw-font-bold"
+            className="tw-w-full tw-h-[var(--vh100)] [&_:is(p,td,address)]:tw-leading-5 [&_:is(h1,h2,h3,h4,h5.h6)]:tw-font-bold"
             id="oldwebsite"
         >
             <div

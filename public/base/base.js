@@ -290,7 +290,7 @@
     }
 
     function viewportheight() {
-        setprop('--vh', `${innerHeight * 0.01}px`);
+        setprop('--vh', `${(innerHeight - 0.001) * 0.01}px`);
     }
 
     // custom settings //
@@ -471,6 +471,7 @@
 
     // on resize //
     const debounce = {
+        prev: innerHeight,
         first: true,
         timeout: null,
         _: function () {
@@ -483,6 +484,11 @@
                 clearTimeout(this.timeout);
             }
             this.timeout = setTimeout(function () {
+                const offsetH = Math.abs(innerHeight - this_.prev);
+                if (offsetH < 100 && touchCheck) {
+                    this_.prev = innerHeight;
+                    return;
+                }
                 this_.timeout = null;
                 this_.first = true;
                 // scrollbar width
@@ -492,6 +498,7 @@
                 viewportheight();
                 // sort button reorganise + generate nav bar
                 onresizesortbtn(true);
+                this_.prev = innerHeight;
             }, 1000);
         },
     };

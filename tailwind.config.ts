@@ -1,6 +1,9 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
+    future: {
+        hoverOnlyWhenSupported: true,
+    },
     prefix: 'tw-',
     content: [
         './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -21,5 +24,10 @@ const config: Config = {
         },
     },
     plugins: [],
+    variants: {
+        extend: {
+            backgroundColor: ['group-hover'],
+        },
+    },
 };
 export default config;
