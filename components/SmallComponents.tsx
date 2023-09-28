@@ -58,21 +58,25 @@ export function ImageFrame({
             <Element className="tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr] tw-transform tw-rotate-180"></Element>
             <Element className="tw-w-full tw-h-full tw-col-[3/4] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr]"></Element>
             <p
+                suppressHydrationWarning
                 className={`!tw-leading-[1em] tw-text-center tw-col-[1] tw-row-[1] ${c()}`}
             >
                 {RandomItemFromArr(['@', '[]', '/\\', '()'])}
             </p>
             <p
+                suppressHydrationWarning
                 className={`!tw-leading-[1em] tw-text-center tw-col-[1] tw-row-[3] ${c()}`}
             >
                 {RandomItemFromArr(['@', '[]', '/\\', '()'])}
             </p>
             <p
+                suppressHydrationWarning
                 className={`!tw-leading-[1em] tw-text-center tw-col-[3] tw-row-[1] ${c()}`}
             >
                 {RandomItemFromArr(['@', '[]', '/\\', '()'])}
             </p>
             <p
+                suppressHydrationWarning
                 className={`!tw-leading-[1em] tw-text-center tw-col-[3] tw-row-[3] ${c()}`}
             >
                 {RandomItemFromArr(['@', '[]', '/\\', '()'])}

@@ -8,6 +8,8 @@ import Link from 'next/link';
 import { Char, Rand } from '@/components/WordProcessor';
 import { Tooltips } from '@/components/SmallComponents';
 import Navbar from '@/components/Navbar';
+import { scultpclass } from '@/components/TailwindClass';
+import GuestSpace, { SculpturePiece, spiralGen } from '@/components/GuestSpace';
 
 const sans = Work_Sans({
     subsets: ['latin'],
@@ -30,8 +32,6 @@ export const metadata: Metadata = {
     },
 };
 
-const scultpclass =
-    'tw-w-full tw-h-[var(--vh100)] tw-bg-transparent tw-left-0 tw-top-0';
 const build =
     process.env.FETCH_URL == 'http://baoanhbui.vercel.app' ||
     process.env.FETCH_URL == 'http://localhost:3000';
@@ -45,46 +45,6 @@ const GenerateNestedDivs = ({ levels }: { levels: number }) => (
         )}
     </div>
 );
-const SculpturePiece = ({
-    style = {},
-    min = 0,
-    max = 100,
-    left = Math.random() * (max - min) + min,
-    top = Math.random() * (max - min) + min,
-}: {
-    style?: React.CSSProperties;
-    left?: number;
-    top?: number;
-    min?: number;
-    max?: number;
-}) => {
-    return (
-        <div
-            style={{
-                left: `${Math.floor(left)}%`,
-                top: `${Math.floor(top)}%`,
-                ...style,
-            }}
-        ></div>
-    );
-};
-
-const spiralGen = (
-    i: number,
-    cycle: number,
-    minr: number,
-    maxr: number,
-    cen: number[] = [50, 50]
-) => {
-    const radians = (i / 10) * Math.PI;
-    const angularDisplacement = 180 / cycle;
-    const phaseShift = (i / angularDisplacement) * Math.PI;
-    const radius = minr + (maxr - minr) * Math.sin(phaseShift);
-    return [
-        cen[0] + radius * Math.cos(radians),
-        cen[1] + radius * Math.sin(radians),
-    ];
-};
 
 export default function RootLayout({
     children,
@@ -148,27 +108,7 @@ export default function RootLayout({
                     
     */}
                 {build && <FirstWebsite></FirstWebsite>}
-                {build && (
-                    <div
-                        className={`${scultpclass} tw-fixed translayer preserve3d tw-pointer-events-none`}
-                    >
-                        {Array.from({ length: 50 }, (_, i) => {
-                            const [x, y] = spiralGen(i * 1.5, 5, 30, 40);
-                            return (
-                                <>
-                                    <SculpturePiece
-                                        key={`${i}sculpt`}
-                                        left={x}
-                                        top={y}
-                                    ></SculpturePiece>
-                                    <SculpturePiece
-                                        key={`${i}sculpt_ran`}
-                                    ></SculpturePiece>
-                                </>
-                            );
-                        })}
-                    </div>
-                )}
+                {build && <GuestSpace></GuestSpace>}
                 {build && (
                     <div
                         className={`${scultpclass} tw-fixed blacklayer preserve3d tw-pointer-events-none`}

@@ -177,7 +177,7 @@ export default function page() {
                 <h2 className="tw-w-[min(35rem,100%)]">
                     <Link href="/contact">{`[ Contact me ]`}</Link>
                     <br></br>
-                    <Link href="/">{`[ Sign the guessbook ]`}</Link>
+                    <Link href="/">{`[ Sign the Guestbook ]`}</Link>
                 </h2>
             </section>
         </AnimatePageComp>

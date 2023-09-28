@@ -11,7 +11,7 @@
     }
 
     .translayer * {
-        @apply tw-fixed tw-bg-white tw-bg-opacity-[0.05] tw-w-5 tw-h-5;
+        @apply tw-fixed tw-text-white !tw-font-display !tw-font-bold tw-text-3xl tw-bg-white tw-bg-opacity-[0.05] tw-min-w-[1.25rem] tw-min-h-[1.25rem] tw-p-2;
     }
     .blacklayer * {
         @apply tw-fixed tw-bg-black tw-w-[33.5%] tw-h-[33.5%];

@@ -21,5 +21,8 @@ const nextConfig = {
         ],
         //minimumCacheTTL: 112492800, // 6 months. trying here that Next.js doesn't clear cache for iamges, as the Notion links are temporary
     },
+    experimental: {
+        serverActions: true,
+    },
 };
 module.exports = nextConfig;
