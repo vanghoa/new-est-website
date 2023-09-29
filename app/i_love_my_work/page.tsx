@@ -9,7 +9,7 @@ import {
 
 export const revalidate = false;
 export const dynamic = 'force-static';
-export const fetchCache = 'only-cache';
+export const fetchCache = 'default-cache';
 
 export default async function page() {
     const blogPosts = await cache_fetchBlogPosts();

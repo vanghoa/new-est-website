@@ -28,7 +28,7 @@ import AnimatePageComp from '@/components/AnimatePageComp';
 export const dynamicParams = true;
 export const revalidate = false;
 export const dynamic = 'force-static';
-export const fetchCache = 'only-cache';
+export const fetchCache = 'default-cache';
 
 export async function generateMetadata(
     { params, searchParams }: DynamicProps,
