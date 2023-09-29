@@ -3,10 +3,11 @@ import { Line } from '@/components/Line';
 import { HeaderLayout } from '@/components/SmallComponents';
 import { tw_divider, tw_line_overflow } from '@/components/TailwindClass';
 import { Rand, Word } from '@/components/WordProcessor';
-import { getWorkFilter } from '@/constants/paths';
+import { getWorkFilter, isBuild } from '@/constants/paths';
 import Link from 'next/link';
 
 export default function page() {
+    console.log(isBuild);
     return (
         <AnimatePageComp>
             <HeaderLayout>
@@ -177,7 +178,7 @@ export default function page() {
                 <h2 className="tw-w-[min(35rem,100%)]">
                     <Link href="/contact">{`[ Contact me ]`}</Link>
                     <br></br>
-                    <Link href="/">{`[ Sign the Guestbook ]`}</Link>
+                    <Link href="/#guestbookform">{`[ Leave me a sign! ]`}</Link>
                 </h2>
             </section>
         </AnimatePageComp>

@@ -1,5 +1,5 @@
 import AnimatePageComp from '@/components/AnimatePageComp';
-import GuestBook from '@/components/GuestBook';
+import GuestBookForm from '@/components/GuestBookForm';
 import { Line } from '@/components/Line';
 import { HeaderLayout } from '@/components/SmallComponents';
 import { tw_line_overflow } from '@/components/TailwindClass';
@@ -16,7 +16,8 @@ export default function Home() {
                 </Word>
             </HeaderLayout>
             <Line className={`${tw_line_overflow} tw-my-[5vh]`}></Line>
-            <GuestBook></GuestBook>
+            <GuestBookForm></GuestBookForm>
+            <Line className={`${tw_line_overflow} tw-my-[5vh]`}></Line>
             {false && (
                 <canvas
                     id="renderCanvas"

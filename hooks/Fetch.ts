@@ -1,8 +1,10 @@
+import { getAPIRoutePath } from '@/constants/paths';
+
 export const dynamic = 'force-static';
 export const fetchCache = 'force-cache';
 
 export default async function useFetch() {
-    const res = await fetch(`${process.env.FETCH_URL}/api/notion`);
+    const res = await fetch(getAPIRoutePath('revalidate'));
     try {
         return await res.json();
     } catch (err) {

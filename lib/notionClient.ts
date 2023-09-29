@@ -12,6 +12,7 @@ import { BlogPost, RollUpandLink, retrieveMultiSelectT } from '../types/types';
 import probeImageSize from './probeImageSize';
 import { cache } from 'react';
 import { cacheType } from '@/app/api/notionFetch/route';
+import { getAPIRoutePath } from '@/constants/paths';
 
 // custom props
 const PROPERTY = {
@@ -387,11 +388,9 @@ export const cache_fetchNotion = cache(
         try {
             const { message: blogPost } = await (
                 await fetch(
-                    `${
-                        process.env.FETCH_URL
-                    }/api/notionFetch?type=${type}&args=${JSON.stringify(
-                        rest
-                    )}`,
+                    `${getAPIRoutePath(
+                        'notionFetch'
+                    )}?type=${type}&args=${JSON.stringify(rest)}`,
                     { cache: 'force-cache' }
                 )
             ).json();

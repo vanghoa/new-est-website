@@ -5,8 +5,20 @@ import { scultpclass } from './TailwindClass';
 import { GuestBook } from '@prisma/client';
 //import { useRetrieveGuest } from './GuestBookContext';
 import { spiralGen, SculpturePiece } from './SculptureConstruct';
+import useFixedRandom from '@/hooks/fixedRandom';
+import RandomItemFromArr from '@/utils/RandomItemFromAnArray';
 
 export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
+    useFixedRandom();
+    const colorlist = [
+        '!tw-bg-black',
+        '!tw-bg-red-900',
+        '!tw-bg-green-900',
+        '!tw-bg-blue-900',
+        '!tw-bg-pink-900',
+        '!tw-bg-purple-900',
+        '!tw-bg-yellow-900',
+    ];
     //feed = feed.concat(useRetrieveGuest());
     return (
         <div
@@ -20,9 +32,17 @@ export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
                         <Fragment key={`${i}sculpt`}>
                             <SculpturePiece left={x} top={y}></SculpturePiece>
                             <SculpturePiece
-                                className={`${feed?.[i] ? '!tw-bg-black' : ''}`}
+                                className={`${
+                                    feed?.[i]
+                                        ? RandomItemFromArr(colorlist)
+                                        : ''
+                                } ${
+                                    feed?.[i]?.name.length > 20
+                                        ? '!tw-text-base'
+                                        : ''
+                                }`}
                             >
-                                {feed?.[i] ? `< ${feed?.[i]?.name} >` : ''}
+                                {feed?.[i] ? `${feed?.[i]?.name}` : ''}
                             </SculpturePiece>
                         </Fragment>
                     );

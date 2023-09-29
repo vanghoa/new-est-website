@@ -4,7 +4,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import { Tooltips } from './SmallComponents';
 import { Char, Rand } from './WordProcessor';
 
-export default function Navbar({ last }: { last: ReactNode }) {
+export default function Navbar() {
     const pathname = `/${usePathname().split('/')[1]}`;
     const navlist = [
         [
@@ -43,6 +43,11 @@ export default function Navbar({ last }: { last: ReactNode }) {
     useEffect(() => {
         setCur(pathname);
     }, [pathname]);
+
+    function togglereveal(event: React.MouseEvent<HTMLElement>) {
+        event.preventDefault();
+        document.body.classList.toggle('reveal');
+    }
 
     return (
         <nav className="tw-flex tw-flex-col tw-items-center tw-h-fit tw-fixed tw-w-full  tw-z-40 [&_*]:tw-font-display tw-overflow-visible tw-pointer-events-none">
@@ -90,7 +95,17 @@ export default function Navbar({ last }: { last: ReactNode }) {
             </div>
             <div className="[&_a]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-[8vw] tw-bg-black tw-h-10 tw-pointer-events-auto">
                 <span className="tw-w-32 tw-h-full tw-flex tw-items-center tw-justify-center tw-group">
-                    {last}
+                    <Rand
+                        elem={'a'}
+                        min={4}
+                        className="tw-font-bold tw-cursor-pointer"
+                        rest={{ onClick: togglereveal }}
+                    >
+                        {"``'-...__...-'``"}
+                        <Tooltips className="tw-max-w-none tw-font-black">
+                            {"__..-''''```''''-..__"}
+                        </Tooltips>
+                    </Rand>
                 </span>
             </div>
         </nav>

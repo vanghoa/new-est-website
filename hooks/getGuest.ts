@@ -1,7 +1,9 @@
+import { getAPIRoutePath } from '@/constants/paths';
+
 export async function getGuest() {
     try {
         const res = await (
-            await fetch(`${process.env.FETCH_URL}/api/prismaFetch`, {
+            await fetch(getAPIRoutePath('prismaFetch'), {
                 cache: 'no-store',
             })
         ).json();

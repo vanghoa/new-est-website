@@ -37,9 +37,7 @@ export const metadata: Metadata = {
     },
 };
 
-const build =
-    process.env.FETCH_URL == 'http://baoanhbui.vercel.app' ||
-    process.env.FETCH_URL == 'http://localhost:3000';
+const build = true;
 
 const GenerateNestedDivs = ({ levels }: { levels: number }) => (
     <div>
@@ -72,16 +70,7 @@ export default function RootLayout({
                     ></Script>
                 )}
                 <section className="[&_*]:tw-text-white [&_*]:tw-leading-relaxed reset-this tw-pointer-events-none tw-overflow-x-hidden">
-                    <Navbar
-                        last={
-                            <Rand elem={'a'} min={4} className="tw-font-bold">
-                                {"``'-...__...-'``"}
-                                <Tooltips className="tw-max-w-none tw-font-black">
-                                    {"__..-''''```''''-..__"}
-                                </Tooltips>
-                            </Rand>
-                        }
-                    ></Navbar>
+                    <Navbar></Navbar>
                     <div
                         className={`tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-py-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_*:not(.rnr-image)]:tw-mx-auto [&_>_*:not(.rnr-image)]:tw-max-w-3xl`}
                     >

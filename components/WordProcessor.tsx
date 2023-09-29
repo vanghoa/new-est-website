@@ -1,5 +1,6 @@
 import React, { ComponentPropsWithoutRef } from 'react';
 import Link, { LinkProps } from 'next/link';
+import useFixedRandom from '@/hooks/fixedRandom';
 
 type WordProcessor = {
     children: React.ReactNode;
@@ -60,6 +61,7 @@ const Mid = ({
 }: WordProcessor & {
     func: (children: string, min?: number) => React.JSX.Element[];
 }) => {
+    useFixedRandom();
     const children_ = React.Children.map(children, (child) => {
         if (typeof child === 'string') {
             return func(child, min);
