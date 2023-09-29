@@ -109,16 +109,8 @@ export async function generateMetadata(
 
 export async function generateStaticParams() {
     //const blogPosts = await cache_fetchBlogPosts();
-    const { message: blogPosts } = await (
-        await fetch(
-            `${
-                process.env.FETCH_URL
-            }/api/notionFetch?type=${'fetchBlogPosts'}&args=${JSON.stringify(
-                []
-            )}`,
-            { cache: 'force-cache' }
-        )
-    ).json();
+    const blogPosts: any[] = (await cache_fetchNotion('fetchBlogPosts')) ?? [];
+
     return blogPosts.map((blogPost: { slug: any }) => {
         return {
             slug: blogPost?.slug,
@@ -145,28 +137,16 @@ export default async function Page({ params }: DynamicProps) {
         : blogPost['big tag']?.[0];
     //const blogPostsRelated = await cache_fetchBlogPostsRelated(field, slug);
     //const blocks = await cache_fetchAllBlocks(blogPost.id);
+    const blogPostsRelated: any = await cache_fetchNotion(
+        'fetchBlogPostsRelated',
+        field,
+        slug
+    );
+    const blocks: any = await cache_fetchNotion('fetchAllBlocks', blogPost.id);
 
-    const { message: blogPostsRelated } = await (
-        await fetch(
-            `${
-                process.env.FETCH_URL
-            }/api/notionFetch?type=${'fetchBlogPostsRelated'}&args=${JSON.stringify(
-                [field, slug]
-            )}`,
-            { cache: 'force-cache' }
-        )
-    ).json();
-
-    const { message: blocks } = await (
-        await fetch(
-            `${
-                process.env.FETCH_URL
-            }/api/notionFetch?type=${'fetchAllBlocks'}&args=${JSON.stringify([
-                blogPost.id,
-            ])}`,
-            { cache: 'force-cache' }
-        )
-    ).json();
+    if (!blogPostsRelated || !blocks) {
+        return <div>fail to load!</div>;
+    }
 
     const blogPostsRelated_: Array<BlogPost | null> = Array.from(
         { length: 5 },
