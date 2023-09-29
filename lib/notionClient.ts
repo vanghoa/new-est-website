@@ -11,6 +11,7 @@ import {
 import { BlogPost, RollUpandLink, retrieveMultiSelectT } from '../types/types';
 import probeImageSize from './probeImageSize';
 import { cache } from 'react';
+import { cacheType } from '@/app/api/notionFetch/route';
 
 // custom props
 const PROPERTY = {
@@ -380,3 +381,23 @@ function getRandomInt(min: number, max: number) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export const cache_fetchNotion = cache(
+    async (type: cacheType, ...rest: any[]) => {
+        try {
+            const { message: blogPost } = await (
+                await fetch(
+                    `${
+                        process.env.FETCH_URL
+                    }/api/notionFetch?type=${type}&args=${JSON.stringify(
+                        rest
+                    )}`,
+                    { cache: 'force-cache' }
+                )
+            ).json();
+            return blogPost;
+        } catch (e) {
+            return null;
+        }
+    }
+);

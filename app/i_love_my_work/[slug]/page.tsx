@@ -1,9 +1,11 @@
+/*
 import {
     cache_fetchAllBlocks,
     cache_fetchBlogPostBySlug,
     cache_fetchBlogPosts,
     cache_fetchBlogPostsRelated,
 } from '@/lib/notionClient';
+*/
 import recursivelyNullifyUndefinedValues from '@/utils/recursivelyNullifyUndefinedValues';
 import truncateString from '@/utils/truncateString';
 import { Metadata, ResolvingMetadata } from 'next';
@@ -24,18 +26,22 @@ import Link from 'next/link';
 import { Line, LineLoose } from '@/components/Line';
 import { tw_line_overflow } from '@/components/TailwindClass';
 import AnimatePageComp from '@/components/AnimatePageComp';
+import { cache_fetchNotion } from '@/lib/notionClient';
 
 export const dynamicParams = true;
 export const revalidate = false;
 export const dynamic = 'force-static';
-export const fetchCache = 'only-cache';
+export const fetchCache = 'default-cache';
 
 export async function generateMetadata(
     { params }: DynamicProps,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     const slug = params.slug as string;
-    const blogPost = await cache_fetchBlogPostBySlug(slug);
+
+    //const blogPost = await cache_fetchBlogPostBySlug(slug);
+    const blogPost: any = await cache_fetchNotion('fetchBlogPostBySlug', slug);
+
     if (!blogPost) {
         return { title: 'no shit' };
     }
@@ -102,8 +108,18 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-    const blogPosts = await cache_fetchBlogPosts();
-    return blogPosts.map((blogPost) => {
+    //const blogPosts = await cache_fetchBlogPosts();
+    const { message: blogPosts } = await (
+        await fetch(
+            `${
+                process.env.FETCH_URL
+            }/api/notionFetch?type=${'fetchBlogPosts'}&args=${JSON.stringify(
+                []
+            )}`,
+            { cache: 'force-cache' }
+        )
+    ).json();
+    return blogPosts.map((blogPost: { slug: any }) => {
         return {
             slug: blogPost?.slug,
         };
@@ -114,16 +130,44 @@ export async function generateStaticParams() {
     group: RollUpandLink; */
 export default async function Page({ params }: DynamicProps) {
     const slug = params.slug as string;
-    const blogPost: BlogPost | null = await cache_fetchBlogPostBySlug(slug);
+    //const blogPost: BlogPost | null = await cache_fetchBlogPostBySlug(slug);
+    // @ts-ignore
+    const blogPost: BlogPost | null = await cache_fetchNotion(
+        'fetchBlogPostBySlug',
+        slug
+    );
+
     if (!blogPost) {
         return <div>fail to load!</div>;
     }
     const field = blogPost['big tag']?.includes('Development')
         ? 'Development'
         : blogPost['big tag']?.[0];
-    const blogPostsRelated = await cache_fetchBlogPostsRelated(field, slug);
-    const blocks = await cache_fetchAllBlocks(blogPost.id);
-    //console.log(blogPostsRelated);
+    //const blogPostsRelated = await cache_fetchBlogPostsRelated(field, slug);
+    //const blocks = await cache_fetchAllBlocks(blogPost.id);
+
+    const { message: blogPostsRelated } = await (
+        await fetch(
+            `${
+                process.env.FETCH_URL
+            }/api/notionFetch?type=${'fetchBlogPostsRelated'}&args=${JSON.stringify(
+                [field, slug]
+            )}`,
+            { cache: 'force-cache' }
+        )
+    ).json();
+
+    const { message: blocks } = await (
+        await fetch(
+            `${
+                process.env.FETCH_URL
+            }/api/notionFetch?type=${'fetchAllBlocks'}&args=${JSON.stringify([
+                blogPost.id,
+            ])}`,
+            { cache: 'force-cache' }
+        )
+    ).json();
+
     const blogPostsRelated_: Array<BlogPost | null> = Array.from(
         { length: 5 },
         () => blogPostsRelated[0]

@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
         const feed = await prisma.guestBook.findMany();
         return NextResponse.json({ succeed: true, message: feed });
     } catch (e) {
-        console.log('co loi in prisma/route (error): ', e);
+        console.log('co loi in prismaFetch/route (error): ', e);
         return NextResponse.json({ succeed: false, message: e });
     }
 }
