@@ -3,20 +3,23 @@
 import React, { useRef, useState } from 'react';
 import { ImageFrame } from './SmallComponents';
 import { LineLoose } from './Line';
-import { myAction } from './GuestBook_server';
+import { myAction } from './GuestBook_ServerAction';
+import { useAddGuest } from './GuestBookContext';
 
-export default function GuestBook() {
+export default function GuestBookForm() {
     const [name, setName] = useState('');
-    const formref = useRef<null | HTMLFormElement>(null);
+    const formref = useRef<HTMLFormElement>(null);
     const Update = myAction.bind(null);
+    const addGuest = useAddGuest();
 
     return (
         <form
             ref={formref}
             action={async (formData: FormData) => {
-                const { message } = await Update(formData);
+                const { message, data } = await Update(formData);
                 formref?.current?.reset();
                 console.log(message);
+                data && addGuest(data);
             }}
             className="tw-w-full tw-flex tw-flex-col tw-gap-6 tw-justify-end tw-items-center"
         >

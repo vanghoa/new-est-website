@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
 
         return NextResponse.json({ revalidated: true, now: Date.now() });
     } catch (e) {
-        console.log('co loi in api/route (error): ', e);
+        console.log('co loi in notion/route (error): ', e);
         return NextResponse.json({ message: [] }, { status: 400 });
     }
 }
