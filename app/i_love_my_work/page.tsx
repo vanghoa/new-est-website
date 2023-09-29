@@ -7,6 +7,10 @@ import {
     cache_retrieveMultiSelect,
 } from '@/lib/notionClient';
 
+export const revalidate = false;
+export const dynamic = 'force-static';
+export const fetchCache = 'only-cache';
+
 export default async function page() {
     const blogPosts = await cache_fetchBlogPosts();
     const multiSelect = await cache_retrieveMultiSelect();

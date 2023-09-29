@@ -138,7 +138,7 @@ export const retrieveMultiSelect = async function () {
 };
 
 export const fetchBlogPosts = async function (): Promise<(BlogPost | null)[]> {
-    console.log('fetchBlogPosts');
+    console.log('fetchBlogPosts_nocache');
     if (!process.env.NOTION_DTB_WORK_ID) return [null];
     const result = await notion.databases.query({
         //page_size: 100,
@@ -166,7 +166,7 @@ export const fetchBlogPostsRelated = async function (
     tag: string | undefined,
     exclude: string | undefined
 ): Promise<(BlogPost | null)[]> {
-    console.log('fetchBlogPostsRelated');
+    console.log('fetchBlogPostsRelated_nocache');
     if (!process.env.NOTION_DTB_WORK_ID || !tag || !exclude) return [null];
     const result = await notion.databases.query({
         page_size: 6,
@@ -207,7 +207,7 @@ export const fetchBlogPostsRelated = async function (
 export const fetchBlogPostBySlug = async function (
     slug: string
 ): Promise<BlogPost | null> {
-    console.log('fetchBlogPostBySlug');
+    console.log('fetchBlogPostBySlug_nocache');
     if (!process.env.NOTION_DTB_WORK_ID) return null;
     const result = await notion.databases.query({
         database_id: process.env.NOTION_DTB_WORK_ID,
@@ -277,7 +277,7 @@ async function addDimensionsToImageBlocks(
 export const fetchAllBlocks = async function (
     pageIdOrBlockId: string
 ): Promise<GetBlockResponse[]> {
-    console.log('fetchAllBlocks');
+    console.log('fetchAllBlocks_nocache');
     const result = await notion.blocks.children.list({
         block_id: pageIdOrBlockId,
     });
