@@ -13,7 +13,7 @@ export async function myAction(formData: FormData) {
                     name: name,
                 },
             }));
-        //revalidatePath('/api/prismaFetch');
+        revalidatePath('/api/prismaFetch');
         return { message: 'Success', data: guest };
     } catch (e) {
         return { message: 'Failed to create' };
