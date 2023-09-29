@@ -28,10 +28,10 @@ import AnimatePageComp from '@/components/AnimatePageComp';
 export const dynamicParams = true;
 export const revalidate = false;
 export const dynamic = 'force-static';
-export const fetchCache = 'default-cache';
+export const fetchCache = 'only-cache';
 
 export async function generateMetadata(
-    { params, searchParams }: DynamicProps,
+    { params }: DynamicProps,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     const slug = params.slug as string;
@@ -112,7 +112,7 @@ export async function generateStaticParams() {
 /*
     indiv: RollUpandLink;
     group: RollUpandLink; */
-export default async function Page({ params, searchParams }: DynamicProps) {
+export default async function Page({ params }: DynamicProps) {
     const slug = params.slug as string;
     const blogPost: BlogPost | null = await cache_fetchBlogPostBySlug(slug);
     if (!blogPost) {
