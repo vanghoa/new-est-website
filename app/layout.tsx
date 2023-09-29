@@ -122,6 +122,7 @@ export default function RootLayout({
                             return (
                                 <SculpturePiece
                                     key={`${i}sculpt`}
+                                    index={i}
                                     left={x}
                                     top={y}
                                 ></SculpturePiece>

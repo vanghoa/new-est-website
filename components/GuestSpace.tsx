@@ -30,8 +30,13 @@ export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
                     const [x, y] = spiralGen(i * 1.5, 5, 30, 40);
                     return (
                         <Fragment key={`${i}sculpt`}>
-                            <SculpturePiece left={x} top={y}></SculpturePiece>
                             <SculpturePiece
+                                index={i}
+                                left={x}
+                                top={y}
+                            ></SculpturePiece>
+                            <SculpturePiece
+                                index={i}
                                 className={`${
                                     feed?.[i]
                                         ? RandomItemFromArr(colorlist)

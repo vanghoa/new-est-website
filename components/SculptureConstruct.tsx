@@ -1,13 +1,15 @@
+import { _useFixedRandomWSeed } from '@/hooks/fixedRandom';
 import { ReactNode } from 'react';
 
 export const SculpturePiece = ({
     style = {},
     min = 0,
     max = 100,
-    left = Math.random() * (max - min) + min,
-    top = Math.random() * (max - min) + min,
+    left,
+    top,
     children = '',
     className = '',
+    index,
 }: {
     style?: React.CSSProperties;
     left?: number;
@@ -16,7 +18,13 @@ export const SculpturePiece = ({
     max?: number;
     children?: ReactNode;
     className?: string;
+    index: number;
 }) => {
+    if (!left || !top) {
+        _useFixedRandomWSeed(index);
+        left = Math.random() * (max - min) + min;
+        top = Math.random() * (max - min) + min;
+    }
     return (
         <div
             suppressHydrationWarning
