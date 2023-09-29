@@ -5,7 +5,9 @@ export async function getGuest() {
                 cache: 'no-store',
             })
         ).json();
-        console.log(`loi cua prismaFetch: ${res.message}`);
+        res.succeed
+            ? console.log('prismaFetch thanh cong')
+            : console.log(`loi cua prismaFetch: ${res.message}`);
         return res.succeed ? res.message : [];
     } catch (e) {
         console.log(`co loi o getGuest: ${e}`);

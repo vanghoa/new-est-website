@@ -13,7 +13,7 @@ import GuestSpace from '@/components/GuestSpace';
 import { Suspense } from 'react';
 import { getGuest } from '@/hooks/getGuest';
 import { GuestBook } from '@prisma/client';
-import GuestBookContext from '@/components/GuestBookContext';
+//import GuestBookContext from '@/components/GuestBookContext';
 import { spiralGen, SculpturePiece } from '@/components/SculptureConstruct';
 
 const sans = Work_Sans({
@@ -71,29 +71,24 @@ export default function RootLayout({
                         strategy="beforeInteractive"
                     ></Script>
                 )}
-                <GuestBookContext>
-                    <section className="[&_*]:tw-text-white [&_*]:tw-leading-relaxed reset-this tw-pointer-events-none tw-overflow-x-hidden">
-                        <Navbar
-                            last={
-                                <Rand
-                                    elem={'a'}
-                                    min={4}
-                                    className="tw-font-bold"
-                                >
-                                    {"``'-...__...-'``"}
-                                    <Tooltips className="tw-max-w-none tw-font-black">
-                                        {"__..-''''```''''-..__"}
-                                    </Tooltips>
-                                </Rand>
-                            }
-                        ></Navbar>
-                        <div
-                            className={`tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-py-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_*:not(.rnr-image)]:tw-mx-auto [&_>_*:not(.rnr-image)]:tw-max-w-3xl`}
-                        >
-                            {children}
-                        </div>
-                    </section>
-                    {/*
+                <section className="[&_*]:tw-text-white [&_*]:tw-leading-relaxed reset-this tw-pointer-events-none tw-overflow-x-hidden">
+                    <Navbar
+                        last={
+                            <Rand elem={'a'} min={4} className="tw-font-bold">
+                                {"``'-...__...-'``"}
+                                <Tooltips className="tw-max-w-none tw-font-black">
+                                    {"__..-''''```''''-..__"}
+                                </Tooltips>
+                            </Rand>
+                        }
+                    ></Navbar>
+                    <div
+                        className={`tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-py-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_*:not(.rnr-image)]:tw-mx-auto [&_>_*:not(.rnr-image)]:tw-max-w-3xl`}
+                    >
+                        {children}
+                    </div>
+                </section>
+                {/*
                     <div id="fb-root"></div>
                     <div id="fb-customer-chat" className="fb-customerchat"></div>
                     <Script id="facebookscript">
@@ -117,35 +112,34 @@ export default function RootLayout({
                                 </Script>    
                     */}
 
-                    {build && <FirstWebsite></FirstWebsite>}
-                    {build && (
-                        <Suspense fallback={<p></p>}>
-                            <GuestWrapper></GuestWrapper>
-                        </Suspense>
-                    )}
-                    {build && (
-                        <div
-                            className={`${scultpclass} tw-fixed blacklayer preserve3d tw-pointer-events-none`}
-                        >
-                            {Array.from({ length: 25 }, (_, i) => {
-                                const [x, y] = spiralGen(
-                                    i * 3,
-                                    1,
-                                    13.9,
-                                    68,
-                                    [37.6, 37.6]
-                                );
-                                return (
-                                    <SculpturePiece
-                                        key={`${i}sculpt`}
-                                        left={x}
-                                        top={y}
-                                    ></SculpturePiece>
-                                );
-                            })}
-                        </div>
-                    )}
-                </GuestBookContext>
+                {build && <FirstWebsite></FirstWebsite>}
+                {build && (
+                    <Suspense fallback={<p></p>}>
+                        <GuestWrapper></GuestWrapper>
+                    </Suspense>
+                )}
+                {build && (
+                    <div
+                        className={`${scultpclass} tw-fixed blacklayer preserve3d tw-pointer-events-none`}
+                    >
+                        {Array.from({ length: 25 }, (_, i) => {
+                            const [x, y] = spiralGen(
+                                i * 3,
+                                1,
+                                13.9,
+                                68,
+                                [37.6, 37.6]
+                            );
+                            return (
+                                <SculpturePiece
+                                    key={`${i}sculpt`}
+                                    left={x}
+                                    top={y}
+                                ></SculpturePiece>
+                            );
+                        })}
+                    </div>
+                )}
                 {build && <Script src="/base/base.js"></Script>}
             </body>
         </html>

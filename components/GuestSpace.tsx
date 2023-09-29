@@ -3,11 +3,11 @@
 import React, { Fragment, ReactNode } from 'react';
 import { scultpclass } from './TailwindClass';
 import { GuestBook } from '@prisma/client';
-import { useRetrieveGuest } from './GuestBookContext';
+//import { useRetrieveGuest } from './GuestBookContext';
 import { spiralGen, SculpturePiece } from './SculptureConstruct';
 
 export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
-    feed = feed.concat(useRetrieveGuest());
+    //feed = feed.concat(useRetrieveGuest());
     return (
         <div
             className={`${scultpclass} tw-fixed translayer preserve3d tw-pointer-events-none`}

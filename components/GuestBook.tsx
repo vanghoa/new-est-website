@@ -4,13 +4,13 @@ import React, { useRef, useState } from 'react';
 import { ImageFrame } from './SmallComponents';
 import { LineLoose } from './Line';
 import { myAction } from './GuestBook_ServerAction';
-import { useAddGuest } from './GuestBookContext';
+//import { useAddGuest } from './GuestBookContext';
 
 export default function GuestBookForm() {
     const [name, setName] = useState('');
     const formref = useRef<HTMLFormElement>(null);
     const Update = myAction.bind(null);
-    const addGuest = useAddGuest();
+    //const addGuest = useAddGuest();
 
     return (
         <form
