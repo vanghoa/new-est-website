@@ -5,8 +5,10 @@ export async function getGuest() {
                 cache: 'no-store',
             })
         ).json();
+        console.log(res.message);
         return res.succeed ? res.message : [];
     } catch (e) {
+        console.log(e);
         return [];
     }
 }
