@@ -395,8 +395,10 @@ export const cache_fetchNotion = cache(
                     { cache: 'force-cache' }
                 )
             ).json();
+            console.log(`cache_fetchNotion: ${type} / ${rest}`);
             return blogPost;
         } catch (e) {
+            console.log(`co loi o cache_fetchNotion: ${e}`);
             return null;
         }
     }

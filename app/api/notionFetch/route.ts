@@ -26,6 +26,7 @@ export async function GET(request: NextRequest) {
             request.nextUrl.searchParams.get('args') || '[]'
         );
         if (!type || !(type in cache)) {
+            console.log('wrong type name');
             return NextResponse.json({
                 succeed: false,
                 message: 'wrong type name',
@@ -33,13 +34,7 @@ export async function GET(request: NextRequest) {
         }
         // @ts-ignore
         let data = await cache[type](...args);
-
-        /*
-        console.log(request.nextUrl.searchParams.get('type'));
-        console.log(
-            JSON.parse(request.nextUrl.searchParams.get('args') || '[]')
-        );
-        */
+        console.log(`route API notionFetch: ${type} / ${args}`);
         return NextResponse.json({ succeed: true, message: data });
     } catch (e) {
         console.log('co loi in notionFetch/route (error): ', e);

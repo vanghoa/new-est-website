@@ -58,7 +58,6 @@ export default function WorkPageClient({
     };
 
     blogPosts = useMemo(() => {
-        console.log('bip2');
         const front = [];
         const back = [];
         for (const item of blogPosts) {
