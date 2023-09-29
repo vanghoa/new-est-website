@@ -31,7 +31,7 @@ import { cache_fetchNotion } from '@/lib/notionClient';
 export const dynamicParams = true;
 export const revalidate = false;
 export const dynamic = 'force-static';
-export const fetchCache = 'default-cache';
+export const fetchCache = 'force-cache';
 
 export async function generateMetadata(
     { params }: DynamicProps,
