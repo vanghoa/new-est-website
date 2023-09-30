@@ -28,11 +28,12 @@ import { tw_line_overflow } from '@/components/TailwindClass';
 import AnimatePageComp from '@/components/AnimatePageComp';
 import { cache_fetchNotion } from '@/lib/notionClient';
 
-export const dynamicParams = true;
+export const dynamicParams = false;
 export const revalidate = false;
 export const dynamic = 'force-static';
+/*
 export const fetchCache = 'force-cache';
-
+*/
 export async function generateMetadata(
     { params }: DynamicProps,
     parent: ResolvingMetadata

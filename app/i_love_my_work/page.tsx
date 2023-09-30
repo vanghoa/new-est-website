@@ -10,8 +10,9 @@ import {
 
 export const revalidate = false;
 export const dynamic = 'force-static';
+/*
 export const fetchCache = 'force-cache';
-
+*/
 export default async function page() {
     //const blogPosts = await cache_fetchBlogPosts();
     //const multiSelect = await cache_retrieveMultiSelect();
