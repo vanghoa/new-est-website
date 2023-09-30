@@ -28,6 +28,9 @@
     .reveal .display_on {
         @apply tw-block;
     }
+    .reveal .reveal_ani {
+        @apply tw-animate-reveal;
+    }
     .reset-this * {
         /*
         animation: none;

@@ -11,13 +11,22 @@ import RandomItemFromArr from '@/utils/RandomItemFromAnArray';
 export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
     useFixedRandom();
     const colorlist = [
-        '!tw-bg-black',
-        '!tw-bg-red-900',
-        '!tw-bg-green-900',
-        '!tw-bg-blue-900',
-        '!tw-bg-pink-900',
-        '!tw-bg-purple-900',
-        '!tw-bg-yellow-900',
+        '!tw-bg-red-500',
+        '!tw-bg-green-500',
+        '!tw-bg-blue-500',
+        '!tw-bg-pink-500',
+        '!tw-bg-purple-500',
+        '!tw-bg-fuchsia-500',
+        '!tw-bg-orange-500',
+        '!tw-bg-amber-500',
+        '!tw-bg-yellow-500',
+        '!tw-bg-emerald-500',
+        '!tw-bg-teal-500',
+        '!tw-bg-cyan-500',
+        '!tw-bg-light-blue-500',
+        '!tw-bg-violet-500',
+        '!tw-bg-indigo-500',
+        '!tw-bg-rose-500',
     ];
     //feed = feed.concat(useRetrieveGuest());
     return (
@@ -28,6 +37,11 @@ export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
                 { length: feed.length > 70 ? feed.length : 70 },
                 (_, i) => {
                     const [x, y] = spiralGen(i * 1.5, 5, 30, 40);
+                    const isRecent =
+                        Boolean(feed?.[i]) &&
+                        new Date().getTime() -
+                            new Date(feed?.[i]?.createdAt).getTime() <=
+                            2 * 3600000;
                     return (
                         <Fragment key={`${i}sculpt`}>
                             <SculpturePiece
@@ -40,13 +54,10 @@ export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
                                 className={`${
                                     feed?.[i]
                                         ? `occupied ${
-                                              i == feed.length - 1 &&
-                                              new Date().getTime() -
-                                                  new Date(
-                                                      feed?.[i]?.createdAt
-                                                  ).getTime() <=
-                                                  24 * 3600000
-                                                  ? '!tw-bg-pink-500 !tw-left-[50%] !tw-top-[50%] tw-transform tw-translate-x-[-50%] tw-translate-y-[-50%] tw-drop-shadow-glow'
+                                              isRecent
+                                                  ? `${RandomItemFromArr(
+                                                        colorlist
+                                                    )} tw-transform tw-translate-x-[-50%] tw-translate-y-[-50%] tw-shadow-glow reveal_ani`
                                                   : ''
                                           }`
                                         : ''

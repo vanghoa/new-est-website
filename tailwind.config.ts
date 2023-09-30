@@ -16,11 +16,16 @@ const config: Config = {
             body: 'var(--font-sans)',
         },
         extend: {
-            dropShadow: {
-                glow: [
-                    '0 0px 30px rgba(236, 72, 153, 1)',
-                    '0 0px 100px rgba(236, 72, 153, 1)',
-                ],
+            keyframes: {
+                reveal: {
+                    from: { top: '-20px' },
+                },
+            },
+            animation: {
+                reveal: 'reveal 1.5s',
+            },
+            boxShadow: {
+                glow: '0 0px 50px 20px white',
             },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
