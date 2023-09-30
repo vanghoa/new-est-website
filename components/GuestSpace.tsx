@@ -39,11 +39,16 @@ export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
                                 index={i}
                                 className={`${
                                     feed?.[i]
-                                        ? RandomItemFromArr(colorlist)
-                                        : ''
-                                } ${
-                                    feed?.[i]?.name.length > 20
-                                        ? '!tw-text-base'
+                                        ? `occupied ${
+                                              i == feed.length - 1 &&
+                                              new Date().getTime() -
+                                                  new Date(
+                                                      feed?.[i]?.createdAt
+                                                  ).getTime() <=
+                                                  24 * 3600000
+                                                  ? '!tw-bg-pink-500 !tw-left-[50%] !tw-top-[50%] tw-transform tw-translate-x-[-50%] tw-translate-y-[-50%] tw-drop-shadow-glow'
+                                                  : ''
+                                          }`
                                         : ''
                                 }`}
                             >

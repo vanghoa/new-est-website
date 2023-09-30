@@ -51,7 +51,7 @@ export default function Navbar() {
 
     return (
         <nav className="tw-flex tw-flex-col tw-items-center tw-h-fit tw-fixed tw-w-full  tw-z-40 [&_*]:tw-font-display tw-overflow-visible tw-pointer-events-none">
-            <div className="tw-z-[-1] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-[8vw] tw-bg-black tw-h-[3.3rem] tw-pointer-events-auto">
+            <div className="reveal_child tw-z-[-1] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-[8vw] tw-bg-black tw-h-[3.3rem] tw-pointer-events-auto">
                 {navlist[0].map(({ name, href, tooltips }, i) => (
                     <span
                         key={`navlist${i}`}
@@ -72,7 +72,7 @@ export default function Navbar() {
                     </span>
                 ))}
             </div>
-            <div className="[&_a]:tw-bottom-[0.4rem] tw-z-[-2] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-[8vw] tw-bg-black tw-h-11 tw-pointer-events-auto">
+            <div className="reveal_child [&_a]:tw-bottom-[0.4rem] tw-z-[-2] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-[8vw] tw-bg-black tw-h-11 tw-pointer-events-auto">
                 {navlist[1].map(({ name, href, tooltips }, i) => (
                     <span
                         key={`navlist${i}`}
@@ -93,17 +93,28 @@ export default function Navbar() {
                     </span>
                 ))}
             </div>
-            <div className="[&_a]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-[8vw] tw-bg-black tw-h-10 tw-pointer-events-auto">
+            <div className="[&_a]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-[8vw] tw-bg-black tw-h-10 tw-pointer-events-auto tw-border-t-8 tw-border-black">
                 <span className="tw-w-32 tw-h-full tw-flex tw-items-center tw-justify-center tw-group">
                     <Rand
                         elem={'a'}
                         min={4}
-                        className="tw-font-bold tw-cursor-pointer"
+                        className="display_none tw-font-bold tw-cursor-pointer"
                         rest={{ onClick: togglereveal }}
                     >
                         {"``'-...__...-'``"}
                         <Tooltips className="tw-max-w-none tw-font-black">
-                            {"__..-''''```''''-..__"}
+                            {"_..-''''```''''-.._"}
+                        </Tooltips>
+                    </Rand>
+                    <Rand
+                        elem={'a'}
+                        min={4}
+                        className="display_on tw-hidden tw-font-bold tw-cursor-pointer"
+                        rest={{ onClick: togglereveal }}
+                    >
+                        {"_..-''''```''''-.._"}
+                        <Tooltips className="tw-max-w-none tw-font-black">
+                            {"``'-...__...-'``"}
                         </Tooltips>
                     </Rand>
                 </span>

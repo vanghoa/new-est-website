@@ -16,6 +16,12 @@ const config: Config = {
             body: 'var(--font-sans)',
         },
         extend: {
+            dropShadow: {
+                glow: [
+                    '0 0px 30px rgba(236, 72, 153, 1)',
+                    '0 0px 100px rgba(236, 72, 153, 1)',
+                ],
+            },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic':

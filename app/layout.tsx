@@ -72,7 +72,7 @@ export default function RootLayout({
                 <section className="[&_*]:tw-text-white [&_*]:tw-leading-relaxed reset-this tw-pointer-events-none tw-overflow-x-hidden">
                     <Navbar></Navbar>
                     <div
-                        className={`tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-py-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_*:not(.rnr-image)]:tw-mx-auto [&_>_*:not(.rnr-image)]:tw-max-w-3xl`}
+                        className={`reveal_child tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-py-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_*:not(.rnr-image)]:tw-mx-auto [&_>_*:not(.rnr-image)]:tw-max-w-3xl`}
                     >
                         {children}
                     </div>
@@ -109,7 +109,7 @@ export default function RootLayout({
                 )}
                 {build && (
                     <div
-                        className={`${scultpclass} tw-fixed blacklayer preserve3d tw-pointer-events-none`}
+                        className={`${scultpclass} tw-fixed blacklayer reveal_child preserve3d tw-pointer-events-none`}
                     >
                         {Array.from({ length: 25 }, (_, i) => {
                             const [x, y] = spiralGen(
