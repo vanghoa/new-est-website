@@ -24,9 +24,10 @@ import { Char, Rand, Word } from '@/components/WordProcessor';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Line, LineLoose } from '@/components/Line';
-import { tw_line_overflow } from '@/components/TailwindClass';
+import { tw_divider, tw_line_overflow } from '@/components/TailwindClass';
 import AnimatePageComp from '@/components/AnimatePageComp';
 import { cache_fetchNotion } from '@/lib/notionClient';
+import { SuspenseNotion } from '@/components/SuspenseFallback';
 
 export const dynamicParams = false;
 export const revalidate = false;
@@ -118,10 +119,16 @@ export async function generateStaticParams() {
         };
     });
 }
-/*
-    indiv: RollUpandLink;
-    group: RollUpandLink; */
-export default async function Page({ params }: DynamicProps) {
+
+export default function Page({ params }: DynamicProps) {
+    return (
+        <SuspenseNotion>
+            <PageSuspense params={params} searchParams={{}}></PageSuspense>
+        </SuspenseNotion>
+    );
+}
+
+export async function PageSuspense({ params }: DynamicProps) {
     const slug = params.slug as string;
     //const blogPost: BlogPost | null = await cache_fetchBlogPostBySlug(slug);
     // @ts-ignore
@@ -290,8 +297,8 @@ export default async function Page({ params }: DynamicProps) {
                     })}
                 </ul>
             </li>
-            <Line className={`${tw_line_overflow} tw-my-[5vh]`}></Line>
-            <section className="tw-flex tw-flex-col tw-gap-6 tw-my-[5vh]">
+            <Line className={`${tw_line_overflow} ${tw_divider}`}></Line>
+            <section className={`tw-flex tw-flex-col tw-gap-6 ${tw_divider}`}>
                 <Word elem={'h2'} className="tw-text-center tw-w-full">
                     Other works
                 </Word>

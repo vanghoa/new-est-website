@@ -15,6 +15,7 @@ import { getGuest } from '@/hooks/getGuest';
 import { GuestBook } from '@prisma/client';
 //import GuestBookContext from '@/components/GuestBookContext';
 import { spiralGen, SculpturePiece } from '@/components/SculptureConstruct';
+import Footer from '@/components/Footer';
 
 const sans = Work_Sans({
     subsets: ['latin'],
@@ -72,9 +73,10 @@ export default function RootLayout({
                 <section className="[&_*]:tw-text-white [&_*]:tw-leading-relaxed reset-this tw-pointer-events-none tw-overflow-x-hidden">
                     <Navbar></Navbar>
                     <div
-                        className={`reveal_child tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-py-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_*:not(.rnr-image)]:tw-mx-auto [&_>_*:not(.rnr-image)]:tw-max-w-3xl`}
+                        className={`reveal_child tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-pt-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_*:not(.rnr-image)]:tw-mx-auto [&_>_*:not(.rnr-image)]:tw-max-w-3xl`}
                     >
                         {children}
+                        <Footer></Footer>
                     </div>
                 </section>
                 {/*

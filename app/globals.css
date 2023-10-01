@@ -11,10 +11,10 @@
     }
 
     .translayer * {
-        @apply tw-fixed tw-text-white !tw-font-display !tw-font-light !tw-w-max tw-leading-tight tw-border-[1px] tw-border-black tw-max-w-[10em] tw-text-lg tw-bg-white tw-bg-opacity-[0.05] tw-min-w-[1.25rem] tw-min-h-[1.25rem] tw-p-2;
+        @apply tw-fixed tw-text-white !tw-font-display !tw-font-light !tw-w-max tw-leading-tight  tw-max-w-[10em] tw-text-lg tw-bg-white tw-bg-opacity-[0.05] tw-min-w-[1.25rem] tw-min-h-[1.25rem] tw-p-2;
     }
     .translayer .occupied {
-        @apply tw-bg-black tw-bg-gradient-to-b tw-from-[rgba(255,255,255,0)] tw-via-[rgba(255,255,255,0.4)] tw-to-[rgba(255,255,255,0)];
+        @apply tw-bg-black tw-border-black tw-border-[1px] tw-bg-gradient-to-b tw-from-[rgba(255,255,255,0)] tw-via-[rgba(255,255,255,0.4)] tw-to-[rgba(255,255,255,0)];
     }
     .blacklayer * {
         @apply tw-fixed tw-bg-black tw-w-[33.5%] tw-h-[33.5%];

@@ -29,6 +29,7 @@ const PROPERTY = {
     in_progress: 'in progress',
     current: 'in progress',
     is_publish: 'is published?',
+    is_featured: 'is featured?',
     time_create: 'created time',
     time_edit: 'last edited time',
 };
@@ -139,8 +140,11 @@ export const retrieveMultiSelect = async function () {
     return result;
 };
 
-export const fetchBlogPosts = async function (): Promise<(BlogPost | null)[]> {
+export const fetchBlogPosts = async function (
+    featured = false
+): Promise<(BlogPost | null)[]> {
     console.log('fetchBlogPosts_nocache');
+
     if (!process.env.NOTION_DTB_WORK_ID) return [null];
     const result = await notion.databases.query({
         //page_size: 100,
@@ -151,6 +155,14 @@ export const fetchBlogPosts = async function (): Promise<(BlogPost | null)[]> {
                     property: PROPERTY.is_publish,
                     checkbox: { equals: true },
                 },
+                ...(featured
+                    ? [
+                          {
+                              property: PROPERTY.is_featured,
+                              checkbox: { equals: true },
+                          },
+                      ]
+                    : []),
             ],
         },
         sorts: [{ property: PROPERTY.time_create, direction: 'descending' }],

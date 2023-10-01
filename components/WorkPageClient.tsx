@@ -9,8 +9,6 @@ import { tw_divider, tw_line_overflow } from './TailwindClass';
 import { BlogPost, retrieveMultiSelectT } from '@/types/types';
 import { usePathname, useSearchParams } from 'next/navigation';
 import createQueryString from '@/utils/createQueryString';
-import { Suspense } from 'react';
-import SuspenseFallback from './SuspenseFallback';
 import { Char, Half, Word } from './WordProcessor';
 import { motion } from 'framer-motion';
 
@@ -71,7 +69,7 @@ export default function WorkPageClient({
     }, [filter.name]);
 
     return (
-        <Suspense fallback={<SuspenseFallback></SuspenseFallback>}>
+        <>
             <li
                 className={`tw-w-full [&>*]:tw-inline tw-text-center ${tw_divider} !tw-leading-[3.1em]`}
             >
@@ -218,6 +216,6 @@ export default function WorkPageClient({
                     })}
                 </li>
             </section>
-        </Suspense>
+        </>
     );
 }

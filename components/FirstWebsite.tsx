@@ -150,46 +150,28 @@ export default async function FirstWebsite() {
                             <h1>Archived site 2020 - 2022</h1>
                             <p id="description" className="activate">
                                 Bao Anh (or Bao) is{` `}
-                                <span
-                                    style={{ color: 'rgb(var(--dg_pro))' }}
-                                    title="filtering @digital_product"
-                                >
+                                <span title="filtering @digital_product">
                                     digital design &amp; development
                                 </span>
                                 ,{` `}
-                                <span
-                                    style={{ color: 'rgb(var(--mo_gra))' }}
-                                    title="filtering @motion_graphic"
-                                >
+                                <span title="filtering @motion_graphic">
                                     motion graphic
                                 </span>
                                 ,{` `}
-                                <span
-                                    style={{ color: 'rgb(var(--illus))' }}
-                                    title="filtering @illustration"
-                                >
+                                <span title="filtering @illustration">
                                     illustration
                                 </span>
                                 ,{` `}
-                                <span
-                                    style={{ color: 'rgb(var(--print))' }}
-                                    title="filtering @print_matter"
-                                >
+                                <span title="filtering @print_matter">
                                     print production
                                 </span>
                                 ,{` `}
-                                <span
-                                    style={{ color: 'rgb(var(--spcl))' }}
-                                    title="filtering @speculative"
-                                >
+                                <span title="filtering @speculative">
                                     experimental
                                 </span>
                                 {` `}
                                 and{` `}
-                                <span
-                                    style={{ color: 'rgb(var(--time))' }}
-                                    title="filtering @communication"
-                                >
+                                <span title="filtering @communication">
                                     communication design
                                 </span>
                                 .<br />
@@ -343,9 +325,7 @@ export default async function FirstWebsite() {
                             className="tw-block"
                             style={{ paddingBottom: 'var(--pad_welcome)' }}
                         >
-                            <h2 style={{ color: 'rgb(var(--print))' }}>
-                                Contacts↓
-                            </h2>
+                            <h2>Contacts↓</h2>
                             <address>
                                 <a
                                     href="https://www.instagram.com/bao.anh.bui"
@@ -376,9 +356,7 @@ export default async function FirstWebsite() {
                             </address>
                             {/* */}
                             <br />
-                            <h2 style={{ color: 'rgb(var(--dg_pro))' }}>
-                                Education↓
-                            </h2>
+                            <h2>Education↓</h2>
                             <table>
                                 <tbody>
                                     <tr>
@@ -421,9 +399,7 @@ export default async function FirstWebsite() {
                             </table>
                             {/* */}
                             <br />
-                            <h2 style={{ color: 'rgb(var(--mo_gra))' }}>
-                                Work Experiences↓
-                            </h2>
+                            <h2>Work Experiences↓</h2>
                             <table>
                                 <tbody>
                                     <tr>
@@ -488,9 +464,7 @@ export default async function FirstWebsite() {
                             </table>
                             {/* */}
                             <br />
-                            <h2 style={{ color: 'rgb(var(--illus))' }}>
-                                Skills↓
-                            </h2>
+                            <h2>Skills↓</h2>
                             <table className="skills">
                                 <tbody>
                                     <tr>
@@ -523,9 +497,7 @@ export default async function FirstWebsite() {
                             </table>
                             {/* */}
                             <br />
-                            <h2 style={{ color: 'rgb(var(--spcl))' }}>
-                                Activities↓
-                            </h2>
+                            <h2>Activities↓</h2>
                             <table>
                                 <tbody>
                                     <tr>
@@ -628,9 +600,7 @@ export default async function FirstWebsite() {
                             </table>
                             {/* */}
                             <br />
-                            <h2 style={{ color: 'rgb(var(--time))' }}>
-                                Accolades↓
-                            </h2>
+                            <h2>Accolades↓</h2>
                             <table>
                                 <tbody>
                                     <tr>
