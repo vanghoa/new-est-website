@@ -128,7 +128,7 @@ export default function Page({ params }: DynamicProps) {
     );
 }
 
-export async function PageSuspense({ params }: DynamicProps) {
+async function PageSuspense({ params }: DynamicProps) {
     const slug = params.slug as string;
     //const blogPost: BlogPost | null = await cache_fetchBlogPostBySlug(slug);
     // @ts-ignore
