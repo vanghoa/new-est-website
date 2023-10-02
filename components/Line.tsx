@@ -49,6 +49,19 @@ export function LineLoose({
     );
 }
 
+export function WelcomeLine({
+    className = '',
+    ...props
+}: {
+    className?: string;
+}) {
+    return (
+        <LineConstruct className={className} {...props}>
+            *--.--welcome-...to my site...-yesssss;--.--*
+        </LineConstruct>
+    );
+}
+
 export function LineConstruct({
     className = '',
     children,

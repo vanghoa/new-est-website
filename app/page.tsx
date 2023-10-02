@@ -1,6 +1,11 @@
 import AnimatePageComp from '@/components/AnimatePageComp';
 import GuestBookForm from '@/components/GuestBookForm';
-import { Line, LineConstruct, LineLooser } from '@/components/Line';
+import {
+    Line,
+    LineConstruct,
+    LineLooser,
+    WelcomeLine,
+} from '@/components/Line';
 import { CoverImage, HeaderLayout } from '@/components/SmallComponents';
 import { SuspenseNotion } from '@/components/SuspenseFallback';
 import { tw_divider, tw_line_overflow } from '@/components/TailwindClass';
@@ -21,6 +26,9 @@ export default function Home() {
                     design and technology. Thank you for visiting.
                 </Word>
             </HeaderLayout>
+            <WelcomeLine
+                className={`${tw_line_overflow} ${tw_divider}`}
+            ></WelcomeLine>
             <div className="tw-w-full tw-flex tw-flex-col tw-gap-6 tw-justify-end tw-items-center">
                 <h2>
                     <Link href="/i_love_my_work">{`Featured works`}</Link>
@@ -73,7 +81,7 @@ export default function Home() {
                             </p>
                             <Link
                                 href="/i_love_my_work"
-                                className="tw-my-2 tw-flex tw-justify-center tw-items-center"
+                                className="tw-h-[40vh] tw-my-2 tw-flex tw-justify-center tw-items-center"
                             >
                                 {`-> see -> more`}
                                 <br></br>
@@ -92,7 +100,9 @@ export default function Home() {
                     </li>
                 </section>
             </div>
-            <Line className={`${tw_line_overflow} ${tw_divider}`}></Line>
+            <WelcomeLine
+                className={`${tw_line_overflow} ${tw_divider}`}
+            ></WelcomeLine>
             <GuestBookForm></GuestBookForm>
             {false && (
                 <canvas
@@ -137,9 +147,9 @@ async function HomeSuspense() {
                     <Link
                         key={`related${i}`}
                         href={getBlogPostPath(item.slug)}
-                        className="tw-my-2"
+                        className="tw-my-2 tw-h-[40vh] tw-flex tw-flex-col"
                     >
-                        <div className="tw-w-full tw-h-[30vh] tw-relative tw-mb-3">
+                        <div className="tw-w-full tw-flex-grow tw-relative tw-mb-3">
                             <CoverImage
                                 blogPost={item}
                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
