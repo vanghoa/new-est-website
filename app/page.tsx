@@ -7,14 +7,13 @@ import {
     WelcomeLine,
 } from '@/components/Line';
 import { CoverImage, HeaderLayout } from '@/components/SmallComponents';
-import { SuspenseNotion } from '@/components/SuspenseFallback';
 import { tw_divider, tw_line_overflow } from '@/components/TailwindClass';
 import { Word } from '@/components/WordProcessor';
 import { getBlogPostPath } from '@/constants/paths';
 import { cache_fetchNotion } from '@/lib/notionClient';
 import { BlogPost } from '@/types/types';
 import Link from 'next/link';
-import { Fragment } from 'react';
+import { Fragment, Suspense } from 'react';
 
 export default function Home() {
     return (
@@ -56,9 +55,9 @@ export default function Home() {
                     ></LineLooser>
                     <LineLooser className="tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr]"></LineLooser>
                     <li className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 tw-col-[2/4] tw-row-[2/4]">
-                        <SuspenseNotion>
+                        <Suspense fallback={<WaitSuspense></WaitSuspense>}>
                             <HomeSuspense></HomeSuspense>
-                        </SuspenseNotion>
+                        </Suspense>
                         <ol
                             className={`tw-w-full tw-h-full tw-grid tw-grid-cols-[auto_1em] tw-grid-rows-[auto_1em] [&>*:last-child]:tw-col-[1/2] [&>*:last-child]:tw-row-[1/2] tw-overflow-visible tw-group`}
                         >
@@ -186,4 +185,36 @@ async function HomeSuspense() {
             )
         );
     });
+}
+
+function WaitSuspense() {
+    return (
+        <ol
+            className={`tw-w-full tw-h-full tw-grid tw-grid-cols-[auto_1em] tw-grid-rows-[auto_1em] [&>*:last-child]:tw-col-[1/2] [&>*:last-child]:tw-row-[1/2] tw-overflow-visible tw-group`}
+        >
+            <LineConstruct className="group-hover:tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
+                {'-------~----------^-------~--------'}
+            </LineConstruct>
+            <LineConstruct className="group-hover:tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
+                {'-------~----------*-------~--------'}
+            </LineConstruct>
+            <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
+                {'???<>???~??????????<>???????~??<>?????'}
+            </LineConstruct>
+            <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
+                {'%%%%%%%~<>%%%%%%%%%<>%%%%%%%~%%%%%%%%'}
+            </LineConstruct>
+            <p
+                className={`tw-col-[2] tw-row-[2] !tw-leading-[1em] tw-text-center tw-whitespace-nowrap tw-left-[-0.25em]`}
+            >
+                {`( -> )`}
+            </p>
+            <Link
+                href="/i_love_my_work"
+                className="tw-h-[40vh] tw-my-2 tw-flex tw-justify-center tw-items-center"
+            >
+                Waiting...
+            </Link>
+        </ol>
+    );
 }

@@ -18,7 +18,7 @@ export function LineVariale({
 }) {
     return (
         <LineConstruct className={className} {...props}>
-            {`-----------------${variable}---------------`}
+            {`--^~-----^~--${variable}-^~~--_---^~-`}
         </LineConstruct>
     );
 }
@@ -32,6 +32,19 @@ export function LineLooser({
     return (
         <LineConstruct className={className} {...props}>
             ---~------~----~-----~~-------~-
+        </LineConstruct>
+    );
+}
+
+export function LineSpikeLoose({
+    className = '',
+    ...props
+}: {
+    className?: string;
+}) {
+    return (
+        <LineConstruct className={className} {...props}>
+            --^~-----^~--_-~----^~~--_---^~-
         </LineConstruct>
     );
 }
