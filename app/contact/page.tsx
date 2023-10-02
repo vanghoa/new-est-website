@@ -55,7 +55,7 @@ export default function page() {
                 <p className={`tw-col-[3/4] tw-row-[1] !tw-leading-[1em]`}>@</p>
                 <LineLooser className="tw-w-full tw-col-[2/3] tw-row-[1/2]"></LineLooser>
                 <LineLooser className="tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr]"></LineLooser>
-                <li className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-col-[2/4] tw-row-[2/4]">
+                <li className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-col-[2/4] tw-row-[2/4]">
                     {linklist.map((item, i) => (
                         <ol
                             key={`${i}linklist`}

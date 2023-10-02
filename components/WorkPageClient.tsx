@@ -129,7 +129,7 @@ export default function WorkPageClient({
                     ).join('')}`}
                 </p>
                 <LineLooser className="tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr]"></LineLooser>
-                <li className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 2xl:tw-grid-cols-4 tw-col-[2/4] tw-row-[2/4]">
+                <li className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-col-[2/4] tw-row-[2/4]">
                     {blogPosts.map((item, i) => {
                         return (
                             item &&

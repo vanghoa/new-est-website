@@ -18,7 +18,7 @@ import { Fragment, Suspense } from 'react';
 export default function Home() {
     return (
         <AnimatePageComp>
-            <HeaderLayout className="tw-min-h-[65vh]">
+            <HeaderLayout className="tw-min-h-[calc(80vh-11rem)]">
                 <Word elem={'h1'}>Bao Anh is here and now!</Word>
                 <Word elem={'article'} className="tw-max-w-[30rem]">
                     Hello! I like to learn and experiment with new ideas in art,
