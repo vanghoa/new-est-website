@@ -313,7 +313,7 @@ async function PageSuspense({ params }: DynamicProps) {
                                     <Link
                                         key={`related${i}`}
                                         href={getBlogPostPath(item.slug)}
-                                        className="tw-my-2"
+                                        className="tw-m-2"
                                     >
                                         <div className="tw-w-full tw-h-[30vh] tw-relative tw-mb-3">
                                             <CoverImage

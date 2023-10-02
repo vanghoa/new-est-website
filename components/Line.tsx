@@ -84,11 +84,11 @@ export function LineConstruct({
     children: ReactNode;
 }) {
     return (
-        <p
-            className={`${className} tw-whitespace-normal tw-break-words tw-break-all tw-text-center tw-h-4 tw-overflow-hidden first-line:!tw-leading-[1em] tw-mx-auto`}
-            {...props}
-        >
+        <p className={`${className} ${lineConstructClass}`} {...props}>
             {Array.from({ length: 20 }, () => children).join('')}
         </p>
     );
 }
+
+export const lineConstructClass =
+    'tw-whitespace-nowrap tw-break-words tw-break-all tw-text-center tw-h-4 tw-overflow-hidden !tw-leading-[1em] tw-mx-auto';

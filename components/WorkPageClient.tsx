@@ -3,7 +3,12 @@
 import { getBlogPostPath } from '@/constants/paths';
 import Link from 'next/link';
 import React, { Fragment, ReactNode, useMemo, useState } from 'react';
-import { LineConstruct, LineLooser, LineVariale } from './Line';
+import {
+    LineConstruct,
+    LineLooser,
+    LineVariale,
+    lineConstructClass,
+} from './Line';
 import { CoverImage } from './SmallComponents';
 import { tw_divider, tw_line_overflow } from './TailwindClass';
 import { BlogPost, retrieveMultiSelectT } from '@/types/types';
@@ -118,7 +123,7 @@ export default function WorkPageClient({
                 <p className={`tw-col-[1] tw-row-[3/4] !tw-leading-[1em]`}>@</p>
                 <p className={`tw-col-[3/4] tw-row-[1] !tw-leading-[1em]`}>@</p>
                 <p
-                    className={`tw-w-full tw-h-8 tw-col-[2/3] tw-row-[1/2] tw-whitespace-normal tw-break-words tw-break-all tw-text-center tw-overflow-hidden tw-mx-auto before:tw-content-['------------'] sm:before:tw-content-['------------------'] md:before:tw-content-['----------------------------'] lg:before:tw-content-['----------------------------------']`}
+                    className={`tw-w-full tw-h-8 tw-col-[2/3] tw-row-[1/2] ${lineConstructClass} before:tw-content-['------------'] sm:before:tw-content-['------------------'] md:before:tw-content-['----------------------------'] lg:before:tw-content-['----------------------------------']`}
                 >
                     <span className="!tw-italic">
                         ( filter: {filter.name.toLowerCase()} )
@@ -164,7 +169,7 @@ export default function WorkPageClient({
                                     <Link
                                         key={`related${i}`}
                                         href={getBlogPostPath(item.slug)}
-                                        className="tw-my-2"
+                                        className="tw-m-2"
                                     >
                                         <div className="tw-w-full tw-h-[30vh] lg:tw-h-[50vh] tw-relative tw-mb-3">
                                             <CoverImage

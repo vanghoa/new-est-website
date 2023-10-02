@@ -80,7 +80,7 @@ export default function Home() {
                             </p>
                             <Link
                                 href="/i_love_my_work"
-                                className="tw-h-[40vh] tw-my-2 tw-flex tw-justify-center tw-items-center"
+                                className="tw-h-[40vh] tw-m-2 tw-flex tw-justify-center tw-items-center"
                             >
                                 {`-> see -> more`}
                                 <br></br>
@@ -146,7 +146,7 @@ async function HomeSuspense() {
                     <Link
                         key={`related${i}`}
                         href={getBlogPostPath(item.slug)}
-                        className="tw-my-2 tw-h-[40vh] tw-flex tw-flex-col"
+                        className="tw-m-2 tw-h-[40vh] tw-flex tw-flex-col"
                     >
                         <div className="tw-w-full tw-flex-grow tw-relative tw-mb-3">
                             <CoverImage
@@ -211,7 +211,7 @@ function WaitSuspense() {
             </p>
             <Link
                 href="/i_love_my_work"
-                className="tw-h-[40vh] tw-my-2 tw-flex tw-justify-center tw-items-center"
+                className="tw-h-[40vh] tw-m-2 tw-flex tw-justify-center tw-items-center"
             >
                 Waiting...
             </Link>

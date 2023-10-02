@@ -40,6 +40,7 @@ export default function GuestBookForm() {
                         <div className="tw-font-bold tw-py-3 tw-px-1 tw-text-center hover:after:tw-content-['_<-'] hover:before:tw-content-['->_'] sm:tw-w-[8rem] tw-w-full tw-cursor-pointer">
                             <input
                                 type="submit"
+                                value="Submit"
                                 className="tw-cursor-pointer"
                             />
                         </div>

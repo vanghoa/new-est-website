@@ -7,7 +7,7 @@ export default function Footer() {
         <>
             <ImageFrame
                 elem={LineSpikeLoose}
-                className="tw-mt-[20vh] md:tw-mt-[25vh] tw-mb-8 tw-opacity-60"
+                className="tw-mt-[20vh] md:tw-mt-[25vh] tw-mb-[10vh] tw-opacity-60"
             >
                 <section
                     className={`tw-w-full tw-p-4 [&_:is(span,a)]:tw-underline tw-flex tw-flex-col tw-gap-4`}
