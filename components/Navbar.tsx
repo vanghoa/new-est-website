@@ -26,11 +26,6 @@ export default function Navbar() {
         ],
         [
             {
-                name: 'Resume',
-                href: '/resume/baoanhbui-resume-031023.pdf',
-                tooltips: 'a pdf file ~58kb',
-            },
-            {
                 name: 'Info',
                 href: '/info',
                 tooltips:
@@ -73,6 +68,17 @@ export default function Navbar() {
                 ))}
             </div>
             <div className="reveal_child [&_a]:tw-bottom-[0.4rem] tw-z-[-2] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-5 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-11 tw-pointer-events-auto">
+                <span className="tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-min-w-[8rem]">
+                    <Char
+                        elem={'a'}
+                        rest={{
+                            href: '/resume/baoanhbui-resume-031023.pdf',
+                        }}
+                    >
+                        Resume
+                        <Tooltips>a pdf file ~49kb</Tooltips>
+                    </Char>
+                </span>
                 {navlist[1].map(({ name, href, tooltips }, i) => (
                     <span
                         key={`navlist${i}`}
