@@ -6,10 +6,10 @@ export default function page() {
     return (
         <AnimatePageComp>
             <HeaderLayout>
-                <Word elem={'h1'}>Resume</Word>
-                <Word elem={'article'} className="tw-max-w-[30rem]">
-                    Some content
-                </Word>
+                <iframe
+                    className="tw-w-full tw-min-w-[100vw] tw-h-[100vw] tw-left-1/2 tw-transform tw-translate-x-[-50%]"
+                    src="/resume/baoanhbui-resume-031023.pdf"
+                ></iframe>
             </HeaderLayout>
         </AnimatePageComp>
     );

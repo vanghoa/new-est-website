@@ -142,7 +142,7 @@ export function ImageNoWidth({
                 width={0}
                 height={0}
                 sizes={sizes}
-                className="tw-h-auto tw-w-full tw-border-white tw-border-[1px]"
+                className="tw-h-auto tw-w-full"
             ></Image>
         </div>
     );
@@ -166,7 +166,7 @@ export const CoverImage = ({
                 sizes={sizes}
                 quality={100}
                 fill={true}
-                className={`tw-object-cover tw-w-full tw-h-full tw-border-white tw-border-[1px] ${className}`}
+                className={`tw-object-cover tw-w-full tw-h-full ${className}`}
             ></Image>
         ) : (
             // eslint-disable-next-line @next/next/no-img-element

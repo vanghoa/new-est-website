@@ -27,8 +27,8 @@ export default function Navbar() {
         [
             {
                 name: 'Resume',
-                href: '/resume',
-                tooltips: 'a pdf file 74kb',
+                href: '/resume/baoanhbui-resume-031023.pdf',
+                tooltips: 'a pdf file ~58kb',
             },
             {
                 name: 'Info',
