@@ -16,6 +16,7 @@ import { GuestBook } from '@prisma/client';
 //import GuestBookContext from '@/components/GuestBookContext';
 import { spiralGen, SculpturePiece } from '@/components/SculptureConstruct';
 import Footer from '@/components/Footer';
+import { DOMAIN } from '@/constants/paths';
 
 const sans = Work_Sans({
     subsets: ['latin'],
@@ -28,13 +29,58 @@ const display = Alegreya({
     variable: '--font-display',
 });
 
+const metadata_template = {
+    title: 'ảo anh',
+    description: `Personal site/portfolio of Bảo Anh Bùi`,
+    images: '/base/garage/2.jpg',
+};
+
 export const metadata: Metadata = {
-    title: 'Bảo Anh Bùi',
-    description: 'personal site of Bảo Anh',
+    title: metadata_template.title,
+    metadataBase: new URL(DOMAIN),
+    description: metadata_template.description,
+    creator: 'Bao Anh Bui',
+    publisher: 'Bui Nguyen Bao Anh',
     formatDetection: {
         email: false,
         address: false,
         telephone: false,
+    },
+    alternates: {
+        canonical: DOMAIN,
+        languages: {
+            'vn-BIP': '/vn-BIP',
+        },
+    },
+    openGraph: {
+        title: metadata_template.title,
+        description: metadata_template.description,
+        url: DOMAIN,
+        siteName: metadata_template.title,
+        images: metadata_template.images,
+        locale: 'vn_BIP',
+        type: 'article',
+        authors: ['Bao', 'Bui'],
+    },
+    twitter: {
+        card: 'summary',
+        title: metadata_template.title,
+        description: metadata_template.description,
+        creator: 'Bao Anh Bui',
+        images: metadata_template.images,
+    },
+    robots: {
+        index: false,
+        follow: true,
+        nocache: true,
+        googleBot: {
+            index: true,
+            follow: false,
+            noimageindex: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
     },
 };
 

@@ -10,7 +10,7 @@ import recursivelyNullifyUndefinedValues from '@/utils/recursivelyNullifyUndefin
 import truncateString from '@/utils/truncateString';
 import { Metadata, ResolvingMetadata } from 'next';
 import { BlogPost, DynamicProps } from '@/types/types';
-import { PATH, getBlogPostPath } from '@/constants/paths';
+import { DOMAIN, PATH, getBlogPostPath } from '@/constants/paths';
 import { Render, withContentValidation } from '@9gustin/react-notion-render';
 import {
     HeaderLayout,
@@ -59,7 +59,7 @@ export async function generateMetadata(
 
     return {
         title: title,
-        metadataBase: new URL(PATH),
+        metadataBase: new URL(DOMAIN),
         description: truncatedContent,
         creator: 'Bao Anh Bui',
         publisher: 'Bui Nguyen Bao Anh',
