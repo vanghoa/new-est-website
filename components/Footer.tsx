@@ -10,7 +10,7 @@ export default function Footer() {
                 className="tw-mt-[20vh] md:tw-mt-[25vh] tw-mb-[10vh] tw-opacity-60"
             >
                 <section
-                    className={`tw-w-full tw-p-4 [&_:is(span,a)]:tw-underline tw-flex tw-flex-col tw-gap-4`}
+                    className={`tw-w-full tw-p-4 [&_:is(span,a)]:tw-underline tw-flex tw-flex-col tw-gap-4 tw-border-white tw-border-[1px]`}
                 >
                     <p>
                         Site is built on <span>Next.js</span> with{' '}
@@ -32,9 +32,9 @@ export default function Footer() {
                     </p>
                     <p>
                         Typeface is <span>Alegreya</span> designed by Juan Pablo
-                        del Peral, Huerta Tipográfica. The idea of the site is
-                        based on the <span>3D View</span> of the developer tool
-                        of Microsoft Edge.
+                        del Peral, Huerta Tipográfica. The idea of the site can
+                        be observed via the <span>3D View</span> of the
+                        developer tool of Microsoft Edge.
                     </p>
                 </section>
             </ImageFrame>

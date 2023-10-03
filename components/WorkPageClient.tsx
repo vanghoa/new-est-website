@@ -169,12 +169,12 @@ export default function WorkPageClient({
                                     <Link
                                         key={`related${i}`}
                                         href={getBlogPostPath(item.slug)}
-                                        className="tw-m-2"
+                                        className="tw-my-2 tw-mx-1"
                                     >
                                         <div className="tw-w-full tw-h-[30vh] lg:tw-h-[50vh] tw-relative tw-mb-3">
                                             <CoverImage
                                                 blogPost={item}
-                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                                 className="group-hover:tw-hidden"
                                             ></CoverImage>
                                             <div className="tw-h-full tw-w-full tw-hidden tw-justify-center tw-items-center tw-absolute tw-left-0 tw-top-0 tw-p-8 group-hover:tw-flex tw-flex-col tw-gap-3 tw-text-center">

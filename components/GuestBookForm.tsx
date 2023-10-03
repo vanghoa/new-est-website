@@ -30,7 +30,7 @@ export default function GuestBookForm() {
             <h2>{trace}</h2>
             {trace != 'Thank you for being here <3' && (
                 <ImageFrame elem={LineLoose} className="tw-w-full tw-h-full">
-                    <label className="tw-w-full tw-flex tw-flex-col sm:tw-flex-row tw-items-center tw-gap-3">
+                    <label className="tw-w-full tw-flex tw-flex-col sm:tw-flex-row tw-items-center tw-border-white tw-border-[1px]">
                         <input
                             className="tw-w-full !tw-text-black tw-p-3"
                             type="text"

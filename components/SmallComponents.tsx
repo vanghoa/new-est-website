@@ -91,7 +91,10 @@ export function ImageNotion(block: any, altsuffix: string | null) {
         block: { content: data },
     } = block;
     return (
-        <ImageFrame elem={Line}>
+        <ImageFrame
+            elem={Line}
+            className="tw-min-w-[70vw] tw-left-1/2 tw-transform tw-translate-x-[-50%]"
+        >
             {data.type == 'external' ? (
                 <ImageNoWidth
                     alt={
@@ -99,7 +102,7 @@ export function ImageNotion(block: any, altsuffix: string | null) {
                         ` - ${altsuffix ?? 'Bao Anh Bui website'}`
                     }
                     src={data?.external?.url}
-                    sizes="(max-width: 1000px) 100vw, 1000px"
+                    sizes="(max-width: 1000px) 100vw, 70vw"
                 ></ImageNoWidth>
             ) : (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -139,7 +142,7 @@ export function ImageNoWidth({
                 width={0}
                 height={0}
                 sizes={sizes}
-                className="tw-h-auto tw-w-full"
+                className="tw-h-auto tw-w-full tw-border-white tw-border-[1px]"
             ></Image>
         </div>
     );
@@ -163,7 +166,7 @@ export const CoverImage = ({
                 sizes={sizes}
                 quality={100}
                 fill={true}
-                className={`tw-object-cover tw-w-full tw-h-full ${className}`}
+                className={`tw-object-cover tw-w-full tw-h-full tw-border-white tw-border-[1px] ${className}`}
             ></Image>
         ) : (
             // eslint-disable-next-line @next/next/no-img-element

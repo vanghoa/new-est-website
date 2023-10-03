@@ -13,7 +13,7 @@ import { getBlogPostPath } from '@/constants/paths';
 import { cache_fetchNotion } from '@/lib/notionClient';
 import { BlogPost } from '@/types/types';
 import Link from 'next/link';
-import { Fragment, Suspense } from 'react';
+import { Fragment, ReactNode, Suspense } from 'react';
 
 export default function Home() {
     return (
@@ -58,44 +58,20 @@ export default function Home() {
                         <Suspense fallback={<WaitSuspense></WaitSuspense>}>
                             <HomeSuspense></HomeSuspense>
                         </Suspense>
-                        <ol
-                            className={`tw-w-full tw-h-full tw-grid tw-grid-cols-[auto_1em] tw-grid-rows-[auto_1em] [&>*:last-child]:tw-col-[1/2] [&>*:last-child]:tw-row-[1/2] tw-overflow-visible tw-group`}
-                        >
-                            <LineConstruct className="group-hover:tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
-                                {'-------~----------^-------~--------'}
-                            </LineConstruct>
-                            <LineConstruct className="group-hover:tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
-                                {'-------~----------*-------~--------'}
-                            </LineConstruct>
-                            <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
-                                {'???<>???~??????????<>???????~??<>?????'}
-                            </LineConstruct>
-                            <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
-                                {'%%%%%%%~<>%%%%%%%%%<>%%%%%%%~%%%%%%%%'}
-                            </LineConstruct>
-                            <p
-                                className={`tw-col-[2] tw-row-[2] !tw-leading-[1em] tw-text-center tw-whitespace-nowrap tw-left-[-0.25em]`}
-                            >
-                                {`( -> )`}
-                            </p>
-                            <Link
-                                href="/i_love_my_work"
-                                className="tw-h-[40vh] tw-m-2 tw-flex tw-justify-center tw-items-center"
-                            >
-                                {`-> see -> more`}
-                                <br></br>
-                                {`-> of -> my`}
-                                <br></br>
-                                {`-> works`}
-                                <br></br>
-                                {`-> ...`}
-                                <br></br>
-                                {`-> ..`}
-                                <br></br>
-                                {`-> .`}
-                                <br></br>
-                            </Link>
-                        </ol>
+                        <OlGroup nthno="( -> )" href="/i_love_my_work">
+                            {`-> see -> more`}
+                            <br></br>
+                            {`-> of -> my`}
+                            <br></br>
+                            {`-> works`}
+                            <br></br>
+                            {`-> ...`}
+                            <br></br>
+                            {`-> ..`}
+                            <br></br>
+                            {`-> .`}
+                            <br></br>
+                        </OlGroup>
                     </li>
                 </section>
             </div>
@@ -122,72 +98,66 @@ async function HomeSuspense() {
         return (
             item &&
             item.slug && (
-                <ol
-                    className={`tw-w-full tw-grid tw-grid-cols-[auto_1em] tw-grid-rows-[auto_1em] [&>*:last-child]:tw-col-[1/2] [&>*:last-child]:tw-row-[1/2] tw-overflow-visible tw-group`}
+                <OlGroup
                     key={`${i}workitem`}
+                    nthno={`( ${i + 1} )`}
+                    href={getBlogPostPath(item.slug)}
                 >
-                    <LineConstruct className="group-hover:tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
-                        {'-------~----------^-------~--------'}
-                    </LineConstruct>
-                    <LineConstruct className="group-hover:tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
-                        {'-------~----------*-------~--------'}
-                    </LineConstruct>
-                    <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
-                        {'???<>???~??????????<>???????~??<>?????'}
-                    </LineConstruct>
-                    <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
-                        {'@@@@@@@~<>@@@@@@@@@<>@@@@@@@~@@@@@@@@'}
-                    </LineConstruct>
-                    <p
-                        className={`tw-col-[2] tw-row-[2] !tw-leading-[1em] tw-text-center tw-whitespace-nowrap tw-left-[-0.25em]`}
-                    >
-                        ( {i + 1} )
-                    </p>
-                    <Link
-                        key={`related${i}`}
-                        href={getBlogPostPath(item.slug)}
-                        className="tw-m-2 tw-h-[40vh] tw-flex tw-flex-col"
-                    >
-                        <div className="tw-w-full tw-flex-grow tw-relative tw-mb-3">
-                            <CoverImage
-                                blogPost={item}
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
-                                className="group-hover:tw-hidden"
-                            ></CoverImage>
-                            <div className="tw-h-full tw-w-full tw-hidden tw-justify-center tw-items-center tw-absolute tw-left-0 tw-top-0 tw-p-8 group-hover:tw-flex tw-flex-col tw-gap-3 tw-text-center">
-                                <span>{item.blurb}</span>
-                                <p>
-                                    {item['big tag']?.map((tag, i) => (
-                                        <Fragment key={`bigtag${i}`}>
-                                            <span className="tw-inline-block tw-mx-2">
-                                                {tag}
-                                            </span>
-                                            |
-                                        </Fragment>
-                                    ))}
-                                    {item['small tag']?.map((tag, i) => (
-                                        <Fragment key={`smalltag${i}`}>
-                                            <span className="tw-inline-block tw-mx-2">
-                                                {tag}
-                                            </span>
-                                            {item['small tag']?.[i + 1] && '|'}
-                                        </Fragment>
-                                    ))}
-                                </p>
-                            </div>
+                    <div className="tw-w-full tw-flex-grow tw-relative tw-mb-3">
+                        <CoverImage
+                            blogPost={item}
+                            sizes="(max-width: 640px) 100vw, 400px"
+                            className="group-hover:tw-hidden"
+                        ></CoverImage>
+                        <div className="tw-h-full tw-w-full tw-hidden tw-justify-center tw-items-center tw-absolute tw-left-0 tw-top-0 tw-p-8 group-hover:tw-flex tw-flex-col tw-gap-3 tw-text-center">
+                            <span>{item.blurb}</span>
+                            <p>
+                                {item['big tag']?.map((tag, i) => (
+                                    <Fragment key={`bigtag${i}`}>
+                                        <span className="tw-inline-block tw-mx-2">
+                                            {tag}
+                                        </span>
+                                        |
+                                    </Fragment>
+                                ))}
+                                {item['small tag']?.map((tag, i) => (
+                                    <Fragment key={`smalltag${i}`}>
+                                        <span className="tw-inline-block tw-mx-2">
+                                            {tag}
+                                        </span>
+                                        {item['small tag']?.[i + 1] && '|'}
+                                    </Fragment>
+                                ))}
+                            </p>
                         </div>
-                        <div>
-                            <p>{item.title}</p>
-                            <p>{item.timestart}</p>
-                        </div>
-                    </Link>
-                </ol>
+                    </div>
+                    <div className="tw-w-full">
+                        <p>{item.title}</p>
+                        <p>{item.timestart}</p>
+                    </div>
+                </OlGroup>
             )
         );
     });
 }
 
 function WaitSuspense() {
+    return (
+        <OlGroup nthno="( ... )" href="/i_love_my_work">
+            Waiting...
+        </OlGroup>
+    );
+}
+
+function OlGroup({
+    children,
+    nthno,
+    href,
+}: {
+    children: ReactNode;
+    nthno: string;
+    href: string;
+}) {
     return (
         <ol
             className={`tw-w-full tw-h-full tw-grid tw-grid-cols-[auto_1em] tw-grid-rows-[auto_1em] [&>*:last-child]:tw-col-[1/2] [&>*:last-child]:tw-row-[1/2] tw-overflow-visible tw-group`}
@@ -207,13 +177,13 @@ function WaitSuspense() {
             <p
                 className={`tw-col-[2] tw-row-[2] !tw-leading-[1em] tw-text-center tw-whitespace-nowrap tw-left-[-0.25em]`}
             >
-                {`( -> )`}
+                {nthno}
             </p>
             <Link
-                href="/i_love_my_work"
-                className="tw-h-[40vh] tw-m-2 tw-flex tw-justify-center tw-items-center"
+                href={href}
+                className="tw-h-[40vh] tw-my-2 tw-mx-[0.2em] tw-flex tw-flex-col tw-justify-center tw-items-center"
             >
-                Waiting...
+                {children}
             </Link>
         </ol>
     );

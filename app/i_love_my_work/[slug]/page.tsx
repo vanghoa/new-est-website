@@ -167,7 +167,7 @@ async function PageSuspense({ params }: DynamicProps) {
                     <div className="rnr-image tw-w-full tw-h-[30vh] tw-relative">
                         <CoverImage
                             blogPost={blogPost}
-                            sizes="(max-width: 1000px) 100vw, 800px"
+                            sizes="(max-width: 700px) 100vw, 700px"
                         ></CoverImage>
                     </div>
                 </ImageFrame>
@@ -313,12 +313,12 @@ async function PageSuspense({ params }: DynamicProps) {
                                     <Link
                                         key={`related${i}`}
                                         href={getBlogPostPath(item.slug)}
-                                        className="tw-m-2"
+                                        className="tw-my-2 tw-mx-1"
                                     >
                                         <div className="tw-w-full tw-h-[30vh] tw-relative tw-mb-3">
                                             <CoverImage
                                                 blogPost={item}
-                                                sizes="250px"
+                                                sizes="(max-width: 250px) 100vw, 250px"
                                             ></CoverImage>
                                         </div>
                                         <div>
