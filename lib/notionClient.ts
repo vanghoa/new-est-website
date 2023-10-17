@@ -13,6 +13,7 @@ import probeImageSize from './probeImageSize';
 import { cache } from 'react';
 import { cacheType } from '@/app/api/notionFetch/route';
 import { getAPIRoutePath } from '@/constants/paths';
+import VimeoSize from './VimeoSize';
 
 // custom props
 const PROPERTY = {
@@ -32,6 +33,8 @@ const PROPERTY = {
     is_featured: 'is featured?',
     time_create: 'created time',
     time_edit: 'last edited time',
+    backgroundcolor: 'background color',
+    textcolor: 'text color',
 };
 
 function getTextValue(property: any): string | null {
@@ -41,7 +44,7 @@ function getDateValueStart(property: any): string | null {
     return property?.date?.start.slice(0, -3) ?? null;
 }
 function getDateValueEnd(property: any): string | null {
-    return property?.date?.end ?? null;
+    return property?.date?.end.slice(0, -3) ?? null;
 }
 function getMultiSelectValues(property: any): string[] | null {
     return (
@@ -115,6 +118,9 @@ function transformNotionPageIntoBlogPost(
         indiv: getRollUpandLink(page.properties[PROPERTY.indiv_link]),
         group: getRollUpandLink(page.properties[PROPERTY.group_link]),
         timecreate: 'created_time' in page ? page.created_time : '',
+        backgroundColor:
+            getTextValue(page.properties[PROPERTY.backgroundcolor]) ?? 'black',
+        textColor: getTextValue(page.properties[PROPERTY.textcolor]) ?? 'white',
     };
 }
 
@@ -197,14 +203,12 @@ export const fetchBlogPostsRelated = async function (
                     property: PROPERTY.is_publish,
                     checkbox: { equals: true },
                 },
-                /*
                 {
                     property: PROPERTY.slug,
                     rich_text: {
                         does_not_equal: exclude,
                     },
                 },
-                */
             ],
         },
         sorts: [{ property: PROPERTY.time_create, direction: 'descending' }],
@@ -244,6 +248,43 @@ export const fetchBlogPostBySlug = async function (
     return blogPost;
 };
 
+async function addDimensionsToVideoBlocks(
+    blocks: GetBlockResponse[]
+): Promise<void[]> {
+    return await Promise.all(
+        blocks
+            .filter((block) => 'type' in block && block.type === 'video')
+            .map(async (block) => {
+                // @ts-ignore
+                const type = block.type;
+                // @ts-ignore
+                const value = block[type];
+                const src =
+                    value.type === 'external'
+                        ? value.external.url
+                        : value.type === 'file'
+                        ? value.file.url
+                        : null;
+                if (value.type === 'file') {
+                    //internal
+                    console.log(`local video caught: ${value.file.url}`);
+                }
+                if (!src) {
+                    return;
+                }
+                return VimeoSize(src)
+                    .then(({ width, height }) => {
+                        // @ts-ignore
+                        block[type].external.dim = { width, height };
+                    })
+                    .catch((error) => {
+                        console.warn(error);
+                        return;
+                    });
+            })
+    );
+}
+
 async function addDimensionsToImageBlocks(
     blocks: GetBlockResponse[]
 ): Promise<void[]> {
@@ -276,6 +317,7 @@ async function addDimensionsToImageBlocks(
                             dim: { width, height },
                             alt: value.caption[0]?.plain_text,
                         };
+                        return;
                         // @ts-ignore
                         //console.log(block[type]);
                     })
@@ -291,12 +333,30 @@ async function addDimensionsToImageBlocks(
 export const fetchAllBlocks = async function (
     pageIdOrBlockId: string
 ): Promise<GetBlockResponse[]> {
+    //
+    async function refetchAllBlocks(cursor: string | false) {
+        const result = await notion.blocks.children.list(
+            cursor
+                ? {
+                      block_id: pageIdOrBlockId,
+                      page_size: 100,
+                      start_cursor: cursor,
+                  }
+                : {
+                      block_id: pageIdOrBlockId,
+                      page_size: 100,
+                  }
+        );
+        let blocks = result.results;
+        if (result.has_more && result.next_cursor) {
+            blocks = blocks.concat(await refetchAllBlocks(result.next_cursor));
+        }
+        return blocks;
+    }
+    //
     console.log('fetchAllBlocks_nocache');
-    const result = await notion.blocks.children.list({
-        block_id: pageIdOrBlockId,
-    });
-    const blocks = result.results;
-
+    //
+    const blocks = await refetchAllBlocks(false);
     // Retrieve block children for nested blocks (one level deep), for example toggle blocks
     const childBlocks = await Promise.all(
         blocks
@@ -324,7 +384,7 @@ export const fetchAllBlocks = async function (
         return block;
     });
 
-    //await addDimensionsToImageBlocks(blocksWithChildren);
+    await addDimensionsToVideoBlocks(blocksWithChildren);
 
     return blocksWithChildren;
 };

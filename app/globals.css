@@ -3,9 +3,14 @@
 @import 'tailwindcss/utilities';
 @import '../components/FirstWebsite.css';
 
+:root {
+    --background-color: black;
+    --text-color: white;
+}
+
 @layer base {
     .translayer * {
-        @apply tw-fixed tw-text-white !tw-font-display !tw-font-light !tw-w-max tw-leading-tight  tw-max-w-[10em] tw-text-lg tw-bg-white tw-bg-opacity-[0.05] tw-min-w-[1.25rem] tw-min-h-[1.25rem] tw-p-2;
+        @apply tw-fixed tw-text-white !tw-font-display !tw-font-light !tw-w-max tw-leading-tight  tw-max-w-[10em] tw-text-lg tw-bg-[rgba(255,255,255,0.05)] tw-min-w-[1.25rem] tw-min-h-[1.25rem] tw-p-2;
     }
     .translayer .occupied {
         @apply tw-bg-black tw-border-black tw-border-[1px] tw-bg-gradient-to-b tw-from-[rgba(255,255,255,0)] tw-via-[rgba(255,255,255,0.4)] tw-to-[rgba(255,255,255,0)];
@@ -229,5 +234,42 @@
 
     .rnr-empty-block {
         @apply tw-text-center tw-mt-14 tw-overflow-auto;
+    }
+
+    .rnr-italic {
+        @apply !tw-italic;
+    }
+
+    .rnr-paragraph a {
+        @apply tw-underline;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        @apply tw-absolute tw-w-[10%] tw-top-0 tw-h-full tw-z-10 tw-cursor-pointer tw-flex tw-items-center tw-justify-center tw-bg-gradient-to-r tw-to-transparent tw-from-black tw-from-20%;
+    }
+
+    .swiper-button-prev::after {
+        content: '<--|';
+    }
+
+    .swiper-button-next::before {
+        content: '|-->';
+    }
+
+    .swiper-button-next {
+        @apply tw-right-0 tw-bg-gradient-to-l;
+    }
+
+    .swiper-button-prev.swiper-button-disabled,
+    .swiper-button-next.swiper-button-disabled {
+        @apply tw-opacity-50 tw-cursor-auto tw-pointer-events-none;
+    }
+
+    li.rnr-bulleted_list_item {
+        margin-left: 3em;
+    }
+    li.rnr-bulleted_list_item::before {
+        content: '- ';
     }
 }

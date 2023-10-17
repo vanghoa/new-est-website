@@ -11,9 +11,15 @@ const config: Config = {
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
+        colors: {
+            white: 'var(--text-color)',
+            black: 'var(--background-color)',
+            transparent: 'rgba(255,255,255,0)',
+        },
         fontFamily: {
             display: 'var(--font-display)',
             body: 'var(--font-sans)',
+            mono: 'var(--font-mono)',
         },
         extend: {
             keyframes: {

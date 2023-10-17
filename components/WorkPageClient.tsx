@@ -9,7 +9,7 @@ import {
     LineVariale,
     lineConstructClass,
 } from './Line';
-import { CoverImage } from './SmallComponents';
+import { CoverImage, OLOverlay } from './SmallComponents';
 import { tw_divider, tw_line_overflow } from './TailwindClass';
 import { BlogPost, retrieveMultiSelectT } from '@/types/types';
 import { usePathname, useSearchParams } from 'next/navigation';
@@ -133,7 +133,17 @@ export default function WorkPageClient({
                         () => '---------------*-------------------'
                     ).join('')}`}
                 </p>
-                <LineLooser className="tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr]"></LineLooser>
+                <p
+                    className={`tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr] tw-transform tw-rotate-180 ${lineConstructClass} before:tw-content-['------------'] sm:before:tw-content-['------------------'] md:before:tw-content-['----------------------------'] lg:before:tw-content-['----------------------------------']`}
+                >
+                    <span className="!tw-italic">
+                        ( total projects: {blogPosts.length} )
+                    </span>
+                    {`${Array.from(
+                        { length: 100 },
+                        () => '---------------*-------------------'
+                    ).join('')}`}
+                </p>
                 <li className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-col-[2/4] tw-row-[2/4]">
                     {blogPosts.map((item, i) => {
                         return (
@@ -177,6 +187,7 @@ export default function WorkPageClient({
                                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                                 className="group-hover:tw-hidden"
                                             ></CoverImage>
+                                            <OLOverlay></OLOverlay>
                                             <div className="tw-h-full tw-w-full tw-hidden tw-justify-center tw-items-center tw-absolute tw-left-0 tw-top-0 tw-p-8 group-hover:tw-flex tw-flex-col tw-gap-3 tw-text-center">
                                                 <span>{item.blurb}</span>
                                                 <p>

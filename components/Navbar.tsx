@@ -73,6 +73,7 @@ export default function Navbar() {
                         elem={'a'}
                         rest={{
                             href: '/resume/baoanhbui-resume-031023.pdf',
+                            target: '_blank',
                         }}
                     >
                         Resume

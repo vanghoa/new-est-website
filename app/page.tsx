@@ -6,7 +6,11 @@ import {
     LineLooser,
     WelcomeLine,
 } from '@/components/Line';
-import { CoverImage, HeaderLayout } from '@/components/SmallComponents';
+import {
+    CoverImage,
+    HeaderLayout,
+    OLOverlay,
+} from '@/components/SmallComponents';
 import { tw_divider, tw_line_overflow } from '@/components/TailwindClass';
 import { Word } from '@/components/WordProcessor';
 import { getBlogPostPath } from '@/constants/paths';
@@ -109,7 +113,8 @@ async function HomeSuspense() {
                             sizes="(max-width: 640px) 100vw, 400px"
                             className="group-hover:tw-hidden"
                         ></CoverImage>
-                        <div className="tw-h-full tw-w-full tw-hidden tw-justify-center tw-items-center tw-absolute tw-left-0 tw-top-0 tw-p-8 group-hover:tw-flex tw-flex-col tw-gap-3 tw-text-center">
+                        <OLOverlay></OLOverlay>
+                        <div className="tw-h-full tw-w-full tw-hidden tw-justify-center tw-items-center tw-absolute tw-z-20 tw-left-0 tw-top-0 tw-p-8 group-hover:tw-flex tw-flex-col tw-gap-3 tw-text-center">
                             <span>{item.blurb}</span>
                             <p>
                                 {item['big tag']?.map((tag, i) => (

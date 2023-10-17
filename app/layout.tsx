@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { Work_Sans, Alegreya } from 'next/font/google';
 import FirstWebsite from '@/components/FirstWebsite';
 import Script from 'next/script';
+import localFont from 'next/font/local';
 import Link from 'next/link';
 import { Char, Rand } from '@/components/WordProcessor';
 import { Tooltips } from '@/components/SmallComponents';
@@ -17,6 +18,7 @@ import { GuestBook } from '@prisma/client';
 import { spiralGen, SculpturePiece } from '@/components/SculptureConstruct';
 import Footer from '@/components/Footer';
 import { DOMAIN } from '@/constants/paths';
+import 'swiper/css';
 
 const sans = Work_Sans({
     subsets: ['latin'],
@@ -27,6 +29,13 @@ const display = Alegreya({
     subsets: ['latin'],
     style: ['normal', 'italic'],
     variable: '--font-display',
+});
+
+const mono = localFont({
+    weight: '100',
+    src: '../public/font/SelectMono-Italic.woff',
+    display: 'swap',
+    variable: '--font-mono',
 });
 
 const metadata_template = {
@@ -104,7 +113,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="tw-w-full tw-bg-black tw-h-[var(--vh100)]">
             <body
-                className={`${sans.variable} ${display.variable} tw-w-full tw-h-[var(--vh100)] tw-relative tw-bg-black tw-overflow-y-scroll`}
+                className={`${sans.variable} ${display.variable} ${mono.variable} tw-w-full tw-h-[var(--vh100)] tw-relative tw-bg-black tw-overflow-y-scroll`}
             >
                 <Script
                     src="/beforeInteractive.js"
@@ -119,7 +128,7 @@ export default function RootLayout({
                 <section className="[&_*]:tw-text-white [&_*]:tw-leading-relaxed reset-this tw-pointer-events-none tw-overflow-x-hidden">
                     <Navbar></Navbar>
                     <div
-                        className={`reveal_child tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-pt-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_*:not(.rnr-image)]:tw-mx-auto [&_>_*:not(.rnr-image)]:tw-max-w-3xl`}
+                        className={`reveal_child tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-pt-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_:first-child:not(.suspense)_>:not(.rnr-image)]:tw-mx-auto [&_>_:first-child:not(.suspense)_>:not(.rnr-image)]:tw-max-w-3xl`}
                     >
                         {children}
                         <Footer></Footer>

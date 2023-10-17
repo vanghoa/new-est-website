@@ -16,6 +16,8 @@ export type BlogPost = {
     indiv: RollUpandLink;
     group: RollUpandLink;
     timecreate: string;
+    backgroundColor: string;
+    textColor: string;
 };
 
 export type Categories = 'all' | 'development' | 'management' | 'remote work';
