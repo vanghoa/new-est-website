@@ -213,7 +213,7 @@ export function ImageNoWidth({
                         className={`tw-h-auto tw-w-full tw-z-10 ${divclass}`}
                     ></Image>
                 ) : (
-                    <div className={`tw-h-auto tw-w-full ${divclass}`}>
+                    <div className={`tw-h-auto tw-w-full tw-z-10 ${divclass}`}>
                         Internal image
                     </div>
                 )}
@@ -295,14 +295,14 @@ export const CoverImage = ({
                         sizes={sizes}
                         quality={100}
                         fill={true}
-                        className={`tw-object-cover tw-w-full tw-h-full ${className}`}
+                        className={`tw-object-cover tw-z-10 tw-w-full tw-h-full ${className}`}
                     ></Image>
                 ) : (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                         alt={blogPost.title + ' Cover Photo'}
                         src={blogPost?.coverImg?.url}
-                        className={`tw-object-cover tw-w-full tw-h-full ${className}`}
+                        className={`tw-object-cover tw-z-10 tw-w-full tw-h-full ${className}`}
                     ></img>
                 ))}
             <PlaceHolderImage></PlaceHolderImage>
