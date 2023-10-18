@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
             console.log('wrong type name');
             return NextResponse.json({
                 succeed: false,
-                message: 'wrong type name',
+                message: 'wrong type name - fuck',
             });
         }
         // @ts-ignore
