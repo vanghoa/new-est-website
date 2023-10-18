@@ -18,6 +18,7 @@ export type BlogPost = {
     timecreate: string;
     backgroundColor: string;
     textColor: string;
+    upwght: boolean;
 };
 
 export type Categories = 'all' | 'development' | 'management' | 'remote work';

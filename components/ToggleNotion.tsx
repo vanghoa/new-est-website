@@ -4,7 +4,16 @@ import { Line, LineLooser } from './Line';
 import { ImageFrame, ImageNoWidth } from './SmallComponents';
 import { VideoFrame } from './ClientComp';
 import SwiperNotion from './SwiperNotion';
-import { tw_border_white_04 } from './TailwindClass';
+import { tw_border_white_04, tw_line_overflow } from './TailwindClass';
+
+export type ToggleBlockType = {
+    notionType: any;
+    content: {
+        caption: any;
+        type: any;
+        external: any;
+    };
+};
 
 export function ToggleNotion(block: any) {
     const {
@@ -75,25 +84,18 @@ function FitHeightNotion({ blocks }: { blocks: [] }) {
                         {
                             notionType,
                             content: { caption, type, external },
-                        }: {
-                            notionType: any;
-                            content: {
-                                caption: any;
-                                type: any;
-                                external: any;
-                            };
-                        },
+                        }: ToggleBlockType,
                         k
                     ) => {
                         switch (notionType) {
                             case 'image':
                                 return (
                                     <ImageNoWidth
-                                        alt={caption}
-                                        src={external?.url}
+                                        alt={caption[0]?.plain_text}
                                         sizes={notmaxszs}
                                         type={type}
                                         divclass="!tw-w-auto !tw-h-[calc(100vh-10rem)]"
+                                        external={external}
                                     ></ImageNoWidth>
                                 );
                                 break;
@@ -129,12 +131,8 @@ function FlexNotion({
                 (
                     {
                         notionType,
-                        content: {
-                            caption,
-                            type,
-                            external: { url },
-                        },
-                    },
+                        content: { caption, type, external },
+                    }: ToggleBlockType,
                     k
                 ) => (
                     <ImageFrame
@@ -148,8 +146,8 @@ function FlexNotion({
                                 case 'image':
                                     return (
                                         <ImageNoWidth
-                                            alt={caption}
-                                            src={url}
+                                            alt={caption[0]?.plain_text}
+                                            external={external}
                                             sizes={
                                                 childw == 'logo'
                                                     ? logosz
@@ -183,31 +181,26 @@ function ColNotion({ blocks, num = 1 }: { blocks: []; num: 1 | 2 | 3 | 4 }) {
         1: 'tw-grid-cols-1',
         2: 'tw-grid-cols-1 md:tw-grid-cols-2',
         3: 'tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3',
-        4: 'tw-grid-cols-1 md:tw-grid-cols-4',
+        4: 'tw-grid-cols-1 md:tw-grid-cols-3 lg:tw-grid-cols-4',
     };
     const grissizes = {
-        1: '(max-width: 700px) 100vw, 700px',
-        2: '(max-width: 700px) 100vw, 300px',
-        3: '(max-width: 700px) 100vw, 200px',
-        4: '(max-width: 700px) 100vw, 130px',
+        1: '(max-width: 768px) 100vw, 700px',
+        2: '(max-width: 768px) 100vw, 40vw',
+        3: '(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 30vw',
+        4: '(max-width: 768px) 100vw, (max-width: 1024px) 30vw, 20vw',
     };
     return (
         <div
-            className={`rnr-image tw-grid tw-items-start tw-justify-center ${grid[num]}`}
+            className={`${
+                num > 1 ? tw_line_overflow : ''
+            } tw-grid tw-items-start tw-justify-center ${grid[num]}`}
         >
             {blocks.map(
                 (
                     {
                         notionType,
                         content: { caption, type, external },
-                    }: {
-                        notionType: any;
-                        content: {
-                            caption: any;
-                            type: any;
-                            external: any;
-                        };
-                    },
+                    }: ToggleBlockType,
                     k
                 ) => (
                     <ImageFrame key={`flex${k}`} elem={Line} maxwidth={false}>
@@ -216,10 +209,10 @@ function ColNotion({ blocks, num = 1 }: { blocks: []; num: 1 | 2 | 3 | 4 }) {
                                 case 'image':
                                     return (
                                         <ImageNoWidth
-                                            alt={caption}
-                                            src={external?.url}
+                                            alt={caption[0]?.plain_text}
                                             sizes={grissizes[num]}
                                             type={type}
+                                            external={external}
                                         ></ImageNoWidth>
                                     );
                                     break;
@@ -248,12 +241,8 @@ function FitWidthNotion({ blocks }: { blocks: [] }) {
         (
             {
                 notionType,
-                content: {
-                    caption,
-                    type,
-                    external: { url },
-                },
-            },
+                content: { caption, type, external },
+            }: ToggleBlockType,
             k
         ) => (
             <ImageFrame key={`flex${k}`} elem={Line} maxwidth={false}>
@@ -262,10 +251,10 @@ function FitWidthNotion({ blocks }: { blocks: [] }) {
                         case 'image':
                             return (
                                 <ImageNoWidth
-                                    alt={caption}
-                                    src={url}
+                                    alt={caption[0]?.plain_text}
                                     sizes={notmaxszs}
                                     type={type}
+                                    external={external}
                                 ></ImageNoWidth>
                             );
                             break;
@@ -289,22 +278,18 @@ function TogetherNotion({ blocks }: { blocks: [] }) {
                     (
                         {
                             notionType,
-                            content: {
-                                caption,
-                                type,
-                                external: { url },
-                            },
-                        },
+                            content: { caption, type, external },
+                        }: ToggleBlockType,
                         k
                     ) => {
                         switch (notionType) {
                             case 'image':
                                 return (
                                     <ImageNoWidth
-                                        alt={caption}
-                                        src={url}
+                                        alt={caption[0]?.plain_text}
                                         sizes={notmaxszs}
                                         type={type}
+                                        external={external}
                                     ></ImageNoWidth>
                                 );
                                 break;

@@ -72,7 +72,7 @@ export default function Navbar() {
                     <Char
                         elem={'a'}
                         rest={{
-                            href: '/resume/baoanhbui-resume-031023.pdf',
+                            href: '/resume/baoanhbui-resume-181023.pdf',
                             target: '_blank',
                         }}
                     >

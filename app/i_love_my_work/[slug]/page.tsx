@@ -15,7 +15,6 @@ import {
     HeaderLayout,
     H1Notion,
     ImageNotion,
-    ImageNoWidth,
     ImageFrame,
     CoverImage,
     VideoNotion,
@@ -173,6 +172,7 @@ async function PageSuspense({ params }: DynamicProps) {
         <AnimatePageComp
             backgroundColor={blogPost.backgroundColor}
             textColor={blogPost.textColor}
+            upwght={blogPost.upwght}
         >
             <HeaderLayout className="tw-flex tw-flex-col tw-gap-6 tw-mt-[5vh]">
                 <ImageFrame elem={Line}>
@@ -194,7 +194,7 @@ async function PageSuspense({ params }: DynamicProps) {
                 </Word>
                 <ImageFrame elem={LineLooser}>
                     <li
-                        className={`tw-p-4 sm:tw-grid sm:tw-grid-cols-2 sm:tw-gap-x-10 sm:tw-gap-y-4 ${tw_border_white_04}`}
+                        className={`tw-p-4 sm:tw-grid sm:tw-grid-cols-2 sm:tw-gap-x-10 sm:tw-gap-y-4 ${tw_border_white_04} [&_h3]:tw-mb-0`}
                     >
                         <ul className="">
                             <Rand
@@ -276,7 +276,7 @@ async function PageSuspense({ params }: DynamicProps) {
             <div className="rnr-empty-block"></div>
             <ImageFrame elem={LineLooser} maxwidth={false}>
                 <li
-                    className={`tw-p-4 tw-w-full sm:tw-grid sm:tw-grid-cols-2 sm:tw-gap-x-10 sm:tw-gap-y-4 ${tw_border_white_04}`}
+                    className={`tw-p-4 tw-w-full sm:tw-grid sm:tw-grid-cols-2 sm:tw-gap-x-10 sm:tw-gap-y-4 ${tw_border_white_04} [&_h3]:tw-mb-0`}
                 >
                     <ul>
                         <Rand
@@ -285,32 +285,18 @@ async function PageSuspense({ params }: DynamicProps) {
                         >
                             People Involved
                         </Rand>
+                        <Link className="tw-mr-5 tw-w-fit sm:tw-block" href="/">
+                            Bao Anh{' '}
+                        </Link>
                         {blogPost.indiv?.map((item, i) => {
                             return (
                                 <>
                                     <a
-                                        className="tw-mr-5 tw-w-fit sm:tw-block"
-                                        key={`${i}credit`}
-                                        href={`${item.href}`}
-                                    >
-                                        {item.name}{' '}
-                                    </a>
-                                </>
-                            );
-                        })}
-                    </ul>
-                    <ul>
-                        <Rand
-                            elem={'h3'}
-                            className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
-                        >
-                            At
-                        </Rand>
-                        {blogPost.group?.map((item, i) => {
-                            return (
-                                <>
-                                    <a
-                                        className="tw-mr-5 tw-w-fit sm:tw-block"
+                                        className={`tw-mr-5 tw-w-fit sm:tw-block ${
+                                            item.href == 'null' || !item.href
+                                                ? 'tw-pointer-events-none'
+                                                : ''
+                                        }`}
                                         key={`${i}credit`}
                                         href={`${item.href}`}
                                         target="_blank"
@@ -321,6 +307,35 @@ async function PageSuspense({ params }: DynamicProps) {
                             );
                         })}
                     </ul>
+                    {blogPost.group?.length && blogPost.group?.length > 0 && (
+                        <ul>
+                            <Rand
+                                elem={'h3'}
+                                className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
+                            >
+                                At
+                            </Rand>
+                            {blogPost.group?.map((item, i) => {
+                                return (
+                                    <>
+                                        <a
+                                            className={`tw-mr-5 tw-w-fit sm:tw-block ${
+                                                item.href == 'null' ||
+                                                !item.href
+                                                    ? 'tw-pointer-events-none'
+                                                    : ''
+                                            }`}
+                                            key={`${i}credit`}
+                                            href={`${item.href}`}
+                                            target="_blank"
+                                        >
+                                            {item.name}{' '}
+                                        </a>
+                                    </>
+                                );
+                            })}
+                        </ul>
+                    )}
                 </li>
             </ImageFrame>
             <Line className={`${tw_line_overflow} ${tw_divider}`}></Line>

@@ -6,6 +6,7 @@
 :root {
     --background-color: black;
     --text-color: white;
+    --font-wght: 100;
 }
 
 @layer base {
@@ -118,6 +119,7 @@
         font-weight: inherit;
         */
         font-family: var(--font-display), serif;
+        font-weight: var(--font-wght);
         /*
         height: auto;
         hyphens: none;
@@ -211,15 +213,18 @@
         font-size: inherit;
         font-style: inherit;
         font-variant: inherit;
-        font-weight: inherit;
         line-height: inherit;
     }
     .reset-this * {
-        @apply tw-tracking-wider;
+        @apply tw-tracking-wide;
     }
     .reset-this :is(h1, h2, h3, h4, h5, h6),
     .reset-this :is(h1, h2, h3, h4, h5, h6) * {
-        @apply tw-tracking-normal tw-font-bold;
+        @apply tw-tracking-normal !tw-font-bold;
+    }
+
+    .reset-this h3 {
+        @apply tw-mb-3;
     }
 
     .tw-group {

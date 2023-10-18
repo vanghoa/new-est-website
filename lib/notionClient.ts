@@ -35,6 +35,7 @@ const PROPERTY = {
     time_edit: 'last edited time',
     backgroundcolor: 'background color',
     textcolor: 'text color',
+    upwght: 'font upweight',
 };
 
 function getTextValue(property: any): string | null {
@@ -121,6 +122,7 @@ function transformNotionPageIntoBlogPost(
         backgroundColor:
             getTextValue(page.properties[PROPERTY.backgroundcolor]) ?? 'black',
         textColor: getTextValue(page.properties[PROPERTY.textcolor]) ?? 'white',
+        upwght: getCheckbox(page.properties[PROPERTY.upwght]) ?? false,
     };
 }
 
@@ -312,18 +314,10 @@ async function addDimensionsToImageBlocks(
                 return probeImageSize(src)
                     .then(({ width, height }) => {
                         // @ts-ignore
-                        block[type] = {
-                            ...value,
-                            dim: { width, height },
-                            alt: value.caption[0]?.plain_text,
-                        };
-                        return;
-                        // @ts-ignore
-                        //console.log(block[type]);
+                        block[type].external.dim = { width, height };
                     })
                     .catch((error) => {
                         console.warn(error);
-                        // Not a huge deal. If this fails, we won't have these and resort back to regular images
                         return;
                     });
             })
@@ -385,6 +379,7 @@ export const fetchAllBlocks = async function (
     });
 
     await addDimensionsToVideoBlocks(blocksWithChildren);
+    await addDimensionsToImageBlocks(blocksWithChildren);
 
     return blocksWithChildren;
 };

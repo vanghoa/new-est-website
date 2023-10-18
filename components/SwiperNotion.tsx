@@ -5,6 +5,7 @@ import { Navigation } from 'swiper/modules';
 import { ImageFrame, ImageNoWidth } from './SmallComponents';
 import { Line } from './Line';
 import { notmaxszs } from './ImageSizes';
+import { ToggleBlockType } from './ToggleNotion';
 
 export default function SwiperNotion({ blocks }: { blocks: [] }) {
     return (
@@ -18,12 +19,8 @@ export default function SwiperNotion({ blocks }: { blocks: [] }) {
                     (
                         {
                             notionType,
-                            content: {
-                                caption,
-                                type,
-                                external: { url },
-                            },
-                        },
+                            content: { caption, type, external },
+                        }: ToggleBlockType,
                         k
                     ) => {
                         return (
@@ -33,10 +30,10 @@ export default function SwiperNotion({ blocks }: { blocks: [] }) {
                                         case 'image':
                                             return (
                                                 <ImageNoWidth
-                                                    alt={caption}
-                                                    src={url}
+                                                    alt={caption[0]?.plain_text}
                                                     sizes={notmaxszs}
                                                     type={type}
+                                                    external={external}
                                                 ></ImageNoWidth>
                                             );
                                             break;

@@ -135,11 +135,8 @@ export function ImageNotion(block: any, altsuffix: string | null) {
             className="tw-left-1/2 tw-transform tw-translate-x-[-50%]"
         >
             <ImageNoWidth
-                alt={
-                    (data.caption[0]?.plain_text ?? 'alt missing') +
-                    ` - ${altsuffix ?? 'Bao Anh Bui website'}`
-                }
-                src={data?.external?.url}
+                alt={data.caption?.[0]?.plain_text}
+                external={data.external}
                 sizes={maxszs}
                 type={data.type}
             ></ImageNoWidth>
@@ -175,33 +172,109 @@ export function ImageNoWidth({
     sizes,
     divclass = '',
     type,
+    external,
 }: {
-    alt: string;
-    src: string;
+    alt: string | undefined | null;
+    src?: string;
     sizes: string;
     divclass?: string;
     type: string;
+    external?: {
+        url: string;
+        dim?: {
+            width: number;
+            height: number;
+        };
+    };
 }) {
+    if (!external) {
+        if (!src) return <div>no source</div>;
+        external = {
+            url: src,
+        };
+    }
+
     return (
-        <div className={`tw-h-auto tw-w-full ${divclass}`}>
-            {type == 'external' ? (
-                <Image
-                    alt={alt}
-                    src={src}
-                    quality={100}
-                    width={0}
-                    height={0}
-                    sizes={sizes}
-                    className={`tw-h-auto tw-w-full ${divclass}`}
-                ></Image>
-            ) : (
-                <div className={`tw-h-auto tw-w-full ${divclass}`}>
-                    Internal image
-                </div>
+        <figure className={`tw-h-auto tw-w-full ${divclass}`}>
+            <div className={`tw-h-auto tw-w-full ${divclass}`}>
+                {type == 'external' ? (
+                    <Image
+                        alt={alt ?? 'no alt'}
+                        src={external.url}
+                        quality={100}
+                        width={0}
+                        height={0}
+                        sizes={sizes}
+                        style={{
+                            aspectRatio: external.dim
+                                ? `${external.dim.width} / ${external.dim.height}`
+                                : 'unset',
+                        }}
+                        className={`tw-h-auto tw-w-full tw-z-10 ${divclass}`}
+                    ></Image>
+                ) : (
+                    <div className={`tw-h-auto tw-w-full ${divclass}`}>
+                        Internal image
+                    </div>
+                )}
+                <PlaceHolderImage external={external}></PlaceHolderImage>
+            </div>
+            {alt && (
+                <figcaption className="tw-w-full tw-p-2 tw-text-center">
+                    {alt}
+                </figcaption>
             )}
-        </div>
+        </figure>
     );
 }
+
+export const PlaceHolderImage = ({
+    external,
+}: {
+    external?: {
+        url: string;
+        dim?: {
+            width: number;
+            height: number;
+        };
+        rotate?: number;
+    };
+}) => {
+    if (external?.dim) {
+        external.rotate =
+            90 -
+            Math.atan(external.dim.width / external.dim.height) *
+                (180 / Math.PI);
+    }
+    return (
+        <div className="group-hover:tw-hidden tw-h-full tw-w-full tw-overflow-hidden tw-absolute tw-left-0 tw-top-0">
+            <div
+                className="tw-origin-center tw-left-[50%] tw-top-[50%] tw-absolute"
+                style={{
+                    transform: `translate(-50%,-50%) rotate(${
+                        external?.dim && external?.rotate
+                            ? external.rotate
+                            : '90'
+                    }deg)`,
+                }}
+            >
+                <Line></Line>
+            </div>
+            <div
+                className="tw-origin-center tw-left-[50%] tw-top-[50%] tw-absolute"
+                style={{
+                    transform: `translate(-50%,-50%) rotate(${
+                        external?.dim && external?.rotate
+                            ? 180 - external.rotate
+                            : '0'
+                    }deg)`,
+                }}
+            >
+                <Line></Line>
+            </div>
+        </div>
+    );
+};
 
 export const CoverImage = ({
     blogPost,
@@ -213,24 +286,27 @@ export const CoverImage = ({
     className?: string;
 }) => {
     return (
-        blogPost.coverImg &&
-        (blogPost.coverImg.type == 'external' ? (
-            <Image
-                alt={blogPost.title + ' Cover Photo'}
-                src={blogPost?.coverImg?.url}
-                sizes={sizes}
-                quality={100}
-                fill={true}
-                className={`tw-object-cover tw-w-full tw-h-full ${className}`}
-            ></Image>
-        ) : (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-                alt={blogPost.title + ' Cover Photo'}
-                src={blogPost?.coverImg?.url}
-                className={`tw-object-cover tw-w-full tw-h-full ${className}`}
-            ></img>
-        ))
+        <>
+            {blogPost.coverImg &&
+                (blogPost.coverImg.type == 'external' ? (
+                    <Image
+                        alt={blogPost.title + ' Cover Photo'}
+                        src={blogPost?.coverImg?.url}
+                        sizes={sizes}
+                        quality={100}
+                        fill={true}
+                        className={`tw-object-cover tw-w-full tw-h-full ${className}`}
+                    ></Image>
+                ) : (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                        alt={blogPost.title + ' Cover Photo'}
+                        src={blogPost?.coverImg?.url}
+                        className={`tw-object-cover tw-w-full tw-h-full ${className}`}
+                    ></img>
+                ))}
+            <PlaceHolderImage></PlaceHolderImage>
+        </>
     );
 };
 

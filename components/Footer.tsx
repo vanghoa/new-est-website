@@ -31,14 +31,18 @@ export default function Footer() {
                         Cloudinary. Other dependencies include{' '}
                         <span>Prisma + PostgreSQL</span>,{' '}
                         <span>Framer Motion</span>,{' '}
-                        <span>probe-image-size</span>, <span>seedrandom</span>,
-                        ...
+                        <span>probe-image-size</span>, <span>seedrandom</span>,{' '}
+                        <span>react-lazy-load</span>, ...
                     </p>
                     <p>
                         Typeface is <span>Alegreya</span> designed by Juan Pablo
-                        del Peral, Huerta Tipográfica. The idea of the site can
-                        be observed via the <span>3D View</span> of the
-                        developer tool of Microsoft Edge.
+                        del Peral, Huerta Tipográfica. Mono typeface is{' '}
+                        <span>Select Mono</span> designed by MICHAEL McMASTER.
+                    </p>
+                    <p>
+                        The idea of the site can be observed via the{' '}
+                        <span>3D View</span> of the developer tool of Microsoft
+                        Edge.
                     </p>
                 </section>
             </ImageFrame>
