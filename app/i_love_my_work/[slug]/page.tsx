@@ -307,7 +307,7 @@ async function PageSuspense({ params }: DynamicProps) {
                             );
                         })}
                     </ul>
-                    {blogPost.group?.length && blogPost.group?.length > 0 && (
+                    {blogPost.group?.length && blogPost.group?.length > 0 ? (
                         <ul>
                             <Rand
                                 elem={'h3'}
@@ -335,6 +335,8 @@ async function PageSuspense({ params }: DynamicProps) {
                                 );
                             })}
                         </ul>
+                    ) : (
+                        ''
                     )}
                 </li>
             </ImageFrame>
