@@ -201,7 +201,7 @@ export function ImageNoWidth({
                     <Image
                         alt={alt ?? 'no alt'}
                         src={external.url}
-                        quality={100}
+                        quality={95}
                         width={0}
                         height={0}
                         sizes={sizes}
