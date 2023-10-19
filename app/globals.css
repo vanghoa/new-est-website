@@ -210,7 +210,7 @@
         @apply [word-spacing:.1em];
     }
     .reset-this h1 {
-        @apply tw-text-4xl;
+        @apply tw-text-3xl;
     }
 
     .reset-this h2 {
@@ -228,7 +228,7 @@
         @apply !tw-italic;
     }
     .reset-this * {
-        @apply tw-tracking-wide tw-text-lg;
+        @apply tw-tracking-wide tw-text-base md:tw-text-[1.1rem] md:tw-leading-6;
     }
     .reset-this :is(h1, h2, h3, h4, h5, h6),
     .reset-this :is(h1, h2, h3, h4, h5, h6) * {

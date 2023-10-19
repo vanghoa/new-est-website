@@ -5,6 +5,7 @@ import {
     LineConstruct,
     LineLooser,
     WelcomeLine,
+    lineConstructClass,
 } from '@/components/Line';
 import {
     CoverImage,
@@ -22,7 +23,7 @@ import { Fragment, ReactNode, Suspense } from 'react';
 export default function Home() {
     return (
         <AnimatePageComp>
-            <HeaderLayout className="tw-min-h-[calc(80vh-11rem)] tw-flex tw-flex-col">
+            <HeaderLayout className="tw-min-h-[calc(80vh-12.5rem)] tw-flex tw-flex-col">
                 <Word elem={'h1'}>Bao Anh is here and now!</Word>
                 <section className="tw-flex tw-flex-col tw-grow tw-justify-between tw-h-full">
                     <Word elem={'article'} className="tw-max-w-[30rem]">
@@ -63,10 +64,17 @@ export default function Home() {
                     >
                         ?
                     </p>
+                    <p
+                        className={`tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr] ${lineConstructClass}`}
+                    >
+                        {`${Array.from(
+                            { length: 100 },
+                            () => '---------------*-------------------'
+                        ).join('')}`}
+                    </p>
                     <LineLooser
                         className={`tw-w-full tw-col-[2/3] tw-row-[1/2]`}
                     ></LineLooser>
-                    <LineLooser className="tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr]"></LineLooser>
                     <li className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 tw-col-[2/4] tw-row-[2/4]">
                         <Suspense fallback={<WaitSuspense></WaitSuspense>}>
                             <HomeSuspense></HomeSuspense>
