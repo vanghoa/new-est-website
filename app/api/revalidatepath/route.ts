@@ -12,7 +12,6 @@ export async function GET(request: NextRequest) {
             });
 
         revalidatePath(`${PATH_BLOG}/${pathtorevalidate}`);
-        revalidatePath(PATH_BLOG);
 
         return NextResponse.json({
             revalidated: true,
