@@ -252,28 +252,30 @@ async function PageSuspense({ params }: DynamicProps) {
                     </li>
                 </ImageFrame>
             </HeaderLayout>
-            <Render
-                // @ts-ignore
-                blocks={blocks}
-                classNames
-                emptyBlocks
-                blockComponentsMapper={{
-                    image: (block) => ImageNotion(block, blogPost.title),
-                    heading_1: withContentValidation(H1Notion),
-                    heading_2: withContentValidation(H1Notion),
-                    heading_3: withContentValidation(H3Notion),
-                    video: (block) => VideoNotion(block),
-                    code: (block) => CodeNotion(block),
-                    toggle: (block) => ToggleNotion(block),
-                    callout: (block) => CalloutNotion(block),
-                    quote: (block) => QuotetNotion(block),
-                    divider: () => (
-                        <Line
-                            className={`${tw_line_overflow} ${tw_divider}`}
-                        ></Line>
-                    ),
-                }}
-            />
+            {(
+                <Render
+                    // @ts-ignore
+                    blocks={blocks}
+                    classNames
+                    emptyBlocks
+                    blockComponentsMapper={{
+                        image: (block) => ImageNotion(block, blogPost.title),
+                        heading_1: withContentValidation(H1Notion),
+                        heading_2: withContentValidation(H1Notion),
+                        heading_3: withContentValidation(H3Notion),
+                        video: (block) => VideoNotion(block),
+                        code: (block) => CodeNotion(block),
+                        toggle: (block) => ToggleNotion(block),
+                        callout: (block) => CalloutNotion(block),
+                        quote: (block) => QuotetNotion(block),
+                        divider: () => (
+                            <Line
+                                className={`${tw_line_overflow} ${tw_divider}`}
+                            ></Line>
+                        ),
+                    }}
+                />
+            ) || <div>Failed to render</div>}
             <div className="rnr-empty-block"></div>
             <ImageFrame elem={LineLooser} maxwidth={false}>
                 <li
