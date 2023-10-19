@@ -32,7 +32,11 @@ export default function Home() {
             <WelcomeLine
                 className={`${tw_line_overflow} ${tw_divider}`}
             ></WelcomeLine>
-            <div className="tw-w-full tw-flex tw-flex-col tw-gap-6 tw-justify-end tw-items-center">
+            <GuestBookForm></GuestBookForm>
+            <WelcomeLine
+                className={`${tw_line_overflow} ${tw_divider}`}
+            ></WelcomeLine>
+            <div className="rnr-image tw-w-full tw-flex tw-flex-col tw-gap-6 tw-justify-end tw-items-center">
                 <h2>
                     <Link href="/i_love_my_work">{`Featured works`}</Link>
                 </h2>
@@ -79,10 +83,6 @@ export default function Home() {
                     </li>
                 </section>
             </div>
-            <WelcomeLine
-                className={`${tw_line_overflow} ${tw_divider}`}
-            ></WelcomeLine>
-            <GuestBookForm></GuestBookForm>
             {false && (
                 <canvas
                     id="renderCanvas"
@@ -137,7 +137,7 @@ async function HomeSuspense() {
                         </div>
                     </div>
                     <div className="tw-w-full">
-                        <p>{item.title}</p>
+                        <h3 className="!tw-m-0">{item.title}</h3>
                         <p>{item.timestart}</p>
                     </div>
                 </OlGroup>
@@ -186,7 +186,7 @@ function OlGroup({
             </p>
             <Link
                 href={href}
-                className="tw-h-[40vh] tw-my-2 tw-mx-[0.2em] tw-flex tw-flex-col tw-justify-center tw-items-center"
+                className="tw-h-[50vh] tw-my-2 tw-mx-[0.2em] tw-flex tw-flex-col tw-justify-center tw-items-center"
             >
                 {children}
             </Link>

@@ -46,11 +46,11 @@ export default function Navbar() {
 
     return (
         <nav className="tw-flex tw-flex-col tw-items-center tw-h-fit tw-fixed tw-w-full  tw-z-40 [&_*]:tw-font-display tw-overflow-visible tw-pointer-events-none">
-            <div className="reveal_child tw-z-[-1] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-5 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-[3.3rem] tw-pointer-events-auto">
+            <div className="reveal_child tw-z-[-1] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-5 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-16 tw-pointer-events-auto">
                 {navlist[0].map(({ name, href, tooltips }, i) => (
                     <span
                         key={`navlist${i}`}
-                        className="tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-min-w-[8rem]"
+                        className="tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-min-w-[8.5rem]"
                     >
                         <Char
                             isLink
@@ -67,8 +67,8 @@ export default function Navbar() {
                     </span>
                 ))}
             </div>
-            <div className="reveal_child [&_a]:tw-bottom-[0.4rem] tw-z-[-2] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-5 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-11 tw-pointer-events-auto">
-                <span className="tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-min-w-[8rem]">
+            <div className="reveal_child [&_a]:tw-bottom-[0.4rem] tw-z-[-2] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-5 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-14 tw-pointer-events-auto">
+                <span className="tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-min-w-[8.5rem]">
                     <Char
                         elem={'a'}
                         rest={{
@@ -77,13 +77,13 @@ export default function Navbar() {
                         }}
                     >
                         Resume
-                        <Tooltips>a pdf file ~49kb</Tooltips>
+                        <Tooltips>a pdf file ~63kb</Tooltips>
                     </Char>
                 </span>
                 {navlist[1].map(({ name, href, tooltips }, i) => (
                     <span
                         key={`navlist${i}`}
-                        className="tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-min-w-[8rem]"
+                        className="tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-min-w-[8.5rem]"
                     >
                         <Char
                             isLink
@@ -100,8 +100,8 @@ export default function Navbar() {
                     </span>
                 ))}
             </div>
-            <div className="[&_a]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-5 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-10 tw-pointer-events-auto tw-border-t-8 tw-border-black">
-                <span className="tw-w-32 tw-h-full tw-flex tw-items-center tw-justify-center tw-group">
+            <div className="[&_a]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-5 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-12 tw-pointer-events-auto tw-border-t-8 tw-border-black tw-border-b-4">
+                <span className="tw-w-36 tw-h-full tw-flex tw-items-center tw-justify-center tw-group">
                     <Rand
                         elem={'a'}
                         min={4}

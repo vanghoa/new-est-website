@@ -31,6 +31,14 @@
     .reveal .reveal_ani {
         @apply tw-animate-reveal;
     }
+    #oldwebsite,
+    #oldwebsite * {
+        @apply tw-pointer-events-none;
+    }
+    .reveal #oldwebsite,
+    .reveal #oldwebsite * {
+        @apply tw-pointer-events-auto;
+    }
     .reset-this * {
         /*
         animation: none;
@@ -198,10 +206,10 @@
     }
 
     .reset-this :is(h1, h2, h3, h4, h5, h6) {
-        @apply tw-text-base [word-spacing:.1em];
+        @apply [word-spacing:.1em];
     }
     .reset-this h1 {
-        @apply tw-text-3xl;
+        @apply tw-text-4xl;
     }
 
     .reset-this h2 {
@@ -215,8 +223,11 @@
         font-variant: inherit;
         line-height: inherit;
     }
+    em {
+        @apply !tw-italic;
+    }
     .reset-this * {
-        @apply tw-tracking-wide;
+        @apply tw-tracking-wide tw-text-lg;
     }
     .reset-this :is(h1, h2, h3, h4, h5, h6),
     .reset-this :is(h1, h2, h3, h4, h5, h6) * {
@@ -275,6 +286,6 @@
         margin-left: 3em;
     }
     li.rnr-bulleted_list_item::before {
-        content: '- ';
+        content: '*-*- ';
     }
 }

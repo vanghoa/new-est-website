@@ -18,7 +18,7 @@ const nextConfig = {
         domains: [
             'res.cloudinary.com', // Images moved to Cloudinary
         ],
-        minimumCacheTTL: 60,
+        minimumCacheTTL: 20,
     },
     experimental: {
         serverActions: true,

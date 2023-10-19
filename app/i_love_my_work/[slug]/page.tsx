@@ -283,7 +283,7 @@ async function PageSuspense({ params }: DynamicProps) {
                             elem={'h3'}
                             className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
                         >
-                            People Involved
+                            Individual Credits
                         </Rand>
                         <Link className="tw-mr-5 tw-w-fit sm:tw-block" href="/">
                             Bao Anh{' '}
@@ -313,7 +313,7 @@ async function PageSuspense({ params }: DynamicProps) {
                                 elem={'h3'}
                                 className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
                             >
-                                At
+                                Group Credits
                             </Rand>
                             {blogPost.group?.map((item, i) => {
                                 return (
@@ -354,17 +354,17 @@ async function PageSuspense({ params }: DynamicProps) {
                                 return item && item.slug ? (
                                     <ImageFrame
                                         elem={LineLoose}
-                                        className="!tw-w-[min(250px,100%)] tw-group"
+                                        className="!tw-w-[min(300px,100%)] tw-group"
                                     >
                                         <Link
                                             key={`related${i}`}
                                             href={getBlogPostPath(item.slug)}
                                             className="tw-my-2 tw-mx-1"
                                         >
-                                            <div className="tw-w-full tw-h-[30vh] tw-relative tw-mb-3">
+                                            <div className="tw-w-full tw-h-[40vh] tw-relative tw-mb-3">
                                                 <CoverImage
                                                     blogPost={item}
-                                                    sizes="(max-width: 250px) 100vw, 250px"
+                                                    sizes="(max-width: 300px) 100vw, 300px"
                                                     className="group-hover:tw-hidden"
                                                 ></CoverImage>
                                                 <OLOverlay></OLOverlay>
@@ -373,7 +373,9 @@ async function PageSuspense({ params }: DynamicProps) {
                                                 </div>
                                             </div>
                                             <div>
-                                                <p>{item.title}</p>
+                                                <h3 className="!tw-m-0">
+                                                    {item.title}
+                                                </h3>
                                                 <p>{item.timestart}</p>
                                             </div>
                                         </Link>

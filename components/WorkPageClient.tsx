@@ -29,6 +29,7 @@ export default function WorkPageClient({
     unq_key++;
     const pathname = usePathname();
     const searchParams = useSearchParams();
+    const counter: [number] = [0];
 
     const filter_ = searchParams.get('filter')?.split('-');
     const [filter, setFilter] = useState<{
@@ -60,7 +61,7 @@ export default function WorkPageClient({
         );
     };
 
-    blogPosts = useMemo(() => {
+    const blogPostsObj = useMemo(() => {
         const front = [];
         const back = [];
         for (const item of blogPosts) {
@@ -70,7 +71,7 @@ export default function WorkPageClient({
                 ? front.push(item)
                 : back.push(item);
         }
-        return front.concat(back);
+        return { front, back };
     }, [filter.name]);
 
     return (
@@ -126,7 +127,8 @@ export default function WorkPageClient({
                     className={`tw-w-full tw-h-8 tw-col-[2/3] tw-row-[1/2] ${lineConstructClass} before:tw-content-['------------'] sm:before:tw-content-['------------------'] md:before:tw-content-['----------------------------'] lg:before:tw-content-['----------------------------------']`}
                 >
                     <span className="!tw-italic">
-                        ( filter: {filter.name.toLowerCase()} )
+                        ( filter: {filter.name.toLowerCase()} /{' '}
+                        {blogPostsObj.front.length} projects )
                     </span>
                     {`${Array.from(
                         { length: 20 },
@@ -134,9 +136,9 @@ export default function WorkPageClient({
                     ).join('')}`}
                 </p>
                 <p
-                    className={`tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr] tw-transform tw-rotate-180 ${lineConstructClass} before:tw-content-['------------'] sm:before:tw-content-['------------------'] md:before:tw-content-['----------------------------'] lg:before:tw-content-['----------------------------------']`}
+                    className={`tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr] ${lineConstructClass} before:tw-content-['------------'] sm:before:tw-content-['------------------'] md:before:tw-content-['----------------------------'] lg:before:tw-content-['----------------------------------']`}
                 >
-                    <span className="!tw-italic">
+                    <span className="!tw-italic tw-transform tw-rotate-180 tw-inline-block">
                         ( total projects: {blogPosts.length} )
                     </span>
                     {`${Array.from(
@@ -145,93 +147,105 @@ export default function WorkPageClient({
                     ).join('')}`}
                 </p>
                 <li className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-col-[2/4] tw-row-[2/4]">
-                    {blogPosts.map((item, i) => {
-                        return (
-                            item &&
-                            item.slug && (
-                                <motion.ol
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    className={`tw-w-full tw-grid tw-grid-cols-[auto_1em] tw-grid-rows-[auto_1em] [&>*:last-child]:tw-col-[1/2] [&>*:last-child]:tw-row-[1/2] tw-overflow-visible tw-group`}
-                                    key={`${i}${unq_key}workitem`}
-                                >
-                                    <LineConstruct className="group-hover:tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
-                                        {'-------~----------^-------~--------'}
-                                    </LineConstruct>
-                                    <LineConstruct className="group-hover:tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
-                                        {'-------~----------*-------~--------'}
-                                    </LineConstruct>
-                                    <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
-                                        {
-                                            '&&&<>&&&~&&&&&&&&&&<>&&&&&&&~&&<>&&&&&'
-                                        }
-                                    </LineConstruct>
-                                    <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
-                                        {
-                                            '@@@@@@@~<>@@@@@@@@@<>@@@@@@@~@@@@@@@@'
-                                        }
-                                    </LineConstruct>
-                                    <p
-                                        className={`tw-col-[2] tw-row-[2] !tw-leading-[1em] tw-text-center tw-whitespace-nowrap tw-left-[-0.25em]`}
-                                    >
-                                        ( {i + 1} )
-                                    </p>
-                                    <Link
-                                        key={`related${i}`}
-                                        href={getBlogPostPath(item.slug)}
-                                        className="tw-my-2 tw-mx-1"
-                                    >
-                                        <div className="tw-w-full tw-h-[30vh] lg:tw-h-[50vh] tw-relative tw-mb-3">
-                                            <CoverImage
-                                                blogPost={item}
-                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                                className="group-hover:tw-hidden"
-                                            ></CoverImage>
-                                            <OLOverlay></OLOverlay>
-                                            <div className="tw-h-full tw-w-full tw-hidden tw-justify-center tw-items-center tw-absolute tw-left-0 tw-top-0 tw-p-8 group-hover:tw-flex tw-flex-col tw-gap-3 tw-text-center">
-                                                <span>{item.blurb}</span>
-                                                <p>
-                                                    {item['big tag']?.map(
-                                                        (tag, i) => (
-                                                            <Fragment
-                                                                key={`bigtag${i}`}
-                                                            >
-                                                                <span className="tw-inline-block tw-mx-2">
-                                                                    {tag}
-                                                                </span>
-                                                                |
-                                                            </Fragment>
-                                                        )
-                                                    )}
-                                                    {item['small tag']?.map(
-                                                        (tag, i) => (
-                                                            <Fragment
-                                                                key={`smalltag${i}`}
-                                                            >
-                                                                <span className="tw-inline-block tw-mx-2">
-                                                                    {tag}
-                                                                </span>
-                                                                {item[
-                                                                    'small tag'
-                                                                ]?.[i + 1] &&
-                                                                    '|'}
-                                                            </Fragment>
-                                                        )
-                                                    )}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p>{item.title}</p>
-                                            <p>{item.timestart}</p>
-                                        </div>
-                                    </Link>
-                                </motion.ol>
-                            )
-                        );
-                    })}
+                    <BlogPostsMap
+                        blogPosts={blogPostsObj.front}
+                        prev={0}
+                    ></BlogPostsMap>
+                    <BlogPostsMap
+                        blogPosts={blogPostsObj.back}
+                        opacity={0.6}
+                        prev={blogPostsObj.front.length}
+                    ></BlogPostsMap>
                 </li>
             </section>
         </>
     );
+}
+
+function BlogPostsMap({
+    blogPosts,
+    className = '',
+    prev,
+    opacity = 1,
+}: {
+    blogPosts: (BlogPost | null)[];
+    className?: string;
+    prev: number;
+    opacity?: number;
+}) {
+    let counter = prev;
+    return blogPosts.map((item, i) => {
+        console.log(counter);
+        return (
+            item &&
+            item.slug && (
+                <motion.ol
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: opacity }}
+                    transition={{
+                        delay: counter++ * 0.2,
+                    }}
+                    className={`hover:!tw-opacity-100 tw-w-full tw-grid tw-grid-cols-[auto_1em] tw-grid-rows-[auto_1em] [&>*:last-child]:tw-col-[1/2] [&>*:last-child]:tw-row-[1/2] tw-overflow-visible tw-group ${className}`}
+                    key={`${i + prev}${unq_key}workitem`}
+                >
+                    <LineConstruct className="group-hover:tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
+                        {'-------~----------^-------~--------'}
+                    </LineConstruct>
+                    <LineConstruct className="group-hover:tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
+                        {'-------~----------*-------~--------'}
+                    </LineConstruct>
+                    <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
+                        {'&&&<>&&&~&&&&&&&&&&<>&&&&&&&~&&<>&&&&&'}
+                    </LineConstruct>
+                    <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
+                        {'@@@@@@@~<>@@@@@@@@@<>@@@@@@@~@@@@@@@@'}
+                    </LineConstruct>
+                    <p
+                        className={`tw-col-[2] tw-row-[2] !tw-leading-[1em] tw-text-center tw-whitespace-nowrap tw-left-[-0.25em]`}
+                    >
+                        ( {i + 1 + prev} )
+                    </p>
+                    <Link
+                        key={`related${i}`}
+                        href={getBlogPostPath(item.slug)}
+                        className="tw-my-2 tw-mx-1"
+                    >
+                        <div className="tw-w-full tw-h-[30vh] lg:tw-h-[50vh] tw-relative tw-mb-3">
+                            <CoverImage
+                                blogPost={item}
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                className="group-hover:tw-hidden"
+                            ></CoverImage>
+                            <OLOverlay></OLOverlay>
+                            <div className="tw-h-full tw-w-full tw-hidden tw-justify-center tw-items-center tw-absolute tw-left-0 tw-top-0 tw-p-8 group-hover:tw-flex tw-flex-col tw-gap-5 tw-text-center">
+                                <span>{item.blurb}</span>
+                                <p>
+                                    {item['big tag']?.map((tag, i) => (
+                                        <Fragment key={`bigtag${i}`}>
+                                            <em className="tw-inline-block tw-mx-2">
+                                                {tag}
+                                            </em>
+                                            |
+                                        </Fragment>
+                                    ))}
+                                    {item['small tag']?.map((tag, i) => (
+                                        <Fragment key={`smalltag${i}`}>
+                                            <em className="tw-inline-block tw-mx-2">
+                                                {tag}
+                                            </em>
+                                            {item['small tag']?.[i + 1] && '|'}
+                                        </Fragment>
+                                    ))}
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className="!tw-m-0">{item.title}</h3>
+                            <p>{item.timestart}</p>
+                        </div>
+                    </Link>
+                </motion.ol>
+            )
+        );
+    });
 }
