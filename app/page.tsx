@@ -119,22 +119,22 @@ async function HomeSuspense() {
                             className="group-hover:tw-hidden"
                         ></CoverImage>
                         <OLOverlay></OLOverlay>
-                        <div className="tw-h-full tw-w-full tw-hidden tw-justify-center tw-items-center tw-absolute tw-z-20 tw-left-0 tw-top-0 tw-p-8 group-hover:tw-flex tw-flex-col tw-gap-3 tw-text-center">
+                        <div className="tw-h-full tw-w-full tw-hidden tw-justify-center tw-items-center tw-absolute tw-z-20 tw-left-0 tw-top-0 tw-p-8 group-hover:tw-flex tw-flex-col tw-gap-6 tw-text-center">
                             <span>{item.blurb}</span>
                             <p>
                                 {item['big tag']?.map((tag, i) => (
                                     <Fragment key={`bigtag${i}`}>
-                                        <span className="tw-inline-block tw-mx-2">
+                                        <em className="tw-inline-block tw-mx-2">
                                             {tag}
-                                        </span>
+                                        </em>
                                         |
                                     </Fragment>
                                 ))}
                                 {item['small tag']?.map((tag, i) => (
                                     <Fragment key={`smalltag${i}`}>
-                                        <span className="tw-inline-block tw-mx-2">
+                                        <em className="tw-inline-block tw-mx-2">
                                             {tag}
-                                        </span>
+                                        </em>
                                         {item['small tag']?.[i + 1] && '|'}
                                     </Fragment>
                                 ))}
