@@ -142,7 +142,7 @@ export default function WorkPageClient({
                                         <Fragment key={`${i}decor${k}frag`}>
                                             <div
                                                 key={`${i}decor${k}`}
-                                                className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['------'] sm:before:tw-content-['------']"
+                                                className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['-----'] sm:before:tw-content-['-----']"
                                             >
                                                 *
                                             </div>
@@ -165,7 +165,7 @@ export default function WorkPageClient({
                                     ))}
                                     <div
                                         key={`decor`}
-                                        className="tw-break-all tw-break-words tw-flex-shrink before:!tw-text-transparent before:tw-content-['----'] sm:before:tw-content-['------'] tw-whitespace-nowrap"
+                                        className="tw-break-all tw-break-words tw-flex-shrink before:!tw-text-transparent before:tw-content-['----'] sm:before:tw-content-['-----'] tw-whitespace-nowrap"
                                     >
                                         *
                                     </div>
