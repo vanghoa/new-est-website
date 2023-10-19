@@ -47,6 +47,9 @@ function getDateValueStart(property: any): string | null {
 function getDateValueEnd(property: any): string | null {
     return property?.date?.end.slice(0, -3) ?? null;
 }
+function getRealDateValueStart(property: any): Date {
+    return new Date(property?.date?.start ? property.date.start : '2019-01-01');
+}
 function getMultiSelectValues(property: any): string[] | null {
     return (
         property.multi_select.map((item: { name: any }) => item.name) ?? null
@@ -111,6 +114,9 @@ function transformNotionPageIntoBlogPost(
         'small tag': getMultiSelectValues(page.properties[PROPERTY.smalltag]),
         themes: getTextValue(page.properties[PROPERTY.themes]),
         timestart: getDateValueStart(page.properties[PROPERTY.timeframe]),
+        realtimestart: getRealDateValueStart(
+            page.properties[PROPERTY.timeframe]
+        ),
         timeend: current
             ? 'now'
             : getDateValueEnd(page.properties[PROPERTY.timeframe]) ||
@@ -123,6 +129,7 @@ function transformNotionPageIntoBlogPost(
             getTextValue(page.properties[PROPERTY.backgroundcolor]) ?? 'black',
         textColor: getTextValue(page.properties[PROPERTY.textcolor]) ?? 'white',
         upwght: getCheckbox(page.properties[PROPERTY.upwght]) ?? false,
+        featured: getCheckbox(page.properties[PROPERTY.is_featured]) ?? false,
     };
 }
 
@@ -138,7 +145,11 @@ export const retrieveMultiSelect = async function () {
         database_id: process.env.NOTION_DTB_WORK_ID,
     });
     const { properties } = obj;
-    const result: retrieveMultiSelectT = {};
+    const result: retrieveMultiSelectT = {
+        general: ['Latest', 'Oldest', 'Featured'],
+    };
+    result[PROPERTY.bigtag] = [];
+    result[PROPERTY.smalltag] = [];
     for (let k in properties) {
         let a = properties[k];
         if (a.type == 'multi_select') {

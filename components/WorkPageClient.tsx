@@ -4,13 +4,20 @@ import { getBlogPostPath } from '@/constants/paths';
 import Link from 'next/link';
 import React, { Fragment, ReactNode, useMemo, useState } from 'react';
 import {
+    Line,
     LineConstruct,
+    LineLoose,
     LineLooser,
     LineVariale,
     lineConstructClass,
 } from './Line';
-import { CoverImage, OLOverlay } from './SmallComponents';
-import { tw_divider, tw_line_overflow } from './TailwindClass';
+import { CoverImage, HeaderLayout, OLOverlay } from './SmallComponents';
+import {
+    tw_border_white_04,
+    tw_divider,
+    tw_line_divider,
+    tw_line_overflow,
+} from './TailwindClass';
 import { BlogPost, retrieveMultiSelectT } from '@/types/types';
 import { usePathname, useSearchParams } from 'next/navigation';
 import createQueryString from '@/utils/createQueryString';
@@ -38,8 +45,8 @@ export default function WorkPageClient({
     }>(
         !filter_ || filter_.length != 2
             ? {
-                  category: 'big tag',
-                  name: 'Development',
+                  category: 'general',
+                  name: 'Latest',
               }
             : {
                   category: filter_[0].replace(`~`, ` `),
@@ -62,58 +69,112 @@ export default function WorkPageClient({
     };
 
     const blogPostsObj = useMemo(() => {
-        const front = [];
-        const back = [];
-        for (const item of blogPosts) {
-            // @ts-ignore
-            let a = item?.[filter.category];
-            Array.isArray(a) && a?.includes(filter.name)
-                ? front.push(item)
-                : back.push(item);
+        let front: (BlogPost | null)[] = [];
+        let back: (BlogPost | null)[] = [];
+        let config = 'filter';
+        if (filter.category == 'general') {
+            config = 'sort';
+            switch (filter.name) {
+                case 'Latest':
+                    front = blogPosts.sort(function (a, b) {
+                        if (!a || !b || a.realtimestart == b.realtimestart) {
+                            return 0;
+                        } else if (a.realtimestart > b.realtimestart) {
+                            return -1;
+                        } else {
+                            return 1;
+                        }
+                    });
+                    break;
+                case 'Oldest':
+                    front = blogPosts.sort(function (a, b) {
+                        if (!a || !b || a.realtimestart == b.realtimestart) {
+                            return 0;
+                        } else if (a.realtimestart < b.realtimestart) {
+                            return -1;
+                        } else {
+                            return 1;
+                        }
+                    });
+                    break;
+                case 'Featured':
+                    config = 'filter';
+                    blogPosts.forEach((item) => {
+                        item?.featured ? front.push(item) : back.push(item);
+                    });
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            for (const item of blogPosts) {
+                // @ts-ignore
+                let a = item?.[filter.category];
+                Array.isArray(a) && a?.includes(filter.name)
+                    ? front.push(item)
+                    : back.push(item);
+            }
         }
-        return { front, back };
+        return { front, back, config };
     }, [filter.name]);
 
     return (
         <>
-            <li
-                className={`tw-w-full [&>*]:tw-inline tw-text-center ${tw_divider} !tw-leading-[3.1em]`}
-            >
+            <HeaderLayout>
+                <Word elem={'h1'} className="tw-text-center">
+                    {filter.name} works
+                </Word>
+            </HeaderLayout>
+            <li className={`tw-w-full tw-text-center ${tw_divider} rnr-image`}>
                 {(() => {
                     let result: ReactNode[] = [];
                     for (let k in multiSelect) {
                         let a = multiSelect[k];
-                        a.forEach((item, i) => {
-                            result.push(
+                        result.push(
+                            <Fragment key={k + 'frag'}>
                                 <ul
-                                    key={`${i}decor${k}`}
-                                    className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['------'] sm:before:tw-content-['------'] md:after:tw-content-['---------'] md:before:tw-content-['---------']"
+                                    className={`!tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0`}
+                                    key={k}
                                 >
-                                    *
-                                </ul>,
-                                <Half
-                                    elem="ul"
-                                    key={`${i}filter${k}`}
-                                    rest={{ onClick: () => filtering(k, item) }}
-                                    className={`tw-whitespace-nowrap tw-cursor-pointer hover:after:!tw-text-white hover:before:!tw-text-white ${
-                                        filter.name == item
-                                            ? `after:tw-content-['__<-'] before:tw-content-['->__'] md:after:tw-content-['__<---'] sm:before:tw-content-['--->__']`
-                                            : `after:!tw-text-transparent before:!tw-text-transparent sm:after:tw-content-['_<--_?'] sm:before:tw-content-['?_-->_']`
-                                    }`}
-                                >
-                                    {item}
-                                </Half>
-                            );
-                        });
+                                    {a.map((item, i) => (
+                                        <Fragment key={`${i}decor${k}frag`}>
+                                            <div
+                                                key={`${i}decor${k}`}
+                                                className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['------'] sm:before:tw-content-['------'] md:after:tw-content-['---------'] md:before:tw-content-['---------']"
+                                            >
+                                                *
+                                            </div>
+                                            <Half
+                                                elem="div"
+                                                key={`${i}filter${k}`}
+                                                rest={{
+                                                    onClick: () =>
+                                                        filtering(k, item),
+                                                }}
+                                                className={`tw-whitespace-nowrap tw-cursor-pointer hover:after:!tw-text-white hover:before:!tw-text-white hover:tw-opacity-100 ${
+                                                    filter.name == item
+                                                        ? `after:tw-content-['__<-'] before:tw-content-['->__'] md:after:tw-content-['__<---'] sm:before:tw-content-['--->__']`
+                                                        : `after:!tw-text-transparent before:!tw-text-transparent sm:after:tw-content-['_<--_?'] sm:before:tw-content-['?_-->_'] tw-opacity-50`
+                                                }`}
+                                            >
+                                                {item}
+                                            </Half>
+                                        </Fragment>
+                                    ))}
+                                    <div
+                                        key={`decor`}
+                                        className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['------'] sm:before:tw-content-['------'] md:after:tw-content-['---------'] md:before:tw-content-['---------']"
+                                    >
+                                        *
+                                    </div>
+                                </ul>
+                                <LineLoose
+                                    key={k + 'line'}
+                                    className={tw_line_divider}
+                                ></LineLoose>
+                            </Fragment>
+                        );
                     }
-                    result.push(
-                        <ul
-                            key={`decor`}
-                            className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['------'] sm:before:tw-content-['------'] md:after:tw-content-['---------'] md:before:tw-content-['---------']"
-                        >
-                            *
-                        </ul>
-                    );
                     return result;
                 })()}
             </li>
@@ -127,7 +188,8 @@ export default function WorkPageClient({
                     className={`tw-w-full tw-h-8 tw-col-[2/3] tw-row-[1/2] ${lineConstructClass} before:tw-content-['------------'] sm:before:tw-content-['------------------'] md:before:tw-content-['----------------------------'] lg:before:tw-content-['----------------------------------']`}
                 >
                     <span className="!tw-italic">
-                        ( filter: {filter.name.toLowerCase()} /{' '}
+                        ( {blogPostsObj.config.toLowerCase()}:{' '}
+                        {filter.name.toLowerCase()} /{' '}
                         {blogPostsObj.front.length} projects )
                     </span>
                     {`${Array.from(
@@ -153,7 +215,7 @@ export default function WorkPageClient({
                     ></BlogPostsMap>
                     <BlogPostsMap
                         blogPosts={blogPostsObj.back}
-                        opacity={0.6}
+                        opacity={0.4}
                         prev={blogPostsObj.front.length}
                     ></BlogPostsMap>
                 </li>
@@ -175,7 +237,6 @@ function BlogPostsMap({
 }) {
     let counter = prev;
     return blogPosts.map((item, i) => {
-        console.log(counter);
         return (
             item &&
             item.slug && (

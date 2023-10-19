@@ -13,7 +13,7 @@ import {
 } from '@/components/SmallComponents';
 import { tw_divider, tw_line_overflow } from '@/components/TailwindClass';
 import { Word } from '@/components/WordProcessor';
-import { getBlogPostPath } from '@/constants/paths';
+import { PATH_BLOG, getBlogPostPath } from '@/constants/paths';
 import { cache_fetchNotion } from '@/lib/notionClient';
 import { BlogPost } from '@/types/types';
 import Link from 'next/link';
@@ -22,12 +22,17 @@ import { Fragment, ReactNode, Suspense } from 'react';
 export default function Home() {
     return (
         <AnimatePageComp>
-            <HeaderLayout className="tw-min-h-[calc(80vh-11rem)]">
+            <HeaderLayout className="tw-min-h-[calc(80vh-11rem)] tw-flex tw-flex-col">
                 <Word elem={'h1'}>Bao Anh is here and now!</Word>
-                <Word elem={'article'} className="tw-max-w-[30rem]">
-                    Hello! I like to learn and experiment with new ideas in art,
-                    design and technology. Thank you for visiting.
-                </Word>
+                <section className="tw-flex tw-flex-col tw-grow tw-justify-between tw-h-full">
+                    <Word elem={'article'} className="tw-max-w-[30rem]">
+                        Hello! I like to learn and experiment with new ideas in
+                        art, design and technology. Thank you for visiting.
+                    </Word>
+                    <h2 className="tw-w-[min(35rem,100%)]">
+                        <Link href={PATH_BLOG}>{`[ See my works ]`}</Link>
+                    </h2>
+                </section>
             </HeaderLayout>
             <WelcomeLine
                 className={`${tw_line_overflow} ${tw_divider}`}
@@ -38,7 +43,7 @@ export default function Home() {
             ></WelcomeLine>
             <div className="rnr-image tw-w-full tw-flex tw-flex-col tw-gap-6 tw-justify-end tw-items-center">
                 <h2>
-                    <Link href="/i_love_my_work">{`Featured works`}</Link>
+                    <Link href={PATH_BLOG}>{`Featured works`}</Link>
                 </h2>
                 <section
                     className={`tw-grid tw-grid-cols-[1em_auto_1em] tw-grid-rows-[min-content_auto_min-content]`}
@@ -66,7 +71,7 @@ export default function Home() {
                         <Suspense fallback={<WaitSuspense></WaitSuspense>}>
                             <HomeSuspense></HomeSuspense>
                         </Suspense>
-                        <OlGroup nthno="( -> )" href="/i_love_my_work">
+                        <OlGroup nthno="( -> )" href={PATH_BLOG}>
                             {`-> see -> more`}
                             <br></br>
                             {`-> of -> my`}
@@ -148,7 +153,7 @@ async function HomeSuspense() {
 
 function WaitSuspense() {
     return (
-        <OlGroup nthno="( ... )" href="/i_love_my_work">
+        <OlGroup nthno="( ... )" href={PATH_BLOG}>
             Waiting...
         </OlGroup>
     );

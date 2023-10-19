@@ -17,11 +17,6 @@ export const fetchCache = 'force-cache';
 export default function page() {
     return (
         <AnimatePageComp>
-            <HeaderLayout>
-                <Word elem={'h1'} className="tw-text-center">
-                    Works
-                </Word>
-            </HeaderLayout>
             <SuspenseNotion>
                 <WorkPageSuspense></WorkPageSuspense>
             </SuspenseNotion>
@@ -30,8 +25,6 @@ export default function page() {
 }
 
 async function WorkPageSuspense() {
-    //const blogPosts = await cache_fetchBlogPosts();
-    //const multiSelect = await cache_retrieveMultiSelect();
     const blogPosts: any = await cache_fetchNotion('fetchBlogPosts');
     const multiSelect: any = await cache_fetchNotion('retrieveMultiSelect');
 

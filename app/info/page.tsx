@@ -1,7 +1,11 @@
 import AnimatePageComp from '@/components/AnimatePageComp';
 import { Line } from '@/components/Line';
 import { HeaderLayout } from '@/components/SmallComponents';
-import { tw_divider, tw_line_overflow } from '@/components/TailwindClass';
+import {
+    tw_divider,
+    tw_line_divider,
+    tw_line_overflow,
+} from '@/components/TailwindClass';
 import { Rand, Word } from '@/components/WordProcessor';
 import { getWorkFilter, isBuild } from '@/constants/paths';
 import Link from 'next/link';
@@ -38,7 +42,9 @@ export default function page() {
                     <Link href="/i_love_my_work">{`[ See my works ]`}</Link>
                 </h2>
             </HeaderLayout>
-            <Line className={`${tw_line_overflow} ${tw_divider}`}></Line>
+            <Line
+                className={`${tw_line_overflow} ${tw_divider} ${tw_line_divider}`}
+            ></Line>
             <section
                 className={`tw-w-full tw-flex tw-flex-col tw-items-end ${tw_divider}`}
             >
@@ -102,7 +108,9 @@ export default function page() {
                     >{`[ See my code-based projects ]`}</Link>
                 </h2>
             </section>
-            <Line className={`${tw_line_overflow} ${tw_divider}`}></Line>
+            <Line
+                className={`${tw_line_overflow} ${tw_divider} ${tw_line_divider}`}
+            ></Line>
             <section className={`tw-w-full ${tw_divider}`}>
                 <Word elem={'h2'} className="tw-w-[min(35rem,100%)]">
                     About my Graphic Design...
@@ -119,25 +127,25 @@ export default function page() {
                 <Rand
                     min={5}
                     elem={'article'}
-                    className="tw-max-w-[35rem] [&_a]:!tw-text-green-400"
+                    className="tw-max-w-[35rem] hover:[&_a]:after:!tw-text-white hover:[&_a]:before:!tw-text-white [&_a]:after:!tw-text-transparent [&_a]:before:!tw-text-transparent [&_a]:after:tw-content-['_<--__'] [&_a]:before:tw-content-['__-->_'] [&_a]:before:tw-whitespace-nowrap [&_a]:after:tw-whitespace-nowrap"
                 >
                     My skills encompass a range of design forms, from 2D to 3D,{' '}
                     <Link href={getWorkFilter('small~tag-Digital~tool')}>
                         digital
                     </Link>{' '}
-                    to{' '}
+                    ,{' '}
                     <Link href={getWorkFilter('small~tag-Print~matter')}>
                         print
-                    </Link>
+                    </Link>{' '}
                     ,{' '}
                     <Link href={getWorkFilter('small~tag-Website')}>
                         website
                     </Link>{' '}
-                    to{' '}
+                    ,{' '}
                     <Link href={getWorkFilter('small~tag-Motion~graphic')}>
                         motion graphic
                     </Link>{' '}
-                    and even{' '}
+                    ,{' '}
                     <Link href={getWorkFilter('small~tag-Illustration')}>
                         illustration
                     </Link>
@@ -159,9 +167,43 @@ export default function page() {
                     >{`[ See my design works ]`}</Link>
                 </h2>
             </section>
-            <Line className={`${tw_line_overflow} ${tw_divider}`}></Line>
+            <Line
+                className={`${tw_line_overflow} ${tw_divider} ${tw_line_divider}`}
+            ></Line>
             <section
                 className={`tw-w-full tw-flex tw-flex-col tw-items-end ${tw_divider}`}
+            >
+                <Word elem={'h2'} className="tw-w-[min(35rem,100%)]">
+                    About this site
+                </Word>
+                <br></br>
+                <Rand
+                    min={5}
+                    elem={'article'}
+                    className="tw-max-w-[35rem] hover:[&_a]:after:!tw-text-white hover:[&_a]:before:!tw-text-white [&_a]:after:!tw-text-transparent [&_a]:before:!tw-text-transparent [&_a]:after:tw-content-['_<--__'] [&_a]:before:tw-content-['__-->_'] [&_a]:before:tw-whitespace-nowrap [&_a]:after:tw-whitespace-nowrap"
+                >
+                    While working on this, I have looked into a lot of other
+                    personal website references from my friends and people I
+                    know on the Internet:{' '}
+                    <a href="https://www.rachelyeeunkim.com/" target="_blank">
+                        Rachel Yeeun Kim
+                    </a>
+                    ,{' '}
+                    <a href="https://kayserifserif.place/" target="_blank">
+                        Katherine Yang
+                    </a>
+                    ,{' '}
+                    <a href="https://www.themainwork.com/" target="_blank">
+                        Mai Nguyen
+                    </a>
+                    .
+                </Rand>
+            </section>
+            <Line
+                className={`${tw_line_overflow} ${tw_divider} ${tw_line_divider}`}
+            ></Line>
+            <section
+                className={`tw-w-full tw-flex tw-flex-col tw-items-start ${tw_divider}`}
             >
                 <Word elem={'h2'} className="tw-w-[min(35rem,100%)]">
                     Thank you for visiting! Hope you have a nice time viewing

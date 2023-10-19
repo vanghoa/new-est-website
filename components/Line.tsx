@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { tw_line_divider } from './TailwindClass';
 
 export function Line({ className = '', ...props }: { className?: string }) {
     return (
@@ -69,7 +70,7 @@ export function WelcomeLine({
     className?: string;
 }) {
     return (
-        <LineConstruct className={className} {...props}>
+        <LineConstruct className={`${className} ${tw_line_divider}`} {...props}>
             *--.--welcome-...to my site...-yesssss;--.--*
         </LineConstruct>
     );

@@ -27,6 +27,7 @@ import { Line, LineLoose, LineLooser } from '@/components/Line';
 import {
     tw_border_white_04,
     tw_divider,
+    tw_line_divider,
     tw_line_overflow,
 } from '@/components/TailwindClass';
 import AnimatePageComp from '@/components/AnimatePageComp';
@@ -340,7 +341,9 @@ async function PageSuspense({ params }: DynamicProps) {
                     )}
                 </li>
             </ImageFrame>
-            <Line className={`${tw_line_overflow} ${tw_divider}`}></Line>
+            <Line
+                className={`${tw_line_overflow} ${tw_divider} ${tw_line_divider}`}
+            ></Line>
             {blogPostsRelated.length > 0 && (
                 <section
                     className={`tw-flex tw-flex-col tw-gap-6 ${tw_divider}`}

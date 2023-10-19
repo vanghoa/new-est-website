@@ -8,6 +8,7 @@ export type BlogPost = {
     'small tag': string[] | null;
     themes: string | null;
     timestart: string | null;
+    realtimestart: Date;
     timeend: string | null;
     coverImg: {
         url: string;
@@ -19,6 +20,7 @@ export type BlogPost = {
     backgroundColor: string;
     textColor: string;
     upwght: boolean;
+    featured: boolean;
 };
 
 export type Categories = 'all' | 'development' | 'management' | 'remote work';
