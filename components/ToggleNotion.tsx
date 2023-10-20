@@ -68,7 +68,7 @@ function PDFNotion({
         <ImageFrame elem={Line} maxwidth={false}>
             <iframe
                 src={url}
-                className="tw-w-full"
+                className="tw-w-full tw-max-h-[calc(100vh-10rem)]"
                 style={{ aspectRatio: `${width} / ${height}` }}
             ></iframe>
         </ImageFrame>

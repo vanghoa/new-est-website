@@ -13,7 +13,10 @@ export function VideoFrame({ data }: { data: any }) {
                     }`,
                 }}
             >
-                <LazyLoad className="tw-w-full tw-h-full tw-z-10" offset={300}>
+                <LazyLoad
+                    className="tw-w-full tw-h-full tw-max-h-[calc(100vh-10rem)] tw-z-10"
+                    offset={300}
+                >
                     <iframe
                         id="landingvideo"
                         className="tw-w-full tw-h-full"

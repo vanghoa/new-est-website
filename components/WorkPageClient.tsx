@@ -275,7 +275,7 @@ function BlogPostsMap({
                     <Link
                         key={`related${i}`}
                         href={getBlogPostPath(item.slug)}
-                        className="tw-my-2 tw-mx-1 tw-h-[29vh] md:tw-h-[38vh] tw-flex tw-flex-col tw-justify-center tw-items-center"
+                        className="tw-my-2 tw-mx-1 !tw-min-h-[15em] tw-h-[29vh] md:tw-h-[38vh] tw-flex tw-flex-col tw-justify-center tw-items-center"
                     >
                         <div className="tw-w-full tw-flex-grow tw-relative tw-mb-3">
                             <CoverImage

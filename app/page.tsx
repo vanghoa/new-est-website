@@ -225,7 +225,7 @@ function OlGroup({
             </p>
             <Link
                 href={href}
-                className="tw-h-[29vh] md:tw-h-[38vh] tw-my-2 tw-mx-[0.2em] tw-flex tw-flex-col tw-justify-center tw-items-center"
+                className="!tw-min-h-[15em] tw-h-[29vh] md:tw-h-[38vh] tw-my-2 tw-mx-[0.2em] tw-flex tw-flex-col tw-justify-center tw-items-center"
             >
                 {children}
             </Link>
