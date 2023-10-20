@@ -41,20 +41,42 @@ export default function Home() {
                     <h2 className="tw-w-fit">
                         <Link href={PATH_BLOG}>
                             <p className="tw-w-full tw-flex tw-justify-center">
-                                ________________
+                                __
                             </p>
-                            <p className="tw-w-full tw-flex tw-justify-between">
+                            <p className="tw-w-full tw-flex tw-justify-center">
+                                ____//
+                                <span className="!tw-text-transparent tw-inline-block tw-w-1"></span>
+                                ___
+                                <span className="!tw-text-transparent tw-inline-block tw-w-1"></span>
+                                \\____
+                            </p>
+                            <p className="tw-w-full tw-flex tw-justify-around">
                                 <span>/</span>
+                                <span className="!tw-text-transparent">
+                                    _do_u_want_to_
+                                </span>
                                 <span>\</span>
                             </p>
                             <p className="tw-w-full tw-flex tw-justify-between">
                                 <span>{`[`}</span>
-                                <span className="tw-mx-7">See works</span>
+                                <span className="tw-mx-7">
+                                    see{' '}
+                                    <span className="!tw-text-transparent">
+                                        my
+                                    </span>{' '}
+                                    works
+                                </span>
                                 <span>{`]`}</span>
                             </p>
-                            <p className="tw-w-full tw-flex tw-justify-between">
+                            <p className="tw-w-full tw-flex tw-justify-around">
                                 <span>\</span>
-                                <span>________________</span>
+                                <span>
+                                    _______
+                                    <span className="!tw-text-transparent">
+                                        ?
+                                    </span>
+                                    _______
+                                </span>
                                 <span>/</span>
                             </p>
                         </Link>
