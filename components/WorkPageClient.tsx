@@ -122,7 +122,7 @@ export default function WorkPageClient({
         <>
             <HeaderLayout>
                 <Word elem={'h1'} className="tw-text-center">
-                    {filter.name} works
+                    {filter.name} , works
                 </Word>
             </HeaderLayout>
             <li className={`tw-w-full tw-text-center ${tw_divider} rnr-image`}>
@@ -277,7 +277,7 @@ function BlogPostsMap({
                         href={getBlogPostPath(item.slug)}
                         className="tw-my-2 tw-mx-1"
                     >
-                        <div className="tw-w-full tw-h-[30vh] lg:tw-h-[50vh] tw-relative tw-mb-3">
+                        <div className="tw-w-full tw-h-[30vh] tw-relative tw-mb-3">
                             <CoverImage
                                 blogPost={item}
                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

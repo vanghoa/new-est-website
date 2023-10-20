@@ -236,7 +236,7 @@
     }
 
     .reset-this h3 {
-        @apply tw-mb-3;
+        @apply tw-mb-3 tw-tracking-wide;
     }
 
     .tw-group {

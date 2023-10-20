@@ -23,15 +23,41 @@ import { Fragment, ReactNode, Suspense } from 'react';
 export default function Home() {
     return (
         <AnimatePageComp>
-            <HeaderLayout className="tw-min-h-[calc(80vh-12.5rem)] tw-flex tw-flex-col">
-                <Word elem={'h1'}>Bao Anh is here and now!</Word>
-                <section className="tw-flex tw-flex-col tw-grow tw-justify-between tw-h-full">
-                    <Word elem={'article'} className="tw-max-w-[30rem]">
-                        Hello! I like to learn and experiment with new ideas in
-                        art, design and technology. Thank you for visiting.
+            <HeaderLayout className="tw-min-h-[calc(80vh-12.5rem)] tw-items-center tw-flex tw-flex-col">
+                <Word
+                    elem={'h1'}
+                    className="tw-text-center tw-w-[min(20rem,100%)]"
+                >
+                    Bao Anh , everyday , bananas , two
+                </Word>
+                <section className="tw-flex tw-flex-col tw-items-center tw-grow tw-justify-between tw-h-full tw-text-center">
+                    <Word
+                        elem={'article'}
+                        className="tw-max-w-[30rem] [word-spacing:.2em]"
+                    >
+                        visitors Hello! I learn and like experiment new ideas in
+                        art, design and technology.
                     </Word>
-                    <h2 className="tw-w-[min(35rem,100%)]">
-                        <Link href={PATH_BLOG}>{`[ See my works ]`}</Link>
+                    <h2 className="tw-w-fit">
+                        <Link href={PATH_BLOG}>
+                            <p className="tw-w-full tw-flex tw-justify-center">
+                                ________________
+                            </p>
+                            <p className="tw-w-full tw-flex tw-justify-between">
+                                <span>/</span>
+                                <span>\</span>
+                            </p>
+                            <p className="tw-w-full tw-flex tw-justify-between">
+                                <span>{`[`}</span>
+                                <span className="tw-mx-7">See works</span>
+                                <span>{`]`}</span>
+                            </p>
+                            <p className="tw-w-full tw-flex tw-justify-between">
+                                <span>\</span>
+                                <span>________________</span>
+                                <span>/</span>
+                            </p>
+                        </Link>
                     </h2>
                 </section>
             </HeaderLayout>
@@ -44,7 +70,7 @@ export default function Home() {
             ></WelcomeLine>
             <div className="rnr-image tw-w-full tw-flex tw-flex-col tw-gap-6 tw-justify-end tw-items-center">
                 <h2>
-                    <Link href={PATH_BLOG}>{`Featured works`}</Link>
+                    <Link href={PATH_BLOG}>{`Works worth seeing`}</Link>
                 </h2>
                 <section
                     className={`tw-grid tw-grid-cols-[1em_auto_1em] tw-grid-rows-[min-content_auto_min-content]`}

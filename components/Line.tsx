@@ -71,7 +71,8 @@ export function WelcomeLine({
 }) {
     return (
         <LineConstruct className={`${className} ${tw_line_divider}`} {...props}>
-            *--.--welcome-...to my site...-yesssss;--.--*
+            *--.-------------------;welcome-...to my
+            site...-----------------;--.--*
         </LineConstruct>
     );
 }
