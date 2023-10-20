@@ -214,7 +214,7 @@ export default function WorkPageClient({
                         () => '---------------*-------------------'
                     ).join('')}`}
                 </p>
-                <li className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-3 tw-col-[2/4] tw-row-[2/4]">
+                <li className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 xl:tw-grid-cols-3 tw-col-[2/4] tw-row-[2/4]">
                     <BlogPostsMap
                         blogPosts={blogPostsObj.front}
                         prev={0}
@@ -264,7 +264,7 @@ function BlogPostsMap({
                     <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
                         {'&&&<>&&&~&&&&&&&&&&<>&&&&&&&~&&<>&&&&&'}
                     </LineConstruct>
-                    <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
+                    <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl] !tw-h-8">
                         {'@@@@@@@~<>@@@@@@@@@<>@@@@@@@~@@@@@@@@'}
                     </LineConstruct>
                     <p
@@ -275,9 +275,9 @@ function BlogPostsMap({
                     <Link
                         key={`related${i}`}
                         href={getBlogPostPath(item.slug)}
-                        className="tw-my-2 tw-mx-1"
+                        className="tw-my-2 tw-mx-1 tw-h-[29vh] md:tw-h-[38vh] tw-flex tw-flex-col tw-justify-center tw-items-center"
                     >
-                        <div className="tw-w-full tw-h-[30vh] tw-relative tw-mb-3">
+                        <div className="tw-w-full tw-flex-grow tw-relative tw-mb-3">
                             <CoverImage
                                 blogPost={item}
                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -306,7 +306,7 @@ function BlogPostsMap({
                                 </p>
                             </div>
                         </div>
-                        <div>
+                        <div className="tw-w-full">
                             <h3 className="!tw-m-0">{item.title}</h3>
                             <p>{item.timestart}</p>
                         </div>
