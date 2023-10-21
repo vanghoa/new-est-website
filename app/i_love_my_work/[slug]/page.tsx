@@ -1,11 +1,3 @@
-/*
-import {
-    cache_fetchAllBlocks,
-    cache_fetchBlogPostBySlug,
-    cache_fetchBlogPosts,
-    cache_fetchBlogPostsRelated,
-} from '@/lib/notionClient';
-*/
 import truncateString from '@/utils/truncateString';
 import { Metadata, ResolvingMetadata } from 'next';
 import { BlogPost, DynamicProps } from '@/types/types';
@@ -54,7 +46,6 @@ export async function generateMetadata(
 ): Promise<Metadata> {
     const slug = params.slug as string;
 
-    //const blogPost = await cache_fetchBlogPostBySlug(slug);
     const blogPost: any = await cache_fetchNotion('fetchBlogPostBySlug', slug);
 
     if (!blogPost) {
@@ -123,7 +114,6 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-    //const blogPosts = await cache_fetchBlogPosts();
     const blogPosts: any[] = (await cache_fetchNotion('fetchBlogPosts')) ?? [];
 
     return blogPosts.map((blogPost: { slug: any }) => {
@@ -143,7 +133,6 @@ export default function Page({ params }: DynamicProps) {
 
 async function PageSuspense({ params }: DynamicProps) {
     const slug = params.slug as string;
-    //const blogPost: BlogPost | null = await cache_fetchBlogPostBySlug(slug);
     // @ts-ignore
     const blogPost: BlogPost | null = await cache_fetchNotion(
         'fetchBlogPostBySlug',
@@ -156,14 +145,16 @@ async function PageSuspense({ params }: DynamicProps) {
     const field = blogPost['big tag']?.includes('Development')
         ? 'Development'
         : blogPost['big tag']?.[0];
-    //const blogPostsRelated = await cache_fetchBlogPostsRelated(field, slug);
-    //const blocks = await cache_fetchAllBlocks(blogPost.id);
     const blogPostsRelated: any = await cache_fetchNotion(
         'fetchBlogPostsRelated',
         field,
         slug
     );
-    const blocks: any = await cache_fetchNotion('fetchAllBlocks', blogPost.id);
+    const blocks: any = await cache_fetchNotion(
+        'fetchAllBlocks',
+        blogPost.id,
+        slug
+    );
 
     if (!blogPostsRelated || !blocks) {
         return <div>fail to load!</div>;

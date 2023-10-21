@@ -464,12 +464,50 @@ function getRandomInt(min: number, max: number) {
 export const cache_fetchNotion = cache(
     async (type: cacheType, ...rest: any[]) => {
         try {
+            let options: RequestInit = { cache: 'force-cache' };
+            switch (type) {
+                case 'fetchAllBlocks':
+                    options = {
+                        cache: 'force-cache',
+                        next: { tags: [rest[1]] },
+                    };
+                    break;
+                case 'fetchBlogPostBySlug':
+                    options = {
+                        cache: 'force-cache',
+                        next: { tags: [rest[0]] },
+                    };
+                    break;
+                case 'fetchBlogPosts':
+                    options = {
+                        cache: 'force-cache',
+                        next: { tags: ['all'] },
+                    };
+                    break;
+                case 'fetchBlogPostsRelated':
+                    options = {
+                        cache: 'force-cache',
+                        next: { tags: [rest[1]] },
+                    };
+                    break;
+                case 'retrieveMultiSelect':
+                    options = {
+                        cache: 'force-cache',
+                        next: { tags: ['multiselect'] },
+                    };
+                    break;
+                default:
+                    console.log(
+                        `co loi o cache_fetchNotion: wrong type request`
+                    );
+                    return null;
+            }
             const { message: blogPost } = await (
                 await fetch(
                     `${getAPIRoutePath(
                         'notionFetch'
                     )}?type=${type}&args=${JSON.stringify(rest)}`,
-                    { cache: 'force-cache' }
+                    options
                 )
             ).json();
             console.log(`cache_fetchNotion: ${type} / ${rest}`);
