@@ -33,7 +33,7 @@ export default function GuestBookForm() {
                 setName('');
             }}
             id="guestbookform"
-            className="tw-w-full tw-flex tw-flex-col tw-gap-6 tw-justify-end tw-items-center"
+            className="tw-w-full tw-flex tw-flex-col tw-text-center tw-gap-6 tw-justify-end tw-items-center"
         >
             <h2>{trace}</h2>
             {trace !=
