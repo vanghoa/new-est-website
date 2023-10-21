@@ -1,6 +1,7 @@
 import AnimatePageComp from '@/components/AnimatePageComp';
 import { LineConstruct, LineLooser } from '@/components/Line';
 import { HeaderLayout } from '@/components/SmallComponents';
+import { tw_grid_section } from '@/components/TailwindClass';
 import { Rand, Word } from '@/components/WordProcessor';
 
 export default function page() {
@@ -47,9 +48,7 @@ export default function page() {
                 Let&apos;s talk!
             </Rand>
             <br></br>
-            <section
-                className={`tw-grid tw-grid-cols-[min-content_auto_min-content] tw-grid-rows-[min-content_auto_min-content]`}
-            >
+            <section className={tw_grid_section}>
                 <p className={`tw-col-[1] tw-row-[1] !tw-leading-[1em]`}>@</p>
                 <p className={`tw-col-[1] tw-row-[3/4] !tw-leading-[1em]`}>@</p>
                 <p className={`tw-col-[3/4] tw-row-[1] !tw-leading-[1em]`}>@</p>

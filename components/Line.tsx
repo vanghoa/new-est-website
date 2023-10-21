@@ -93,4 +93,4 @@ export function LineConstruct({
 }
 
 export const lineConstructClass =
-    'tw-whitespace-nowrap tw-break-words tw-break-all tw-text-center tw-h-4 tw-overflow-hidden !tw-leading-[1em] tw-mx-auto';
+    'tw-whitespace-nowrap tw-break-words tw-break-all tw-text-center tw-h-8 tw-overflow-hidden !tw-leading-[1em] tw-mx-auto';

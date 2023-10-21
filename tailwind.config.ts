@@ -16,6 +16,7 @@ const config: Config = {
             black: 'var(--background-color)',
             transparent: 'rgba(255,255,255,0)',
             yellow: 'var(--yellow)',
+            blue: 'rgba(0, 116, 255, 0.8)',
         },
         fontFamily: {
             display: 'var(--font-display)',

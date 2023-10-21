@@ -11,25 +11,31 @@ export default function Navbar() {
             {
                 name: 'Home',
                 href: '/',
-                tooltips: 'Welcome back',
+                tooltips:
+                    'Landing page ... You can also leave some words on this site ...',
             },
             {
                 name: 'Works',
                 href: '/i_love_my_work',
-                tooltips: 'See my projects, my works here',
+                tooltips:
+                    'I have been working on a few projects, from client, full-time to self-initiated ones.',
             },
             {
                 name: 'Contact',
                 href: '/contact',
-                tooltips: '+65 8421 7539',
+                tooltips: (
+                    <>
+                        +65 8421 7539 , baoanh1buinguyen@gmail.com , <br></br>{' '}
+                        at Toa Payoh, Singapore
+                    </>
+                ),
             },
         ],
         [
             {
                 name: 'Info',
                 href: '/info',
-                tooltips:
-                    'Find out everything about me, what I have been through and what I am capable of...',
+                tooltips: 'Some info about wu I am, and what I am made out of.',
             },
         ],
     ];
@@ -77,7 +83,10 @@ export default function Navbar() {
                         }}
                     >
                         Resume
-                        <Tooltips>a pdf file ~63kb</Tooltips>
+                        <Tooltips>
+                            a pdf file ~63kb breaking down my professional and
+                            academic experiences.
+                        </Tooltips>
                     </Char>
                 </span>
                 {navlist[1].map(({ name, href, tooltips }, i) => (
@@ -100,7 +109,7 @@ export default function Navbar() {
                     </span>
                 ))}
             </div>
-            <div className="[&_a]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-10 tw-pointer-events-auto tw-border-t-8 tw-border-black tw-border-b-8">
+            <div className="[&_a]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-10 tw-pointer-events-auto tw-border-t-[15px] tw-border-black tw-border-b-8">
                 <span className="tw-w-36 tw-h-full tw-flex tw-items-center tw-justify-center tw-group">
                     <Rand
                         elem={'a'}

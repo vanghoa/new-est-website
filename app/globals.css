@@ -228,7 +228,7 @@
         @apply !tw-italic;
     }
     .reset-this * {
-        @apply tw-tracking-wide tw-text-base md:tw-text-[1.1rem] md:tw-leading-6;
+        @apply tw-tracking-wide tw-text-base md:tw-text-[1.1rem] md:tw-leading-6 selection:tw-bg-blue;
     }
     .reset-this :is(h1, h2, h3, h4, h5, h6),
     .reset-this :is(h1, h2, h3, h4, h5, h6) * {
@@ -246,7 +246,7 @@
         @apply tw-absolute tw-hidden tw-transform-cpu tw-translate-x-[-50%] tw-left-1/2 tw-top-full tw-bg-white tw-text-black tw-w-max tw-pointer-events-none tw-px-3 tw-py-[0.5rem] tw-leading-[1.4];
     }
     .tooltips {
-        @apply tw-font-bold tw-max-w-[20vmax];
+        @apply tw-font-bold tw-text-center tw-w-fit tw-break-words tw-max-w-[20vmax];
     }
 
     .rnr-empty-block {

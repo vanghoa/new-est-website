@@ -10,7 +10,9 @@ import { tw_border_white_04 } from './TailwindClass';
 export default function GuestBookForm() {
     const [name, setName] = useState('');
     const formref = useRef<HTMLFormElement>(null);
-    const [trace, setTrace] = useState('Leave some traces!');
+    const [trace, setTrace] = useState(
+        `Leave some traces! ( public on this site but anonymously )`
+    );
     const Update = myAction.bind(null);
     //const addGuest = useAddGuest();
 
@@ -21,7 +23,7 @@ export default function GuestBookForm() {
                 const { message, data } = await Update(formData);
                 formref.current?.reset();
                 setTrace(
-                    'Thank you for being here <3 you traces have been left beneath this site'
+                    "Thank you for being here <3 you can view by tapping ``'-...__...-'``"
                 );
                 console.log(message);
                 //data && addGuest(data);
@@ -35,7 +37,7 @@ export default function GuestBookForm() {
         >
             <h2>{trace}</h2>
             {trace !=
-                'Thank you for being here <3 you traces have been left beneath this site' && (
+                "Thank you for being here <3 you can view by tapping ``'-...__...-'``" && (
                 <ImageFrame elem={LineLoose} className="tw-w-full tw-h-full">
                     <label className="tw-w-full tw-flex tw-flex-col sm:tw-flex-row tw-items-center tw-p-2">
                         <input

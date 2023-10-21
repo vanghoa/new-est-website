@@ -15,6 +15,7 @@ import { CoverImage, HeaderLayout, OLOverlay } from './SmallComponents';
 import {
     tw_border_white_04,
     tw_divider,
+    tw_grid_section,
     tw_line_divider,
     tw_line_overflow,
 } from './TailwindClass';
@@ -23,6 +24,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import createQueryString from '@/utils/createQueryString';
 import { Char, Half, Word } from './WordProcessor';
 import { motion } from 'framer-motion';
+import { TagArr } from './GridComp';
 
 let unq_key = 0;
 
@@ -122,7 +124,7 @@ export default function WorkPageClient({
         <>
             <HeaderLayout>
                 <Word elem={'h1'} className="tw-text-center">
-                    {filter.name} , works
+                    {filter.name.toLowerCase()} ... works
                 </Word>
             </HeaderLayout>
             <li className={`tw-w-full tw-text-center ${tw_divider} rnr-image`}>
@@ -159,7 +161,7 @@ export default function WorkPageClient({
                                                         : `after:!tw-text-transparent before:!tw-text-transparent sm:after:tw-content-['_<--_?'] sm:before:tw-content-['?_-->_'] tw-opacity-50`
                                                 }`}
                                             >
-                                                {item}
+                                                {item.toLowerCase()}
                                             </Half>
                                         </Fragment>
                                     ))}
@@ -184,14 +186,12 @@ export default function WorkPageClient({
                     return result;
                 })()}
             </li>
-            <section
-                className={`${tw_line_overflow} tw-grid tw-grid-cols-[min-content_auto_min-content] tw-grid-rows-[1.1em_auto_min-content]`}
-            >
+            <section className={`${tw_line_overflow} ${tw_grid_section}`}>
                 <p className={`tw-col-[1] tw-row-[1] !tw-leading-[1em]`}>@</p>
                 <p className={`tw-col-[1] tw-row-[3/4] !tw-leading-[1em]`}>@</p>
                 <p className={`tw-col-[3/4] tw-row-[1] !tw-leading-[1em]`}>@</p>
                 <p
-                    className={`tw-w-full tw-h-8 tw-col-[2/3] tw-row-[1/2] ${lineConstructClass} before:tw-content-['------------'] sm:before:tw-content-['------------------'] md:before:tw-content-['----------------------------'] lg:before:tw-content-['----------------------------------']`}
+                    className={`tw-w-full tw-col-[2/3] tw-row-[1/2] ${lineConstructClass} before:tw-content-['------------'] sm:before:tw-content-['------------------'] md:before:tw-content-['----------------------------'] lg:before:tw-content-['----------------------------------']`}
                 >
                     <span className="!tw-italic">
                         ( {blogPostsObj.config.toLowerCase()}:{' '}
@@ -264,7 +264,7 @@ function BlogPostsMap({
                     <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
                         {'&&&<>&&&~&&&&&&&&&&<>&&&&&&&~&&<>&&&&&'}
                     </LineConstruct>
-                    <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl] !tw-h-8">
+                    <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
                         {'@@@@@@@~<>@@@@@@@@@<>@@@@@@@~@@@@@@@@'}
                     </LineConstruct>
                     <p
@@ -285,25 +285,7 @@ function BlogPostsMap({
                             ></CoverImage>
                             <OLOverlay></OLOverlay>
                             <div className="tw-h-full tw-w-full tw-hidden tw-justify-center tw-items-center tw-absolute tw-left-0 tw-top-0 tw-p-8 group-hover:tw-flex tw-flex-col tw-gap-5 tw-text-center">
-                                <span>{item.blurb}</span>
-                                <p>
-                                    {item['big tag']?.map((tag, i) => (
-                                        <Fragment key={`bigtag${i}`}>
-                                            <em className="tw-inline-block tw-mx-2">
-                                                {tag}
-                                            </em>
-                                            |
-                                        </Fragment>
-                                    ))}
-                                    {item['small tag']?.map((tag, i) => (
-                                        <Fragment key={`smalltag${i}`}>
-                                            <em className="tw-inline-block tw-mx-2">
-                                                {tag}
-                                            </em>
-                                            {item['small tag']?.[i + 1] && '|'}
-                                        </Fragment>
-                                    ))}
-                                </p>
+                                <TagArr item={item}></TagArr>
                             </div>
                         </div>
                         <div className="tw-w-full">
