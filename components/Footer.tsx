@@ -46,7 +46,15 @@ export default function Footer() {
                         <span>Prisma + PostgreSQL</span>,{' '}
                         <span>Framer Motion</span>,{' '}
                         <span>probe-image-size</span>, <span>seedrandom</span>,{' '}
-                        <span>react-lazy-load</span>, ...
+                        <span>react-lazy-load</span>, ... See the Github
+                        repository of the site{' '}
+                        <a
+                            target="_blank"
+                            href="https://github.com/vanghoa/new-est-website"
+                        >
+                            here
+                        </a>
+                        .
                     </p>
                     <p>
                         Typeface is <span>Alegreya</span> designed by Juan Pablo

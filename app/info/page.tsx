@@ -234,7 +234,15 @@ export default function page() {
                         Prisma + PostgreSQL
                     </span>, <span>Framer Motion</span>,{' '}
                     <span>probe-image-size</span>, <span>seedrandom</span>,{' '}
-                    <span>react-lazy-load</span>, ...
+                    <span>react-lazy-load</span>, ... See the Github repository
+                    of the site{' '}
+                    <a
+                        target="_blank"
+                        href="https://github.com/vanghoa/new-est-website"
+                    >
+                        here
+                    </a>
+                    .
                 </Rand>
                 <br></br>
                 <Rand min={5} elem={'article'} className="tw-max-w-[35rem]">
