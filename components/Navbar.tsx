@@ -78,13 +78,13 @@ export default function Navbar() {
                     <Char
                         elem={'a'}
                         rest={{
-                            href: '/resume/baoanhbui-resume-201023.pdf',
+                            href: '/resume/baoanhbui-resume-221023.pdf',
                             target: '_blank',
                         }}
                     >
                         Resume
                         <Tooltips>
-                            a pdf file ~63kb breaking down my professional and
+                            a pdf file ~60kb breaking down my professional and
                             academic experiences.
                         </Tooltips>
                     </Char>

@@ -43,7 +43,7 @@ export default function Home() {
                         visitors Hello! I like to learn and experiment new ideas
                         in art, design and technology.
                     </Word>
-                    <article className="tw-w-fit">
+                    <article className="tw-w-fit preserve3d">
                         <Link href={PATH_BLOG}>
                             <p className="tw-w-full tw-flex tw-justify-center">
                                 __
@@ -62,7 +62,7 @@ export default function Home() {
                                 </span>
                                 <span>\</span>
                             </p>
-                            <p className="tw-w-full tw-flex tw-justify-center">
+                            <p className="tw-w-full preserve3d tw-flex tw-justify-center">
                                 <span>{`[`}</span>
                                 <span className="tw-mx-7">
                                     see
@@ -189,7 +189,7 @@ async function HomeSuspense() {
                     nthno={`( ${i + 1} )`}
                     href={getBlogPostPath(item.slug)}
                 >
-                    <div className="tw-w-full tw-flex-grow tw-relative tw-mb-3">
+                    <div className="tw-w-full tw-flex-grow tw-relative tw-mb-3 preserve3d">
                         <CoverImage
                             blogPost={item}
                             sizes="(max-width: 640px) 100vw, 400px"
@@ -201,8 +201,10 @@ async function HomeSuspense() {
                         </div>
                     </div>
                     <div className="tw-w-full">
-                        <h3 className="!tw-m-0">{item.title}</h3>
-                        <p>{item.timestart}</p>
+                        <Word elem={'h3'} className="!tw-m-0">
+                            {item.title}
+                        </Word>
+                        <Word elem={'p'}>{item.timestart}</Word>
                     </div>
                 </OlGroup>
             )

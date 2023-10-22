@@ -35,3 +35,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 public/resume/baoanhbui-transcript.pdf
+public/resume/baoanhbui-accolades.pdf
