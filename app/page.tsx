@@ -46,7 +46,7 @@ export default function Home() {
                     <article className="tw-w-fit preserve3d">
                         <Link href={PATH_BLOG}>
                             <p className="tw-w-full tw-flex tw-justify-center">
-                                __
+                                ___
                             </p>
                             <p className="tw-w-full tw-flex tw-justify-center">
                                 ____//
@@ -62,42 +62,44 @@ export default function Home() {
                                 </span>
                                 <span>\</span>
                             </p>
-                            <p className="tw-w-full preserve3d tw-flex tw-justify-center">
-                                <span>{`[`}</span>
-                                <span className="tw-mx-7">
+                            <p className="tw-w-full preserve3d tw-flex tw-justify-around">
+                                <span>{`|`}</span>
+                                <span className="!tw-text-transparent selection:!tw-text-white">
+                                    ___
+                                </span>
+                                <span>
                                     see
                                     <span className="!tw-text-transparent selection:!tw-text-white">
                                         _my_
                                     </span>
                                     works
                                 </span>
-                                <span>{`]`}</span>
+                                <span className="!tw-text-transparent selection:!tw-text-white">
+                                    ___
+                                </span>
+                                <span>{`|`}</span>
                             </p>
                             <p className="tw-w-full tw-flex tw-justify-around">
                                 <span>\</span>
-                                <span>
-                                    _______
-                                    <span className="!tw-text-transparent selection:!tw-text-white">
-                                        ?
-                                    </span>
-                                    _______
+                                <span className="!tw-text-transparent selection:!tw-text-white">
+                                    ____please_!____
                                 </span>
                                 <span>/</span>
                             </p>
                             <p className="tw-w-full tw-flex tw-justify-center">
-                                <span>
-                                    |
-                                    <span className="!tw-text-transparent selection:!tw-text-white">
-                                        _thank_you_
-                                    </span>
-                                    |
+                                <span style={{ transform: 'rotate(-25deg)' }}>
+                                    \
+                                </span>
+                                <span className="tw-mx-3">___________</span>
+                                <span style={{ transform: 'rotate(25deg)' }}>
+                                    /
                                 </span>
                             </p>
                             <p className="tw-w-full tw-flex tw-justify-center">
                                 <span>
                                     {`@`}
                                     <span className="!tw-text-transparent selection:!tw-text-white">
-                                        _so_much_
+                                        _thk_q_
                                     </span>
                                     {`@`}
                                 </span>
