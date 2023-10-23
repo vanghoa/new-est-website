@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { revalidatePath } from 'next/cache';
-import { PATH_BLOG } from '@/constants/paths';
 import uploadNotionImagesToCloudinary from 'upload-notion-images-to-cloudinary';
 
 const notionSecret = process.env.NOTION_SECRET;
@@ -37,12 +35,10 @@ export async function GET(request: NextRequest) {
             cloudinaryUploadFolder: cloudinaryUploadFolder,
             logLevel: 'debug',
         });
-        revalidatePath(`${PATH_BLOG}/[slug]`);
-        revalidatePath(PATH_BLOG);
 
         return NextResponse.json({ revalidated: true, now: Date.now() });
     } catch (e) {
-        console.log('co loi in notion/route (error): ', e);
+        console.log('co loi in img-to-cloudinary (error): ', e);
         return NextResponse.json({ message: [] }, { status: 400 });
     }
 }

@@ -1,0 +1,48 @@
+diff --git a/node_modules/upload-notion-images-to-cloudinary/README.md b/node_modules/upload-notion-images-to-cloudinary/README.md
+index e6909e3..6db61bc 100644
+--- a/node_modules/upload-notion-images-to-cloudinary/README.md
++++ b/node_modules/upload-notion-images-to-cloudinary/README.md
+@@ -101,3 +101,5 @@ await uploadNotionImagesToCloudinary({
+ * Using the page title for the cover image filename
+ * Adding CI
+ * Writing tests
++
++npx upload-notion-images-to-cloudinary
+\ No newline at end of file
+diff --git a/node_modules/upload-notion-images-to-cloudinary/dist/lib/notionClient.js b/node_modules/upload-notion-images-to-cloudinary/dist/lib/notionClient.js
+index ecf5829..8c84c1c 100644
+--- a/node_modules/upload-notion-images-to-cloudinary/dist/lib/notionClient.js
++++ b/node_modules/upload-notion-images-to-cloudinary/dist/lib/notionClient.js
+@@ -24,11 +24,28 @@ class NotionClient {
+         return result;
+     }
+     async fetchAllBlocks(pageIdOrBlockId) {
+-        const result = await this.#client.blocks.children.list({
+-            block_id: pageIdOrBlockId,
+-        });
++        const notion = this.#client;
++                    async function refetchAllBlocks(cursor) {
++                        const result = await notion.blocks.children.list(
++                            cursor
++                                ? {
++                                    block_id: pageIdOrBlockId,
++                                    page_size: 100,
++                                    start_cursor: cursor,
++                                }
++                                : {
++                                    block_id: pageIdOrBlockId,
++                                    page_size: 100,
++                                }
++                        );
++                        let blocks = result.results;
++                        if (result.has_more && result.next_cursor) {
++                            blocks = blocks.concat(await refetchAllBlocks(result.next_cursor));
++                        }
++                        return blocks;
++                    }
+         // @todo: add pagination to handle pages with many blocks
+-        const blocks = result.results;
++        const blocks = await refetchAllBlocks(false);
+         // Retrieve block children for nested blocks (one level deep), for example toggle blocks
+         // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
+         const childBlocks = await Promise.all(blocks

@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "postinstall": "npx patch-package"
     },
     "dependencies": {
         "@9gustin/react-notion-render": "^3.11.2",
@@ -21,6 +22,7 @@
         "eslint-config-next": "13.4.19",
         "framer-motion": "^10.16.4",
         "next": "13.5.4",
+        "patch-package": "^8.0.0",
         "postcss": "8.4.29",
         "probe-image-size": "^7.2.3",
         "react": "18.2.0",
