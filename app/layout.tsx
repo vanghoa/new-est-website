@@ -39,7 +39,7 @@ const mono = localFont({
 });
 
 const metadata_template = {
-    title: 'ảo anh',
+    title: 'Bảo Anh',
     description: `Personal site/portfolio of Bảo Anh Bùi`,
     images: '/base/garage/2.jpg',
 };

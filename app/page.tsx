@@ -242,10 +242,10 @@ function OlGroup({
                 {'-------~----------*-------~--------'}
             </LineConstruct>
             <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
-                {'???<>???~??????????<>???????~??<>?????'}
+                *--.--&apos;``&apos;-...__...-&apos;``&apos;--.--*
             </LineConstruct>
             <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
-                {'%%%%%%%~<>%%%%%%%%%<>%%%%%%%~%%%%%%%%'}
+                *--.--&apos;``&apos;-...__...-&apos;``&apos;--.--*
             </LineConstruct>
             <p
                 className={`tw-col-[2] tw-row-[2] !tw-leading-[1em] tw-text-center tw-whitespace-nowrap tw-left-[-0.25em]`}
