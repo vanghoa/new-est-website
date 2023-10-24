@@ -63,61 +63,64 @@ async function WorkPageSuspense() {
                         credit directory
                     </Word>
                 </HeaderLayout>
-                {/*
-                <li
-                    className={`tw-text-center !tw-mb-0 !tw-w-[70vw] ${tw_divider} ${tw_line_overflow} !tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0`}
-                >
-                    {individual.map((item, i) => (
-                        <Fragment key={`${i}decorfrag`}>
+                {Array.isArray(group) && Array.isArray(individual) && (
+                    <>
+                        <li
+                            className={`tw-text-center !tw-mb-0 !tw-w-[70vw] ${tw_divider} ${tw_line_overflow} !tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0`}
+                        >
+                            {individual.map((item, i) => (
+                                <Fragment key={`${i}decorfrag`}>
+                                    <ul
+                                        key={`${i}decor`}
+                                        className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['-----'] sm:before:tw-content-['-----']"
+                                    >
+                                        *
+                                    </ul>
+                                    <Half
+                                        elem="ul"
+                                        key={`${i}filter`}
+                                        className={`tw-whitespace-nowrap`}
+                                    >
+                                        {item?.name}
+                                    </Half>
+                                </Fragment>
+                            ))}
                             <ul
-                                key={`${i}decor`}
-                                className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['-----'] sm:before:tw-content-['-----']"
+                                key={`decor`}
+                                className="tw-break-all tw-break-words tw-flex-shrink before:!tw-text-transparent before:tw-content-['----'] sm:before:tw-content-['-----'] tw-whitespace-nowrap"
                             >
                                 *
                             </ul>
-                            <Half
-                                elem="ul"
-                                key={`${i}filter`}
-                                className={`tw-whitespace-nowrap`}
-                            >
-                                {item?.name}
-                            </Half>
-                        </Fragment>
-                    ))}
-                    <ul
-                        key={`decor`}
-                        className="tw-break-all tw-break-words tw-flex-shrink before:!tw-text-transparent before:tw-content-['----'] sm:before:tw-content-['-----'] tw-whitespace-nowrap"
-                    >
-                        *
-                    </ul>
-                </li>
-                <li
-                    className={`tw-text-center !tw-mt-0 ${tw_divider} !tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0`}
-                >
-                    {group.map((item, i) => (
-                        <Fragment key={`${i}decorfrag`}>
+                        </li>
+                        <li
+                            className={`tw-text-center !tw-mt-0 ${tw_divider} !tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0`}
+                        >
+                            {group.map((item, i) => (
+                                <Fragment key={`${i}decorfrag`}>
+                                    <ul
+                                        key={`${i}decor`}
+                                        className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['-----'] sm:before:tw-content-['-----']"
+                                    >
+                                        *
+                                    </ul>
+                                    <Half
+                                        elem="ul"
+                                        key={`${i}filter`}
+                                        className={`tw-whitespace-nowrap`}
+                                    >
+                                        {item?.name}
+                                    </Half>
+                                </Fragment>
+                            ))}
                             <ul
-                                key={`${i}decor`}
-                                className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['-----'] sm:before:tw-content-['-----']"
+                                key={`decor`}
+                                className="tw-break-all tw-break-words tw-flex-shrink before:!tw-text-transparent before:tw-content-['----'] sm:before:tw-content-['-----'] tw-whitespace-nowrap"
                             >
                                 *
                             </ul>
-                            <Half
-                                elem="ul"
-                                key={`${i}filter`}
-                                className={`tw-whitespace-nowrap`}
-                            >
-                                {item?.name}
-                            </Half>
-                        </Fragment>
-                    ))}
-                    <ul
-                        key={`decor`}
-                        className="tw-break-all tw-break-words tw-flex-shrink before:!tw-text-transparent before:tw-content-['----'] sm:before:tw-content-['-----'] tw-whitespace-nowrap"
-                    >
-                        *
-                    </ul>
-                    </li> */}
+                        </li>
+                    </>
+                )}
             </>
         )
     );
