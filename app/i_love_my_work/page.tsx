@@ -66,7 +66,7 @@ async function WorkPageSuspense() {
                 {Array.isArray(group) && Array.isArray(individual) && (
                     <>
                         <li
-                            className={`tw-text-center !tw-mb-0 !tw-w-[70vw] ${tw_divider} ${tw_line_overflow} !tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0`}
+                            className={`tw-text-center !tw-mb-0 rnr-image ${tw_divider} !tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0`}
                         >
                             {individual.map((item, i) => (
                                 <Fragment key={`${i}decorfrag`}>
@@ -93,7 +93,7 @@ async function WorkPageSuspense() {
                             </ul>
                         </li>
                         <li
-                            className={`tw-text-center !tw-mt-0 ${tw_divider} !tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0`}
+                            className={`tw-text-center !tw-mt-0 rnr-image ${tw_divider} !tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0`}
                         >
                             {group.map((item, i) => (
                                 <Fragment key={`${i}decorfrag`}>
