@@ -22,8 +22,8 @@ import {
 } from '@/types/types';
 import { ReactNode, Fragment } from 'react';
 
-//export const revalidate = false;
-//export const dynamic = 'force-static';
+export const revalidate = false;
+export const dynamic = 'force-static';
 /*
 export const fetchCache = 'force-cache';
 */
@@ -63,6 +63,7 @@ async function WorkPageSuspense() {
                         credit directory
                     </Word>
                 </HeaderLayout>
+                {/*
                 <li
                     className={`tw-text-center !tw-mb-0 !tw-w-[70vw] ${tw_divider} ${tw_line_overflow} !tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0`}
                 >
@@ -116,7 +117,7 @@ async function WorkPageSuspense() {
                     >
                         *
                     </ul>
-                </li>
+                    </li> */}
             </>
         )
     );
