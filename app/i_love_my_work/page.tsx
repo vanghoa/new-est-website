@@ -22,8 +22,8 @@ import {
 } from '@/types/types';
 import { ReactNode, Fragment } from 'react';
 
-export const revalidate = false;
-export const dynamic = 'force-static';
+//export const revalidate = false;
+//export const dynamic = 'force-static';
 /*
 export const fetchCache = 'force-cache';
 */
