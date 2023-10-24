@@ -79,8 +79,7 @@ export default function page() {
                     on popular web frameworks / tools / plugins. It kept
                     expanding to adapt whatever the need is. The vast majority
                     of my technical knowledge were self-sourced from the
-                    Internet, punctuated by a healthy dose of trial and error,
-                    given that most of my web projects were solo endeavors.
+                    Internet, with a healthy dose of trial and error.
                 </Rand>
                 <br></br>
                 <Rand min={5} elem={'article'} className="tw-max-w-[35rem]">
@@ -88,8 +87,8 @@ export default function page() {
                     experience with group working. As a graphic designer by
                     nature, I had experiences working with fellow programmers
                     for app/web-based projects. Some of them graciously allowed
-                    me to dabble in the coding aspects, an experience for which
-                    I&apos;m immensely thankful. These opportunities in return
+                    me to hop in the coding aspects, an experience for which
+                    I&apos;m so thankful. These opportunities in return
                     facilitates my understanding of working across multiple
                     disciplines with different sets of rules to follow
                     respectively.
@@ -98,8 +97,8 @@ export default function page() {
                 <Rand min={5} elem={'article'} className="tw-max-w-[35rem]">
                     While I readily admit that my technical prowess may not be
                     awe-inspiring and may contain its share of imperfections, I
-                    firmly believe in my capacity to learn and the audacity to
-                    embrace things that are not passively fed to my mouth.
+                    have the capacity to learn and the audacity to embrace
+                    things that are not passively fed to my mouth.
                 </Rand>
                 <br></br>
                 <h2 className="tw-w-[min(35rem,100%)]">
@@ -270,9 +269,8 @@ export default function page() {
                 <br></br>
                 <Rand min={5} elem={'article'} className="tw-max-w-[35rem]">
                     If anything here sparks your interest or resonates with you,
-                    please don&apos;t hesitate to reach out to me through social
-                    media or via email. I would genuinely enjoy continuing the
-                    conversation.
+                    please don&apos;t hesitate to reach out. I would love to
+                    talk more.
                 </Rand>
                 <br></br>
                 <h2 className="tw-w-[min(35rem,100%)]">

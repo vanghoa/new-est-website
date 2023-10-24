@@ -119,12 +119,12 @@ export default function RootLayout({
                     src="/beforeInteractive.js"
                     strategy="beforeInteractive"
                 ></Script>
-                {false ?? (
+                {/* (
                     <Script
                         src="https://cdn.babylonjs.com/babylon.js"
                         strategy="beforeInteractive"
                     ></Script>
-                )}
+                ) */}
                 <section className="[&_*]:tw-text-white [&_*]:tw-leading-relaxed reset-this tw-pointer-events-none tw-overflow-x-hidden">
                     <Navbar></Navbar>
                     <div
@@ -158,36 +158,32 @@ export default function RootLayout({
                                 </Script>    
                     */}
 
-                {build && <FirstWebsite></FirstWebsite>}
-                {build && (
-                    <Suspense fallback={<p></p>}>
-                        <GuestWrapper></GuestWrapper>
-                    </Suspense>
-                )}
-                {build && (
-                    <div
-                        className={`${scultpclass} tw-fixed blacklayer reveal_child preserve3d tw-pointer-events-none`}
-                    >
-                        {Array.from({ length: 25 }, (_, i) => {
-                            const [x, y] = spiralGen(
-                                i * 3,
-                                1,
-                                13.9,
-                                68,
-                                [37.6, 37.6]
-                            );
-                            return (
-                                <SculpturePiece
-                                    key={`${i}sculpt`}
-                                    index={i}
-                                    left={x}
-                                    top={y}
-                                ></SculpturePiece>
-                            );
-                        })}
-                    </div>
-                )}
-                {build && <Script src="/base/base.js"></Script>}
+                <FirstWebsite></FirstWebsite>
+                <Suspense fallback={<p></p>}>
+                    <GuestWrapper></GuestWrapper>
+                </Suspense>
+                <div
+                    className={`${scultpclass} tw-fixed blacklayer reveal_child preserve3d tw-pointer-events-none`}
+                >
+                    {Array.from({ length: 25 }, (_, i) => {
+                        const [x, y] = spiralGen(
+                            i * 3,
+                            1,
+                            13.9,
+                            68,
+                            [37.6, 37.6]
+                        );
+                        return (
+                            <SculpturePiece
+                                key={`${i}sculpt`}
+                                index={i}
+                                left={x}
+                                top={y}
+                            ></SculpturePiece>
+                        );
+                    })}
+                </div>
+                <Script src="/base/base.js"></Script>
             </body>
         </html>
     );

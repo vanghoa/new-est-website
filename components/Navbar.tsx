@@ -52,7 +52,7 @@ export default function Navbar() {
 
     return (
         <nav className="tw-flex tw-flex-col tw-items-center tw-h-fit tw-fixed tw-w-full  tw-z-40 [&_*]:tw-font-display tw-overflow-visible tw-pointer-events-none">
-            <div className="reveal_child tw-z-[-1] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-16 tw-pointer-events-auto tw-pt-1">
+            <div className="reveal_child tw-z-[-1] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-16 tw-pointer-events-auto tw-pt-2">
                 {navlist[0].map(({ name, href, tooltips }, i) => (
                     <span
                         key={`navlist${i}`}
