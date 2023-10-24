@@ -34,7 +34,6 @@ export default function WorkPageClient({
 }: {
     multiSelect: retrieveMultiSelectT;
     blogPosts: (BlogPost | null)[];
-    individual: (Individual | null)[];
 }) {
     unq_key++;
     const pathname = usePathname();

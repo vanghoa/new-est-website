@@ -57,7 +57,6 @@ async function WorkPageSuspense() {
                 <WorkPageClient
                     blogPosts={blogPosts}
                     multiSelect={multiSelect}
-                    individual={individual}
                 ></WorkPageClient>
                 <HeaderLayout elem={'div'}>
                     <Word elem={'h2'} className="tw-text-center h1">
