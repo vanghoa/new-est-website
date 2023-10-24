@@ -1,4 +1,5 @@
 import AnimatePageComp from '@/components/AnimatePageComp';
+import { FooterText } from '@/components/Footer';
 import { Line } from '@/components/Line';
 import { HeaderLayout } from '@/components/SmallComponents';
 import {
@@ -204,44 +205,7 @@ export default function page() {
                     elem={'article'}
                     className="tw-max-w-[35rem] hover:[&_a]:after:!tw-text-white hover:[&_a]:before:!tw-text-white [&_a]:after:!tw-text-transparent [&_a]:before:!tw-text-transparent [&_a]:after:tw-content-['_<--__'] [&_a]:before:tw-content-['__-->_'] [&_a]:before:tw-whitespace-nowrap [&_a]:after:tw-whitespace-nowrap"
                 >
-                    Site is built on <span>Next.js</span> with{' '}
-                    <span>Tailwind CSS</span>. CMS is from{' '}
-                    <span>Notion API</span> with{' '}
-                    <a
-                        target="_blank"
-                        href="https://github.com/9gustin/react-notion-render"
-                    >
-                        react-notion-render
-                    </a>{' '}
-                    by @9gustin for data rendering and{' '}
-                    <a
-                        target="_blank"
-                        href="https://github.com/guillermodlpa/upload-notion-images-to-cloudinary"
-                    >
-                        upload-notion-images-to-cloudinary
-                    </a>{' '}
-                    by @guillermodlpa for hosting images form Notion to
-                    Cloudinary. You can view the database on Notion{' '}
-                    <a
-                        target="_blank"
-                        href="https://prickle-robe-9ad.notion.site/B-o-Anh-s-personal-website-database-74c4132872904ed9855e05567cb116c3"
-                    >
-                        here
-                    </a>
-                    {'. '}
-                    Other dependencies include <span>
-                        Prisma + PostgreSQL
-                    </span>, <span>Framer Motion</span>,{' '}
-                    <span>probe-image-size</span>, <span>seedrandom</span>,{' '}
-                    <span>react-lazy-load</span>, ... See the Github repository
-                    of the site{' '}
-                    <a
-                        target="_blank"
-                        href="https://github.com/vanghoa/new-est-website"
-                    >
-                        here
-                    </a>
-                    .
+                    <FooterText></FooterText>
                 </Rand>
                 <br></br>
                 <Rand min={5} elem={'article'} className="tw-max-w-[35rem]">

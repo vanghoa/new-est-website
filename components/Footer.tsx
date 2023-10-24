@@ -17,44 +17,7 @@ export default function Footer() {
                     className={`tw-w-full tw-p-4 [&_:is(span,a)]:tw-underline tw-flex tw-flex-col tw-gap-4 ${tw_border_white_04}`}
                 >
                     <p>
-                        Site is built on <span>Next.js</span> with{' '}
-                        <span>Tailwind CSS</span>. CMS is from{' '}
-                        <span>Notion API</span> with{' '}
-                        <a
-                            target="_blank"
-                            href="https://github.com/9gustin/react-notion-render"
-                        >
-                            react-notion-render
-                        </a>{' '}
-                        by @9gustin for data rendering and{' '}
-                        <a
-                            target="_blank"
-                            href="https://github.com/guillermodlpa/upload-notion-images-to-cloudinary"
-                        >
-                            upload-notion-images-to-cloudinary
-                        </a>{' '}
-                        by @guillermodlpa for hosting images form Notion to
-                        Cloudinary. You can view the database on Notion{' '}
-                        <a
-                            target="_blank"
-                            href="https://prickle-robe-9ad.notion.site/B-o-Anh-s-personal-website-database-74c4132872904ed9855e05567cb116c3"
-                        >
-                            here
-                        </a>
-                        {'. '}
-                        Other dependencies include{' '}
-                        <span>Prisma + PostgreSQL</span>,{' '}
-                        <span>Framer Motion</span>,{' '}
-                        <span>probe-image-size</span>, <span>seedrandom</span>,{' '}
-                        <span>react-lazy-load</span>, ... See the Github
-                        repository of the site{' '}
-                        <a
-                            target="_blank"
-                            href="https://github.com/vanghoa/new-est-website"
-                        >
-                            here
-                        </a>
-                        .
+                        <FooterText></FooterText>
                     </p>
                     <p>
                         Typeface is <span>Alegreya</span> designed by Juan Pablo
@@ -68,6 +31,48 @@ export default function Footer() {
                     </p>
                 </section>
             </ImageFrame>
+        </>
+    );
+}
+
+export function FooterText() {
+    return (
+        <>
+            Site is built on <span>Next.js</span> with <span>Tailwind CSS</span>
+            . CMS is from <span>Notion API</span> with{' '}
+            <a
+                target="_blank"
+                href="https://github.com/9gustin/react-notion-render"
+            >
+                react-notion-render
+            </a>{' '}
+            by @9gustin for data rendering and{' '}
+            <a
+                target="_blank"
+                href="https://github.com/guillermodlpa/upload-notion-images-to-cloudinary"
+            >
+                upload-notion-images-to-cloudinary
+            </a>{' '}
+            by @guillermodlpa for hosting images form Notion to Cloudinary. You
+            can view the database on Notion here{' '}
+            <a
+                target="_blank"
+                href="https://prickle-robe-9ad.notion.site/B-o-Anh-s-personal-website-database-74c4132872904ed9855e05567cb116c3"
+            >
+                notion link
+            </a>
+            {'. '}
+            Other dependencies include <span>Prisma + PostgreSQL</span>,{' '}
+            <span>Framer Motion</span>, <span>probe-image-size</span>,{' '}
+            <span>seedrandom</span>, <span>react-lazy-load</span>, ... See the
+            Github repository of the site here{' '}
+            <a
+                target="_blank"
+                href="https://github.com/vanghoa/new-est-website"
+            >
+                github link
+            </a>
+            .
         </>
     );
 }

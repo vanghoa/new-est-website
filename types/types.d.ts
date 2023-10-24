@@ -23,6 +23,18 @@ export type BlogPost = {
     featured: boolean;
 };
 
+export type Individual = {
+    id: string;
+    name: string | null;
+    relationship: string[] | null;
+};
+
+export type Group = {
+    id: string;
+    name: string | null;
+    relationship: string[] | null;
+};
+
 export type Categories = 'all' | 'development' | 'management' | 'remote work';
 
 export type RollUpandLink =

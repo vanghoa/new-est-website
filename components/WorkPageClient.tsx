@@ -19,7 +19,7 @@ import {
     tw_line_divider,
     tw_line_overflow,
 } from './TailwindClass';
-import { BlogPost, retrieveMultiSelectT } from '@/types/types';
+import { BlogPost, Individual, retrieveMultiSelectT } from '@/types/types';
 import { usePathname, useSearchParams } from 'next/navigation';
 import createQueryString from '@/utils/createQueryString';
 import { Char, Half, Word } from './WordProcessor';
@@ -34,6 +34,7 @@ export default function WorkPageClient({
 }: {
     multiSelect: retrieveMultiSelectT;
     blogPosts: (BlogPost | null)[];
+    individual: (Individual | null)[];
 }) {
     unq_key++;
     const pathname = usePathname();

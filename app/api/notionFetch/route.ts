@@ -5,6 +5,8 @@ import {
     fetchBlogPosts,
     fetchBlogPostsRelated,
     retrieveMultiSelect,
+    fetchIndividuals,
+    fetchGroups,
 } from '@/lib/notionClient';
 
 export const revalidate = 0;
@@ -15,6 +17,8 @@ const cache = {
     fetchBlogPosts: fetchBlogPosts,
     fetchBlogPostsRelated: fetchBlogPostsRelated,
     retrieveMultiSelect: retrieveMultiSelect,
+    fetchIndividuals: fetchIndividuals,
+    fetchGroups: fetchGroups,
 };
 
 export type cacheType = keyof typeof cache;

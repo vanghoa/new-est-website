@@ -4,7 +4,8 @@
 @import '../components/FirstWebsite.css';
 
 :root {
-    --background-color: black;
+    --default-bg: black;
+    --background-color: var(--default-bg);
     --text-color: white;
     --yellow: yellow;
     --font-wght: 100;
@@ -209,8 +210,9 @@
     .reset-this :is(h1, h2, h3, h4, h5, h6) {
         @apply [word-spacing:.1em];
     }
-    .reset-this h1 {
-        @apply tw-text-3xl;
+    .reset-this h1,
+    .h1 {
+        @apply !tw-text-3xl;
     }
 
     .reset-this h2 {

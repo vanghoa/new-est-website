@@ -114,9 +114,10 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-    const blogPosts: any[] = (await cache_fetchNotion('fetchBlogPosts')) ?? [];
+    const blogPosts: (BlogPost | null)[] =
+        (await cache_fetchNotion('fetchBlogPosts')) ?? [];
 
-    return blogPosts.map((blogPost: { slug: any }) => {
+    return blogPosts.map((blogPost: BlogPost | null) => {
         return {
             slug: blogPost?.slug,
         };
@@ -155,11 +156,25 @@ async function PageSuspense({ params }: DynamicProps) {
         blogPost.id,
         slug
     );
+    const blogPosts: (BlogPost | null)[] =
+        (await cache_fetchNotion('fetchBlogPosts')) ?? [];
 
-    if (!blogPostsRelated || !blocks) {
+    const blogPostprevnext: [BlogPost | null, BlogPost | null] | undefined =
+        (() => {
+            for (const i in blogPosts) {
+                if (blogPosts[i]?.slug == slug) {
+                    return [
+                        blogPosts[+i - 1] || blogPosts[blogPosts.length - 1],
+                        blogPosts[+i + 1] || blogPosts[0],
+                    ];
+                }
+            }
+        })();
+
+    if (!blogPostsRelated || !blocks || !blogPostprevnext) {
         return <div>fail to load!</div>;
     }
-    console.log(blogPost.backgroundColor, blogPost.textColor);
+
     return (
         <AnimatePageComp
             backgroundColor={blogPost.backgroundColor}
@@ -268,25 +283,41 @@ async function PageSuspense({ params }: DynamicProps) {
                 />
             ) || <div>Failed to render</div>}
             <div className="rnr-empty-block"></div>
-            <ImageFrame elem={LineLooser} maxwidth={false}>
+            <ImageFrame
+                elem={LineLooser}
+                maxwidth={false}
+                bottom={false}
+                botleft={false}
+                botright={false}
+                samecorner
+            >
                 <li
-                    className={`tw-p-4 tw-w-full sm:tw-grid sm:tw-grid-cols-2 sm:tw-gap-x-10 sm:tw-gap-y-4 ${tw_border_white_04} [&_h3]:tw-mb-0`}
+                    className={`tw-p-4 tw-w-full sm:tw-grid sm:tw-grid-cols-[1fr_1.1em_1fr] sm:tw-gap-x-10 sm:tw-gap-y-4 ${tw_border_white_04} sm:tw-text-center !tw-border-b-0 [&_h3]:tw-mb-0`}
                 >
-                    <ul>
+                    <ul
+                        className={
+                            blogPost.group?.length && blogPost.group?.length > 0
+                                ? ''
+                                : 'sm:tw-col-span-3'
+                        }
+                    >
                         <Rand
                             elem={'h3'}
                             className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
                         >
                             Individual Credits
                         </Rand>
-                        <Link className="tw-mr-5 tw-w-fit sm:tw-block" href="/">
+                        <Link
+                            className="tw-mr-5 tw-w-fit sm:tw-w-full sm:tw-block"
+                            href="/"
+                        >
                             Bao Anh{' '}
                         </Link>
                         {blogPost.indiv?.map((item, i) => {
                             return (
                                 <>
                                     <a
-                                        className={`tw-mr-5 tw-w-fit sm:tw-block ${
+                                        className={`tw-mr-5 tw-w-fit sm:tw-w-full sm:tw-block ${
                                             item.href == 'null' || !item.href
                                                 ? 'tw-pointer-events-none'
                                                 : ''
@@ -303,6 +334,13 @@ async function PageSuspense({ params }: DynamicProps) {
                     </ul>
                     {blogPost.group?.length && blogPost.group?.length > 0 ? (
                         <ul>
+                            <Line className="tw-hidden tw-w-full tw-h-full tw-absolute [writing-mode:vertical-lr] sm:tw-block tw-transform tw-rotate-180"></Line>
+                        </ul>
+                    ) : (
+                        ''
+                    )}
+                    {blogPost.group?.length && blogPost.group?.length > 0 ? (
+                        <ul>
                             <Rand
                                 elem={'h3'}
                                 className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
@@ -313,7 +351,7 @@ async function PageSuspense({ params }: DynamicProps) {
                                 return (
                                     <>
                                         <a
-                                            className={`tw-mr-5 tw-w-fit sm:tw-block ${
+                                            className={`tw-mr-5 tw-w-fit sm:tw-w-full sm:tw-block ${
                                                 item.href == 'null' ||
                                                 !item.href
                                                     ? 'tw-pointer-events-none'
@@ -332,6 +370,49 @@ async function PageSuspense({ params }: DynamicProps) {
                     ) : (
                         ''
                     )}
+                </li>
+            </ImageFrame>
+            <ImageFrame elem={LineLooser} maxwidth={false} samecorner>
+                <li
+                    className={`tw-p-4 tw-w-full tw-grid tw-grid-cols-[1fr_1.1em_1fr] tw-gap-x-10 tw-gap-y-4 ${tw_border_white_04} tw-text-center [&_h3]:tw-mb-0 !tw-border-t-0`}
+                >
+                    <ul>
+                        <Rand
+                            elem={'h3'}
+                            className={`before:tw-content-['<'] tw-m-0 tw-m tw-block after:tw-content-['>'] sm:after:tw-content-[' Project>']`}
+                        >
+                            Previous
+                        </Rand>
+                        <Link
+                            href={getBlogPostPath(
+                                blogPostprevnext[0]?.slug ?? ''
+                            )}
+                            title={blogPostprevnext[0]?.blurb ?? ''}
+                            className="tw-underline"
+                        >
+                            {blogPostprevnext[0]?.title}
+                        </Link>
+                    </ul>
+                    <ul>
+                        <Line className="tw-w-full tw-h-full tw-absolute [writing-mode:vertical-lr] tw-transform tw-rotate-180"></Line>
+                    </ul>
+                    <ul>
+                        <Rand
+                            elem={'h3'}
+                            className={`before:tw-content-['<'] tw-m-0 tw-m tw-block after:tw-content-['>'] sm:after:tw-content-[' Project>']`}
+                        >
+                            Next
+                        </Rand>
+                        <Link
+                            href={getBlogPostPath(
+                                blogPostprevnext[1]?.slug ?? ''
+                            )}
+                            title={blogPostprevnext[1]?.blurb ?? ''}
+                            className="tw-underline"
+                        >
+                            {blogPostprevnext[1]?.title}
+                        </Link>
+                    </ul>
                 </li>
             </ImageFrame>
             <Line

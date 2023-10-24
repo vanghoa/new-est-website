@@ -8,7 +8,13 @@ import {
     PartialDatabaseObjectResponse,
     PartialPageObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints';
-import { BlogPost, RollUpandLink, retrieveMultiSelectT } from '../types/types';
+import {
+    BlogPost,
+    Group,
+    Individual,
+    RollUpandLink,
+    retrieveMultiSelectT,
+} from '../types/types';
 import probeImageSize from './probeImageSize';
 import { cache } from 'react';
 import { cacheType } from '@/app/api/notionFetch/route';
@@ -36,6 +42,16 @@ const PROPERTY = {
     backgroundcolor: 'background color',
     textcolor: 'text color',
     upwght: 'font upweight',
+};
+
+const PROPERTYINDIV = {
+    name: 'name',
+    relationship: 'relationship',
+};
+
+const PROPERTYGROUP = {
+    name: 'name',
+    relationship: 'relationship',
 };
 
 function getTextValue(property: any): string | null {
@@ -133,6 +149,47 @@ function transformNotionPageIntoBlogPost(
     };
 }
 
+//
+function transformIntoIndividual(
+    page:
+        | PageObjectResponse
+        | PartialPageObjectResponse
+        | PartialDatabaseObjectResponse
+        | DatabaseObjectResponse
+): null | Individual {
+    if (!('properties' in page)) {
+        return null;
+    }
+    const current = getCheckbox(page.properties[PROPERTY.current]);
+    return {
+        id: page.id,
+        name: getTextValue(page.properties[PROPERTYINDIV.name]),
+        relationship: getMultiSelectValues(
+            page.properties[PROPERTYINDIV.relationship]
+        ),
+    };
+}
+
+//
+function transformIntoGroup(
+    page:
+        | PageObjectResponse
+        | PartialPageObjectResponse
+        | PartialDatabaseObjectResponse
+        | DatabaseObjectResponse
+): null | Group {
+    if (!('properties' in page)) {
+        return null;
+    }
+    const current = getCheckbox(page.properties[PROPERTY.current]);
+    return {
+        id: page.id,
+        name: getTextValue(page.properties[PROPERTYGROUP.name]),
+        relationship: getMultiSelectValues(
+            page.properties[PROPERTYGROUP.relationship]
+        ),
+    };
+}
 const notion = new Client({
     auth: process.env.NOTION_SECRET,
     logLevel:
@@ -193,6 +250,74 @@ export const fetchBlogPosts = async function (
     const blogPosts = results.map(transformNotionPageIntoBlogPost);
 
     return blogPosts;
+};
+
+export const fetchIndividuals = async function (): Promise<
+    (Individual | null)[]
+> {
+    //
+    async function refetchIndividuals(cursor: string | false) {
+        if (!process.env.NOTION_DTB_INDIV) return [];
+        const result = await notion.databases.query(
+            cursor
+                ? {
+                      page_size: 100,
+                      database_id: process.env.NOTION_DTB_INDIV,
+                  }
+                : {
+                      page_size: 100,
+                      database_id: process.env.NOTION_DTB_INDIV,
+                  }
+        );
+        let blocks = result.results;
+        if (result.has_more && result.next_cursor) {
+            blocks = blocks.concat(
+                await refetchIndividuals(result.next_cursor)
+            );
+        }
+        return blocks;
+    }
+    //
+    console.log('fetchIndividuals_nocache');
+
+    if (!process.env.NOTION_DTB_INDIV) return [null];
+    const results = await refetchIndividuals(false);
+
+    const Individuals = results.map(transformIntoIndividual);
+
+    return Individuals;
+};
+
+export const fetchGroups = async function (): Promise<(Group | null)[]> {
+    //
+    async function refetchGroups(cursor: string | false) {
+        if (!process.env.NOTION_DTB_GROUP) return [];
+        const result = await notion.databases.query(
+            cursor
+                ? {
+                      page_size: 100,
+                      database_id: process.env.NOTION_DTB_GROUP,
+                  }
+                : {
+                      page_size: 100,
+                      database_id: process.env.NOTION_DTB_GROUP,
+                  }
+        );
+        let blocks = result.results;
+        if (result.has_more && result.next_cursor) {
+            blocks = blocks.concat(await refetchGroups(result.next_cursor));
+        }
+        return blocks;
+    }
+    //
+    console.log('fetchGroups_nocache');
+
+    if (!process.env.NOTION_DTB_GROUP) return [null];
+    const results = await refetchGroups(false);
+
+    const Groups = results.map(transformIntoGroup);
+
+    return Groups;
 };
 
 export const fetchBlogPostsRelated = async function (
@@ -494,6 +619,18 @@ export const cache_fetchNotion = cache(
                     options = {
                         cache: 'force-cache',
                         next: { tags: ['multiselect'] },
+                    };
+                    break;
+                case 'fetchIndividuals':
+                    options = {
+                        cache: 'force-cache',
+                        next: { tags: ['individual'] },
+                    };
+                    break;
+                case 'fetchGroups':
+                    options = {
+                        cache: 'force-cache',
+                        next: { tags: ['group'] },
                     };
                     break;
                 default:

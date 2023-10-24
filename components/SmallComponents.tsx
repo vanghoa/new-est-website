@@ -25,16 +25,18 @@ export function Tooltips({
 export function HeaderLayout({
     children,
     className = '',
+    elem: Element = 'header',
 }: {
     children: ReactNode;
     className?: string;
+    elem?: string | React.FC<any>;
 }) {
     return (
-        <header
+        <Element
             className={`[&>h1]:tw-mb-[5vh] md:[&>h1]:tw-mb-[10vh] tw-mt-[10vh] ${tw_divider} ${className}`}
         >
             {children}
-        </header>
+        </Element>
     );
 }
 
@@ -51,6 +53,7 @@ export function ImageFrame({
     topright = true,
     botleft = true,
     botright = true,
+    samecorner = false,
 }: {
     children: ReactNode;
     elem: React.FC<any>;
@@ -64,17 +67,19 @@ export function ImageFrame({
     topright?: boolean;
     botleft?: boolean;
     botright?: boolean;
+    samecorner?: boolean;
 }) {
     const r = () => Math.random() > 0.5;
     const c = () =>
         `${r() ? 'tw-whitespace-nowrap' : ''} ${
             r() ? '[writing-mode:vertical-lr]' : ''
         } ${r() ? '[direction:rtl]' : ''}`;
+    const same = '@';
     return (
         <div
             className={`${className} ${
                 maxwidth ? 'rnr-image' : ''
-            } tw-w-full tw-grid tw-grid-cols-[min-content_auto_min-content] tw-grid-rows-[min-content_auto_min-content] [&>*:last-child]:tw-col-[2/3] [&>*:last-child]:tw-row-[2/3] tw-overflow-visible`}
+            } tw-w-full tw-grid tw-grid-cols-[max-content_auto_max-content] tw-grid-rows-[max-content_auto_max-content] [&>*:last-child]:tw-col-[2/3] [&>*:last-child]:tw-row-[2/3] tw-overflow-visible`}
         >
             {top && (
                 <Element className="tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] [direction:rtl] tw-absolute"></Element>
@@ -93,7 +98,9 @@ export function ImageFrame({
                     suppressHydrationWarning
                     className={`!tw-leading-[1em] tw-text-center tw-col-[1] tw-row-[1] ${c()}`}
                 >
-                    {RandomItemFromArr(['@', '[+]', '-/\\', '(&)'])}
+                    {samecorner
+                        ? same
+                        : RandomItemFromArr(['@', '[+]', '-/\\', '(&)'])}
                 </p>
             )}
             {botleft && (
@@ -101,7 +108,9 @@ export function ImageFrame({
                     suppressHydrationWarning
                     className={`!tw-leading-[1em] tw-text-center tw-col-[1] tw-row-[3] ${c()}`}
                 >
-                    {RandomItemFromArr(['@', '[=]', '-/\\', '(%)'])}
+                    {samecorner
+                        ? same
+                        : RandomItemFromArr(['@', '[=]', '-/\\', '(%)'])}
                 </p>
             )}
             {topright && (
@@ -109,7 +118,9 @@ export function ImageFrame({
                     suppressHydrationWarning
                     className={`!tw-leading-[1em] tw-text-center tw-col-[3] tw-row-[1] ${c()}`}
                 >
-                    {RandomItemFromArr(['@', '[!]', '-/\\', '($)'])}
+                    {samecorner
+                        ? same
+                        : RandomItemFromArr(['@', '[!]', '-/\\', '($)'])}
                 </p>
             )}
             {botright && (
@@ -117,7 +128,9 @@ export function ImageFrame({
                     suppressHydrationWarning
                     className={`!tw-leading-[1em] tw-text-center tw-col-[3] tw-row-[3] ${c()}`}
                 >
-                    {RandomItemFromArr(['@', '[*]', '-/\\', '(#)'])}
+                    {samecorner
+                        ? same
+                        : RandomItemFromArr(['@', '[*]', '-/\\', '(#)'])}
                 </p>
             )}
             {children}

@@ -5,7 +5,7 @@ import { ReactNode, useEffect } from 'react';
 
 export default function AnimatePageComp({
     children,
-    backgroundColor = 'black',
+    backgroundColor = 'var(--default-bg)',
     textColor = 'white',
     upwght = false,
 }: {

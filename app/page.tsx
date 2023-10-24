@@ -58,7 +58,7 @@ export default function Home() {
                             <p className="tw-w-full tw-flex tw-justify-around">
                                 <span>/</span>
                                 <span className="!tw-text-transparent selection:!tw-text-white">
-                                    _do_u_want_to_
+                                    __I_love_you__
                                 </span>
                                 <span>\</span>
                             </p>
@@ -67,10 +67,10 @@ export default function Home() {
                                 <span className="!tw-text-transparent selection:!tw-text-white">
                                     ___
                                 </span>
-                                <span>
+                                <span className=" selection:!tw-text-transparent">
                                     see
                                     <span className="!tw-text-transparent selection:!tw-text-white">
-                                        _my_
+                                        _for_
                                     </span>
                                     works
                                 </span>
@@ -82,7 +82,7 @@ export default function Home() {
                             <p className="tw-w-full tw-flex tw-justify-around">
                                 <span>\</span>
                                 <span className="!tw-text-transparent selection:!tw-text-white">
-                                    ____please_!____
+                                    ___being_here_!___
                                 </span>
                                 <span>/</span>
                             </p>
@@ -93,15 +93,6 @@ export default function Home() {
                                 <span className="tw-mx-3">___________</span>
                                 <span style={{ transform: 'rotate(25deg)' }}>
                                     /
-                                </span>
-                            </p>
-                            <p className="tw-w-full tw-flex tw-justify-center">
-                                <span>
-                                    {`@`}
-                                    <span className="!tw-text-transparent selection:!tw-text-white">
-                                        _thk_q_
-                                    </span>
-                                    {`@`}
                                 </span>
                             </p>
                         </Link>
