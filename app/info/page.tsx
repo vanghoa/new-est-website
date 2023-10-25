@@ -8,7 +8,7 @@ import {
     tw_line_overflow,
 } from '@/components/TailwindClass';
 import { Rand, Word } from '@/components/WordProcessor';
-import { getWorkFilter, isBuild } from '@/constants/paths';
+import { PATH_BLOG, getWorkFilter, isBuild } from '@/constants/paths';
 import Link from 'next/link';
 
 export default function page() {
@@ -225,6 +225,29 @@ export default function page() {
             ></Line>
             <section
                 className={`tw-w-full tw-flex tw-flex-col tw-items-start ${tw_divider}`}
+            >
+                <Word elem={'h2'} className="tw-w-[min(35rem,100%)]">
+                    About other people
+                </Word>
+                <br></br>
+                <Rand min={5} elem={'article'} className="tw-max-w-[35rem]">
+                    All of my works were mostly collective effort, which is why
+                    I put a small shout-out at the end of every project. I also
+                    created a credit directory in the [Works] page including all
+                    of them together!
+                </Rand>
+                <br></br>
+                <h2 className="tw-w-[min(35rem,100%)]">
+                    <Link
+                        href={`${PATH_BLOG}#creditdirectory`}
+                    >{`[ See the credit directory ]`}</Link>
+                </h2>
+            </section>
+            <Line
+                className={`${tw_line_overflow} ${tw_divider} ${tw_line_divider}`}
+            ></Line>
+            <section
+                className={`tw-w-full tw-flex tw-flex-col tw-items-end ${tw_divider}`}
             >
                 <Word elem={'h2'} className="tw-w-[min(35rem,100%)]">
                     Thank you for visiting! Hope you have a nice time viewing

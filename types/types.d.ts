@@ -23,17 +23,16 @@ export type BlogPost = {
     featured: boolean;
 };
 
-export type Individual = {
+export type IndivAndGroup = {
     id: string;
     name: string | null;
     relationship: string[] | null;
+    workcredit: Rollup;
 };
 
-export type Group = {
-    id: string;
-    name: string | null;
-    relationship: string[] | null;
-};
+export type Individual = IndivAndGroup;
+
+export type Group = IndivAndGroup;
 
 export type Categories = 'all' | 'development' | 'management' | 'remote work';
 
@@ -43,6 +42,8 @@ export type RollUpandLink =
           href: string;
       }[]
     | null;
+
+export type Rollup = string[] | [];
 
 export type DynamicProps = {
     params: { slug: string };

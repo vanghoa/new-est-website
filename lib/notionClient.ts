@@ -13,6 +13,7 @@ import {
     Group,
     Individual,
     RollUpandLink,
+    Rollup,
     retrieveMultiSelectT,
 } from '../types/types';
 import probeImageSize from './probeImageSize';
@@ -44,14 +45,18 @@ const PROPERTY = {
     upwght: 'font upweight',
 };
 
-const PROPERTYINDIV = {
+const PROPERTYINDIVANDGROUP = {
     name: 'name',
     relationship: 'relationship',
+    works: 'work credit',
+};
+
+const PROPERTYINDIV = {
+    ...PROPERTYINDIVANDGROUP,
 };
 
 const PROPERTYGROUP = {
-    name: 'name',
-    relationship: 'relationship',
+    ...PROPERTYINDIVANDGROUP,
 };
 
 function getTextValue(property: any): string | null {
@@ -106,6 +111,13 @@ function getRollUpandLink(property: any): RollUpandLink {
             name,
             href,
         })
+    );
+}
+function getRollUp(property: any): Rollup {
+    return (
+        property?.rollup?.array?.map(
+            ({ title: [{ plain_text }] }: any) => plain_text
+        ) ?? []
     );
 }
 //
@@ -167,6 +179,7 @@ function transformIntoIndividual(
         relationship: getMultiSelectValues(
             page.properties[PROPERTYINDIV.relationship]
         ),
+        workcredit: getRollUp(page.properties[PROPERTYINDIV.works]),
     };
 }
 
@@ -188,6 +201,7 @@ function transformIntoGroup(
         relationship: getMultiSelectValues(
             page.properties[PROPERTYGROUP.relationship]
         ),
+        workcredit: getRollUp(page.properties[PROPERTYGROUP.works]),
     };
 }
 const notion = new Client({

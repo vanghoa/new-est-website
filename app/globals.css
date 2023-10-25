@@ -248,7 +248,7 @@
         @apply tw-absolute tw-hidden tw-transform-cpu tw-translate-x-[-50%] tw-left-1/2 tw-top-full tw-bg-white tw-text-black tw-w-max tw-pointer-events-none tw-px-3 tw-py-[0.5rem] tw-leading-[1.4];
     }
     .tooltips {
-        @apply tw-font-bold tw-text-center tw-w-fit tw-break-words tw-max-w-[20vmax];
+        @apply tw-font-bold tw-text-center tw-w-fit tw-break-words tw-max-w-[20vmax] tw-whitespace-normal;
     }
 
     .rnr-empty-block {

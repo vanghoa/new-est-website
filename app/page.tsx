@@ -51,14 +51,14 @@ export default function Home() {
                             <p className="tw-w-full tw-flex tw-justify-center">
                                 ____//
                                 <span className="!tw-text-transparent selection:!tw-text-white tw-inline-block tw-w-1"></span>
-                                ___
+                                ____
                                 <span className="!tw-text-transparent selection:!tw-text-white tw-inline-block tw-w-1"></span>
                                 \\____
                             </p>
                             <p className="tw-w-full tw-flex tw-justify-around">
                                 <span>/</span>
                                 <span className="!tw-text-transparent selection:!tw-text-white">
-                                    __I_love_you__
+                                    ___I_love_you___
                                 </span>
                                 <span>\</span>
                             </p>
@@ -82,7 +82,7 @@ export default function Home() {
                             <p className="tw-w-full tw-flex tw-justify-around">
                                 <span>\</span>
                                 <span className="!tw-text-transparent selection:!tw-text-white">
-                                    ___being_here_!___
+                                    ___being_here___
                                 </span>
                                 <span>/</span>
                             </p>

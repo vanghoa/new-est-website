@@ -1,6 +1,6 @@
 import AnimatePageComp from '@/components/AnimatePageComp';
-import { LineLoose } from '@/components/Line';
-import { HeaderLayout } from '@/components/SmallComponents';
+import { LineLoose, LineLooser } from '@/components/Line';
+import { HeaderLayout, Tooltips } from '@/components/SmallComponents';
 import { SuspenseNotion } from '@/components/SuspenseFallback';
 import {
     tw_divider,
@@ -59,32 +59,56 @@ async function WorkPageSuspense() {
                     multiSelect={multiSelect}
                 ></WorkPageClient>
                 <HeaderLayout elem={'div'}>
-                    <Word elem={'h2'} className="tw-text-center h1">
+                    <Word
+                        elem={'h2'}
+                        className="tw-text-center h1"
+                        rest={{ id: 'creditdirectory' }}
+                    >
                         credit directory
                     </Word>
                 </HeaderLayout>
                 {Array.isArray(group) && Array.isArray(individual) && (
                     <>
                         <li
-                            className={`tw-text-center !tw-mb-0 rnr-image ${tw_divider} !tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0`}
+                            className={`tw-text-center !tw-mb-0 rnr-image ${tw_divider} !tw-leading-[3.1em] [&>*]:tw-inline tw-border-l-0 tw-relative`}
                         >
-                            {individual.map((item, i) => (
-                                <Fragment key={`${i}decorfrag`}>
-                                    <ul
-                                        key={`${i}decor`}
-                                        className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['-----'] sm:before:tw-content-['-----']"
-                                    >
-                                        *
-                                    </ul>
-                                    <Half
-                                        elem="ul"
-                                        key={`${i}filter`}
-                                        className={`tw-whitespace-nowrap`}
-                                    >
-                                        {item?.name}
-                                    </Half>
-                                </Fragment>
-                            ))}
+                            {individual.map((item, i) => {
+                                return (
+                                    <Fragment key={`${i}decorfrag`}>
+                                        <ul
+                                            key={`${i}decor`}
+                                            className="tw-break-all tw-break-words tw-flex-shrink after:!tw-text-transparent before:!tw-text-transparent after:tw-content-['----'] before:tw-content-['----'] sm:after:tw-content-['-----'] sm:before:tw-content-['-----']"
+                                        >
+                                            *
+                                        </ul>
+                                        <Half
+                                            elem="ul"
+                                            key={`${i}filter`}
+                                            className={`tw-whitespace-nowrap tw-group hover:tw-z-50`}
+                                        >
+                                            {item?.name}
+                                            <Tooltips>
+                                                {item?.workcredit.length == 0
+                                                    ? ':)'
+                                                    : item?.workcredit.map(
+                                                          (text, i, arr) => (
+                                                              <Fragment
+                                                                  key={`${i}work`}
+                                                              >
+                                                                  {text}
+                                                                  {i <
+                                                                      arr.length -
+                                                                          1 && (
+                                                                      <LineLooser className="!tw-text-black tw-mt-[-.4em] !tw-h-3"></LineLooser>
+                                                                  )}
+                                                              </Fragment>
+                                                          )
+                                                      )}
+                                            </Tooltips>
+                                        </Half>
+                                    </Fragment>
+                                );
+                            })}
                             <ul
                                 key={`decor`}
                                 className="tw-break-all tw-break-words tw-flex-shrink before:!tw-text-transparent before:tw-content-['----'] sm:before:tw-content-['-----'] tw-whitespace-nowrap"
@@ -106,9 +130,27 @@ async function WorkPageSuspense() {
                                     <Half
                                         elem="ul"
                                         key={`${i}filter`}
-                                        className={`tw-whitespace-nowrap`}
+                                        className={`tw-whitespace-nowrap tw-group hover:tw-z-50`}
                                     >
                                         {item?.name}
+                                        <Tooltips>
+                                            {item?.workcredit.length == 0
+                                                ? ':)'
+                                                : item?.workcredit.map(
+                                                      (text, i, arr) => (
+                                                          <Fragment
+                                                              key={`${i}work`}
+                                                          >
+                                                              {text}
+                                                              {i <
+                                                                  arr.length -
+                                                                      1 && (
+                                                                  <LineLooser className="!tw-text-black tw-mt-[-.4em] !tw-h-3"></LineLooser>
+                                                              )}
+                                                          </Fragment>
+                                                      )
+                                                  )}
+                                        </Tooltips>
                                     </Half>
                                 </Fragment>
                             ))}
