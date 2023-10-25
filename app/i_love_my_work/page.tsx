@@ -88,7 +88,7 @@ async function WorkPageSuspense() {
                                         >
                                             {item?.name}
                                             <Tooltips>
-                                                {item?.workcredit.length == 0
+                                                {item?.workcredit?.length == 0
                                                     ? ':)'
                                                     : item?.workcredit.map(
                                                           (text, i, arr) => (
@@ -134,7 +134,7 @@ async function WorkPageSuspense() {
                                     >
                                         {item?.name}
                                         <Tooltips>
-                                            {item?.workcredit.length == 0
+                                            {item?.workcredit?.length == 0
                                                 ? ':)'
                                                 : item?.workcredit.map(
                                                       (text, i, arr) => (
