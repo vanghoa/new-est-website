@@ -88,9 +88,9 @@ async function WorkPageSuspense() {
                                         >
                                             {item?.name}
                                             <Tooltips>
-                                                {item?.workcredit?.length == 0
-                                                    ? ':)'
-                                                    : item?.workcredit.map(
+                                                {item?.workcredit?.length &&
+                                                item?.workcredit?.length > 0
+                                                    ? item?.workcredit?.map(
                                                           (text, i, arr) => (
                                                               <Fragment
                                                                   key={`${i}work`}
@@ -103,7 +103,8 @@ async function WorkPageSuspense() {
                                                                   )}
                                                               </Fragment>
                                                           )
-                                                      )}
+                                                      )
+                                                    : ':)'}
                                             </Tooltips>
                                         </Half>
                                     </Fragment>
@@ -134,9 +135,9 @@ async function WorkPageSuspense() {
                                     >
                                         {item?.name}
                                         <Tooltips>
-                                            {item?.workcredit?.length == 0
-                                                ? ':)'
-                                                : item?.workcredit.map(
+                                            {item?.workcredit?.length &&
+                                            item?.workcredit?.length > 0
+                                                ? item?.workcredit?.map(
                                                       (text, i, arr) => (
                                                           <Fragment
                                                               key={`${i}work`}
@@ -149,7 +150,8 @@ async function WorkPageSuspense() {
                                                               )}
                                                           </Fragment>
                                                       )
-                                                  )}
+                                                  )
+                                                : ':)'}
                                         </Tooltips>
                                     </Half>
                                 </Fragment>
