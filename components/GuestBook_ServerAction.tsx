@@ -16,6 +16,6 @@ export async function myAction(formData: FormData) {
         revalidatePath('/api/prismaFetch');
         return { message: 'Success', data: guest };
     } catch (e) {
-        return { message: 'Failed to create' };
+        return { message: 'Failed to create', data: false };
     }
 }

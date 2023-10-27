@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors';
 
 const config: Config = {
     future: {
@@ -17,6 +18,19 @@ const config: Config = {
             transparent: 'rgba(255,255,255,0)',
             yellow: 'var(--yellow)',
             blue: 'rgba(0, 116, 255, 0.8)',
+            red: colors.red,
+            green: colors.green,
+            pink: colors.pink,
+            purple: colors.purple,
+            fuchsia: colors.fuchsia,
+            orange: colors.orange,
+            amber: colors.amber,
+            emerald: colors.emerald,
+            teal: colors.teal,
+            sky: colors.sky,
+            violet: colors.violet,
+            indigo: colors.indigo,
+            rose: colors.rose,
         },
         fontFamily: {
             display: 'var(--font-display)',

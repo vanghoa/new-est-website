@@ -10,9 +10,7 @@ import { tw_border_white_04 } from './TailwindClass';
 export default function GuestBookForm() {
     const [name, setName] = useState('');
     const formref = useRef<HTMLFormElement>(null);
-    const [trace, setTrace] = useState(
-        `Leave some traces! ( public on this site but anonymously )`
-    );
+    const [trace, setTrace] = useState(`leave`);
     const Update = myAction.bind(null);
     //const addGuest = useAddGuest();
 
@@ -22,22 +20,32 @@ export default function GuestBookForm() {
             action={async (formData: FormData) => {
                 const { message, data } = await Update(formData);
                 formref.current?.reset();
-                setTrace(
-                    "Thank you for being here <3 you can view by tapping ``'-...__...-'``"
-                );
+                setTrace(data ? 'success' : 'fail');
                 console.log(message);
                 //data && addGuest(data);
             }}
             onSubmit={() => {
-                setTrace(`Posting...`);
+                setTrace(`posting`);
                 setName('');
             }}
             id="guestbookform"
             className="tw-w-full tw-flex tw-flex-col tw-text-center tw-gap-6 tw-justify-end tw-items-center"
         >
-            <h2>{trace}</h2>
-            {trace !=
-                "Thank you for being here <3 you can view by tapping ``'-...__...-'``" && (
+            <h2>
+                {(() => {
+                    switch (trace) {
+                        case 'leave':
+                            return `Leave some traces! ( public on this site but anonymously )`;
+                        case 'success':
+                            return "Thank you for being here <3 you can view by tapping ``'-...__...-'``";
+                        case 'posting':
+                            return 'Posting...';
+                        default:
+                            return 'Something is wrong... Please try again later thank qiu :((';
+                    }
+                })()}
+            </h2>
+            {(trace == 'leave' || trace == 'posting') && (
                 <ImageFrame elem={LineLoose} className="tw-w-full tw-h-full">
                     <label className="tw-w-full tw-flex tw-flex-col sm:tw-flex-row tw-items-center tw-p-2">
                         <input

@@ -33,6 +33,11 @@
     .reveal .reveal_ani {
         @apply tw-animate-reveal;
     }
+
+    .reveal .revealbg {
+        @apply hover:!tw-border-black tw-border-transparent tw-bg-transparent hover:!tw-bg-black;
+    }
+
     #oldwebsite,
     #oldwebsite * {
         @apply tw-pointer-events-none;

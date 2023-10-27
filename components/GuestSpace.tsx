@@ -13,17 +13,15 @@ export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
     const colorlist = [
         '!tw-bg-red-500',
         '!tw-bg-green-500',
-        '!tw-bg-blue-500',
         '!tw-bg-pink-500',
         '!tw-bg-purple-500',
         '!tw-bg-fuchsia-500',
         '!tw-bg-orange-500',
         '!tw-bg-amber-500',
-        '!tw-bg-yellow-500',
         '!tw-bg-emerald-500',
         '!tw-bg-teal-500',
         '!tw-bg-cyan-500',
-        '!tw-bg-light-blue-500',
+        '!tw-bg-sky-500',
         '!tw-bg-violet-500',
         '!tw-bg-indigo-500',
         '!tw-bg-rose-500',
@@ -33,6 +31,18 @@ export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
         <div
             className={`${scultpclass} tw-fixed translayer preserve3d tw-pointer-events-none`}
         >
+            {feed.length == 0 && (
+                <SculpturePiece
+                    index={0}
+                    left={50}
+                    top={50}
+                    className={`tw-transform -tw-translate-x-1/2 -tw-translate-y-1/2 tw-shadow-glow reveal_ani occupied ${RandomItemFromArr(
+                        colorlist
+                    )}`}
+                >
+                    Something is wrong... Please try again in a minute!
+                </SculpturePiece>
+            )}
             {Array.from(
                 { length: feed.length > 70 ? feed.length : 70 },
                 (_, i) => {
@@ -51,13 +61,14 @@ export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
                             ></SculpturePiece>
                             <SculpturePiece
                                 index={i}
+                                isOccupied
                                 className={`${
                                     feed?.[i]
                                         ? `occupied ${
                                               isRecent
                                                   ? `${RandomItemFromArr(
                                                         colorlist
-                                                    )} tw-transform tw-translate-x-[-50%] tw-translate-y-[-50%] tw-shadow-glow reveal_ani`
+                                                    )} tw-shadow-glow reveal_ani`
                                                   : ''
                                           }`
                                         : ''

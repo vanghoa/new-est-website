@@ -1,3 +1,4 @@
+import CheckSecret from '@/utils/sEcRet';
 import { NextRequest, NextResponse } from 'next/server';
 import uploadNotionImagesToCloudinary from 'upload-notion-images-to-cloudinary';
 
@@ -8,6 +9,12 @@ const cloudinaryUploadFolder = process.env.CLOUDINARY_UPLOAD_FOLDER;
 
 export async function GET(request: NextRequest) {
     try {
+        if (!CheckSecret(request.nextUrl.searchParams.get('secret') ?? '')) {
+            return NextResponse.json(
+                { message: 'Invalid secret' },
+                { status: 401 }
+            );
+        }
         //console.log('bip');
         /*
     const secret = request.nextUrl.searchParams.get('secret');

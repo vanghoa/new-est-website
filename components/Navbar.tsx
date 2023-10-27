@@ -109,7 +109,7 @@ export default function Navbar() {
                     </span>
                 ))}
             </div>
-            <div className="[&_a]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-10 tw-pointer-events-auto tw-border-t-[15px] tw-border-black tw-border-b-8">
+            <div className="[&_a]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-10 tw-pointer-events-auto tw-border-t-[15px] tw-border-black tw-border-b-8 revealbg">
                 <span className="tw-w-36 tw-h-full tw-flex tw-items-center tw-justify-center tw-group">
                     <Rand
                         elem={'a'}

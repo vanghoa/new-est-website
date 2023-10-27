@@ -99,7 +99,7 @@ async function WorkPageSuspense() {
                                                                   {i <
                                                                       arr.length -
                                                                           1 && (
-                                                                      <LineLooser className="!tw-text-black tw-mt-[-.4em] !tw-h-3"></LineLooser>
+                                                                      <LineLooser className="!tw-text-black tw-mt-[-.2em] tw-mb-[.2em] !tw-h-3"></LineLooser>
                                                                   )}
                                                               </Fragment>
                                                           )
@@ -146,7 +146,7 @@ async function WorkPageSuspense() {
                                                               {i <
                                                                   arr.length -
                                                                       1 && (
-                                                                  <LineLooser className="!tw-text-black tw-mt-[-.4em] !tw-h-3"></LineLooser>
+                                                                  <LineLooser className="!tw-text-black tw-mt-[-.2em] tw-mb-[.2em] !tw-h-3"></LineLooser>
                                                               )}
                                                           </Fragment>
                                                       )
