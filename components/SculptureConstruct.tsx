@@ -24,21 +24,19 @@ export const SculpturePiece = ({
 }) => {
     if (!left || !top) {
         _useFixedRandomWSeed(index);
-        left = Math.random() * (max - min) + min;
-        top = Math.random() * (max - min) + min;
+        left = Math.floor(Math.random() * (max - min) + min);
+        top = Math.floor(Math.random() * (max - min) + min);
     }
 
     return (
         <div
             suppressHydrationWarning
             style={{
-                left: `${Math.floor(left)}%`,
-                top: `${Math.floor(top)}%`,
+                left: `${left}%`,
+                top: `${top}%`,
                 ...(isOccupied
                     ? {
-                          transform: `${top > 50 ? 'translateY(-100%)' : ''} ${
-                              left > 50 ? 'translateX(-100%)' : ''
-                          }`,
+                          transform: `translateY(${-top}%) translateX(${-left}%)`,
                       }
                     : {}),
                 ...style,
@@ -66,3 +64,13 @@ export const spiralGen = (
         cen[1] + radius * Math.sin(radians),
     ];
 };
+
+function scale(
+    number: number,
+    inMin: number,
+    inMax: number,
+    outMin: number,
+    outMax: number
+) {
+    return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+}
