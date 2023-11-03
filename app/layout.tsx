@@ -19,7 +19,6 @@ import { spiralGen, SculpturePiece } from '@/components/SculptureConstruct';
 import Footer from '@/components/Footer';
 import { DOMAIN } from '@/constants/paths';
 import 'swiper/css';
-import { AnimatePresenceClient } from '@/components/AnimatePageComp';
 
 const sans = Work_Sans({
     subsets: ['latin'],
@@ -129,11 +128,9 @@ export default function RootLayout({
                 <section className="[&_*]:tw-text-white [&_*]:tw-leading-relaxed reset-this tw-pointer-events-none tw-overflow-x-hidden">
                     <Navbar></Navbar>
                     <div
-                        className={`reveal_child tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-pt-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_:not(:last-child)_>:not(.rnr-image,.suspense)]:tw-mx-auto [&_>_:not(:last-child)_>:not(.rnr-image,.suspense)]:tw-max-w-3xl`}
+                        className={`reveal_child tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-pt-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_:first-child:not(.suspense)_>:not(.rnr-image)]:tw-mx-auto [&_>_:first-child:not(.suspense)_>:not(.rnr-image)]:tw-max-w-3xl`}
                     >
-                        <AnimatePresenceClient>
-                            {children}
-                        </AnimatePresenceClient>
+                        {children}
                         <Footer></Footer>
                     </div>
                 </section>
