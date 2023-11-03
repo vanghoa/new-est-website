@@ -5,10 +5,15 @@ import CheckSecret from './utils/sEcRet';
 
 export function middleware(req: NextRequest) {
     if (!CheckSecret(req.nextUrl.searchParams.get('secret') ?? '')) {
+        return NextResponse.redirect(
+            new URL('/you-are-not-authorized-to-access-the-api', req.url)
+        );
+        /*
         return NextResponse.json(
             { message: 'Aha! Not so fast.' },
             { status: 401 }
         );
+        */
     }
 
     /*
