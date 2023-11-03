@@ -1,15 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
-import CheckSecret from '@/utils/sEcRet';
 
 export async function GET(request: NextRequest) {
     try {
-        if (!CheckSecret(request.nextUrl.searchParams.get('secret') ?? '')) {
-            return NextResponse.json(
-                { message: 'Invalid secret' },
-                { status: 401 }
-            );
-        }
         const tagtorevalidate = request.nextUrl.searchParams.get('tag');
         if (!tagtorevalidate)
             return NextResponse.json({
