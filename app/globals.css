@@ -35,7 +35,7 @@
     }
 
     .reveal .revealbg {
-        @apply hover:!tw-border-black tw-border-[rgba(0,0,0,0.2)] tw-bg-[rgba(0,0,0,0.2)] hover:!tw-bg-black;
+        @apply hover:tw-opacity-100 tw-opacity-40 tw-border-black tw-bg-black;
     }
 
     #oldwebsite,
