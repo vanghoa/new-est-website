@@ -9,7 +9,7 @@ import React, {
 import { AnimatePresence, motion } from 'framer-motion';
 import { LayoutRouterContext } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { usePathname } from 'next/navigation';
-
+/*
 function FrozenRouter(props: PropsWithChildren<{}>) {
     const context = useContext(LayoutRouterContext);
     const frozen = useRef(context).current;
@@ -37,7 +37,7 @@ export function AnimatePresenceClient({ children }: { children: ReactNode }) {
         </AnimatePresence>
     );
 }
-
+*/
 export default function AnimatePageComp({
     children,
     backgroundColor = 'var(--default-bg)',
