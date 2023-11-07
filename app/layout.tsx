@@ -44,6 +44,8 @@ const metadata_template = {
     images: '/base/garage/2.jpg',
 };
 
+export const revalidate = 0;
+
 export const metadata: Metadata = {
     title: metadata_template.title,
     metadataBase: new URL(DOMAIN),

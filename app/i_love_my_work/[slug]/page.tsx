@@ -35,8 +35,8 @@ import {
 import { Fragment } from 'react';
 
 export const dynamicParams = false;
-export const revalidate = false;
-export const dynamic = 'force-static';
+//export const revalidate = false;
+//export const dynamic = 'force-static';
 /*
 export const fetchCache = 'force-cache';
 */
