@@ -4,7 +4,8 @@ export async function getGuest() {
     try {
         const res = await (
             await fetch(getAPIRoutePath('prismaFetch'), {
-                cache: 'no-store',
+                cache: 'force-cache',
+                next: { tags: ['prismaFetch'] },
             })
         ).json();
         res.succeed

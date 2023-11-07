@@ -1,6 +1,6 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 import prisma from '../lib/prisma';
 
 export async function myAction(formData: FormData) {
@@ -13,7 +13,8 @@ export async function myAction(formData: FormData) {
                     name: name,
                 },
             }));
-        revalidatePath('/api/prismaFetch');
+        //revalidatePath('/api/prismaFetch');
+        revalidateTag('prismaFetch');
         return { message: 'Success', data: guest };
     } catch (e) {
         return { message: 'Failed to create', data: false };
