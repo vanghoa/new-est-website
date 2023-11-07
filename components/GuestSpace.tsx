@@ -52,6 +52,7 @@ export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
                         new Date().getTime() -
                             new Date(feed?.[i]?.createdAt).getTime() <=
                             2 * 3600000;
+                    const randomcolor = RandomItemFromArr(colorlist);
                     return (
                         <Fragment key={`${i}sculpt`}>
                             <SculpturePiece
@@ -66,9 +67,7 @@ export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
                                     feed?.[i]
                                         ? `occupied ${
                                               isRecent
-                                                  ? `${RandomItemFromArr(
-                                                        colorlist
-                                                    )} tw-shadow-glow reveal_ani`
+                                                  ? `${randomcolor} tw-shadow-glow reveal_ani`
                                                   : ''
                                           }`
                                         : ''

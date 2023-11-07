@@ -31,6 +31,7 @@ const config: Config = {
             violet: colors.violet,
             indigo: colors.indigo,
             rose: colors.rose,
+            cyan: colors.cyan,
         },
         fontFamily: {
             display: 'var(--font-display)',
