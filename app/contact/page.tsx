@@ -27,6 +27,10 @@ export default function page() {
             href: 'https://www.are.na/bao-anh-bui',
         },
         {
+            name: 'Mastodon',
+            href: 'https://sunny.garden/@baoanhbui',
+        },
+        {
             name: 'LinkedIn',
             href: 'https://www.linkedin.com/in/bao-anh-bui-025149167/',
         },
@@ -80,6 +84,7 @@ export default function page() {
                             <a
                                 className="tw-w-full tw-h-11 tw-justify-center tw-flex tw-items-center"
                                 target="_blank"
+                                rel="me"
                                 href={item.href}
                             >
                                 <Rand

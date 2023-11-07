@@ -10,18 +10,30 @@ import {
 } from '@/components/Line';
 import {
     CoverImage,
+    H1Notion,
+    H3Notion,
     HeaderLayout,
+    ImageNotion,
     OLOverlay,
+    VideoNotion,
 } from '@/components/SmallComponents';
+import { SuspenseNotion } from '@/components/SuspenseFallback';
 import {
     tw_divider,
     tw_grid_section,
     tw_line_overflow,
 } from '@/components/TailwindClass';
+import {
+    CodeNotion,
+    ToggleNotion,
+    CalloutNotion,
+    QuotetNotion,
+} from '@/components/ToggleNotion';
 import { Word } from '@/components/WordProcessor';
 import { PATH_BLOG, getBlogPostPath } from '@/constants/paths';
 import { cache_fetchNotion } from '@/lib/notionClient';
 import { BlogPost } from '@/types/types';
+import { Render, withContentValidation } from '@9gustin/react-notion-render';
 import Link from 'next/link';
 import { Fragment, ReactNode, Suspense } from 'react';
 
@@ -164,7 +176,58 @@ export default function Home() {
                     className="tw-bg-red-200 tw-h-[100vh] tw-w-full"
                 ></canvas>
             )}
+            <WelcomeLine
+                className={`${tw_line_overflow} ${tw_divider}`}
+            ></WelcomeLine>
+            <SuspenseNotion>
+                <ThreeDViewSuspense></ThreeDViewSuspense>
+            </SuspenseNotion>
         </AnimatePageComp>
+    );
+}
+
+function H1NotionCenter({ plainText }: { plainText: string }) {
+    return (
+        <H1Notion plainText={plainText} className="tw-text-center"></H1Notion>
+    );
+}
+
+async function ThreeDViewSuspense() {
+    const blocks: any = await cache_fetchNotion(
+        'fetchAllBlocks',
+        'd820fbc1-32ea-4577-aa4c-4440803dd42a',
+        '3DView'
+    );
+
+    if (!blocks) {
+        return <div>fail to load!</div>;
+    }
+
+    return (
+        (
+            <Render
+                // @ts-ignore
+                blocks={blocks}
+                classNames
+                emptyBlocks
+                blockComponentsMapper={{
+                    image: (block) => ImageNotion(block, '3D View'),
+                    heading_1: withContentValidation(H1NotionCenter),
+                    heading_2: withContentValidation(H1Notion),
+                    heading_3: withContentValidation(H3Notion),
+                    video: (block) => VideoNotion(block),
+                    code: (block) => CodeNotion(block),
+                    toggle: (block) => ToggleNotion(block),
+                    callout: (block) => CalloutNotion(block),
+                    quote: (block) => QuotetNotion(block),
+                    divider: () => (
+                        <Line
+                            className={`${tw_line_overflow} ${tw_divider}`}
+                        ></Line>
+                    ),
+                }}
+            />
+        ) || <div>Failed to render</div>
     );
 }
 

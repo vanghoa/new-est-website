@@ -157,8 +157,14 @@ export function ImageNotion(block: any, altsuffix: string | null) {
     );
 }
 
-export const H1Notion = ({ plainText }: { plainText: string }) => {
-    return <h2 className="rnr-heading_2">{plainText}</h2>;
+export const H1Notion = ({
+    plainText,
+    className = '',
+}: {
+    plainText: string;
+    className?: string;
+}) => {
+    return <h2 className={`rnr-heading_2 ${className}`}>{plainText}</h2>;
 };
 
 export const H3Notion = ({ plainText }: { plainText: string }) => {

@@ -26,8 +26,8 @@ export default function Navbar() {
                 href: '/contact',
                 tooltips: (
                     <>
-                        +65 8421 7539 , baoanh1buinguyen@gmail.com , <br></br>{' '}
-                        at Toa Payoh, Singapore
+                        +65 8421 7539 baoanh1buinguyen@gmail.com <br></br> @ Toa
+                        Payoh, Singapore
                     </>
                 ),
             },
@@ -108,10 +108,10 @@ export default function Navbar() {
                     </Link>
                 ))}
             </div>
-            <div className="[&_a>span]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-10 tw-pointer-events-auto tw-border-t-[15px] tw-border-black tw-border-b-8 revealbg">
-                <a
+            <div className="[&_button>span]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-h-10 tw-pointer-events-auto">
+                <button
                     onClick={togglereveal}
-                    className="tw-w-36 tw-h-full tw-flex tw-items-center tw-justify-center tw-group"
+                    className="tw-w-36 tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-border-t-[15px] tw-bg-black tw-border-black tw-border-b-8 revealbg"
                 >
                     <Rand
                         elem={'span'}
@@ -133,7 +133,7 @@ export default function Navbar() {
                             {"``'-...__...-'``"}
                         </Tooltips>
                     </Rand>
-                </a>
+                </button>
             </div>
         </nav>
     );

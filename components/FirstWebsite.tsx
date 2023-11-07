@@ -331,21 +331,29 @@ export default async function FirstWebsite() {
                                     href="https://www.instagram.com/bao.anh.bui"
                                     target="_blank"
                                 >
-                                    instagram@bao.anh.bui
+                                    instagram: @bao.anh.bui
+                                </a>
+                                <br />
+                                <a
+                                    rel="me"
+                                    target="_blank"
+                                    href="https://sunny.garden/@baoanhbui"
+                                >
+                                    mastodon: sunny.garden/@baoanhbui
                                 </a>
                                 <br />
                                 <a
                                     href="https://www.facebook.com/xucxichhaha/"
                                     target="_blank"
                                 >
-                                    facebook@xucxichhaha
+                                    facebook: @xucxichhaha
                                 </a>
                                 <br />
                                 <a
                                     href="https://www.linkedin.com/in/bao-anh-bui-025149167/"
                                     target="_blank"
                                 >
-                                    linkedin@bao-anh-bui-025149167
+                                    linkedin: @bao-anh-bui-025149167
                                 </a>
                                 <br />
                                 <a href="mailto:baoanh1buinguyen@gmail.com">

@@ -18,7 +18,7 @@ export default function NotFound() {
                 className={`tw-w-full tw-h-[calc(100vh-20rem)] tw-flex tw-flex-col tw-justify-center tw-items-center ${tw_border_white_04}`}
             >
                 <article className="tw-w-fit preserve3d">
-                    <Link href="/">
+                    <a href="https://baoanhpro.vip">
                         <p className="tw-w-full tw-flex tw-justify-center">
                             ___
                         </p>
@@ -73,7 +73,7 @@ export default function NotFound() {
                                 /
                             </span>
                         </p>
-                    </Link>
+                    </a>
                 </article>
             </div>
         </ImageFrame>

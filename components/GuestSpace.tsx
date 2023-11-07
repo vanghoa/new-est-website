@@ -44,9 +44,9 @@ export default function GuestSpace({ feed }: { feed: GuestBook[] }) {
                 </SculpturePiece>
             )}
             {Array.from(
-                { length: feed.length > 70 ? feed.length : 70 },
+                { length: feed.length > 100 ? feed.length : 100 },
                 (_, i) => {
-                    const [x, y] = spiralGen(i * 1.5, 5, 30, 40);
+                    const [x, y] = spiralGen(i * 1.3, 5, 30, 40);
                     const isRecent =
                         Boolean(feed?.[i]) &&
                         new Date().getTime() -
