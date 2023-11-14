@@ -64,7 +64,10 @@ async function WorkPageSuspense() {
                         className="tw-text-center h1"
                         rest={{ id: 'creditdirectory' }}
                     >
-                        credit directory
+                        collaborators, colleagues, bosses, clients, college
+                        profs, friends, family, relatives, former romantic
+                        partners, internet passersby, people I met briefly, yet
+                        who may no longer recall our interaction, ...
                     </Word>
                 </HeaderLayout>
                 {Array.isArray(group) && Array.isArray(individual) && (

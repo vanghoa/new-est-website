@@ -217,7 +217,7 @@
     }
     .reset-this h1,
     .h1 {
-        @apply !tw-text-3xl;
+        @apply !tw-text-3xl !tw-leading-10;
     }
 
     .reset-this h2 {
