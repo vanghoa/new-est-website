@@ -77,7 +77,7 @@ export default function Navbar() {
             <div className="reveal_child [&_a>span]:tw-bottom-[0.4rem] tw-z-[-2] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-12 tw-pointer-events-auto">
                 <a
                     className="tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-min-w-[8.5rem]"
-                    href="/resume/baoanhbui-resume-221023.pdf"
+                    href="/resume/baoanhbui-resume-151123.pdf"
                     target="_blank"
                 >
                     <Char elem={'span'}>
