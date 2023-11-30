@@ -1,6 +1,5 @@
-'use client';
-import LazyLoad from 'react-lazy-load';
 import { PlaceHolderImage } from './SmallComponents';
+import { VimeoLazy } from './ClientVimeoPlayer';
 
 export function VideoFrame({ data }: { data: any }) {
     return (
@@ -13,18 +12,7 @@ export function VideoFrame({ data }: { data: any }) {
                     }`,
                 }}
             >
-                <LazyLoad
-                    className="tw-w-full tw-h-full tw-max-h-[calc(100vh-10rem)] tw-z-10"
-                    offset={300}
-                >
-                    <iframe
-                        id="landingvideo"
-                        className="tw-w-full tw-h-full"
-                        src={data.external?.url}
-                        frameBorder="0"
-                        allow="autoplay; fullscreen"
-                    ></iframe>
-                </LazyLoad>
+                <VimeoLazy data={data} />
                 <PlaceHolderImage external={data.external}></PlaceHolderImage>
             </div>
             {data.caption?.[0]?.plain_text && (

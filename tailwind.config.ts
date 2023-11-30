@@ -43,9 +43,14 @@ const config: Config = {
                 reveal: {
                     from: { top: '-20px' },
                 },
+                myspin: {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(360deg)' },
+                },
             },
             animation: {
                 reveal: 'reveal 1.5s',
+                myspin: 'myspin 2s linear infinite;',
             },
             boxShadow: {
                 glow: '0 0px 50px 20px white',
