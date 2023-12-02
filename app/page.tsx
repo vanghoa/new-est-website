@@ -143,7 +143,7 @@ export default function Home() {
                     >
                         {`${Array.from(
                             { length: 100 },
-                            () => '---------------*-------------------'
+                            () => '-------^------*------+---*-------'
                         ).join('')}`}
                     </p>
                     <LineLooser
@@ -290,10 +290,10 @@ function OlGroup({
             className={`tw-w-full tw-h-full tw-grid tw-grid-cols-[auto_1em] tw-grid-rows-[auto_1em] [&>*:last-child]:tw-col-[1/2] [&>*:last-child]:tw-row-[1/2] tw-overflow-visible tw-group`}
         >
             <LineConstruct className="group-hover:tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
-                {'-------~----------^-------~--------'}
+                {'-------~----+-----^-------~---=----'}
             </LineConstruct>
             <LineConstruct className="group-hover:tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
-                {'-------~----------*-------~--------'}
+                {'-------~---%------*-------~---=----'}
             </LineConstruct>
             <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
                 *--.--&apos;``&apos;-...__...-&apos;``&apos;--.--*

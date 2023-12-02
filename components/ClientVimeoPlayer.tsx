@@ -20,10 +20,16 @@ function Vimeo({ data }: { data: any }) {
     useEffect(() => {
         if (vimeoRef.current) {
             const player = new Player(vimeoRef.current);
-            player.on('play', function () {
-                setLoading(false);
-                player.off('play');
-            });
+            if (data.external.url.endsWith('background=1')) {
+                player.on('play', function () {
+                    setLoading(false);
+                    player.off('play');
+                });
+            } else {
+                player.ready().then(() => {
+                    setLoading(false);
+                });
+            }
         }
     }, []);
 
@@ -31,16 +37,18 @@ function Vimeo({ data }: { data: any }) {
         <>
             {loading && (
                 <>
-                    <div className="tw-animate-myspin tw-absolute tw-left-0 tw-right-0 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
-                        @@
-                        <span className="tw-inline-block tw-w-10"></span>
-                        @@
+                    <div className="tw-animate-myspin tw-z-20 tw-absolute tw-left-0 tw-right-0 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
+                        {'['}
+                        <span className="tw-inline-block tw-w-20 tw-text-center">
+                            loading
+                        </span>
+                        {']'}
                     </div>
-                    <div className="tw-animate-myspin tw-absolute tw-left-0 tw-right-0 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
+                    <div className="tw-animate-myspin tw-z-20 tw-absolute tw-left-0 tw-right-0 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
                         <span className="tw-transform tw-rotate-90">
-                            @@
+                            {'['}
                             <span className="tw-inline-block tw-w-10"></span>
-                            @@
+                            {']'}
                         </span>
                     </div>
                 </>

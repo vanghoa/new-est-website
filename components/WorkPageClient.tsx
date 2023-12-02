@@ -191,7 +191,7 @@ export default function WorkPageClient({
                 <p className={`tw-col-[1] tw-row-[3/4] !tw-leading-[1em]`}>@</p>
                 <p className={`tw-col-[3/4] tw-row-[1] !tw-leading-[1em]`}>@</p>
                 <p
-                    className={`tw-w-full tw-col-[2/3] tw-row-[1/2] ${lineConstructClass} before:tw-content-['------------'] sm:before:tw-content-['------------------'] md:before:tw-content-['----------------------------'] lg:before:tw-content-['----------------------------------']`}
+                    className={`tw-w-full tw-col-[2/3] tw-row-[1/2] ${lineConstructClass} before:tw-content-['------^-----'] sm:before:tw-content-['---^----+---=-----'] md:before:tw-content-['---^--------=---------+-----'] lg:before:tw-content-['------^--------=----^-----+------']`}
                 >
                     <span className="!tw-italic">
                         ( {blogPostsObj.config.toLowerCase()}:{' '}
@@ -200,18 +200,18 @@ export default function WorkPageClient({
                     </span>
                     {`${Array.from(
                         { length: 20 },
-                        () => '---------------*-------------------'
+                        () => '--------^------*-------=---+------'
                     ).join('')}`}
                 </p>
                 <p
-                    className={`tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr] ${lineConstructClass} before:tw-content-['------------'] sm:before:tw-content-['------------------'] md:before:tw-content-['----------------------------'] lg:before:tw-content-['----------------------------------']`}
+                    className={`tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr] ${lineConstructClass} before:tw-content-['------^-----'] sm:before:tw-content-['---^----+---=-----'] md:before:tw-content-['---^--------=---------+-----'] lg:before:tw-content-['------^--------=----^-----+------']`}
                 >
                     <span className="!tw-italic tw-transform tw-rotate-180 tw-inline-block">
                         ( total projects: {blogPosts.length} )
                     </span>
                     {`${Array.from(
                         { length: 100 },
-                        () => '---------------*-------------------'
+                        () => '--------^------*-------=---+------'
                     ).join('')}`}
                 </p>
                 <li className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 xl:tw-grid-cols-3 tw-col-[2/4] tw-row-[2/4]">
@@ -256,10 +256,10 @@ function BlogPostsMap({
                     key={`${i + prev}${unq_key}workitem`}
                 >
                     <LineConstruct className="group-hover:tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
-                        {'-------~----------^-------~--------'}
+                        {'-------~----+-----^-------~----=---'}
                     </LineConstruct>
                     <LineConstruct className="group-hover:tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
-                        {'-------~----------*-------~--------'}
+                        {'-------~--+---%---*-------~--=-----'}
                     </LineConstruct>
                     <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr] !tw-text-left">
                         *--.--=/`^`\=-...__...-=/`^`\=--.--*

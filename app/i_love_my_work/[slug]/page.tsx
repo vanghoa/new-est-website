@@ -276,7 +276,7 @@ async function PageSuspense({ params }: DynamicProps) {
                         quote: (block) => QuotetNotion(block),
                         divider: () => (
                             <Line
-                                className={`${tw_line_overflow} ${tw_divider}`}
+                                className={`${tw_line_overflow} ${tw_divider} ${tw_line_divider}`}
                             ></Line>
                         ),
                     }}

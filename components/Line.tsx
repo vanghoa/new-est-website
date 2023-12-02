@@ -32,7 +32,7 @@ export function LineLooser({
 }) {
     return (
         <LineConstruct className={className} {...props}>
-            ---~------~----~-----~~-------~-
+            ---~--^---~----~--=--~~--+----~-
         </LineConstruct>
     );
 }

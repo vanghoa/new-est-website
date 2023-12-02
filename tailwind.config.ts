@@ -50,7 +50,7 @@ const config: Config = {
             },
             animation: {
                 reveal: 'reveal 1.5s',
-                myspin: 'myspin 2s linear infinite;',
+                myspin: 'myspin 5s infinite steps(15)',
             },
             boxShadow: {
                 glow: '0 0px 50px 20px white',
