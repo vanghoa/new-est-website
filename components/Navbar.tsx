@@ -53,7 +53,7 @@ export default function Navbar() {
 
     return (
         <nav className="tw-flex tw-flex-col tw-items-center tw-h-fit tw-fixed tw-w-full  tw-z-40 [&_*]:tw-font-display tw-overflow-visible tw-pointer-events-none">
-            <div className="reveal_child tw-z-[-1] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-16 tw-pointer-events-auto tw-pt-2">
+            <div className="reveal_child tw-z-[-1] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-14 tw-pointer-events-auto tw-pt-2">
                 {navlist[0].map(({ name, href, tooltips }, i) => (
                     <Link
                         key={`navlist${i}`}
@@ -74,7 +74,7 @@ export default function Navbar() {
                     </Link>
                 ))}
             </div>
-            <div className="reveal_child [&_a>span]:tw-bottom-[0.4rem] tw-z-[-2] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-12 tw-pointer-events-auto">
+            <div className="reveal_child [&_a>span]:tw-bottom-[0.4rem] tw-z-[-2] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-11 tw-pointer-events-auto">
                 <a
                     className="tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-min-w-[8.5rem]"
                     href="/resume/baoanhbui-resume-151123.pdf"
@@ -108,7 +108,7 @@ export default function Navbar() {
                     </Link>
                 ))}
             </div>
-            <div className="[&_button>span]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-h-10 tw-pointer-events-auto">
+            <div className="[&_button>span]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-h-9 tw-pointer-events-auto">
                 <button
                     onClick={togglereveal}
                     className="tw-w-36 tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-border-t-[15px] tw-bg-black tw-border-black tw-border-b-8 revealbg"

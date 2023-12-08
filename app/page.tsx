@@ -40,76 +40,68 @@ import { Fragment, ReactNode, Suspense } from 'react';
 export default function Home() {
     return (
         <AnimatePageComp>
-            <HeaderLayout className="tw-min-h-[calc(80vh-12.5rem)] tw-items-center tw-flex tw-flex-col">
+            <HeaderLayout className="tw-min-h-[calc(80vh-12.5rem)] tw-items-center tw-justify-between tw-flex tw-flex-col">
                 <Word
                     elem={'h1'}
-                    className="tw-text-center tw-w-[min(20rem,100%)]"
+                    className="tw-text-center tw-w-[min(25rem,100%)]"
                 >
-                    Bao Anh ... everyday ... bananas ... two
+                    Hi visitor! I am Bảo Anh, I like to experiment with design,
+                    art and technology
                 </Word>
-                <section className="tw-flex tw-flex-col tw-items-center tw-grow tw-justify-between tw-h-full tw-text-center">
-                    <Word
-                        elem={'article'}
-                        className="tw-max-w-[30rem] [word-spacing:.2em]"
-                    >
-                        visitors Hello! I like to learn and experiment new ideas
-                        in art, design and technology.
-                    </Word>
-                    <article className="tw-w-fit preserve3d">
-                        <Link href={PATH_BLOG}>
-                            <p className="tw-w-full tw-flex tw-justify-center">
+                <article className="tw-w-fit preserve3d">
+                    <Link href={PATH_BLOG}>
+                        <p className="tw-w-full tw-flex tw-justify-center">
+                            ___
+                        </p>
+                        <p className="tw-w-full tw-flex tw-justify-center">
+                            ____//
+                            <span className="!tw-text-transparent selection:!tw-text-white tw-inline-block tw-w-1"></span>
+                            ____
+                            <span className="!tw-text-transparent selection:!tw-text-white tw-inline-block tw-w-1"></span>
+                            \\____
+                        </p>
+                        <p className="tw-w-full tw-flex tw-justify-around">
+                            <span>/</span>
+                            <span className="!tw-text-transparent selection:!tw-text-white">
+                                ___I_love_you___
+                            </span>
+                            <span>\</span>
+                        </p>
+                        <p className="tw-w-full preserve3d tw-flex tw-justify-around">
+                            <span>{`|`}</span>
+                            <span className="!tw-text-transparent selection:!tw-text-white">
                                 ___
-                            </p>
-                            <p className="tw-w-full tw-flex tw-justify-center">
-                                ____//
-                                <span className="!tw-text-transparent selection:!tw-text-white tw-inline-block tw-w-1"></span>
-                                ____
-                                <span className="!tw-text-transparent selection:!tw-text-white tw-inline-block tw-w-1"></span>
-                                \\____
-                            </p>
-                            <p className="tw-w-full tw-flex tw-justify-around">
-                                <span>/</span>
+                            </span>
+                            <span className=" selection:!tw-text-transparent">
+                                see
                                 <span className="!tw-text-transparent selection:!tw-text-white">
-                                    ___I_love_you___
+                                    _for_
                                 </span>
-                                <span>\</span>
-                            </p>
-                            <p className="tw-w-full preserve3d tw-flex tw-justify-around">
-                                <span>{`|`}</span>
-                                <span className="!tw-text-transparent selection:!tw-text-white">
-                                    ___
-                                </span>
-                                <span className=" selection:!tw-text-transparent">
-                                    see
-                                    <span className="!tw-text-transparent selection:!tw-text-white">
-                                        _for_
-                                    </span>
-                                    works
-                                </span>
-                                <span className="!tw-text-transparent selection:!tw-text-white">
-                                    ___
-                                </span>
-                                <span>{`|`}</span>
-                            </p>
-                            <p className="tw-w-full tw-flex tw-justify-around">
-                                <span>\</span>
-                                <span className="!tw-text-transparent selection:!tw-text-white">
-                                    ___being_here___
-                                </span>
-                                <span>/</span>
-                            </p>
-                            <p className="tw-w-full tw-flex tw-justify-center">
-                                <span style={{ transform: 'rotate(-25deg)' }}>
-                                    \
-                                </span>
-                                <span className="tw-mx-3">___________</span>
-                                <span style={{ transform: 'rotate(25deg)' }}>
-                                    /
-                                </span>
-                            </p>
-                        </Link>
-                    </article>
-                </section>
+                                works
+                            </span>
+                            <span className="!tw-text-transparent selection:!tw-text-white">
+                                ___
+                            </span>
+                            <span>{`|`}</span>
+                        </p>
+                        <p className="tw-w-full tw-flex tw-justify-around">
+                            <span>\</span>
+                            <span className="!tw-text-transparent selection:!tw-text-white">
+                                ___being_here___
+                            </span>
+                            <span>/</span>
+                        </p>
+                        <p className="tw-w-full tw-flex tw-justify-center">
+                            <span style={{ transform: 'rotate(-25deg)' }}>
+                                \
+                            </span>
+                            <span className="tw-mx-3">___________</span>
+                            <span style={{ transform: 'rotate(25deg)' }}>
+                                /
+                            </span>
+                        </p>
+                    </Link>
+                </article>
             </HeaderLayout>
             <WelcomeLine
                 className={`${tw_line_overflow} ${tw_divider}`}
