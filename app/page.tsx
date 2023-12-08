@@ -45,8 +45,8 @@ export default function Home() {
                     elem={'h1'}
                     className="tw-text-center tw-w-[min(25rem,100%)]"
                 >
-                    Hi visitor! I am Bảo Anh, I like to experiment with design,
-                    art and technology
+                    I am Bảo Anh, I love to experiment with design, art and
+                    technology
                 </Word>
                 <article className="tw-w-fit preserve3d">
                     <Link href={PATH_BLOG}>
