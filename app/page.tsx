@@ -40,18 +40,39 @@ import { Fragment, ReactNode, Suspense } from 'react';
 export default function Home() {
     return (
         <AnimatePageComp>
-            <HeaderLayout className="tw-min-h-[calc(80vh-12.5rem)] tw-items-center tw-justify-between tw-flex tw-flex-col">
+            <HeaderLayout className="tw-h-[calc(80vh-12.5rem)] tw-items-center tw-justify-between tw-flex tw-flex-col">
                 <Word
                     elem={'h1'}
-                    className="tw-text-center tw-w-[min(25rem,100%)]"
+                    className="tw-text-center tw-w-[min(25rem,100%)] !tw-my-0"
                 >
                     I am Bảo Anh, I love to experiment with design, art and
                     technology
                 </Word>
+                <article className="tw-shrink tw-overflow-clip tw-break-all tw-w-32 tw-h-full tw-text-center">
+                    <p className="tw-text-left">|</p>
+                    <p>I</p>
+                    <p className="tw-text-right">|</p>
+                    <p className="tw-text-left">|</p>
+                    <p className="tw-text-right">|</p>
+                    <p>|</p>
+                    <p className="tw-text-right">|</p>
+                    <p>I</p>
+                    <p className="tw-text-right">|</p>
+                    <p>|</p>
+                    <p className="tw-text-left">I</p>
+                    <p>|</p>
+                    <p>|</p>
+                    <p>I</p>
+                    <p className="tw-text-left">|</p>
+                    <p>|</p>
+                    <p>I</p>
+                    <p>|</p>
+                    <p>|</p>
+                </article>
                 <article className="tw-w-fit preserve3d">
                     <Link href={PATH_BLOG}>
                         <p className="tw-w-full tw-flex tw-justify-center">
-                            ___
+                            __|__
                         </p>
                         <p className="tw-w-full tw-flex tw-justify-center">
                             ____//
