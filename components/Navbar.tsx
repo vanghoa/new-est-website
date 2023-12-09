@@ -111,7 +111,7 @@ export default function Navbar() {
             <div className="[&_button>span]:tw-bottom-1 tw-z-[-3] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-h-9 tw-pointer-events-auto">
                 <button
                     onClick={togglereveal}
-                    className="tw-w-36 tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-border-t-[15px] tw-bg-black tw-border-black tw-border-b-[18px] revealbg"
+                    className="tw-w-36 tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-border-t-[15px] tw-bg-black tw-border-black tw-border-b-8 revealbg"
                 >
                     <Rand
                         elem={'span'}
