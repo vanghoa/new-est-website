@@ -133,8 +133,9 @@ export default function RootLayout({
                     <div
                         className={`reveal_child tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-pt-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_:first-child:not(.suspense)_>:not(.rnr-image)]:tw-mx-auto [&_>_:first-child:not(.suspense)_>:not(.rnr-image)]:tw-max-w-3xl`}
                     >
-                        <div className="tw-absolute tw-left-0 tw-top-0 tw-w-full tw-h-full tw-overflow-hidden">
-                            {Array.from({ length: 250 }, (_, i) => {
+                        {children}
+                        <div className="tw-absolute tw-left-0 tw-top-0 tw-w-full tw-h-full tw-overflow-hidden tw-pointer-events-none">
+                            {Array.from({ length: 300 }, (_, i) => {
                                 _useFixedRandomWSeed(i);
                                 const left = Math.floor(Math.random() * 100);
                                 const top = Math.floor(Math.random() * 100);
@@ -153,7 +154,6 @@ export default function RootLayout({
                                 );
                             })}
                         </div>
-                        {children}
                         <Footer></Footer>
                     </div>
                 </section>
