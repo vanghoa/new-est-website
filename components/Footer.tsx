@@ -1,6 +1,6 @@
 import { Line, LineLoose, LineLooser, LineSpikeLoose } from './Line';
 import { ImageFrame } from './SmallComponents';
-import { tw_border_dashed_white_04 } from './TailwindClass';
+import { tw_border_white_04 } from './TailwindClass';
 
 export default function Footer() {
     return (
@@ -10,7 +10,7 @@ export default function Footer() {
                 className="tw-mt-[20vh] md:tw-mt-[25vh] tw-mb-[10vh] tw-opacity-60"
             >
                 <section
-                    className={`tw-w-full tw-p-4 [&_:is(span,a)]:tw-underline tw-flex tw-flex-col tw-gap-4 ${tw_border_dashed_white_04}`}
+                    className={`tw-w-full tw-p-4 [&_:is(span,a)]:tw-underline tw-flex tw-flex-col tw-gap-4 ${tw_border_white_04}`}
                 >
                     <p>
                         <FooterText></FooterText>

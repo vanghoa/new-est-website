@@ -1,9 +1,7 @@
 const className =
     'rnr-empty-block rnr-italic rnr-paragraph swiper-button-prev swiper-button-next swiper-button-disabled rnr-bulleted_list_item LazyLoad is-visible';
 export const tw_border_white_04 =
-    'tw-border-white tw-border-[.5em] sm:tw-border-[1em] tw-border-dotted';
-export const tw_border_dashed_white_04 =
-    'tw-border-white tw-border-[.5em] sm:tw-border-[1em] tw-border-dashed';
+    'tw-border-white tw-border-[.15em] tw-border-dotted';
 export const tw_line_overflow =
     'tw-px-11 !tw-whitespace-normal !tw-max-w-none tw-w-[100vw] tw-left-1/2 tw-transform tw-translate-x-[-50%]';
 

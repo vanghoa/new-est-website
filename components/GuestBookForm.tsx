@@ -4,7 +4,6 @@ import React, { useRef, useState } from 'react';
 import { ImageFrame } from './SmallComponents';
 import { LineLoose } from './Line';
 import { myAction } from './GuestBook_ServerAction';
-import { tw_border_dashed_white_04, tw_border_white_04 } from './TailwindClass';
 //import { useAddGuest } from './GuestBookContext';
 
 export default function GuestBookForm() {
@@ -48,7 +47,7 @@ export default function GuestBookForm() {
             {(trace == 'leave' || trace == 'posting') && (
                 <ImageFrame elem={LineLoose} className="tw-w-full tw-h-full">
                     <label
-                        className={`tw-w-full tw-flex tw-flex-col sm:tw-flex-row tw-items-center tw-p-2 ${tw_border_white_04}`}
+                        className={`tw-w-full tw-flex tw-flex-col sm:tw-flex-row tw-items-center tw-p-2`}
                     >
                         <input
                             className="tw-w-full !tw-text-black tw-p-3"
@@ -57,9 +56,7 @@ export default function GuestBookForm() {
                             onChange={(e) => setName(e.target.value)}
                         />
                         <div
-                            className={`tw-font-bold tw-py-3 tw-px-1 tw-text-center sm:tw-w-[8rem] tw-w-full tw-cursor-pointer ${{
-                                tw_border_white_04,
-                            }} ${
+                            className={`tw-font-bold tw-py-3 tw-px-1 tw-text-center sm:tw-w-[8rem] tw-w-full tw-cursor-pointer ${
                                 name == ''
                                     ? 'tw-opacity-60'
                                     : `hover:after:tw-content-['_<-'] hover:before:tw-content-['->_']`
