@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { CSSProperties, ReactNode } from 'react';
 import { Line } from './Line';
 import { BlogPost } from '@/types/types';
-import { tw_divider } from './TailwindClass';
+import { tw_border_white_04, tw_divider } from './TailwindClass';
 import SwiperNotion from './SwiperNotion';
 import { maxszs } from './ImageSizes';
 import { VideoFrame } from './ClientComp';
@@ -153,6 +153,27 @@ export function ImageNotion(block: any, altsuffix: string | null) {
                 sizes={maxszs}
                 type={data.type}
             ></ImageNoWidth>
+        </ImageFrame>
+    );
+}
+
+export function ImageNotionDottedBorder(block: any, altsuffix: string | null) {
+    const {
+        block: { content: data },
+    } = block;
+    return (
+        <ImageFrame
+            elem={Line}
+            className={`tw-left-1/2 tw-transform tw-translate-x-[-50%]`}
+        >
+            <div className={`${tw_border_white_04}`}>
+                <ImageNoWidth
+                    alt={data.caption?.[0]?.plain_text}
+                    external={data.external}
+                    sizes={maxszs}
+                    type={data.type}
+                ></ImageNoWidth>
+            </div>
         </ImageFrame>
     );
 }

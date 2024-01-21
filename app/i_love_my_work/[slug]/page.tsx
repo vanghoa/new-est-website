@@ -201,15 +201,10 @@ async function PageSuspense({ params }: DynamicProps) {
                 </Word>
                 <ImageFrame elem={LineLooser}>
                     <li
-                        className={`tw-p-4 sm:tw-grid sm:tw-grid-cols-2 sm:tw-gap-x-10 sm:tw-gap-y-4 ${tw_border_white_04} [&_h3]:tw-mb-0`}
+                        className={`tw-p-4 sm:tw-grid sm:tw-grid-cols-2 sm:tw-gap-x-10 sm:tw-gap-y-4 ${tw_border_white_04} [&_h3]:tw-mb-0 [&_h3]:before:tw-content-['<'] [&_h3]:tw-inline-block [&_h3]:after:tw-content-['>'] [&_h3]:tw-mr-6 [&_h3]:sm:tw-m-0 [&_h3]:sm:tw-block [&_h3]:after:tw-ml-0.5 [&_h3]:before:tw-mr-0.5`}
                     >
                         <ul className="">
-                            <Rand
-                                elem={'h3'}
-                                className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
-                            >
-                                Role
-                            </Rand>
+                            <Rand elem={'h3'}>Role</Rand>
                             {blogPost['big tag']?.map((tag, i) => {
                                 return (
                                     <>
@@ -229,30 +224,15 @@ async function PageSuspense({ params }: DynamicProps) {
                             })}
                         </ul>
                         <ul className="">
-                            <Rand
-                                elem={'h3'}
-                                className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
-                            >
-                                Date
-                            </Rand>
+                            <Rand elem={'h3'}>Date</Rand>
                             {blogPost.timestart} → {blogPost.timeend}
                         </ul>
                         <ul>
-                            <Rand
-                                elem={'h3'}
-                                className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
-                            >
-                                Theme
-                            </Rand>
+                            <Rand elem={'h3'}>Theme</Rand>
                             {blogPost.themes}
                         </ul>
                         <ul>
-                            <Rand
-                                elem={'h3'}
-                                className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
-                            >
-                                Context
-                            </Rand>
+                            <Rand elem={'h3'}>Context</Rand>
                             {blogPost.context}
                         </ul>
                     </li>
@@ -292,7 +272,7 @@ async function PageSuspense({ params }: DynamicProps) {
                 samecorner
             >
                 <li
-                    className={`tw-p-4 tw-w-full sm:tw-grid sm:tw-grid-cols-[1fr_1.1em_1fr] sm:tw-gap-x-10 sm:tw-gap-y-4 ${tw_border_white_04} sm:tw-text-center !tw-border-b-0 [&_h3]:tw-mb-0`}
+                    className={`tw-p-4 tw-w-full sm:tw-grid sm:tw-grid-cols-[1fr_1.1em_1fr] sm:tw-gap-x-10 sm:tw-gap-y-4 ${tw_border_white_04} sm:tw-text-center !tw-border-b-0 [&_h3]:tw-mb-0 [&_h3]:before:tw-content-['<'] [&_h3]:tw-inline-block [&_h3]:after:tw-content-['>'] [&_h3]:tw-mr-6 [&_h3]:sm:tw-m-0 [&_h3]:sm:tw-block [&_h3]:after:tw-ml-1 [&_h3]:before:tw-mr-1`}
                 >
                     <ul
                         className={
@@ -301,12 +281,7 @@ async function PageSuspense({ params }: DynamicProps) {
                                 : 'sm:tw-col-span-3'
                         }
                     >
-                        <Rand
-                            elem={'h3'}
-                            className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
-                        >
-                            Individual Credits
-                        </Rand>
+                        <Rand elem={'h3'}>Individual Credits</Rand>
                         <Link
                             className="tw-mr-5 tw-w-fit sm:tw-w-full sm:tw-block"
                             href="/"
@@ -341,12 +316,7 @@ async function PageSuspense({ params }: DynamicProps) {
                     )}
                     {blogPost.group?.length && blogPost.group?.length > 0 ? (
                         <ul>
-                            <Rand
-                                elem={'h3'}
-                                className={`before:tw-content-['<'] tw-inline-block after:tw-content-['>'] tw-mr-6 sm:tw-m-0 sm:tw-m sm:tw-block sm:after:tw-content-['>']`}
-                            >
-                                Group Credits
-                            </Rand>
+                            <Rand elem={'h3'}>Group Credits</Rand>
                             {blogPost.group?.map((item, i) => {
                                 return (
                                     <>
@@ -374,15 +344,10 @@ async function PageSuspense({ params }: DynamicProps) {
             </ImageFrame>
             <ImageFrame elem={LineLooser} maxwidth={false} samecorner>
                 <li
-                    className={`tw-p-4 tw-w-full tw-grid tw-grid-cols-[1fr_1.1em_1fr] tw-gap-x-10 tw-gap-y-4 ${tw_border_white_04} tw-text-center [&_h3]:tw-mb-0 !tw-border-t-0`}
+                    className={`tw-p-4 tw-w-full tw-grid tw-grid-cols-[1fr_1.1em_1fr] tw-gap-x-10 tw-gap-y-4 ${tw_border_white_04} tw-text-center [&_h3]:tw-mb-0 !tw-border-t-0 [&_h3]:before:tw-content-['<'] [&_h3]:after:tw-content-['>'] [&_h3]:after:tw-ml-1 [&_h3]:before:tw-mr-1`}
                 >
                     <ul>
-                        <Rand
-                            elem={'h3'}
-                            className={`before:tw-content-['<'] tw-m-0 tw-m tw-block after:tw-content-['>'] sm:after:tw-content-[' Project>']`}
-                        >
-                            Previous
-                        </Rand>
+                        <Rand elem={'h3'}>Previous</Rand>
                         <Link
                             href={getBlogPostPath(
                                 blogPostprevnext[0]?.slug ?? ''
@@ -397,12 +362,7 @@ async function PageSuspense({ params }: DynamicProps) {
                         <Line className="tw-w-full tw-h-full tw-absolute [writing-mode:vertical-lr] tw-transform tw-rotate-180"></Line>
                     </ul>
                     <ul>
-                        <Rand
-                            elem={'h3'}
-                            className={`before:tw-content-['<'] tw-m-0 tw-m tw-block after:tw-content-['>'] sm:after:tw-content-[' Project>']`}
-                        >
-                            Next
-                        </Rand>
+                        <Rand elem={'h3'}>Next</Rand>
                         <Link
                             href={getBlogPostPath(
                                 blogPostprevnext[1]?.slug ?? ''

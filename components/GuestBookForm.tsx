@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import { ImageFrame } from './SmallComponents';
 import { LineLoose } from './Line';
 import { myAction } from './GuestBook_ServerAction';
-import { tw_border_white_04 } from './TailwindClass';
+import { tw_border_dashed_white_04, tw_border_white_04 } from './TailwindClass';
 //import { useAddGuest } from './GuestBookContext';
 
 export default function GuestBookForm() {
@@ -47,7 +47,9 @@ export default function GuestBookForm() {
             </h2>
             {(trace == 'leave' || trace == 'posting') && (
                 <ImageFrame elem={LineLoose} className="tw-w-full tw-h-full">
-                    <label className="tw-w-full tw-flex tw-flex-col sm:tw-flex-row tw-items-center tw-p-2">
+                    <label
+                        className={`tw-w-full tw-flex tw-flex-col sm:tw-flex-row tw-items-center tw-p-2 ${tw_border_white_04}`}
+                    >
                         <input
                             className="tw-w-full !tw-text-black tw-p-3"
                             type="text"

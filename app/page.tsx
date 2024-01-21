@@ -14,6 +14,7 @@ import {
     H3Notion,
     HeaderLayout,
     ImageNotion,
+    ImageNotionDottedBorder,
     OLOverlay,
     VideoNotion,
 } from '@/components/SmallComponents';
@@ -224,7 +225,7 @@ async function ThreeDViewSuspense() {
                 classNames
                 emptyBlocks
                 blockComponentsMapper={{
-                    image: (block) => ImageNotion(block, '3D View'),
+                    image: (block) => ImageNotionDottedBorder(block, '3D View'),
                     heading_1: withContentValidation(H1NotionCenter),
                     heading_2: withContentValidation(H1Notion),
                     heading_3: withContentValidation(H3Notion),

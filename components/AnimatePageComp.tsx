@@ -22,7 +22,7 @@ export default function AnimatePageComp({
         document.documentElement.style.setProperty('--text-color', textColor);
         document.documentElement.style.setProperty(
             '--font-wght',
-            upwght ? '500' : '100'
+            upwght ? '300' : '100'
         );
     }, []);
     return (
