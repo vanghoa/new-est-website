@@ -164,7 +164,7 @@ export function ImageNotionDottedBorder(block: any, altsuffix: string | null) {
     return (
         <ImageFrame
             elem={Line}
-            className={`tw-left-1/2 tw-transform tw-translate-x-[-50%]`}
+            className={`tw-left-1/2 tw-transform tw-translate-x-[-50%] tw-z-50`}
         >
             <div className={`${tw_border_white_04}`}>
                 <ImageNoWidth

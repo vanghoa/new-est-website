@@ -134,8 +134,8 @@ export default function RootLayout({
                         className={`reveal_child tw-px-11 tw-max-w-6xl tw-m-auto tw-relative tw-z-20 tw-pt-32 tw-overflow-visible tw-pointer-events-auto tw-min-h-[var(--vh100)] [&_>_:first-child:not(.suspense)_>:not(.rnr-image)]:tw-mx-auto [&_>_:first-child:not(.suspense)_>:not(.rnr-image)]:tw-max-w-3xl`}
                     >
                         {children}
-                        <div className="tw-absolute tw-left-0 tw-top-0 tw-w-full tw-h-full tw-overflow-hidden tw-pointer-events-none">
-                            {Array.from({ length: 300 }, (_, i) => {
+                        <div className="tw-absolute tw-left-1/2 tw-top-0 tw-w-screen tw-transform -tw-translate-x-1/2 tw-h-full tw-overflow-hidden tw-pointer-events-none">
+                            {Array.from({ length: 500 }, (_, i) => {
                                 _useFixedRandomWSeed(i);
                                 const left = Math.floor(Math.random() * 100);
                                 const top = Math.floor(Math.random() * 100);

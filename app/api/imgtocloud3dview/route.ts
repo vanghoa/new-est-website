@@ -1,3 +1,4 @@
+import { revalidateTag } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
 import uploadNotionImagesToCloudinary from 'upload-notion-images-to-cloudinary';
 
@@ -35,6 +36,8 @@ export async function GET(request: NextRequest) {
             cloudinaryUploadFolder: cloudinaryUploadFolder,
             logLevel: 'debug',
         });
+
+        revalidateTag('3DView');
 
         return NextResponse.json({ revalidated: true, now: Date.now() });
     } catch (e) {
