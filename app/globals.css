@@ -265,7 +265,7 @@
     }
 
     .rnr-paragraph a {
-        @apply tw-border-[.1em] tw-border-dotted tw-px-2 tw-py-[.05em] tw-mx-1;
+        @apply tw-border-[.1em] tw-border-t-0 tw-border-dotted tw-px-2 tw-py-[.05em] tw-mx-1;
     }
 
     .rnr-paragraph a::after {
