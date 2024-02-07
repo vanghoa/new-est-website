@@ -265,7 +265,12 @@
     }
 
     .rnr-paragraph a {
-        @apply tw-underline;
+        @apply tw-border-[.1em] tw-border-dotted tw-px-2 tw-py-[.05em] tw-mx-1;
+    }
+
+    .rnr-paragraph a::after {
+        content: '↗';
+        @apply tw-ml-2;
     }
 
     .swiper-button-prev,

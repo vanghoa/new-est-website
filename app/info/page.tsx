@@ -186,15 +186,15 @@ export default function page() {
                     personal website references from my friends and people I
                     know on the Internet:{' '}
                     <a href="https://www.rachelyeeunkim.com/" target="_blank">
-                        Rachel Yeeun Kim
+                        Rachel Yeeun Kim ↗
                     </a>
                     ,{' '}
                     <a href="https://kayserifserif.place/" target="_blank">
-                        Katherine Yang
+                        Katherine Yang ↗
                     </a>
                     ,{' '}
                     <a href="https://www.themainwork.com/" target="_blank">
-                        Mai Nguyen
+                        Mai Nguyen ↗
                     </a>
                     , and countless other sources but those 3 are the main
                     influences.
