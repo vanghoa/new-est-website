@@ -1,5 +1,10 @@
 import AnimatePageComp from '@/components/AnimatePageComp';
-import { FooterText } from '@/components/Footer';
+import {
+    FooterText,
+    SiteIdea,
+    TypefaceCredit,
+    arrow,
+} from '@/components/Footer';
 import { Line } from '@/components/Line';
 import { HeaderLayout } from '@/components/SmallComponents';
 import {
@@ -10,6 +15,8 @@ import {
 import { Rand, Word } from '@/components/WordProcessor';
 import { PATH_BLOG, getWorkFilter, isBuild } from '@/constants/paths';
 import Link from 'next/link';
+
+const tw_atag = `hover:[&_a]:after:!tw-text-white hover:[&_a]:before:!tw-text-white [&_a]:after:!tw-text-transparent [&_a]:before:!tw-text-transparent [&_a]:after:tw-content-['_<--__'] [&_a]:before:tw-content-['__-->_'] [&_a]:before:tw-whitespace-nowrap [&_a]:after:tw-whitespace-nowrap`;
 
 export default function page() {
     console.log(isBuild);
@@ -127,7 +134,7 @@ export default function page() {
                 <Rand
                     min={5}
                     elem={'article'}
-                    className="tw-max-w-[35rem] hover:[&_a]:after:!tw-text-white hover:[&_a]:before:!tw-text-white [&_a]:after:!tw-text-transparent [&_a]:before:!tw-text-transparent [&_a]:after:tw-content-['_<--__'] [&_a]:before:tw-content-['__-->_'] [&_a]:before:tw-whitespace-nowrap [&_a]:after:tw-whitespace-nowrap"
+                    className={`tw-max-w-[35rem] ${tw_atag}`}
                 >
                     My skills encompass a range of design forms, from 2D to 3D,{' '}
                     <Link href={getWorkFilter('small~tag-Digital~tool')}>
@@ -180,21 +187,21 @@ export default function page() {
                 <Rand
                     min={5}
                     elem={'article'}
-                    className="tw-max-w-[35rem] hover:[&_a]:after:!tw-text-white hover:[&_a]:before:!tw-text-white [&_a]:after:!tw-text-transparent [&_a]:before:!tw-text-transparent [&_a]:after:tw-content-['_<--__'] [&_a]:before:tw-content-['__-->_'] [&_a]:before:tw-whitespace-nowrap [&_a]:after:tw-whitespace-nowrap"
+                    className={`tw-max-w-[35rem] ${tw_atag}`}
                 >
                     While working on this, I have looked into a lot of other
                     personal website references from my friends and people I
                     know on the Internet:{' '}
                     <a href="https://www.rachelyeeunkim.com/" target="_blank">
-                        Rachel Yeeun Kim &#8599;&#xFE0E;
+                        Rachel Yeeun Kim {arrow}
                     </a>
                     ,{' '}
                     <a href="https://kayserifserif.place/" target="_blank">
-                        Katherine Yang &#8599;&#xFE0E;
+                        Katherine Yang {arrow}
                     </a>
                     ,{' '}
                     <a href="https://www.themainwork.com/" target="_blank">
-                        Mai Nguyen &#8599;&#xFE0E;
+                        Mai Nguyen {arrow}
                     </a>
                     , and countless other sources but those 3 are the main
                     influences.
@@ -203,21 +210,17 @@ export default function page() {
                 <Rand
                     min={5}
                     elem={'article'}
-                    className="tw-max-w-[35rem] hover:[&_a]:after:!tw-text-white hover:[&_a]:before:!tw-text-white [&_a]:after:!tw-text-transparent [&_a]:before:!tw-text-transparent [&_a]:after:tw-content-['_<--__'] [&_a]:before:tw-content-['__-->_'] [&_a]:before:tw-whitespace-nowrap [&_a]:after:tw-whitespace-nowrap"
+                    className={`tw-max-w-[35rem] ${tw_atag}`}
                 >
-                    <FooterText></FooterText>
+                    <FooterText />
                 </Rand>
                 <br></br>
                 <Rand min={5} elem={'article'} className="tw-max-w-[35rem]">
-                    Typeface is <span>Alegreya</span> designed by Juan Pablo del
-                    Peral, Huerta Tipográfica. Mono typeface is{' '}
-                    <span>Select Mono</span> designed by MICHAEL McMASTER.
+                    <TypefaceCredit />
                 </Rand>
                 <br></br>
                 <Rand min={5} elem={'article'} className="tw-max-w-[35rem]">
-                    The idea of the site can be observed via the{' '}
-                    <span>3D View</span> of the developer tool of Microsoft
-                    Edge.
+                    <SiteIdea />
                 </Rand>
             </section>
             <Line

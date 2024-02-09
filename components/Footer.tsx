@@ -2,6 +2,8 @@ import { Line, LineLoose, LineLooser, LineSpikeLoose } from './Line';
 import { ImageFrame } from './SmallComponents';
 import { tw_border_white_04 } from './TailwindClass';
 
+export const arrow = <>&#8599;&#xFE0E;</>;
+
 export default function Footer() {
     return (
         <>
@@ -13,20 +15,45 @@ export default function Footer() {
                     className={`tw-w-full tw-p-4 [&_:is(span,a)]:tw-underline tw-flex tw-flex-col tw-gap-4 ${tw_border_white_04}`}
                 >
                     <p>
-                        <FooterText></FooterText>
+                        <FooterText />
                     </p>
                     <p>
-                        Typeface is <span>Alegreya</span> designed by Juan Pablo
-                        del Peral, Huerta Tipográfica. Mono typeface is{' '}
-                        <span>Select Mono</span> designed by MICHAEL McMASTER.
+                        <TypefaceCredit />
                     </p>
                     <p>
-                        The idea of the site can be observed via the{' '}
-                        <span>3D View</span> of the developer tool of Microsoft
-                        Edge.
+                        <SiteIdea />
                     </p>
                 </section>
             </ImageFrame>
+        </>
+    );
+}
+
+export function SiteIdea() {
+    return (
+        <>
+            The idea of the site can be observed via the <span>3D View</span> of
+            the developer tool of Microsoft Edge. Inspect the site to see.
+        </>
+    );
+}
+
+export function TypefaceCredit() {
+    return (
+        <>
+            Typeface is{' '}
+            <a
+                target="_blank"
+                href="https://fonts.google.com/specimen/Alegreya"
+            >
+                Alegreya {arrow}
+            </a>{' '}
+            designed by Juan Pablo del Peral, Huerta Tipográfica. Mono typeface
+            is{' '}
+            <a target="_blank" href="https://michaeljmcmaster.com/selectmono">
+                Select Mono {arrow}
+            </a>{' '}
+            designed by MICHAEL McMASTER.
         </>
     );
 }
@@ -40,14 +67,14 @@ export function FooterText() {
                 target="_blank"
                 href="https://github.com/9gustin/react-notion-render"
             >
-                react-notion-render &#8599;&#xFE0E;
+                react-notion-render {arrow}
             </a>{' '}
             by @9gustin for data rendering and{' '}
             <a
                 target="_blank"
                 href="https://github.com/guillermodlpa/upload-notion-images-to-cloudinary"
             >
-                upload-notion-images-to-cloudinary &#8599;&#xFE0E;
+                upload-notion-images-to-cloudinary {arrow}
             </a>{' '}
             by @guillermodlpa for hosting images form Notion to Cloudinary. You
             can view the database on Notion here{' '}
@@ -55,7 +82,7 @@ export function FooterText() {
                 target="_blank"
                 href="https://prickle-robe-9ad.notion.site/B-o-Anh-s-personal-website-database-74c4132872904ed9855e05567cb116c3"
             >
-                notion link &#8599;&#xFE0E;
+                notion link {arrow}
             </a>
             {'. '}
             Other dependencies include <span>Prisma + PostgreSQL</span>,{' '}
@@ -66,7 +93,7 @@ export function FooterText() {
                 target="_blank"
                 href="https://github.com/vanghoa/new-est-website"
             >
-                github link &#8599;&#xFE0E;
+                github link {arrow}
             </a>
             .
         </>
