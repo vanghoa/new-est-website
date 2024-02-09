@@ -269,7 +269,7 @@
     }
 
     .rnr-paragraph a::after {
-        content: '↗';
+        content: ' \2197\00FE0E';
         @apply tw-ml-2;
     }
 

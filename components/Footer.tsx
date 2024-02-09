@@ -40,14 +40,14 @@ export function FooterText() {
                 target="_blank"
                 href="https://github.com/9gustin/react-notion-render"
             >
-                react-notion-render ↗
+                react-notion-render &#8599;&#xFE0E;
             </a>{' '}
             by @9gustin for data rendering and{' '}
             <a
                 target="_blank"
                 href="https://github.com/guillermodlpa/upload-notion-images-to-cloudinary"
             >
-                upload-notion-images-to-cloudinary ↗
+                upload-notion-images-to-cloudinary &#8599;&#xFE0E;
             </a>{' '}
             by @guillermodlpa for hosting images form Notion to Cloudinary. You
             can view the database on Notion here{' '}
@@ -55,7 +55,7 @@ export function FooterText() {
                 target="_blank"
                 href="https://prickle-robe-9ad.notion.site/B-o-Anh-s-personal-website-database-74c4132872904ed9855e05567cb116c3"
             >
-                notion link ↗
+                notion link &#8599;&#xFE0E;
             </a>
             {'. '}
             Other dependencies include <span>Prisma + PostgreSQL</span>,{' '}
@@ -66,7 +66,7 @@ export function FooterText() {
                 target="_blank"
                 href="https://github.com/vanghoa/new-est-website"
             >
-                github link ↗
+                github link &#8599;&#xFE0E;
             </a>
             .
         </>
