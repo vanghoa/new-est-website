@@ -26,6 +26,7 @@ const sans = Work_Sans({
     variable: '--font-sans',
 });
 
+// what the fuck vercel?
 const display = Alegreya({
     subsets: ['latin'],
     style: ['normal', 'italic'],
