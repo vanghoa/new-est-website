@@ -27,8 +27,12 @@ export default function page() {
             href: 'https://www.are.na/bao-anh-bui',
         },
         {
-            name: 'Mastodon',
+            name: 'Mastodon sunny.garden',
             href: 'https://sunny.garden/@baoanhbui',
+        },
+        {
+            name: 'Mastodon typo.social',
+            href: 'https://typo.social/@baoanhbui',
         },
         {
             name: 'LinkedIn',

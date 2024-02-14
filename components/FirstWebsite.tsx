@@ -339,7 +339,13 @@ export default async function FirstWebsite() {
                                     target="_blank"
                                     href="https://sunny.garden/@baoanhbui"
                                 >
-                                    mastodon: sunny.garden/@baoanhbui
+                                    sunny.garden mastodon: @baoanhbui
+                                </a>
+                                <a
+                                    rel="me"
+                                    href="https://typo.social/@baoanhbui"
+                                >
+                                    typo.social mastodon: @baoanhbui
                                 </a>
                                 <br />
                                 <a
