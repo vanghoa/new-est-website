@@ -10,6 +10,7 @@ export async function GET(request: NextRequest) {
                 error: 'missing tag',
             });
 
+        console.log(tag);
         revalidateTag(tag);
 
         return NextResponse.json({

@@ -220,7 +220,7 @@ async function Threads() {
     const blocks: any = await cache_fetchNotion(
         'fetchAllBlocks',
         '9f3a32fe-0e41-434c-997a-a75cd3f975c3',
-        'Threads'
+        'threads'
     );
 
     if (!blocks) {
@@ -283,7 +283,7 @@ async function ThreeDViewSuspense() {
     const blocks: any = await cache_fetchNotion(
         'fetchAllBlocks',
         'd820fbc1-32ea-4577-aa4c-4440803dd42a',
-        '3DView'
+        '3dview'
     );
 
     if (!blocks) {
