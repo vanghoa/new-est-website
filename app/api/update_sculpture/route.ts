@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
             cloudinaryUploadFolder: cloudinaryUploadFolder,
             logLevel: 'debug',
         });
-        revalidateTag('3DView');
+        revalidateTag('3dview');
 
         return NextResponse.json({ revalidated: true, now: Date.now() });
     } catch (e) {

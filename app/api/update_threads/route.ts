@@ -3,7 +3,7 @@ import { revalidateTag } from 'next/cache';
 
 export async function GET(request: NextRequest) {
     try {
-        revalidateTag('Threads');
+        revalidateTag('threads');
 
         return NextResponse.json({
             revalidated: true,
