@@ -7,6 +7,8 @@ const notionPageId = process.env.NOTION_3DVIEW_ID;
 const cloudinaryURL = process.env.CLOUDINARY_URL;
 const cloudinaryUploadFolder = process.env.CLOUDINARY_UPLOAD_FOLDER;
 
+export const revalidate = 0;
+
 export async function GET(request: NextRequest) {
     try {
         if (

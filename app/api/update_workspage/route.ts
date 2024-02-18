@@ -3,6 +3,8 @@ import { revalidatePath, revalidateTag } from 'next/cache';
 import { PATH_BLOG } from '@/constants/paths';
 import { uploadCloudinaryNotionDTBWork } from '@/lib/uploadCloudinaryNotionDTBWork';
 
+export const revalidate = 0;
+
 export async function GET(request: NextRequest) {
     try {
         await uploadCloudinaryNotionDTBWork();
