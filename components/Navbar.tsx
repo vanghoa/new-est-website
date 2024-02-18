@@ -119,8 +119,10 @@ export default function Navbar() {
                         className="display_none tw-font-bold tw-cursor-pointer"
                     >
                         {"``'-...__...-'``"}
-                        <Tooltips className="tw-max-w-none tw-font-black">
+                        <Tooltips className="tw-max-w-none">
                             {"_..-''''```''''-.._"}
+                            <br></br>
+                            view the traces here
                         </Tooltips>
                     </Rand>
                     <Rand
@@ -129,8 +131,10 @@ export default function Navbar() {
                         className="display_on tw-hidden tw-font-bold tw-cursor-pointer"
                     >
                         {"_..-''''```''''-.._"}
-                        <Tooltips className="tw-max-w-none tw-font-black">
+                        <Tooltips className="tw-max-w-none">
                             {"``'-...__...-'``"}
+                            <br></br>
+                            back to the site
                         </Tooltips>
                     </Rand>
                 </button>

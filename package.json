@@ -30,6 +30,7 @@
         "react-iframe": "^1.8.5",
         "react-lazy-load": "^4.0.1",
         "seedrandom": "^3.0.5",
+        "simplex-noise": "^4.0.1",
         "slug": "^8.2.3",
         "swiper": "^10.3.1",
         "tailwindcss": "3.3.3",

@@ -235,7 +235,7 @@
         @apply !tw-italic;
     }
     .reset-this * {
-        @apply tw-tracking-wide tw-text-base md:tw-text-[1.1rem] md:tw-leading-6 selection:tw-bg-blue;
+        @apply tw-tracking-wide tw-text-base md:tw-text-[1.1rem] md:tw-leading-6 selection:tw-bg-blue selection:tw-text-[rgba(255,255,255,0.2)];
     }
     .reset-this :is(h1, h2, h3, h4, h5, h6),
     .reset-this :is(h1, h2, h3, h4, h5, h6) * {

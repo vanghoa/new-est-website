@@ -34,9 +34,7 @@ export default function NotFound() {
                             <span className="!tw-text-transparent selection:!tw-text-white">
                                 ___
                             </span>
-                            <span className=" selection:!tw-text-transparent">
-                                {`page not found`}
-                            </span>
+                            <span>{`page not found`}</span>
                             <span className="!tw-text-transparent selection:!tw-text-white">
                                 ___
                             </span>
@@ -47,7 +45,7 @@ export default function NotFound() {
                             <span className="!tw-text-transparent selection:!tw-text-white">
                                 ____________
                             </span>
-                            <span className=" selection:!tw-text-transparent tw-transform tw-rotate-180">
+                            <span className=" tw-transform tw-rotate-180">
                                 {`^`}
                             </span>
                             <span className="!tw-text-transparent selection:!tw-text-white">
@@ -58,9 +56,7 @@ export default function NotFound() {
                         <p className="tw-w-full tw-flex tw-gap-2 tw-justify-around">
                             <span>\</span>
                             <span>{` >`}</span>
-                            <span className=" selection:!tw-text-transparent">
-                                {`back to home`}
-                            </span>
+                            <span className="">{`back to home`}</span>
                             <span>{`< `}</span>
                             <span>/</span>
                         </p>

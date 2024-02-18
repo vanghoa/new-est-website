@@ -1,12 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath, revalidateTag } from 'next/cache';
 import { PATH_BLOG } from '@/constants/paths';
+import { uploadCloudinaryNotionDTBWork } from '@/lib/uploadCloudinaryNotionDTBWork';
 
 export async function GET(request: NextRequest) {
     try {
-        revalidatePath(PATH_BLOG);
+        await uploadCloudinaryNotionDTBWork();
         revalidateTag('all');
         revalidateTag('multiselect');
+        revalidateTag('group');
+        revalidateTag('individual');
 
         return NextResponse.json({
             revalidated: true,

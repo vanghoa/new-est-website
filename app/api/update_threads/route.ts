@@ -3,19 +3,11 @@ import { revalidateTag } from 'next/cache';
 
 export async function GET(request: NextRequest) {
     try {
-        const tag = request.nextUrl.searchParams.get('tag');
-        if (!tag)
-            return NextResponse.json({
-                revalidated: false,
-                error: 'missing tag',
-            });
-
-        revalidateTag(tag);
+        revalidateTag('Threads');
 
         return NextResponse.json({
             revalidated: true,
             now: Date.now(),
-            tag: tag,
         });
     } catch (e) {
         console.log('co loi in revalidatetag (error): ', e);
