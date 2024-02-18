@@ -32,6 +32,7 @@ import {
 } from '@/components/ToggleNotion';
 import { Word } from '@/components/WordProcessor';
 import { PATH_BLOG, getBlogPostPath } from '@/constants/paths';
+import useFixedRandom from '@/hooks/fixedRandom';
 import { scale } from '@/lib/generalFn';
 import { cache_fetchNotion } from '@/lib/notionClient';
 import { BlogPost } from '@/types/types';
@@ -200,7 +201,7 @@ export default function Home() {
                     <ThreeDViewSuspense></ThreeDViewSuspense>
                 </SuspenseNotion>
             </AnimatePageComp>
-            <div className="tw-absolute tw-left-1/2 tw-w-screen tw-transform -tw-translate-x-1/2 tw-h-full tw-overflow-hidden tw-pointer-events-none tw-top-0 [&_*]:tw-top-[10rem]">
+            <div className="tw-absolute tw-left-1/2 tw-w-screen tw-transform -tw-translate-x-1/2 tw-h-full tw-overflow-hidden tw-pointer-events-none tw-top-0 [&>*]:tw-top-[10rem] tw-z-20">
                 <Suspense fallback={<></>}>
                     <Threads />
                 </Suspense>
@@ -216,6 +217,8 @@ function H1NotionCenter({ plainText }: { plainText: string }) {
 }
 
 async function Threads() {
+    useFixedRandom();
+    let count = 0;
     const noise2D = createNoise2D();
     const blocks: any = await cache_fetchNotion(
         'fetchAllBlocks',
@@ -240,27 +243,48 @@ async function Threads() {
                     emptyBlocks
                     blockComponentsMapper={{
                         paragraph: withContentValidation(({ plainText }) => {
-                            return plainText.split(` `).map((str, key) => {
-                                const coord = scale(
-                                    noise2D(key, key),
-                                    -1,
-                                    1,
-                                    0,
-                                    100
-                                );
-                                return (
-                                    <p
-                                        key={key}
-                                        className="tw-relative !tw-text-transparent selection:!tw-text-white tw-w-fit"
-                                        style={{
-                                            left: `${coord}%`,
-                                            transform: `translateX(-${coord}%)`,
-                                        }}
-                                    >
-                                        {str}
-                                    </p>
-                                );
-                            });
+                            count++;
+                            const rand = Math.random();
+                            const coord =
+                                rand < 0.5
+                                    ? scale(rand, 0, 0.5, 2, 40)
+                                    : scale(rand, 0.5, 1, 50, 70);
+                            return (
+                                <div
+                                    className="tw-relative"
+                                    style={{
+                                        left: `${coord}%`,
+                                        width: `${
+                                            Math.random() * (70 - coord) + 30
+                                        }%`,
+                                    }}
+                                >
+                                    {plainText.split(` `).map((str, key) => {
+                                        const coord = scale(
+                                            noise2D(
+                                                key / 15 + count,
+                                                key / 15 + count
+                                            ),
+                                            -1,
+                                            1,
+                                            0,
+                                            100
+                                        );
+                                        return (
+                                            <p
+                                                key={key}
+                                                className="tw-relative !tw-text-transparent selection:!tw-text-white tw-w-fit"
+                                                style={{
+                                                    left: `${coord}%`,
+                                                    transform: `translateX(-${coord}%)`,
+                                                }}
+                                            >
+                                                {str}
+                                            </p>
+                                        );
+                                    })}
+                                </div>
+                            );
                         }),
                         image: () => <></>,
                         heading_1: () => <></>,
