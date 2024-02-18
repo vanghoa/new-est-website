@@ -245,30 +245,33 @@ async function Threads() {
                         paragraph: withContentValidation(({ plainText }) => {
                             count++;
                             const rand = Math.random();
-                            const coord =
+                            const coord = Math.round(
                                 rand < 0.5
                                     ? scale(rand, 0, 0.5, 2, 40)
-                                    : scale(rand, 0.5, 1, 50, 70);
+                                    : scale(rand, 0.5, 1, 50, 70)
+                            );
                             return (
                                 <div
                                     className="tw-relative"
                                     style={{
                                         left: `${coord}%`,
-                                        width: `${
+                                        width: `${Math.round(
                                             Math.random() * (70 - coord) + 30
-                                        }%`,
+                                        )}%`,
                                     }}
                                 >
                                     {plainText.split(` `).map((str, key) => {
-                                        const coord = scale(
-                                            noise2D(
-                                                key / 15 + count,
-                                                key / 15 + count
-                                            ),
-                                            -1,
-                                            1,
-                                            0,
-                                            100
+                                        const coord = Math.round(
+                                            scale(
+                                                noise2D(
+                                                    key / 15 + count,
+                                                    key / 15 + count
+                                                ),
+                                                -1,
+                                                1,
+                                                0,
+                                                100
+                                            )
                                         );
                                         return (
                                             <p
