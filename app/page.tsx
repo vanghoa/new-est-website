@@ -32,13 +32,13 @@ import {
 } from '@/components/ToggleNotion';
 import { Word } from '@/components/WordProcessor';
 import { PATH_BLOG, getBlogPostPath } from '@/constants/paths';
-import useFixedRandom from '@/hooks/fixedRandom';
 import { scale } from '@/lib/generalFn';
 import { cache_fetchNotion } from '@/lib/notionClient';
 import { BlogPost } from '@/types/types';
 import { Render, withContentValidation } from '@9gustin/react-notion-render';
 import Link from 'next/link';
 import { Fragment, ReactNode, Suspense } from 'react';
+import seedrandom from 'seedrandom';
 import { createNoise2D } from 'simplex-noise';
 
 export default function Home() {
@@ -217,7 +217,6 @@ function H1NotionCenter({ plainText }: { plainText: string }) {
 }
 
 async function Threads() {
-    useFixedRandom();
     let count = 0;
     const noise2D = createNoise2D();
     const blocks: any = await cache_fetchNotion(
@@ -243,20 +242,16 @@ async function Threads() {
                     emptyBlocks
                     blockComponentsMapper={{
                         paragraph: withContentValidation(({ plainText }) => {
-                            count++;
-                            const rand = Math.random();
+                            seedrandom(`${++count}`, { global: false });
                             const coord = Math.round(
-                                rand < 0.5
-                                    ? scale(rand, 0, 0.5, 2, 40)
-                                    : scale(rand, 0.5, 1, 50, 70)
+                                scale(Math.random(), 0, 1, 2, 60)
                             );
                             return (
                                 <div
-                                    className="tw-relative"
                                     style={{
                                         left: `${coord}%`,
                                         width: `${Math.round(
-                                            Math.random() * (70 - coord) + 30
+                                            Math.random() * (60 - coord) + 40
                                         )}%`,
                                     }}
                                 >
@@ -264,8 +259,8 @@ async function Threads() {
                                         const coord = Math.round(
                                             scale(
                                                 noise2D(
-                                                    key / 15 + count,
-                                                    key / 15 + count
+                                                    key / 20 + count,
+                                                    key / 20 + count
                                                 ),
                                                 -1,
                                                 1,
@@ -276,7 +271,7 @@ async function Threads() {
                                         return (
                                             <p
                                                 key={key}
-                                                className="tw-relative !tw-text-transparent selection:!tw-text-white tw-w-fit"
+                                                className="!tw-text-transparent selection:!tw-text-white tw-w-fit"
                                                 style={{
                                                     left: `${coord}%`,
                                                     transform: `translateX(-${coord}%)`,
