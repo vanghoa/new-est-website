@@ -36,6 +36,7 @@ import { PATH_BLOG, getBlogPostPath } from '@/constants/paths';
 import { scale } from '@/lib/generalFn';
 import { cache_fetchNotion } from '@/lib/notionClient';
 import { BlogPost } from '@/types/types';
+import RandomItemFromArr from '@/utils/RandomItemFromAnArray';
 import { Render, withContentValidation } from '@9gustin/react-notion-render';
 import Link from 'next/link';
 import { Fragment, ReactNode, Suspense } from 'react';
@@ -233,7 +234,7 @@ async function Threads() {
     return (
         (
             <>
-                <div className="tw-relative tw-left-[5%] tw-w-fit tw-pointer-events-auto tw-invisible md:tw-visible tw-group">
+                <div className="tw-relative tw-left-[5%] tw-w-fit tw-pointer-events-auto tw-hidden md:tw-block tw-group">
                     Ctrl/Cmd + A
                     <Tooltips className="tw-max-w-none">to reveal</Tooltips>
                 </div>
@@ -244,8 +245,16 @@ async function Threads() {
                     emptyBlocks
                     blockComponentsMapper={{
                         paragraph: withContentValidation(({ plainText }) => {
-                            plainText = `+ ${plainText}`;
                             seedrandom(`${++count}`, { global: false });
+                            const emote = RandomItemFromArr([
+                                '🐝',
+                                '🦟༘',
+                                '🕊️',
+                                '🦅',
+                                '🍃',
+                                '🌾',
+                            ]);
+                            plainText = `${emote} ${plainText} ${emote}`;
                             const coord = Math.round(
                                 scale(Math.random(), 0, 1, 2, 60)
                             );
