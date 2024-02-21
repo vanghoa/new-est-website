@@ -16,6 +16,7 @@ import {
     ImageNotion,
     ImageNotionDottedBorder,
     OLOverlay,
+    Tooltips,
     VideoNotion,
 } from '@/components/SmallComponents';
 import { SuspenseNotion } from '@/components/SuspenseFallback';
@@ -217,7 +218,7 @@ function H1NotionCenter({ plainText }: { plainText: string }) {
 }
 
 async function Threads() {
-    let count = 0;
+    let count = 1;
     const noise2D = createNoise2D();
     const blocks: any = await cache_fetchNotion(
         'fetchAllBlocks',
@@ -232,9 +233,10 @@ async function Threads() {
     return (
         (
             <>
-                <p className="tw-relative tw-left-[5%] tw-w-fit tw-pointer-events-auto tw-invisible md:tw-visible">
+                <div className="tw-relative tw-left-[5%] tw-w-fit tw-pointer-events-auto tw-invisible md:tw-visible tw-group">
                     Ctrl/Cmd + A
-                </p>
+                    <Tooltips className="tw-max-w-none">to reveal</Tooltips>
+                </div>
                 <Render
                     // @ts-ignore
                     blocks={blocks}
@@ -242,6 +244,7 @@ async function Threads() {
                     emptyBlocks
                     blockComponentsMapper={{
                         paragraph: withContentValidation(({ plainText }) => {
+                            plainText = `+ ${plainText}`;
                             seedrandom(`${++count}`, { global: false });
                             const coord = Math.round(
                                 scale(Math.random(), 0, 1, 2, 60)
