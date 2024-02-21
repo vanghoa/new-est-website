@@ -232,7 +232,7 @@ async function Threads() {
     return (
         (
             <>
-                <p className="tw-relative tw-left-[5%] tw-w-fit tw-pointer-events-auto">
+                <p className="tw-relative tw-left-[5%] tw-w-fit tw-pointer-events-auto tw-invisible md:tw-visible">
                     Ctrl/Cmd + A
                 </p>
                 <Render
