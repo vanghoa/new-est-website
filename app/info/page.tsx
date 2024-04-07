@@ -215,7 +215,11 @@ export default function page() {
                     <FooterText />
                 </Rand>
                 <br></br>
-                <Rand min={5} elem={'article'} className="tw-max-w-[35rem]">
+                <Rand
+                    min={5}
+                    elem={'article'}
+                    className={`tw-max-w-[35rem] ${tw_atag}`}
+                >
                     <TypefaceCredit />
                 </Rand>
                 <br></br>
