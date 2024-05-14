@@ -8,3 +8,4 @@ export const DOMAIN = process.env.DOMAIN ?? '';
 export const getAPIRoutePath = (slug: string) =>
     `${process.env.FETCH_URL}/api/${slug}`;
 export const isBuild = process.env.FETCH_URL == 'http://baoanhbui.vercel.app';
+export const resumePath = '/resume/baoanhbui-resume-140524.pdf';

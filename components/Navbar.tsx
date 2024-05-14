@@ -4,6 +4,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import { Tooltips } from './SmallComponents';
 import { Char, Rand } from './WordProcessor';
 import Link from 'next/link';
+import { resumePath } from '@/constants/paths';
 
 export default function Navbar() {
     const pathname = `/${usePathname().split('/')[1]}`;
@@ -77,7 +78,7 @@ export default function Navbar() {
             <div className="reveal_child [&_a>span]:tw-bottom-[0.4rem] tw-z-[-2] tw-max-w-3xl tw-flex tw-justify-around tw-w-fit tw-gap-2 sm:tw-gap-8 md:tw-gap-14 tw-bg-black tw-h-11 tw-pointer-events-auto">
                 <a
                     className="tw-h-full tw-flex tw-items-center tw-justify-center tw-group tw-min-w-[8.5rem]"
-                    href="/resume/baoanhbui-resume-240323.pdf"
+                    href={resumePath}
                     target="_blank"
                 >
                     <Char elem={'span'}>
