@@ -409,10 +409,10 @@ async function PageSuspense({ params }: DynamicProps) {
                                                     <span>{item.blurb}</span>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <h3 className="!tw-m-0">
+                                            <div className="tw-text-center">
+                                                <h2 className="tw-mb-1">
                                                     {item.title}
-                                                </h3>
+                                                </h2>
                                                 <p>{item.timestart}</p>
                                             </div>
                                         </Link>

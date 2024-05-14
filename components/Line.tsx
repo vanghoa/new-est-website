@@ -58,7 +58,7 @@ export function LineLoose({
 }) {
     return (
         <LineConstruct className={className} {...props}>
-            *--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.--.&nbsp;&nbsp;&nbsp;&nbsp;._.&nbsp;&nbsp;&nbsp;&nbsp;.--.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--*
+            *--&nbsp;&nbsp;**&nbsp;&nbsp;.--.&nbsp;aa&nbsp;._.&nbsp;uu&nbsp;.--.&nbsp;&nbsp;**&nbsp;&nbsp;--*
         </LineConstruct>
     );
 }

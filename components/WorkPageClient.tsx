@@ -288,8 +288,8 @@ function BlogPostsMap({
                                 <TagArr item={item}></TagArr>
                             </div>
                         </div>
-                        <div className="tw-w-full">
-                            <h3 className="!tw-m-0">{item.title}</h3>
+                        <div className="tw-w-full tw-text-center">
+                            <h2 className="tw-mb-1">{item.title}</h2>
                             <p>{item.timestart}</p>
                         </div>
                     </Link>

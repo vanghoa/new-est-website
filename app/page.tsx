@@ -52,8 +52,8 @@ export default function Home() {
                         elem={'h1'}
                         className="tw-text-center tw-w-[min(25rem,100%)] !tw-my-0"
                     >
-                        I am Bảo Anh, I love to experiment with design, art and
-                        technology
+                        Hi there, I am Bảo Anh, I love to experiment with
+                        design, art and technology
                     </Word>
                     <article className="tw-shrink tw-overflow-clip tw-break-all tw-w-32 tw-h-full tw-text-center tw-pt-6 !tw-leading-5">
                         <p className="tw-text-left">*</p>
@@ -377,8 +377,8 @@ async function HomeSuspense() {
                             <TagArr item={item}></TagArr>
                         </div>
                     </div>
-                    <div className="tw-w-full">
-                        <Word elem={'h3'} className="!tw-m-0">
+                    <div className="tw-w-full tw-text-center">
+                        <Word elem={'h2'} className="tw-mb-1">
                             {item.title}
                         </Word>
                         <Word elem={'p'}>{item.timestart}</Word>
