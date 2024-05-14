@@ -7,6 +7,7 @@ import {
     Line,
     LineConstruct,
     LineLoose,
+    LineLoose2,
     LineLooser,
     LineVariale,
     lineConstructClass,
@@ -175,10 +176,10 @@ export default function WorkPageClient({
                                 {++c >= length ? (
                                     <></>
                                 ) : (
-                                    <LineLoose
+                                    <LineLoose2
                                         key={k + 'line'}
                                         className={tw_line_divider}
-                                    ></LineLoose>
+                                    ></LineLoose2>
                                 )}
                             </Fragment>
                         );
