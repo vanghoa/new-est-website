@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
                 error: 'missing slug',
             });
 
-        await uploadCloudinaryNotionDTBWork();
+        // await uploadCloudinaryNotionDTBWork();
         revalidateTag(slug);
         revalidateTag('all');
         revalidateTag('multiselect');

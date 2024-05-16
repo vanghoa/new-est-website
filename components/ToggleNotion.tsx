@@ -202,35 +202,43 @@ function ColNotion({ blocks, num = 1 }: { blocks: []; num: 1 | 2 | 3 | 4 }) {
                         content: { caption, type, external },
                     }: ToggleBlockType,
                     k
-                ) => (
-                    <ImageFrame key={`flex${k}`} elem={Line} maxwidth={false}>
-                        {(() => {
-                            switch (notionType) {
-                                case 'image':
-                                    return (
-                                        <ImageNoWidth
-                                            alt={caption[0]?.plain_text}
-                                            sizes={grissizes[num]}
-                                            type={type}
-                                            external={external}
-                                        ></ImageNoWidth>
-                                    );
-                                    break;
-                                case 'video':
-                                    return (
-                                        <VideoFrame
-                                            data={{
-                                                external,
-                                            }}
-                                        ></VideoFrame>
-                                    );
-                                    break;
-                                default:
-                                    return <div>Somethings wrong</div>;
-                            }
-                        })()}
-                    </ImageFrame>
-                )
+                ) => {
+                    switch (notionType) {
+                        case 'image':
+                            return (
+                                <ImageFrame
+                                    key={`flex${k}`}
+                                    elem={Line}
+                                    maxwidth={false}
+                                >
+                                    <ImageNoWidth
+                                        alt={caption[0]?.plain_text}
+                                        sizes={grissizes[num]}
+                                        type={type}
+                                        external={external}
+                                    ></ImageNoWidth>
+                                </ImageFrame>
+                            );
+                            break;
+                        case 'video':
+                            return (
+                                <ImageFrame
+                                    key={`flex${k}`}
+                                    elem={Line}
+                                    maxwidth={false}
+                                >
+                                    <VideoFrame
+                                        data={{
+                                            external,
+                                        }}
+                                    ></VideoFrame>
+                                </ImageFrame>
+                            );
+                            break;
+                        default:
+                            return <></>;
+                    }
+                }
             )}
         </div>
     );
@@ -259,7 +267,13 @@ function FitWidthNotion({ blocks }: { blocks: [] }) {
                             );
                             break;
                         case 'video':
-                            return <div>Somethings wrong</div>;
+                            return (
+                                <VideoFrame
+                                    data={{
+                                        external,
+                                    }}
+                                ></VideoFrame>
+                            );
                             break;
                         default:
                             return <div>Somethings wrong</div>;
