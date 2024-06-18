@@ -136,7 +136,7 @@ export default function RootLayout({
                     >
                         {children}
                         <div className="tw-absolute tw-left-1/2 tw-top-0 tw-w-screen tw-transform -tw-translate-x-1/2 tw-h-full tw-overflow-hidden tw-pointer-events-none">
-                            {Array.from({ length: 400 }, (_, i) => {
+                            {Array.from({ length: 150 }, (_, i) => {
                                 _useFixedRandomWSeed(i);
                                 const left = Math.floor(Math.random() * 100);
                                 const top = Math.floor(Math.random() * 100);
