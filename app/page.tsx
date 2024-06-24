@@ -8,6 +8,7 @@ import {
     WelcomeLine,
     lineConstructClass,
 } from '@/components/Line';
+import { Star } from '@/components/SculptureConstruct';
 import {
     CoverImage,
     H1Notion,
@@ -52,10 +53,10 @@ export default function Home() {
                         elem={'h1'}
                         className="tw-text-center tw-w-[min(25rem,100%)] !tw-my-0"
                     >
-                        Hi there, I am Bảo Anh, I love to experiment with
-                        design, art and technology
+                        Bảo Anh here, I love to experiment with design, art,
+                        animation and web development
                     </Word>
-                    <article className="tw-shrink tw-overflow-clip tw-break-all tw-w-32 tw-h-full tw-text-center tw-pt-6 !tw-leading-5">
+                    <article className="tw-shrink tw-overflow-hidden tw-break-all tw-w-32 tw-h-full tw-text-center tw-pt-6 !tw-leading-5">
                         <p className="tw-text-left">*</p>
                         <p>*</p>
                         <p className="tw-text-right">*</p>
@@ -208,6 +209,7 @@ export default function Home() {
                     <Threads />
                 </Suspense>
             </div>
+            <Star qty={300} />
         </>
     );
 }

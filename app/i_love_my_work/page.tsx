@@ -1,5 +1,6 @@
 import AnimatePageComp from '@/components/AnimatePageComp';
 import { LineLoose, LineLooser } from '@/components/Line';
+import { Star } from '@/components/SculptureConstruct';
 import { HeaderLayout, Tooltips } from '@/components/SmallComponents';
 import { SuspenseNotion } from '@/components/SuspenseFallback';
 import {
@@ -29,11 +30,14 @@ export const fetchCache = 'force-cache';
 */
 export default function page() {
     return (
-        <AnimatePageComp>
-            <SuspenseNotion>
-                <WorkPageSuspense></WorkPageSuspense>
-            </SuspenseNotion>
-        </AnimatePageComp>
+        <>
+            <AnimatePageComp>
+                <SuspenseNotion>
+                    <WorkPageSuspense></WorkPageSuspense>
+                </SuspenseNotion>
+            </AnimatePageComp>
+            <Star qty={120} />
+        </>
     );
 }
 

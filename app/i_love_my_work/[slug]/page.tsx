@@ -33,6 +33,7 @@ import {
     ToggleNotion,
 } from '@/components/ToggleNotion';
 import { Fragment } from 'react';
+import { Star } from '@/components/SculptureConstruct';
 
 export const dynamicParams = false;
 //export const revalidate = false;
@@ -126,9 +127,12 @@ export async function generateStaticParams() {
 
 export default function Page({ params }: DynamicProps) {
     return (
-        <SuspenseNotion>
-            <PageSuspense params={params} searchParams={{}}></PageSuspense>
-        </SuspenseNotion>
+        <>
+            <SuspenseNotion>
+                <PageSuspense params={params} searchParams={{}}></PageSuspense>
+            </SuspenseNotion>
+            <Star qty={200} />
+        </>
     );
 }
 

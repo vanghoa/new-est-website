@@ -1,5 +1,6 @@
 import AnimatePageComp from '@/components/AnimatePageComp';
 import { LineConstruct, LineLooser } from '@/components/Line';
+import { Star } from '@/components/SculptureConstruct';
 import { HeaderLayout } from '@/components/SmallComponents';
 import { tw_grid_section } from '@/components/TailwindClass';
 import { Rand, Word } from '@/components/WordProcessor';
@@ -48,60 +49,69 @@ export default function page() {
         },
     ];
     return (
-        <AnimatePageComp>
-            <HeaderLayout>
-                <Word elem={'h1'}>You can find me here</Word>
-            </HeaderLayout>
-            <Rand min={5} elem={'article'} className={`tw-max-w-[35rem]`}>
-                Let&apos;s talk!
-            </Rand>
-            <br></br>
-            <section className={tw_grid_section}>
-                <p className={`tw-col-[1] tw-row-[1] !tw-leading-[1em]`}>@</p>
-                <p className={`tw-col-[1] tw-row-[3/4] !tw-leading-[1em]`}>@</p>
-                <p className={`tw-col-[3/4] tw-row-[1] !tw-leading-[1em]`}>@</p>
-                <LineLooser className="tw-w-full tw-col-[2/3] tw-row-[1/2]"></LineLooser>
-                <LineLooser className="tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr]"></LineLooser>
-                <li className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-col-[2/4] tw-row-[2/4]">
-                    {linklist.map((item, i) => (
-                        <ol
-                            key={`${i}linklist`}
-                            className={`tw-w-full tw-grid tw-grid-cols-[auto_1em] tw-grid-rows-[auto_1em] [&>*:last-child]:tw-col-[1/2] [&>*:last-child]:tw-row-[1/2] tw-overflow-visible tw-group`}
-                        >
-                            <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
-                                {'&&&<>&&&~&&&&&&&&&&<>&&&&&&&~&&<>&&&&&'}
-                            </LineConstruct>
-                            <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
-                                {'@@@@@@@~<>@@@@@@@@@<>@@@@@@@~@@@@@@@@'}
-                            </LineConstruct>
-                            <LineConstruct className="group-hover:tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
-                                {'---<>---~----------<>-------~--<>-----'}
-                            </LineConstruct>
-                            <LineConstruct className="group-hover:tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
-                                {'-------~<>---------<>-------~--------'}
-                            </LineConstruct>
-                            <p
-                                className={`tw-col-[2] tw-row-[2] !tw-leading-[1em] tw-text-center tw-whitespace-nowrap tw-left-[-0.25em]`}
+        <>
+            <AnimatePageComp>
+                <HeaderLayout>
+                    <Word elem={'h1'}>You can find me here</Word>
+                </HeaderLayout>
+                <Rand min={5} elem={'article'} className={`tw-max-w-[35rem]`}>
+                    Let&apos;s talk!
+                </Rand>
+                <br></br>
+                <section className={tw_grid_section}>
+                    <p className={`tw-col-[1] tw-row-[1] !tw-leading-[1em]`}>
+                        @
+                    </p>
+                    <p className={`tw-col-[1] tw-row-[3/4] !tw-leading-[1em]`}>
+                        @
+                    </p>
+                    <p className={`tw-col-[3/4] tw-row-[1] !tw-leading-[1em]`}>
+                        @
+                    </p>
+                    <LineLooser className="tw-w-full tw-col-[2/3] tw-row-[1/2]"></LineLooser>
+                    <LineLooser className="tw-w-full tw-h-full tw-col-[1/2] tw-row-[2/3] tw-absolute [writing-mode:vertical-lr]"></LineLooser>
+                    <li className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-col-[2/4] tw-row-[2/4]">
+                        {linklist.map((item, i) => (
+                            <ol
+                                key={`${i}linklist`}
+                                className={`tw-w-full tw-grid tw-grid-cols-[auto_1em] tw-grid-rows-[auto_1em] [&>*:last-child]:tw-col-[1/2] [&>*:last-child]:tw-row-[1/2] tw-overflow-visible tw-group`}
                             >
-                                / {i + 1} \
-                            </p>
-                            <a
-                                className="tw-w-full tw-h-11 tw-justify-center tw-flex tw-items-center"
-                                target="_blank"
-                                rel="me"
-                                href={item.href}
-                            >
-                                <Rand
-                                    elem="span"
-                                    className={`group-hover:after:tw-content-['_<---'] group-hover:before:tw-content-['--->_']`}
+                                <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
+                                    {'&&&<>&&&~&&&&&&&&&&<>&&&&&&&~&&<>&&&&&'}
+                                </LineConstruct>
+                                <LineConstruct className="group-hover:tw-block tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
+                                    {'@@@@@@@~<>@@@@@@@@@<>@@@@@@@~@@@@@@@@'}
+                                </LineConstruct>
+                                <LineConstruct className="group-hover:tw-hidden tw-w-full tw-h-full tw-col-[2/3] tw-row-[1/2] tw-absolute [writing-mode:vertical-lr]">
+                                    {'---<>---~----------<>-------~--<>-----'}
+                                </LineConstruct>
+                                <LineConstruct className="group-hover:tw-hidden tw-w-full tw-col-[1/2] tw-row-[2/3] [direction:rtl]">
+                                    {'-------~<>---------<>-------~--------'}
+                                </LineConstruct>
+                                <p
+                                    className={`tw-col-[2] tw-row-[2] !tw-leading-[1em] tw-text-center tw-whitespace-nowrap tw-left-[-0.25em]`}
                                 >
-                                    {item.name}
-                                </Rand>
-                            </a>
-                        </ol>
-                    ))}
-                </li>
-            </section>
-        </AnimatePageComp>
+                                    / {i + 1} \
+                                </p>
+                                <a
+                                    className="tw-w-full tw-h-11 tw-justify-center tw-flex tw-items-center"
+                                    target="_blank"
+                                    rel="me"
+                                    href={item.href}
+                                >
+                                    <Rand
+                                        elem="span"
+                                        className={`group-hover:after:tw-content-['_<---'] group-hover:before:tw-content-['--->_']`}
+                                    >
+                                        {item.name}
+                                    </Rand>
+                                </a>
+                            </ol>
+                        ))}
+                    </li>
+                </section>
+            </AnimatePageComp>
+            <Star qty={300} />
+        </>
     );
 }

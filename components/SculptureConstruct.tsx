@@ -74,3 +74,28 @@ function scale(
 ) {
     return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 }
+
+export const Star = ({ qty = 100 }: { qty: number }) => (
+    <div className="tw-absolute tw-left-1/2 tw-top-0 tw-w-screen tw-transform -tw-translate-x-1/2 tw-h-full tw-overflow-hidden tw-pointer-events-none">
+        {Array.from({ length: qty }, (_, i) => {
+            _useFixedRandomWSeed(i);
+            const left =
+                Math.floor(Math.random() * 31) +
+                Math.floor(Math.random() * 2) * 70;
+            const top = Math.floor(Math.random() * 100);
+            return (
+                <span
+                    key={`${i}sculpt`}
+                    suppressHydrationWarning
+                    style={{
+                        left: `${left}%`,
+                        top: `calc(${top} / 100 * max(10000px,100%))`,
+                    }}
+                    className="tw-absolute tw-z-10"
+                >
+                    *
+                </span>
+            );
+        })}
+    </div>
+);
