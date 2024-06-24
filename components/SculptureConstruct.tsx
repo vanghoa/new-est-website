@@ -1,5 +1,5 @@
 import { _useFixedRandomWSeed } from '@/hooks/fixedRandom';
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 export const SculpturePiece = ({
     style = {},
@@ -75,8 +75,19 @@ function scale(
     return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 }
 
-export const Star = ({ qty = 100 }: { qty: number }) => (
-    <div className="tw-absolute tw-left-1/2 tw-top-0 tw-w-screen tw-transform -tw-translate-x-1/2 tw-h-full tw-overflow-hidden tw-pointer-events-none">
+export const Star = ({
+    qty = 100,
+    className = '',
+    style = {},
+}: {
+    qty: number;
+    className?: string;
+    style?: CSSProperties;
+}) => (
+    <div
+        style={style}
+        className={`tw-absolute tw-left-1/2 tw-top-0 tw-w-screen tw-transform -tw-translate-x-1/2 tw-h-full tw-overflow-hidden tw-pointer-events-none ${className}`}
+    >
         {Array.from({ length: qty }, (_, i) => {
             _useFixedRandomWSeed(i);
             const left =
