@@ -128,10 +128,10 @@ export async function generateStaticParams() {
 export default function Page({ params }: DynamicProps) {
     return (
         <>
+            <Star qty={130} />
             <SuspenseNotion>
                 <PageSuspense params={params} searchParams={{}}></PageSuspense>
             </SuspenseNotion>
-            <Star qty={200} />
         </>
     );
 }
