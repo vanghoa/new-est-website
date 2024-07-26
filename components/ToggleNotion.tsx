@@ -41,7 +41,13 @@ export function ToggleNotion(block: any) {
             );
             break;
         case 'col':
-            return <ColNotion blocks={data.items} num={info.num}></ColNotion>;
+            return (
+                <ColNotion
+                    blocks={data.items}
+                    num={info.num}
+                    fitwidth={info.fitwidth}
+                ></ColNotion>
+            );
             break;
         case 'fitwidth':
             return <FitWidthNotion blocks={data.items}></FitWidthNotion>;
@@ -176,7 +182,15 @@ function FlexNotion({
     );
 }
 
-function ColNotion({ blocks, num = 1 }: { blocks: []; num: 1 | 2 | 3 | 4 }) {
+function ColNotion({
+    blocks,
+    num = 1,
+    fitwidth,
+}: {
+    blocks: [];
+    num: 1 | 2 | 3 | 4;
+    fitwidth: boolean;
+}) {
     const grid = {
         1: 'tw-grid-cols-1',
         2: 'tw-grid-cols-1 md:tw-grid-cols-2',
@@ -192,7 +206,7 @@ function ColNotion({ blocks, num = 1 }: { blocks: []; num: 1 | 2 | 3 | 4 }) {
     return (
         <div
             className={`${
-                num > 1 ? tw_line_overflow : ''
+                num > 1 && !fitwidth ? tw_line_overflow : ''
             } tw-grid tw-items-start tw-justify-center ${grid[num]}`}
         >
             {blocks.map(
